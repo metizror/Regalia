@@ -1,0 +1,286 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .featured-collection-list .preheading {
+    color: {{ section.settings.subtitle_col }};
+  }
+  .featured-collection-list .bgimgcol {
+    background-image: url({{ section.settings.bgimgcol | image_url: width: 350 }});
+  }
+  @media (max-width: 1024px) {
+    .featured-collection-list .bgimgcol {
+      background-image: url({{ section.settings.bgimgcol | image_url: width: 125 }});
+    }
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+
+{{ 'component-featured-collection-list.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="featured-collection-list" ms-aos data-ms-delay="100">
+  <div class="titlecontent">
+    {% if section.settings.preheading != blank %}
+      <p class="preheading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+        {{ section.settings.preheading | upcase }}
+      </p>
+    {% endif %}
+    
+    {%- if section.settings.title != blank -%}
+      <{{ section.settings.heading_size }} class="fcl-heading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+        {{- section.settings.title -}}
+      </{{ section.settings.heading_size }}>
+    {%- endif -%}
+  </div>
+  
+<div class="col-content">
+
+    <ul class="col-innercontent" role="list">
+      {% for block in section.blocks %}
+        {% assign collection = block.settings.collection %}
+        <li class="collection-list-item bgimgcol" role="listitem">
+          <div class="listitem-wrapper" role="group">
+               
+           {%- if block.settings.collection_image -%}
+              <a href="{{ collection.url }}" tabindex="0">
+                <lazy-image class="collection-images">
+                  <img src="{{ block.settings.collection_image | image_url: width: block.settings.collection_image.width }}"
+                    alt="{{ block.settings.collection_image.alt | default: 'collection-image' }}"
+                    width="{{ block.settings.collection_image.width }}"
+                    height="{{ block.settings.collection_image.height }}"
+                    loading="lazy"
+                    style="--object-position: {{ block.settings.collection_image.presentation.focal_point }}">
+                </lazy-image>
+              </a>
+            {%- elsif collection.featured_image -%}
+              <a href="{{ collection.url }}">
+                <lazy-image>
+                  <img src="{{ collection.featured_image | image_url: width: collection.featured_image.width }}"
+                    alt="{{ collection.featured_image.alt | default: 'collection-image' }}"
+                    width="{{ collection.featured_image.width }}"
+                    height="{{ collection.featured_image.height }}"
+                    loading="lazy"
+                    style="--object-position: {{ collection.featured_image.presentation.focal_point }}">
+                </lazy-image>
+              </a>
+            {%- else -%}
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+            
+            {%- if block.settings.col_title != blank -%}
+              <a href="{{ collection.url }}" class="list-collection-title">
+                <h3>{{ block.settings.col_title | upcase }}</h3>
+              </a>
+            {%- elsif collection.title -%}
+              <a href="{{ collection.url }}" class="list-collection-title">
+                <h3>{{ collection.title | upcase }}</h3>
+              </a>
+            {%- else -%}
+              <h3>{{ 'Collection' | upcase }}</h3>
+            {%- endif -%}
+            
+            <p class="btn-collection">
+              {%- if collection.all_products_count -%}
+                <a href="{{ collection.url }}" class="list-product-count">
+                  {{ collection.all_products_count | append: ' ITEM' }}
+                </a>
+              {%- else -%}
+                <span class="list-product-count">{{ '0 ITEM' }}</span>
+              {%- endif -%}
+            </p> 
+            
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<script src="{{ 'component-featured-collection-list.js' | asset_url }}" type="text/javascript" defer></script>
+
+{% schema %}
+{
+  "name": "Featured collection list",
+  "class": "section section-featured-collection-list",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Gorgeous Collections"
+    },
+    {
+      "type": "text",
+      "id": "preheading",
+      "label": "Preheading"
+    },
+    {
+      "type": "image_picker",
+      "id": "bgimgcol",
+      "label": "Background image"
+    }, 
+    {
+      "type": "header",
+      "content": "Heading size"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "h1",
+          "label": "Extra large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "Extra small"
+        },
+        {
+          "value": "h6",
+          "label": "Tiny"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_col",
+      "label": "Preheading"
+    },
+    {
+      "type": "header",
+      "content": "Section vertical spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection list",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Collection image",
+          "info": "When this image is uploaded, it will replace the collection's main image."
+        },
+        {
+          "type": "text",
+          "id": "col_title",
+          "label": "Collection title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection list",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

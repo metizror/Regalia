@@ -1,0 +1,16 @@
+/* language selector */
+.localization-country {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+
+.defaultlanguage {
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.language-country-footer {
+  position: relative;
+}

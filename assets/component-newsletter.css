@@ -1,0 +1,145 @@
+.newsletter {
+  padding: 85px 20px;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-weight: var(--weight-regular);
+  margin-bottom: 14px;
+}
+
+.newsletter .newsletter__subheading {
+  font-size: 16px;
+  font-weight: var(--weight-regular);
+  line-height: 19.52px;
+  color: #797979;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 400px;
+  margin: 40px auto 0;
+  position: relative;
+  border-radius: 50px;
+  border: 1px solid #E9CFB4;
+  box-shadow: 0px 7px 11.8px 0px #E9CFB4;
+  background: #FFFFFF;
+}
+
+.newsletter-form .field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  padding: 5px 20px;
+}
+
+.newsletter-form .field__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  color: #666;
+}
+
+.newsletter-form .field__input::placeholder {
+  color: #797979;
+}
+
+.newsletter-form .btn {
+  width: auto;
+  min-height: auto;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-left: 1px solid #ddd;
+  padding: 0 0 0 15px;
+  border-radius: 0;  
+}
+
+.newsletter-form .btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.newsletter-form .btn svg path {
+  fill: #797979;
+}
+
+.newsletter-form:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter .submit_success {
+  padding: 10px;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  display: inherit;
+  gap: 10px;
+  align-items: center;
+}
+
+.newsletter .submit_success svg {
+  width: 20px;
+  height: 20px;
+}
+
+.newsletter-content span {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-style: var(--heading-font-style);
+  font-weight: var(--weight-semibold);
+  margin-bottom: 1.8rem;
+}
+
+.newsletter-form__field-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .newsletter-form {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 425px) {
+  .newsletter-form {
+    max-width: 300px;
+  }
+
+  .newsletter-form .field {
+    width: 275px;
+    margin: 0 auto;
+    padding: 5px 12px;
+  }
+  
+  .newsletter-form .btn{
+    padding: 0 0 0 10px;
+  }
+  
+  .newsletter-form .btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+}
+
+@media (max-width: 375px) {
+  .newsletter-form {
+    max-width: 265px;
+  }
+
+  .newsletter-form .field {
+    width: 250px;
+  }
+}
