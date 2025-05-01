@@ -214,7 +214,7 @@
           "type": "collection",
           "settings": {
             "collection": "best-offer",
-            "coll_name": "Best offer"
+            "coll_name": ""
           }
         }
       },
@@ -309,7 +309,7 @@
             "image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0_1.jpg",
             "title_size": "h2",
             "title": "Responsibility Report",
-            "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
+            "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>  By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
             "btn_text": "EXPLORE NOW",
             "btn_link": "shopify://collections",
             "btn_type": "primary",
@@ -370,7 +370,9 @@
         "variants_aznaTy": {
           "type": "variants",
           "settings": {
-            "variant_type": "dropdown"
+            "variant_type": "dropdown",
+            "hide_size": false,
+            "size_guide_page": ""
           }
         },
         "buy_button_Qq43TH": {
@@ -395,6 +397,7 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
+        "pro_title": "",
         "heading_size": "h3",
         "heading_alignment": "center",
         "heading_color": "",
@@ -454,7 +457,7 @@
       ],
       "settings": {
         "quote_bg_1": "shopify://shop_images/Graphic_Elemnts.png",
-        "quote_bg_2": "shopify://shop_images/Graphic_Elements_515dc661-c24e-4b21-8235-9ec8e9961749.png",
+        "quote_bg_2": "shopify://shop_images/Graphic_Elements.png",
         "title": "QUOTE OF THE WEEK",
         "heading_color": "#797979",
         "padding_top": 20,
@@ -581,22 +584,13 @@
             "question": "What materials are your jewelry pieces made from?",
             "answer": "<p>Our jewelry is crafted using high-quality materials, including sterling silver, gold, and gemstones. Each piece is designed to last.</p>"
           }
-        },
-        "faq_hVyqnw": {
-          "type": "faq",
-          "settings": {
-            "faq_icon": "shopify://shop_images/fi_9812568.svg",
-            "question": "How do I care for my jewelry?",
-            "answer": "<p>To keep your jewelry looking its best, avoid exposing it to harsh chemicals. Clean gently with a soft cloth and store it in a safe place when not in use. </p>"
-          }
         }
       },
       "block_order": [
         "faq_7iDt8V",
         "faq_CrkWmC",
         "faq_FwLDnF",
-        "faq_Ux4rmY",
-        "faq_hVyqnw"
+        "faq_Ux4rmY"
       ],
       "settings": {
         "image": "shopify://shop_images/faq-image.png",
@@ -649,7 +643,7 @@
         "review_kFRpfw"
       ],
       "settings": {
-        "enable_full_width": true,
+        "enable_full_width": false,
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
         "enable_autoplay": true,
         "bg_color": "#fff7ee",

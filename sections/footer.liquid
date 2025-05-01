@@ -180,72 +180,71 @@
 {%- endif -%}
 
 <script src="{{ 'footer.js' | asset_url }}" type="text/javascript" defer></script>
-
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer",
   "class": "section-footer",
   "tag": "footer",
   "blocks": [
     {
       "type": "logo-information",
-      "name": "t:sections.footer.blocks.store_info.name",
+      "name": "Store information",
       "settings": [
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "t:sections.footer.blocks.store_info.settings.logo.label"
+          "label": "Store logo"
         },
         {
           "type": "inline_richtext",
           "id": "text_data",
-          "label": "t:sections.footer.blocks.store_info.settings.info.label"
+          "label": "Store information"
         },
         {
           "type": "text",
           "id": "info_logo_1",
-          "label": "t:sections.footer.blocks.store_info.settings.data.icon.one"
+          "label": "Info icon one"
         },
         {
           "type": "inline_richtext",
           "id": "info_data_1",
-          "label": "t:sections.footer.blocks.store_info.settings.data.text.one"
+          "label": "Info text one"
         },
         {
           "type": "text",
           "id": "info_logo_2",
-          "label": "t:sections.footer.blocks.store_info.settings.data.icon.two"
+          "label": "Info icon two"
         },
         {
           "type": "inline_richtext",
           "id": "info_data_2",
-          "label": "t:sections.footer.blocks.store_info.settings.data.text.two"
+          "label": "Info text two"
         },
         {
           "type": "text",
           "id": "info_logo_3",
-          "label": "t:sections.footer.blocks.store_info.settings.data.icon.three"
+          "label": "Info icon three"
         },
         {
           "type": "inline_richtext",
           "id": "info_data_3",
-          "label": "t:sections.footer.blocks.store_info.settings.data.text.three"
+          "label": "Info text three"
         }
       ]
     },
     {
       "type": "navigation",
-      "name": "t:sections.footer.blocks.navigation.name",
+      "name": "Navigation",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "menu_title",
-          "label": "t:sections.footer.blocks.navigation.settings.menu_title.label"
+          "label": "Menu title"
         },
         {
           "type": "link_list",
           "id": "main_menu",
-          "label": "t:sections.footer.blocks.navigation.settings.quick_menu.label"
+          "label": "Quick menu"
         }
       ]
     }
@@ -258,7 +257,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -268,71 +267,71 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Background color",
       "default": "#082A32"
     },
     {
       "type": "checkbox",
       "id": "social_icons",
-      "label": "t:sections.footer.settings.social_icons.label",
+      "label": "Social icons",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "enable_follow_on_shop",
-      "label": "t:sections.footer.settings.enable_follow_on_shop.label",
+      "label": "Enable follow on shop",
       "default": true
     },
     {
       "type": "color_background",
       "id": "hr_line",
-      "label": "t:sections.footer.settings.background_hr_line.label",
+      "label": "Background",
       "default": "linear-gradient(#ffffff, #000000)"
     },
     {
       "type": "inline_richtext",
       "id": "policy_text",
-      "label": "t:sections.footer.settings.policy_text.label"
+      "label": "Policy text"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.country_region_selector.content",
-      "info": "t:sections.footer.settings.country_region_selector.info"
+      "content": "Country/region selector",
+      "info": "To add a country/region, go to your [market settings.](/admin/settings/markets)"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": false,
-      "label": "t:sections.footer.settings.country_region_selector.enable_country_selector.label"
+      "label": "Enable country/region selector"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.language_selector.content",
-      "info": "t:sections.footer.settings.language_selector.info"
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": false,
-      "label": "t:sections.footer.settings.language_selector.enable_language_selector.label"
+      "label": "Enable language selector"
     },
     {
       "type": "checkbox",
       "id": "payment_enable",
       "default": true,
-      "label": "t:sections.footer.settings.store_payment.label"
+      "label": "Store payment"
     },
     {
       "type": "checkbox",
       "id": "show_policy",
       "default": true,
-      "label": "t:sections.footer.settings.show_policy.label"
+      "label": "Show policy"
     }
   ]
 }

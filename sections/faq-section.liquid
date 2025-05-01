@@ -79,113 +79,124 @@
 
 {% schema %}
 {
-  "name": "t:sections.faq.name",
+  "name": "FAQ",
   "class": "section section-faq",
   "tag": "section",
   "max_blocks": 5,
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": [
+      "header",
+      "footer"
+    ]
   },
   "settings": [
     {
-      "type": "header",
-      "content": "t:sections.faq.settings.media.content"
+      "type":"header",
+      "content": "Media"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.faq.settings.media.image.label"
+      "label": "Image"
     },
     {
       "type": "select",
       "id": "image_position",
-      "label": "t:sections.faq.settings.media.image.position",
+      "label": "Image position",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
-      "default": "left"
+      "default": "left",
     },
     {
       "type": "header",
-      "content": "t:sections.faq.settings.header.content"
+      "content": "Header"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.general.heading.label",
+      "label": "Title",
       "default": "FAQ"
+    },
+    {
+      "type": "header",
+      "content": "Heading size"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
           "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
+          "label": "Extra large"
         },
         {
           "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
+          "label": "Large"
         },
         {
           "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label"
+          "label": "Medium"
         },
         {
           "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
+          "label": "Small"
         },
         {
           "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
+          "label": "Extra small"
         },
         {
           "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
+          "label": "Tiny"
         }
       ],
       "default": "h3"
     },
     {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
       "type": "select",
       "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Alignment",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "t:sections.general.color.content"
+      "content": "Color"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -194,7 +205,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -204,52 +215,52 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     }
   ],
   "blocks": [
     {
       "type": "faq",
-      "name": "t:sections.faq.blocks.name",
+      "name": "FAQ",
       "settings": [
         {
           "type": "image_picker",
           "id": "faq_icon",
-          "label": "t:sections.faq.blocks.settings.faqs.icon.label"
+          "label": "FAQ icon"
         },
         {
           "type": "text",
           "id": "question",
-          "label": "t:sections.faq.blocks.settings.faqs.question.label"
+          "label": "Question"
         },
         {
           "type": "richtext",
           "id": "answer",
-          "label": "t:sections.faq.blocks.settings.faqs.answer.label"
+          "label": "Answer"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.faq.presets.name",
+      "name": "FAQ",
       "settings": {
         "title": "FAQ",
         "heading_size": "h3"
       },
       "blocks": [
         {
-          "type": "faq"
+          "type": "faq",
         },
         {
-          "type": "faq"
+          "type": "faq",
         },
         {
-          "type": "faq"
+          "type": "faq",
         },
         {
-          "type": "faq"
+          "type": "faq",
         }
       ]
     }

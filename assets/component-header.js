@@ -6,8 +6,10 @@ window.addEventListener("DOMContentLoaded", function () {
   detailsItems.forEach((item) => {
     const summaryElement = item.querySelector("summary");
     const ulElement = item.querySelector("ul");
+    let closeTimeout;
 
     item.addEventListener("mouseover", () => {
+      clearTimeout(closeTimeout);
       item.setAttribute("open", true);
       summaryElement.classList.add("countryactive");
     });
@@ -15,11 +17,19 @@ window.addEventListener("DOMContentLoaded", function () {
     ulElement.addEventListener("mouseleave", () => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
+      // closeTimeout = setTimeout(() => {
+      //   item.removeAttribute("open");
+      //   summaryElement.classList.remove("countryactive");
+      // }, 90);
     });
 
     item.addEventListener("mouseleave", () => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
+      // closeTimeout = setTimeout(() => {
+      //   item.removeAttribute("open");
+      //   summaryElement.classList.remove("countryactive");
+      // }, 90);
     });
   });
 

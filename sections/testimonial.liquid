@@ -106,7 +106,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.testimonial.name",
+  "name": "Testimonial",
   "class": "section-testimonial",
   "tag": "section",
   "disabled_on": {
@@ -118,99 +118,99 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.testimonial.settings.layout.label"
+      "content": "Layout"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Enable full width",
       "default": true
     },
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "t:sections.testimonial.settings.background_image.label"
+      "label": "Section background image"
     },
     {
       "type": "checkbox",
       "id": "enable_autoplay",
-      "label": "t:sections.testimonial.settings.enable_autoplay.label",
+      "label": "Enable autoplay",
       "default": true
     },
     {
       "type": "header",
-      "content": "t:sections.testimonial.settings.card_customization.content"
+      "content": "Card customization"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background color"
     },
     {
       "type": "color",
       "id": "box_shadow",
-      "label": "t:sections.testimonial.settings.card_customization.box_shadow.label"
+      "label": "Box shadow"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Heading size",
       "options": [
         {
           "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
+          "label": "Extra large"
         },
         {
           "value": "h2",
-          "label":"t:sections.general.font_size.large_size.label"
+          "label": "Large"
         },
         {
           "value": "h3",
-          "label":"t:sections.general.font_size.medium_size.label"
+          "label": "Medium"
         },
         {
           "value": "h4",
-          "label":"t:sections.general.font_size.small_size.label"
+          "label": "Small"
         },
         {
           "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
+          "label": "Extra small"
         },
         {
           "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
+          "label": "Tiny"
         }
       ],
       "default": "h4"
     },
     {
       "type": "header",
-      "content": "t:sections.general.color.content"
+      "content": "Color"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.general.color.text_color.label"
+      "label": "Text color"
     },
     {
       "type": "color",
       "id": "description_color",
-      "label": "t:sections.testimonial.settings.card_customization.description_color.label"
+      "label": "Description color"
     },
     {
       "type": "color",
       "id": "proudct_card_bg",
-      "label": "t:sections.testimonial.settings.card_customization.proudct_card_bg.label",
+      "label": "Product card background",
       "default": "#FFE5C8"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Padding top",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -220,7 +220,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Padding bottom",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -231,12 +231,12 @@
   "blocks": [
     {
       "type": "review",
-      "name": "t:sections.testimonial.blocks.name",
+      "name": "Review",
       "settings": [
         {
           "type": "text",
           "id": "review_title",
-          "label": "t:sections.testimonial.blocks.settings.title.label"
+          "label": "Title"
         },
         {
           "type": "range",
@@ -245,31 +245,31 @@
           "max": 5,
           "step": 0.5,
           "unit": "%",
-          "label": "t:sections.testimonial.blocks.settings.rating.label",
+          "label": "Rating",
           "default": 5
         },
         {
           "type": "richtext",
           "id": "review_description",
-          "label": "t:sections.testimonial.blocks.settings.description.label"
+          "label": "Description"
         },
         {
           "type": "text",
           "id": "author",
           "label": "Author",
-          "default": "t:sections.testimonial.blocks.settings.author.label"
+          "default": "Author's name"
         },
         {
           "type": "product",
           "id": "select_product",
-          "label": "t:sections.testimonial.blocks.settings.select_product.label"
+          "label": "Select a product"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.testimonial.presets.name",
+      "name": "Testimonial",
       "blocks": [
         {
           "type": "review"

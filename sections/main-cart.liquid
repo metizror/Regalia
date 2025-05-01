@@ -470,42 +470,42 @@
 
 {% schema %}
 {
-  "name": "t:sections.main_cart.name",
+  "name": "Main cart",
   "tag": "section",
   "class": "section-main-cart",
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.main_cart.settings.layout.label"
+      "content": "Layout"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Enable full width",
       "default": false
     },
     {
       "type": "header",
-      "content": "t:sections.main_cart.settings.media.content",
-      "info": "t:sections.main_cart.settings.media.info"
+      "content": "Media",
+      "info": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
     },
     {
       "type": "header",
-      "content": "t:sections.main_cart.settings.also_searched.content"
+      "content": "Also searched products"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.main_cart.settings.also_searched.label"
+      "label": "Title"
     },
     {
       "type": "collection",
       "id": "collection",
-      "label": "t:sections.main_cart.settings.also_searched.collection.label"
+      "label": "Select collection"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -514,7 +514,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 50
     },
     {
@@ -524,7 +524,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 50
     }
   ]

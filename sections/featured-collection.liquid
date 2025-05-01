@@ -117,7 +117,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.collection.featured_collection.name",
+  "name": "Featured collection",
   "class": "section-featured-collection",
   "tag": "section",
   "max_blocks": 3,
@@ -130,29 +130,29 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.collection.settings.header.content"
+      "content": "Content"
     },
     {
       "type": "html",
       "id": "heading",
-      "label": "t:sections.collection.settings.heading.label",
+      "label": "Heading",
       "default": "Collections"
     },
     {
       "type": "checkbox",
       "id": "enable_animation",
-      "label": "t:sections.collection.settings.enable_animation.label",
+      "label": "Enable animation",
       "default": true
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
     {
       "type": "range",
       "id": "heading_opacity",
-      "label": "t:sections.collection.settings.heading_opacity.label",
+      "label": "Heading opacity",
       "min": 4,
       "max": 100,
       "step": 2,
@@ -161,32 +161,32 @@
     },
     {
       "type": "header",
-      "content": "t:sections.collection.settings.card_customization.content"
+      "content": "Section card customization"
     },
     {
       "type": "image_picker",
       "id": "coll_bg_1",
-      "label": "t:sections.collection.settings.card_customization.background_image.top_left.label"
+      "label": "Background image top left"
     },
     {
       "type": "image_picker",
       "id": "coll_bg_2",
-      "label": "t:sections.collection.settings.card_customization.background_image.bottom_right.label"
+      "label": "Background image bottom right"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background color"
     },
     {
       "type": "color",
       "id": "tab_color",
-      "label": "t:sections.collection.settings.card_customization.tab_color.label"
+      "label": "Tab color"
     },
     {
       "type": "color",
       "id": "active_tab_color",
-      "label": "t:sections.collection.settings.card_customization.active_tab_color.label"
+      "label": "Active tab color"
     },
     {
       "type": "range",
@@ -195,31 +195,31 @@
       "max": 8,
       "step": 1,
       "default": 4,
-      "label": "t:sections.collection.settings.card_customization.products_to_show.label"
+      "label": "Maximum products to show"
     },
     {
       "type": "header",
-      "content": "t:sections.collection.settings.card_customization.countdown_timer.content"
+      "content": "Countdown timer"
     },
     {
       "type": "checkbox",
       "id": "show_countdown",
-      "label": "t:sections.collection.settings.card_customization.countdown_timer.show_countdown.label",
+      "label": "Show countdown",
       "default": true
     },
     {
       "type": "text",
       "id": "countdown_timer",
-      "label": "t:sections.collection.settings.card_customization.countdown_timer.countdown_timer.label"
+      "label": "Countdown timer"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -229,7 +229,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -240,25 +240,25 @@
   "blocks": [
     {
       "type": "collection",
-      "name": "t:sections.collection.blocks.name",
+      "name": "Collection",
       "settings": [
         {
           "type": "collection",
           "id": "collection",
-          "label": "t:sections.collection.blocks.collection.label"
+          "label": "Select collection"
         },
         {
           "type": "text",
           "id": "coll_name",
-          "label": "t:sections.collection.blocks.coll_title.label",
-          "info": "t:sections.collection.blocks.coll_title.info"
+          "label": "Collection title",
+          "info": "When this field is empty, the original collection name will be displayed."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.collection.featured_collection.presets.label",
+      "name": "Featured collection",
       "blocks": [
         {
           "type": "collection"

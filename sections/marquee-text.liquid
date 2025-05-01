@@ -39,7 +39,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.marquee_text.name",
+  "name": "Marquee text",
   "class": "section section-marquee-text",
   "tag": "section",
   "disabled_on": {
@@ -52,7 +52,7 @@
     {
       "type": "range",
       "id": "speed",
-      "label": "t:sections.marquee_text.settings.marquee_speed.label",
+      "label": "Marquee speed",
       "default": 50,
       "min": 10,
       "max": 300,
@@ -61,12 +61,12 @@
     {
       "type": "checkbox",
       "id": "reverse",
-      "label": "t:sections.marquee_text.settings.reverse_direction.label",
+      "label": "Reverse direction",
       "default": false
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -75,7 +75,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -85,19 +85,19 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     }
   ],
   "blocks": [
     {
       "type": "text",
-      "name": "t:sections.marquee_text.blocks.name",
+      "name": "Text block",
       "settings": [
         {
           "type": "text",
           "id": "content",
-          "label": "t:sections.marquee_text.blocks.settings.text.label",
+          "label": "Text",
           "default": "Your marquee text here"
         }
       ]
@@ -105,7 +105,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.marquee_text.presets.name"
+      "name": "Marquee section"
     }
   ]
 }

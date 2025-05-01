@@ -42,13 +42,13 @@ if (!customElements.get("quick-view")) {
         quickviewClose.addEventListener("click", () => {
           this.closeQuickView();
         });
-        
-        quickviewClose.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            this.closeQuickView();
-          }
-       });
+
+      quickviewClose.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.closeQuickView();
+        }
+      });
         
       }
       if (overlayclose) {

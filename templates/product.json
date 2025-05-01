@@ -54,7 +54,9 @@
         "variants_jXmwyC": {
           "type": "variants",
           "settings": {
-            "variant_type": "buttons"
+            "variant_type": "buttons",
+            "hide_size": true,
+            "size_guide_page": ""
           }
         },
         "buy_button_z8Nrx9": {
@@ -95,7 +97,9 @@
         },
         "sticky_cart_khqGiU": {
           "type": "sticky_cart",
-          "settings": {}
+          "settings": {
+            "show_dynamic_checkout": true
+          }
         },
         "local_pickup_wg4zCH": {
           "type": "local_pickup",
@@ -143,38 +147,56 @@
           "settings": {
             "tab_title": "Shipping & return",
             "page_spacing": 30,
-            "page_one": "shipping-policy",
-            "page_two": "return-policy"
+            "page_one": "returns-policy",
+            "page_two": "shipping-returns"
+          }
+        },
+        "rich_text_kxGhb7": {
+          "type": "rich_text",
+          "settings": {
+            "tab_title": "Shipping & return",
+            "rich_text": ""
+          }
+        },
+        "rich_text_Dcxx4M": {
+          "type": "rich_text",
+          "settings": {
+            "tab_title": "Product reviews",
+            "rich_text": ""
           }
         }
       },
       "block_order": [
         "product_description_G483TL",
-        "page_content_H4cbQh"
+        "page_content_H4cbQh",
+        "rich_text_kxGhb7",
+        "rich_text_Dcxx4M"
       ],
       "settings": {
         "section_bg_color": "#ffffff"
       }
     },
-    "video_wXjLYP": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
+    "video_carousel_3iccm9": {
+      "type": "video-carousel",
+      "blocks": {
+        "video_tzatKN": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/regalia-video.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "video_tzatKN"
+      ],
       "settings": {
         "enable_full_width": false,
-        "thumbnail_heading": "",
-        "thumbnail_subheading": "",
-        "heading_size": "h4",
-        "heading_alignment": "center",
-        "heading_color": "#fff",
-        "overlay_color": "#000",
-        "overlay_opacity": 0.4,
-        "video_type": "video",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "video": "shopify://files/videos/regalia-video.mp4",
-        "video_autoplay": true,
-        "video_mute": true,
-        "top_spacing": 20,
-        "bottom_spacing": 20
+        "slide_height": "adapt",
+        "slide_transition": "fade",
+        "speed_delay": 9000,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "enable_arrow": false
       }
     },
     "1741176902861a4668": {
@@ -188,9 +210,7 @@
       "block_order": [
         "judge_me_reviews_review_widget_YrpxLj"
       ],
-      "settings": {
-        "full_width": false
-      }
+      "settings": {}
     },
     "related_products_gfMwi7": {
       "type": "related-products",
@@ -210,7 +230,7 @@
   "order": [
     "main",
     "product_tabular_JQCrT3",
-    "video_wXjLYP",
+    "video_carousel_3iccm9",
     "1741176902861a4668",
     "related_products_gfMwi7"
   ]

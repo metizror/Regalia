@@ -95,7 +95,7 @@
 
 @media (max-width: 767px) { 
   .featured-collection-list .col-innercontent {
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     padding: 0 20px;
   }  
   

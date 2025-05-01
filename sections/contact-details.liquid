@@ -13,7 +13,7 @@
   {% comment %} For contact us page linear gradient background {% endcomment %}
     .contact-details {
       position:relative;
-    overflow: hidden;
+      overflow: hidden;
       background-image: linear-gradient(
         {{ settings.top_color }} {{ settings.top_percentage }}%,
         {{ settings.bottom_color }} {{ settings.bottom_percentage }}%
@@ -28,43 +28,32 @@
     <picture>
       {% if settings.top_bg_image %}
         <source srcset="{{ settings.top_bg_image | image_url: width: 90 }}" media="(max-width: 768px)">
-        <img
-          src="{{ settings.top_bg_image | image_url: width: 256 }}"
-          alt="{{ settings.top_bg_image.alt | default: 'Top background image' }}"
-          class="top-bg"
-          width="{{ settings.top_bg_image.width }}"
-          height="{{ settings.top_bg_image.height }}"
-          loading="lazy"
-          style="--object-postion:{{ settings.top_bg_image.presentation.focal_point }}"
-        >
+        <img src="{{ settings.top_bg_image | image_url: width: 256 }}" alt="{{ settings.top_bg_image.alt | default: 'Top background image' }}" class="top-bg"
+        width="{{ settings.top_bg_image.width }}"
+        height="{{ settings.top_bg_image.height }}"
+        loading="lazy"
+        style="--object-postion:{{ settings.top_bg_image.presentation.focal_point }}">
       {% endif %}
     </picture>
     <picture>
       {% if settings.left_bg_image %}
         <source srcset="{{ settings.left_bg_image | image_url: width: 26 }}" media="(max-width: 768px)">
-        <img
-          src="{{ settings.left_bg_image | image_url: width: 130 }}"
-          alt="{{ settings.left_bg_image.alt | default: 'Left background image' }}"
-          class="left-bg"
-          width="{{ settings.left_bg_image.width }}"
-          height="{{ settings.left_bg_image.height }}"
-          loading="lazy"
-          style="--object-postion:{{ settings.left_bg_image.presentation.focal_point }}"
-        >
+        <img src="{{ settings.left_bg_image | image_url: width: 130 }}" alt="{{ settings.left_bg_image.alt | default: 'Left background image' }}"class="left-bg"
+        width="{{ settings.left_bg_image.width }}"
+        height="{{ settings.left_bg_image.height }}"
+        loading="lazy"
+        style="--object-postion:{{ settings.left_bg_image.presentation.focal_point }}">
       {% endif %}
     </picture>
     <picture>
       {% if settings.right_bg_image %}
         <source srcset="{{ settings.right_bg_image | image_url: width: 45 }}" media="(max-width: 768px)">
-        <img
-          src="{{ settings.right_bg_image | image_url: width: 130 }}"
-          alt="{{ settings.right_bg_image.alt | default: 'Right background image' }}"
+        <img src="{{ settings.right_bg_image | image_url: width: 130 }}" alt="{{ settings.right_bg_image.alt | default: 'Right background image' }}"  
           class="right-bg"
           width="{{ settings.right_bg_image.width }}"
           height="{{ settings.right_bg_image.height }}"
           loading="lazy"
-          style="--object-postion:{{ settings.right_bg_image.presentation.focal_point }}"
-        >
+          style="--object-postion:{{ settings.right_bg_image.presentation.focal_point }}">
       {% endif %}
     </picture>
   </div>
@@ -78,25 +67,25 @@
 
 {% schema %}
 {
-  "name": "t:sections.contact.details.name",
+  "name": "Contact details",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.contact.details.settings.banner_header.content"
+      "content": "Contact banner settings"
     },
     {
       "type": "color",
       "id": "banner_bg_color",
-      "label": "t:sections.contact.details.settings.banner_background.label"
+      "label": "Banner background color"
     },
     {
       "type": "text",
       "id": "banner_heading",
-      "label": "t:sections.contact.details.settings.banner_heading.label",
-      "default": "Heading"
+      "label": "Heading",
+      "default": "Heading",
     },
     {
       "type": "select",
@@ -104,90 +93,90 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center",
-      "label": "t:sections.contact.details.settings.banner_content_alignment.label"
+      "label": "Banner content alignment"
     },
     {
       "type": "color",
       "id": "heading_color",
       "default": "#082A32",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
     {
       "type": "richtext",
       "id": "text",
       "default": "<p>Add Text here</p>",
-      "label": "t:sections.contact.details.settings.banner_content.label"
+      "label": "Text"
     },
     {
       "type": "color",
       "id": "text_color",
       "default": "#5D5348",
-      "label": "t:sections.general.color.text_color.label"
+      "label": "Text color"
     },
     {
       "type": "header",
-      "content": "t:sections.contact.details.settings.map_header.content"
+      "content": "Map"
     },
     {
       "type": "text",
       "id": "api_key",
-      "label": "t:sections.contact.details.settings.map_api.label",
-      "info": "t:sections.contact.details.settings.map_api.info"
+      "label": "Google maps api key",
+      "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
     },
     {
       "type": "richtext",
       "id": "address",
-      "label": "t:sections.contact.details.settings.map_address.label",
-      "info": "t:sections.contact.details.settings.map_address.info",
+      "label": "Address",
+      "info": "Google Maps will find the exact location",
       "default": "<p>75 9th Ave, New York, NY 10011-7006</p>"
     },
     {
       "type": "select",
       "id": "map_style",
-      "label": "t:sections.contact.details.settings.map_style.label",
+      "label": "Style",
       "default": "default",
       "options": [
         {
-          "label": "t:sections.contact.details.settings.map_style.options.default_style",
+          "label": "Default",
           "value": "default"
         },
         {
-          "label": "t:sections.contact.details.settings.map_style.options.silver_style",
+          "label": "Silver",
           "value": "silver"
         },
         {
-          "label": "t:sections.contact.details.settings.map_style.options.retro_style",
+          "label": "Retro",
           "value": "retro"
         },
         {
-          "label": "t:sections.contact.details.settings.map_style.options.dark_style",
+          "label": "Dark",
           "value": "dark"
         },
         {
-          "label": "t:sections.contact.details.settings.map_style.options.night_style",
+          "label": "Night",
           "value": "night"
         },
         {
-          "label": "t:sections.contact.details.settings.map_style.options.aubergine_style",
+          "label": "Aubergine",
           "value": "aubergine"
         }
       ]
     },
     {
       "type": "header",
-      "content": "t:sections.contact.details.settings.contact_form.content"
+      "content": "Contact form settings"
     },
     {
       "type": "select",
@@ -195,79 +184,81 @@
       "options": [
         {
           "value": "container",
-          "label": "t:sections.contact.details.settings.contact_form.layout.options.container"
+          "label": "1440px"
         },
         {
           "value": "container-narrow",
-          "label": "t:sections.contact.details.settings.contact_form.layout.options.narrow_container"
+          "label": "910px"
         }
       ],
       "default": "container",
-      "label": "t:sections.contact.details.settings.contact_form.layout.label"
+      "label": "Desktop layout"
     },
     {
       "type": "color",
       "id": "form_bg_color",
-      "label": "t:sections.contact.details.settings.contact_form.background_color.label"
+      "label": "Form background color"
     },
 
     {
       "type": "image_picker",
       "id": "form_image",
-      "label": "t:sections.contact.details.settings.contact_form.select_image.label"
+      "label": "Select form image"
     },
     {
       "type": "text",
       "id": "form_heading",
       "default": "Let's talk to us!",
-      "label": "t:sections.contact.details.settings.contact_form.heading.label"
+      "label": "Heading"
     },
     {
       "type": "color",
       "id": "form_heading_color",
       "default": "#082A32",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
 
     {
       "type": "text",
       "id": "button_text",
       "default": "Send message",
-      "label": "t:sections.general.button.button_text.label"
+      "label": "Button text"
     },
     {
       "type": "color",
       "id": "btn_text_color",
       "default": "#797979",
-      "label": "t:sections.general.button.button_text_color.label"
+      "label": "Button text color"
     },
     {
       "type": "color",
       "id": "btn_bg_color",
       "default": "#FFFFFF",
-      "label": "t:sections.general.button.button_background_color.label"
+      "label": "Button background color"
     },
     {
       "type": "color",
       "id": "btn_border_color",
       "default": "#797979",
-      "label": "t:sections.general.button.button_border_color.label"
+      "label": "Button border color"
     },
+
     {
       "type": "image_picker",
       "id": "vector_top_right",
-      "label": "t:sections.contact.details.settings.contact_form.vector_images.top_right.label",
-      "info": "t:sections.contact.details.settings.contact_form.vector_images.top_right.info"
+      "label": "Form vector top right",
+      "info": "Please use transparent image."
     },
     {
       "type": "image_picker",
       "id": "vector_bottom_left",
-      "label": "t:sections.contact.details.settings.contact_form.vector_images.bottom_left.label",
-      "info": "t:sections.contact.details.settings.contact_form.vector_images.bottom_left.info"
+      "label": "Form vector bottom left",
+      "info": "Please use transparent image."
     },
+
     {
       "type": "header",
-      "content": "t:sections.contact.details.settings.contact_form.multicolumn_settings.content"
+      "content": "Multicolumn settings"
     },
     {
       "type": "select",
@@ -275,58 +266,55 @@
       "options": [
         {
           "value": "container",
-          "label": "t:sections.contact.details.settings.contact_form.multicolumn_settings.layout.options.container"
+          "label": "1440px"
         },
         {
           "value": "container-narrow",
-          "label": "t:sections.contact.details.settings.contact_form.multicolumn_settings.layout.options.narrow_container"
+          "label": "910px"
         }
       ],
       "default": "container",
-      "label": "t:sections.contact.details.settings.contact_form.multicolumn_settings.layout.label"
+      "label": "Desktop layout"
+    },
+    {
+      "type": "color",
+      "id": "multicolumn_bg_color",
+      "label": "Background"
     },
     {
       "type": "text",
       "id": "multicolumn_heading",
       "default": "Heading",
-      "label": "t:sections.contact.details.settings.contact_form.multicolumn_settings.heading"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.color.content"
-    },
-    {
-      "type": "color",
-      "id": "multicolumn_bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Heading"
     },
     {
       "type": "color",
       "id": "multicolumn_heading_color",
-      "label": "t:sections.general.color.heading_color.label",
+      "label": "Heading color",
       "default": "#082A32"
     },
     {
       "type": "color",
       "id": "col_title_color",
-      "label": "t:sections.contact.details.settings.contact_form.multicolumn_settings.title_color",
+      "label": "Title color",
       "default": "#082A32"
     },
     {
       "type": "color",
       "id": "col_text_color",
-      "label": "t:sections.general.color.text_color.label",
+      "label": "Text color",
       "default": "#797979"
     },
     {
       "type": "color",
       "id": "col_bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Background color",
       "default": "#FBF5F0"
     },
+
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -335,7 +323,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top padding",
       "default": 36
     },
     {
@@ -345,30 +333,30 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom padding",
       "default": 36
     }
   ],
   "blocks": [
     {
       "type": "column",
-      "name": "t:sections.contact.details.blocks.name",
+      "name": "Column",
       "limit": 5,
       "settings": [
         {
           "type": "image_picker",
           "id": "multicolumn_svg_icon",
-          "label": "t:sections.contact.details.blocks.settings.multicolumn_icons.label"
+          "label": "SVG icon"
         },
         {
           "type": "text",
           "id": "multicolumn_title",
-          "label": "t:sections.contact.details.blocks.settings.multicolumn_title.label"
+          "label": "Title"
         },
         {
           "type": "richtext",
           "id": "multicolumn_text",
-          "label": "t:sections.contact.details.blocks.settings.multicolumn_text.label"
+          "label": "Text"
         }
       ]
     }

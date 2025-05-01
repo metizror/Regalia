@@ -83,7 +83,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.quotes.name",
+  "name": "Quotes",
   "class": "section-quotes",
   "tag": "section",
   "disabled_on": {
@@ -92,41 +92,41 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.quotes.settings.section_bg_images.content"
+      "content": "Section background images"
     },
     {
       "type": "image_picker",
       "id": "quote_bg_1",
-      "label": "t:sections.quotes.settings.section_bg_images.bg_images.top_left.label"
+      "label": "Background image top left"
     },
     {
       "type": "image_picker",
       "id": "quote_bg_2",
-      "label": "t:sections.quotes.settings.section_bg_images.bg_images.bottom_right.label"
+      "label": "Background image bottom right"
     },
     {
       "type": "header",
-      "content": "t:sections.quotes.settings.content.label"
+      "content": "Content"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.general.heading.label",
+      "label": "Heading",
       "default": "Quotes of the day"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vetical spacing"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -136,7 +136,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -147,30 +147,30 @@
   "blocks": [
     {
       "type": "quote",
-      "name": "t:sections.quotes.blocks.name",
+      "name": "Quote",
       "settings": [
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "t:sections.quotes.blocks.settings.image.label"
+          "label": "Image"
         },
         {
           "type": "richtext",
           "id": "quote",
-          "label": "t:sections.quotes.blocks.settings.quote.label",
+          "label": "Quote",
           "default": "<p>I never worry about diets. The only carrots that interest me are the number you get in a diamond.</p>"
         },
         {
           "type": "color",
           "id": "quote_color",
-          "label": "t:sections.general.color.text_color.label"
+          "label": "Text color"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.quotes.presets.name",
+      "name": "Quotes",
       "blocks": [
         {
           "type": "quote"

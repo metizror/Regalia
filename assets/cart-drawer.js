@@ -9,6 +9,12 @@ if (!customElements.get("cart-drawer")) {
       document.addEventListener("DOMContentLoaded", function () {
         const cartDrawer = document.getElementById("cart-drawer");
         const sideCart = document.querySelector(".side-cartdrawer");
+        sideCart.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+          event.preventDefault();
+          updateCartDrawer();
+        }
+        });
         if (sideCart) {
           sideCart.addEventListener("click", function (event) {
             event.preventDefault();
