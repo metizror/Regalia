@@ -55,7 +55,7 @@
 }
 
 .navigation-content nav ul li a {
-  font-size: 16px;
+  font-size: var(--bs-size);
   line-height: 24px;
   color: #b5bfc1;
   text-decoration: none;
@@ -65,7 +65,7 @@
   padding-left: 0px;
 }
 
-.text-content .h6 {
+.text-content h6 {
   color: var(--white);
   font-family: var(--bs-font-family);
 }
@@ -138,7 +138,127 @@ ul.policies .copyright__content a {
 .footer-bottom-change {
   padding: 40px 0;
 }
+.social-icon-details h3{
+  font-size:22px;
+  line-height:28px;
+  font-weight:var(--weight-regular);
+  color:var(--white);
+}
+.social-info-content{
+  display:flex;
+  gap:14px;
+  padding-bottom:22px;
+}
+.info-data p{
+  opacity:0.5;
+}
 
+/* Newsletter footer */
+ .footer-newsletter {
+    padding:35px 0px;
+    position:relative;
+  }
+
+  .footer-newsletter h2 {
+    font-size: 22px;
+    line-height:100%;
+    letter-spacing:0px;
+    margin-bottom: 10px;
+    color:var(--white);
+  }
+
+  .footer-newsletter p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter-form input[type="email"],
+  .newsletter-form input[type="checkbox"] {
+    font-size: 14px;
+  }
+
+  .newsletter-form input[type="email"] {
+    padding: 10px 15px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #DDDDDD;
+    background:transparent;
+  }
+ .newsletter-form input[type="email"]:placeholder{
+   color:var(--white);
+   opacity:0.5;
+ } 
+  .privacy-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .privacy-wrapper label {
+    cursor: pointer;
+    font-family:var(--bs-font-family);
+  }
+
+  .newsletter-form button {
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    right: 0;
+  }
+  .privacy-wrapper label, .privacy-wrapper label a{
+    color:var(--white);
+  }
+  .newsletter-form button:hover {
+    background-color: #333;
+  }
+
+  .newsletter-message {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .newsletter-message.success {
+    color: green;
+  }
+
+  .newsletter-message.error {
+    color: red;
+  }
+  .agree-text{
+    opacity:0.5;
+  }
+/* Footer images */
+.footer-top-left{
+     position: absolute;
+    top: -48px;
+    left: 0px;
+} 
+.footer-bottom-right{
+  position: absolute;
+  right: 0;
+  bottom: 73px;
+}
+.footer-newsletter .newsletter-form input[type=email]:focus-visible{
+  outline:none;
+}
+.privacy-text .privacy-link{
+  color:var(--white);
+}
 @media (min-width: 768px) {
   .footer-bottom-change {
     display: flex;

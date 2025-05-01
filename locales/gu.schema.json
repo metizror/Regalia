@@ -979,8 +979,7 @@
         "bg_image": {
           "label": "પૃષ્ઠભૂમિ છબી",
           "title": "શીર્ષક",
-          "description": "વર્ણન",
-          "overlay_opacity": "ઓવરલેય ઓપેસિટી"
+          "description": "વર્ણન"
         },
         "end_date": {
           "label": "સમાપ્તિ તારીખ"

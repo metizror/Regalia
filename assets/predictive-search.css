@@ -106,8 +106,6 @@ predictive-search {
   border: none;
   cursor: pointer;
   color: var(--color-text);
-  width: fit-content;
-  margin: 0 auto;
 }
 
 .predictive-search-content {
@@ -258,7 +256,23 @@ predictive-search {
 predictive-search .product-item .product-price .price-badge {
   display: none;
 }
-
+.inline-search-open .inline-submit{
+  display:none;
+}
+.inline-close{
+  display:none;
+}
+.inline-search-open .inline-close{
+  display:block;
+}
+.inline-search .inline-submit,.close-search.inline-close{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+}
 @media (max-width:767px) {
 
   .predictive-search-wrapper .suggestions-wrapper,

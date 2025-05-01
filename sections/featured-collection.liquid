@@ -8,6 +8,22 @@
     --tab-color: {{ section.settings.tab_color }};
     --active-tab-color: {{ section.settings.active_tab_color }};
   }
+  .collections-list-wrapper .tab-content {
+  align-content: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.column_to_show }},1fr);
+  justify-content: center;
+  column-gap: 25px;
+  }
+  .product-item.flex-items{
+     background-color:{{ section.settings.card_color }}; 
+  }
+  .featured-collection-section .collection-view-all a{
+    background-color:{{ section.settings.btn_bg_color}};
+    color:var(--white);
+    border-radius:{{ section.settings.br_radius }};
+  }
   @media(max-width:768px){
     #shopify-section-{{section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -20,10 +36,10 @@
 
 <section class="featured-collection-section">
   <div class="full-width">
-    {%- if section.settings.heading -%}
+    {%- if section.settings.heading  and section.settings.heading_show -%}
        <div class="animated-text-wrap">
         <div class="animated-text-wrapper">
-            <span class="section-heading {% if section.settings.enable_animation %}animated-text{% endif %}"
+            <span class="section-heading {% if section.settings.enable_animation %}animated-text animated-letters{% endif %}"
               role="heading"
               aria-level="2">
               {{ section.settings.heading }}
@@ -31,7 +47,7 @@
           </div>
        </div>
     {%- endif -%}
-    <div class="collections-wrapper container">
+    <div class="collections-wrapper container {% if section.settings.heading_show %}headingspc{% endif %}">
       {%- if section.settings.coll_bg_1 -%}
         <div class="coll-bg-image top-left">
           <lazy-image>
@@ -56,59 +72,86 @@
           </lazy-image>
         </div>
       {%- endif -%}
-      <div class="collections-list-wrapper">
-        <div class="collection-items tabs" role="tablist">
-          {%- for block in section.blocks -%}
-            {% assign collection = block.settings.collection %}
-            {%- if block.settings.coll_name != blank -%}
-              <h4 class="coll-title tab-button" data-tab="tab-{{ forloop.index }}"
-                role="tab"
-                aria-controls="tab-{{ forloop.index }}"
-                id="tab-button-{{ forloop.index }}"
-                aria-selected="false"
-                tabindex="0">
-                {{ block.settings.coll_name }}
-              </h4>
-            {%- elsif collection.title -%}
-                <h4 class="coll-title tab-button" data-tab="tab-{{ forloop.index }}"
-                  role="tab"
-                  aria-controls="tab-{{ forloop.index }}"
-                  id="tab-button-{{ forloop.index }}"
-                  aria-selected="false"
-                  tabindex="0">
-                  {{ collection.title }}
-                </h4>
-            {%- endif -%}
+  <div class="collections-list-wrapper">
+  <div class="collection-items tabs" role="tablist">
+    {%- for block in section.blocks -%}
+      {% assign collection = block.settings.collection %}
+      {%- if block.settings.coll_name != blank -%}
+        <h4 class="coll-title tab-button" data-tab="tab-{{ forloop.index }}"
+          role="tab"
+          aria-controls="tab-{{ forloop.index }}"
+          id="tab-button-{{ forloop.index }}"
+          aria-selected="false"
+          tabindex="0">
+          {{ block.settings.coll_name }}
+        </h4>
+      {%- elsif collection.title -%}
+        <h4 class="coll-title tab-button" data-tab="tab-{{ forloop.index }}"
+          role="tab"
+          aria-controls="tab-{{ forloop.index }}"
+          id="tab-button-{{ forloop.index }}"
+          aria-selected="false"
+          tabindex="0">
+          {{ collection.title }}
+        </h4>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="quick-view__closest product-items">
+    {%- for block in section.blocks -%}
+      {% assign collection = block.settings.collection %}
+      <div class="text-center">
+        <div class="tab-content" id="tab-{{ forloop.index }}" 
+          style="display: none;"
+          role="tabpanel" 
+          aria-labelledby="tab-button-{{ forloop.index }}">
+          
+          {% assign products_to_display = section.settings.products_per_row %}
+          {% if collection.all_products_count > section.settings.products_to_show %}
+            {% assign products_to_display = section.settings.products_to_show %}
+          {% else %}
+            {% assign products_to_display = collection.all_products_count %}
+          {% endif %}
+          
+          {%- for product in collection.products limit: products_to_display -%}
+            {% render 'product-card', 
+              product: product, 
+              show_img_onhover: true, 
+              show_percentage: settings.show_percentage,
+              show_countdown: section.settings.show_countdown,
+              countdown_time: section.settings.countdown_timer
+            %}
           {%- endfor -%}
-        </div>
-        <div class="quick-view__closest product-items">
-          {%- for block in section.blocks -%}
-            {% assign collection = block.settings.collection %}
-            <div class="tab-content" id="tab-{{ forloop.index }}" 
-              style="display: none;"
-              role="tabpanel" 
-              aria-labelledby="tab-button-{{ forloop.index }}" >
-              {% assign products_to_display = section.settings.products_per_row %}
-              {% if collection.all_products_count > section.settings.products_to_show %}
-                {% assign products_to_display = section.settings.products_to_show %}
-              {% else %}
-                {% assign products_to_display = collection.all_products_count %}
-              {% endif %}
-              
-              {%- for product in collection.products limit: products_to_display -%}
-                {% render 'product-card', 
-                  product: product, 
-                  show_img_onhover: true, 
-                  show_percentage: settings.show_percentage,
-                  show_countdown: section.settings.show_countdown,
-                  countdown_time: section.settings.countdown_timer
-                %}
-              {%- endfor -%}
-            </div>
-          {%- endfor -%}
-          {%- render 'quickView-modal' -%}
         </div>
       </div>
+    {%- endfor -%}
+
+    {%- render 'quickView-modal' -%}
+  </div>
+
+<div class="viewall-btn">  
+  {%- for block in section.blocks -%}
+    {% assign collection = block.settings.collection %}
+      <div class="viewall-tab-content" id="tab-viewall-{{ forloop.index }}" 
+        style="display: none;"
+        role="tabpanel" 
+        aria-labelledby="tab-button-{{ forloop.index }}">
+        
+        {%- if section.settings.view_all -%}
+          {% if block.settings.view_all_btn %}
+          <div class="collection-view-all text-center view-all-tab-{{ forloop.index }}">
+            <a href="{{ block.settings.btn_url }}" class="btn btn-{{ section.settings.btn_type }}">
+             {{ block.settings.view_all_btn }}
+            </a>
+          </div>
+          {% endif %}  
+        {%- endif -%}
+      </div> 
+  {%- endfor -%}
+</div>
+
+
     </div>
   </div>
 </section>
@@ -131,6 +174,11 @@
     {
       "type": "header",
       "content": "t:sections.collection.settings.header.content"
+    },
+    {
+      "type":"checkbox",
+        "id":"heading_show",
+      "label":"t:sections.collection.settings.heading_show.label"
     },
     {
       "type": "html",
@@ -158,6 +206,17 @@
       "step": 2,
       "unit": "%",
       "default": 4
+    },
+    {
+      "type":"color",
+        "id":"card_color",
+      "label":"t:sections.collection.settings.card_color.label"
+    },
+    {
+     "type": "text_alignment",
+     "id": "alignment",
+     "label": "t:sections.collection.settings.text_alignment.label",
+     "default": "center"
     },
     {
       "type": "header",
@@ -196,6 +255,47 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.collection.settings.card_customization.products_to_show.label"
+    },
+    {
+      "type":"range",
+      "id":"column_to_show",
+      "min":1,
+      "max":6,
+      "step":1,
+      "default":4,
+      "label":"t:sections.collection.settings.card_customization.products_column_show.label"
+    },
+    {
+      "type":"checkbox",
+          "id":"view_all",
+      "label":"t:sections.collection.settings.card_customization.view_all.label"
+    },
+    {
+      "type": "color",
+        "id":"btn_bg_color",
+      "label":"t:sections.collection.settings.card_customization.btn_bg_color.label"
+    },
+    {
+      "type": "select",
+          "id": "btn_type",
+          "label": "Type",
+          "options": [
+            {
+              "label": "t:sections.general.button.button_type.options.btn_primary.label",
+              "value": "primary"
+            },
+            {
+              "label": "t:sections.general.button.button_type.options.btn_secondary.label",
+              "value": "secondary"
+            }
+          ],
+          "default": "primary"
+    },
+    {
+      "type":"checkbox",
+        "id":"show_swatches",
+      "label":"t:sections.collection.settings.card_customization.show_swatches.label",
+      "default":true
     },
     {
       "type": "header",
@@ -252,6 +352,16 @@
           "id": "coll_name",
           "label": "t:sections.collection.blocks.coll_title.label",
           "info": "t:sections.collection.blocks.coll_title.info"
+        },
+        {
+          "type":"text",
+            "id":"view_all_btn",
+          "label":"t:sections.collection.blocks.view_all_btn.label"
+        },
+        {
+          "type":"url",
+            "id":"btn_url",
+          "label":"t:sections.collection.blocks.btn_url.label"
         }
       ]
     }

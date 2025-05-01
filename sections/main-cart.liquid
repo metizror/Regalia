@@ -14,7 +14,8 @@
 
 {{ 'component-main-cart.css' | asset_url | stylesheet_tag: preload: true }}
 
-<div class="{% if section.settings.enable_full_width %}container{% else %}container-narrow{% endif %}">
+<main-cart>
+<div id="main-cart" class="{% if section.settings.enable_full_width %}container{% else %}container-narrow{% endif %}">
   {%- if cart != empty -%}
     {%- render 'breadcrumbs' -%}
     <div class="cart-wrapper">
@@ -35,7 +36,7 @@
                 {%- for item in cart.items -%}
                   <tr data-index="{{ forloop.index }}">
                     <td class="mobile-hide">
-                      <a href="{{ item.url_to_remove }}" class="cart-remove-link">
+                       <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
                         {%- render 'icons', icon: 'trash' -%}
                         <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
                       </a>
@@ -173,7 +174,7 @@
                             </div>
 
                             <div class="mobile-remove-icon desk-hide">
-                              <a href="{{ item.url_to_remove }}" class="cart-remove-link">
+                               <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
                                 {%- render 'icons', icon: 'trash' -%}
 
                                 <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
@@ -465,7 +466,7 @@
     </div>
   {%- endif -%}
 </div>
-
+</main-cart>
 <script src="{{ 'component-main-cart.js' | asset_url }}" type="text/javascript" defer></script>
 
 {% schema %}

@@ -45,7 +45,7 @@
     "media_ratio": "original",
     "show_thumbs": false,
     "show_qnt_picker": true,
-    "tiles_media_ratio": "portrait",
+    "tiles_media_ratio": "square",
     "tiles_fill_media_zooom": true,
     "show_percentage": false,
     "tiles_swatches": true,

@@ -18,13 +18,16 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
             "content_alignment": "right",
+            "overlay_bg": true,
             "maintitle": "Timeless Elegance Redefined",
             "sub_title": "<p>Find timeless jewelry that defines sophistication and style.</p>",
+            "title_color": "",
             "button_label": "DISCOVER NOW",
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h1",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),\nlinear-gradient(0deg, rgba(255, 240, 245, 0.2), rgba(255, 240, 245, 0.2))",
             "new_tab": true,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -45,13 +48,16 @@
             "image": "shopify://shop_images/pexels-ari-roberts-101154701-9393224_1.png",
             "mobile_image": "shopify://shop_images/young-indian-woman-wearing-sari_1.png",
             "content_alignment": "center",
+            "overlay_bg": false,
             "maintitle": "Luxury in Every Detail",
             "sub_title": "<p>Handcrafted pieces designed to make every moment shine.</p>",
+            "title_color": "",
             "button_label": "EXPLORE COLLECTION",
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -72,13 +78,16 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/image_14.png",
             "content_alignment": "right",
+            "overlay_bg": false,
             "maintitle": "Beauty Meets Brilliance",
             "sub_title": "<p>Elevate your style with jewelry that tells your story.</p>",
+            "title_color": "",
             "button_label": "SHOP NOW",
             "btn_link": "shopify://collections/all",
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -115,10 +124,10 @@
         "sitewide_text": "Sale 45% OFF Sitewide Now!",
         "disc_code": "NEW27",
         "end_date": "2026-03-06",
-        "bg_color": "#000000",
+        "bg_color": "#153d47",
         "text_color": "#ffffff",
-        "link_color": "#ffffff",
-        "content-align": "left"
+        "link_color": "#e9cfb4",
+        "content-align": "start"
       }
     },
     "featured_collection_list_M33eXU": {
@@ -185,55 +194,72 @@
         "title": "Gorgeous Collections",
         "preheading": "Attractive jewellery",
         "bgimgcol": "shopify://shop_images/Isolation_Mode.png",
+        "enable_autoplay": false,
+        "number_slide": 6.5,
+        "space_between": 20,
         "heading_size": "h2",
         "heading_alignment": "center",
         "heading_color": "#082a32",
         "subtitle_col": "#797979",
-        "padding_top": 50,
+        "padding_top": 20,
         "padding_bottom": 20
       }
     },
     "featured_collection_AfdBwM": {
       "type": "featured-collection",
       "blocks": {
+        "collection_U9LTqG": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-offer",
+            "coll_name": "Best offer",
+            "view_all_btn": "View all",
+            "btn_url": "shopify://collections/best-offer"
+          }
+        },
         "collection_yUma8M": {
           "type": "collection",
           "settings": {
             "collection": "best-seller",
-            "coll_name": "Best seller"
+            "coll_name": "Best seller",
+            "view_all_btn": "View all",
+            "btn_url": "shopify://collections/best-seller"
           }
         },
         "collection_6BCaeb": {
           "type": "collection",
           "settings": {
             "collection": "new-arrivals",
-            "coll_name": ""
-          }
-        },
-        "collection_U9LTqG": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-offer",
-            "coll_name": "Best offer"
+            "coll_name": "",
+            "view_all_btn": "New arrivals",
+            "btn_url": "shopify://collections/best-seller"
           }
         }
       },
       "block_order": [
+        "collection_U9LTqG",
         "collection_yUma8M",
-        "collection_6BCaeb",
-        "collection_U9LTqG"
+        "collection_6BCaeb"
       ],
       "settings": {
+        "heading_show": true,
         "heading": "Collections",
-        "enable_animation": true,
+        "enable_animation": false,
         "heading_color": "#082a32",
         "heading_opacity": 4,
-        "coll_bg_1": "shopify://shop_images/Vector.png",
-        "coll_bg_2": "shopify://shop_images/Vector_1_37ac8778-48bc-4949-8566-6998b6deb814.png",
+        "card_color": "",
+        "alignment": "center",
+        "coll_bg_1": "shopify://shop_images/Vector_4.png",
+        "coll_bg_2": "shopify://shop_images/Vector_3.png",
         "bg_color": "#fbf5f0",
         "tab_color": "#a69e8d",
         "active_tab_color": "#082a32",
         "products_to_show": 8,
+        "column_to_show": 4,
+        "view_all": true,
+        "btn_bg_color": "",
+        "btn_type": "primary",
+        "show_swatches": true,
         "show_countdown": true,
         "countdown_timer": "2025-05-27",
         "padding_top": 20,
@@ -275,61 +301,9 @@
         "text_WDAYPN"
       ],
       "settings": {
-        "speed": 50,
+        "speed": 5,
         "reverse": false,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "text_image_slider_AfGwGD": {
-      "type": "text-image-slider",
-      "blocks": {
-        "image_with_text_eYY7Tc": {
-          "type": "image-with-text",
-          "settings": {
-            "image": "shopify://shop_images/61d4dc25dbd1bd40d38e12c5c08ad66c.jpg",
-            "title_size": "h2",
-            "title": "Sustainability Report",
-            "description": "<p>We are deeply committed to sustainability and responsible sourcing. We ensure that all our diamonds, gemstones, and metals are conflict-free, working only with suppliers who adhere to strict ethical and environmental standards. <br/><br/>Our partnerships with fair-trade certified suppliers allow us to support communities while minimizing our environmental impact.<br/>Learn more<br/></p>",
-            "btn_text": "Learn More.",
-            "btn_link": "shopify://collections",
-            "btn_type": "secondary",
-            "bg_color": "#fbf5f0",
-            "text_color": "#082a32",
-            "description_color": "#797979",
-            "btn_text_color": "#000000",
-            "btn_bg_color": "#ffffff"
-          }
-        },
-        "image_overlay_text_EydJDC": {
-          "type": "image-overlay-text",
-          "settings": {
-            "bg_image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0.jpg",
-            "bg_blur": 4,
-            "image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0_1.jpg",
-            "title_size": "h2",
-            "title": "Responsibility Report",
-            "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
-            "btn_text": "EXPLORE NOW",
-            "btn_link": "shopify://collections",
-            "btn_type": "primary",
-            "bg_color": "",
-            "text_color": "#ffffff",
-            "description_color": "#ffffff",
-            "btn_text_color": "#ffffff",
-            "btn_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_with_text_eYY7Tc",
-        "image_overlay_text_EydJDC"
-      ],
-      "settings": {
-        "enable_full_width": true,
-        "enable_autoscroll": false,
-        "speed_delay": 3000,
-        "autoscroll_speed": 3000,
+        "icon_img": "shopify://shop_images/Star_7.png",
         "padding_top": 20,
         "padding_bottom": 20
       }
@@ -401,6 +375,61 @@
         "show_percentage": true
       }
     },
+    "text_image_slider_AfGwGD": {
+      "type": "text-image-slider",
+      "blocks": {
+        "image_with_text_eYY7Tc": {
+          "type": "image-with-text",
+          "settings": {
+            "image": "shopify://shop_images/61d4dc25dbd1bd40d38e12c5c08ad66c.jpg",
+            "title_size": "h2",
+            "title": "Sustainability Report",
+            "description_size": "h5",
+            "description": "<p>We are deeply committed to sustainability and responsible sourcing. We ensure that all our diamonds, gemstones, and metals are conflict-free, working only with suppliers who adhere to strict ethical and environmental standards. <br/><br/>Our partnerships with fair-trade certified suppliers allow us to support communities while minimizing our environmental impact.<br/>Learn more<br/></p>",
+            "btn_text": "Learn More.",
+            "btn_link": "shopify://collections",
+            "btn_type": "secondary",
+            "bg_color": "#fbf5f0",
+            "text_color": "#082a32",
+            "description_color": "#797979",
+            "btn_text_color": "#000000",
+            "btn_bg_color": "#ffffff"
+          }
+        },
+        "image_overlay_text_EydJDC": {
+          "type": "image-overlay-text",
+          "disabled": true,
+          "settings": {
+            "bg_image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0.jpg",
+            "bg_blur": 4,
+            "image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0_1.jpg",
+            "title_size": "h2",
+            "title": "Responsibility Report",
+            "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>  By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
+            "btn_text": "EXPLORE NOW",
+            "btn_link": "shopify://collections",
+            "btn_type": "primary",
+            "bg_color": "",
+            "text_color": "#ffffff",
+            "description_color": "#ffffff",
+            "btn_text_color": "#ffffff",
+            "btn_bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_eYY7Tc",
+        "image_overlay_text_EydJDC"
+      ],
+      "settings": {
+        "enable_full_width": true,
+        "enable_autoscroll": true,
+        "speed_delay": 3000,
+        "autoscroll_speed": 3000,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "quotes_pRfYbi": {
       "type": "quotes",
       "blocks": {
@@ -409,7 +438,7 @@
           "settings": {
             "logo": "shopify://shop_images/path815.svg",
             "quote": "<p>I never worry about diets. The only carrots that interest me are the number you get in a diamond.</p>",
-            "quote_color": "rgba(0,0,0,0)"
+            "quote_color": "#082a32"
           }
         },
         "quote_xzLCVQ": {
@@ -417,7 +446,7 @@
           "settings": {
             "logo": "shopify://shop_images/g2414.svg",
             "quote": "<p>The only carrots that interest me are the number you get in a diamond.</p>",
-            "quote_color": ""
+            "quote_color": "#082a32"
           }
         },
         "quote_J6zRbL": {
@@ -433,7 +462,7 @@
           "settings": {
             "logo": "shopify://shop_images/Group_458.svg",
             "quote": "<p> The only carrots that interest me are the number you get in a diamond.</p>",
-            "quote_color": ""
+            "quote_color": "#082a32"
           }
         },
         "quote_KNb3DT": {
@@ -441,7 +470,7 @@
           "settings": {
             "logo": "shopify://shop_images/Vector_6.svg",
             "quote": "<p>I never worry about diets. The only carrots that interest me are the number you get in a diamond.</p>",
-            "quote_color": ""
+            "quote_color": "#082a32"
           }
         }
       },
@@ -473,7 +502,7 @@
         "heading_color": "#ffffff",
         "overlay_color": "#000000",
         "overlay_opacity": 0,
-        "video_type": "link",
+        "video_type": "video",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "video": "shopify://files/videos/regalia-video.mp4",
         "video_autoplay": false,
@@ -519,11 +548,11 @@
       "settings": {
         "title": "Follow us on @instagram",
         "description": "<p>Shop Your Favorite Styles on Instagram. <strong>jewellery@instagram</strong></p>",
-        "heading_size": "h4",
+        "heading_size": "h3",
         "heading_alignment": "center",
         "heading_color": "#082a32",
         "description_color": "#797979",
-        "background_color": "",
+        "background_color": "#efefef",
         "insta_bg_1": "shopify://shop_images/Vector_1.png",
         "insta_bg_2": "shopify://shop_images/Group.png",
         "insta_bg_3": "shopify://shop_images/Group_514.png",
@@ -536,8 +565,6 @@
       "settings": {
         "enable_full_width": true,
         "background_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0.4,
         "title": "Deal of the Week",
         "description": "<p>This week only, get 20% off all jewelry. Limited stock available! </p>",
         "end_date": "2026-01-31",
@@ -649,7 +676,6 @@
         "review_kFRpfw"
       ],
       "settings": {
-        "enable_full_width": true,
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
         "enable_autoplay": true,
         "bg_color": "#fff7ee",
@@ -850,7 +876,7 @@
       ],
       "settings": {
         "enable_full_width": true,
-        "spacing_between_image": 26,
+        "spacing_between_image": 20,
         "border_radius": 6,
         "title": "Elegance in Every Piece",
         "heading_size": "h3",
@@ -954,8 +980,8 @@
     "featured_collection_list_M33eXU",
     "featured_collection_AfdBwM",
     "marquee_text_9ACkkP",
-    "text_image_slider_AfGwGD",
     "featured_product_7UjbBN",
+    "text_image_slider_AfGwGD",
     "quotes_pRfYbi",
     "video_mAwphP",
     "instagram_aBkRYt",

@@ -201,8 +201,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectVariantElement = fieldset.querySelector(
               ".select-variant, .select-color-variant"
             );
+            const selectDropdownElement = fieldset.querySelector(
+              ".variant-options .select-variant, .variant-options .select-color-variant"
+            );
             if (selectVariantElement) {
               selectVariantElement.textContent = variantName;
+            }
+            if(selectDropdownElement){
+              selectDropdownElement.textContent = variantName;
             }
           }
         }
@@ -321,27 +327,324 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+   const sideCart = document.querySelector(".side-cartdrawer");
+        if (sideCart) {
+          sideCart.addEventListener("click", function (event) {
+            event.preventDefault();
+            updateCartDrawer();
+          });
+        }
+document.querySelectorAll(".mainproduct .product-form__submit.atc-btn").forEach((button) => {
+  const handleAddToCart = function (event) {
+    // Prevent default for both click and keydown
+    event.preventDefault();
+
+    // Only proceed if it's a click or Enter key
+    if (event.type === "click" || (event.type === "keydown" && (event.key === "Enter" || event.keyCode === 13))) {
+      console.log("hey clicked");
+      let form = this.closest("form");
+      let formData = new FormData(form);
+
+      const quantityPicker = document.querySelector(
+        ".mainproduct quantity-picker input[name='quantity']"
+      );
+      if (quantityPicker) {
+        let quantity = quantityPicker.value;
+        formData.set("quantity", quantity);
+      }
+
+      fetch("/cart/add.js", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Product Added:", data);
+          updateCartDrawer();
+        })
+        .catch((error) =>
+          console.error("Error adding product:", error)
+        );
+    }
+  };
+
+  button.addEventListener("click", handleAddToCart);
+  button.addEventListener("keydown", handleAddToCart);
+});
+
+
+
+           // Function to open cart drawer
+          function openCartDrawer() {
+            const cartDrawer = document.getElementById("cart-drawer");
+            document.documentElement.classList.add("js-drawer-open");
+            cartDrawer.classList.add("open");
+
+            attachCartDrawerOutsideClickListener();
+          }
+
+          function closeCartDrawer() {
+            const cartDrawer = document.getElementById("cart-drawer");
+            document.documentElement.classList.remove("js-drawer-open");
+            cartDrawer.classList.remove("open");
+          }
+
+
+          function removeCartDrawer() {
+            const cartDrawerIcon = document.querySelector(".cartdrawer-icon");
+            if (cartDrawerIcon) {
+                cartDrawerIcon.addEventListener("click", function () {
+                    closeCartDrawer();
+                });
+            }
+        }
+
+          function attachCartDrawerOutsideClickListener() {
+            document.addEventListener("click", function (event) {
+              const cartDrawer = document.getElementById("cart-drawer");
+              const isClickInside = cartDrawer.contains(event.target);
+          
+              // Close only if click is outside cart drawer
+              if (!isClickInside && cartDrawer.classList.contains("open")) {
+                document.documentElement.classList.remove("js-drawer-open");
+                cartDrawer.classList.remove("open");
+              }
+            });
+          }
+
+          // Function to update the cart drawer dynamically
+          function updateCartDrawer() {
+            fetch("/?sections=cart-drawer")
+              .then((response) => response.json())
+              .then((data) => {
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(
+                  data["cart-drawer"],
+                  "text/html"
+                );
+
+                // Update cart drawer content
+                let updatedCartDrawer = doc.querySelector("#cart-drawer");
+                let cartDrawer = document.querySelector("#cart-drawer");
+                if (updatedCartDrawer && cartDrawer) {
+                  cartDrawer.innerHTML = updatedCartDrawer.innerHTML;
+                }
+
+                // Update total price
+                let updatedTotalPrice = doc.querySelector(".totals__total-value");
+                if (updatedTotalPrice) {
+                  document.querySelector(".totals__total-value").innerHTML =
+                    updatedTotalPrice.innerHTML;
+                }
+
+                fetch("/cart.js")
+                  .then((res) => res.json())
+                  .then((cart) => {
+                    let cartItemCount = cart.item_count; 
+                    let headerCartCount =
+                      document.querySelector("[data-cart-count]");
+                    let drawerCartCount = document.querySelector(
+                      "[data-cartdrawer-count]"
+                    );
+
+                    if (headerCartCount) {
+                      headerCartCount.textContent = `${cartItemCount}`;
+                    }
+                    if (drawerCartCount) {
+                      drawerCartCount.textContent = `(${cartItemCount})`;
+                    }
+                    if (cartItemCount > 0 && !document.getElementById("cart-drawer").classList.contains("open")) {
+                      openCartDrawer();
+                    }
+                  })
+                  .catch((error) =>
+                    console.error("Error fetching cart count:", error)
+                  );
+                  
+                attachRemoveItemEvents();
+                attachQuantityUpdateEvents();
+                addTocart();
+                removeCartDrawer();
+                // openCartDrawer(); 
+              })
+              .catch((error) => console.error("Error updating cart:", error));
+          }
+
+
+          function attachRemoveItemEvents() {
+            document.querySelectorAll(".cart-remove-link").forEach((button) => {
+              button.addEventListener("click", function (event) {
+                event.preventDefault();
+      
+                let lineIndex = this.getAttribute("data-line");
+                console.log("line", lineIndex);
+                if (!lineIndex) {
+                  console.error("Error: Line index not found!");
+                  return;
+                }
+      
+                // Remove item using AJAX
+                fetch("/cart/change.js", {
+                  method: "POST",
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    line: parseInt(lineIndex),
+                    quantity: 0,
+                  }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    console.log("Item removed:", data);
+                    if (data.item_count === 0) {
+                      document.querySelector(".cart-items").innerHTML = `
+                        <div class="empty-cart">
+                          <h1 class="h3">Hmm... looks like your bag is empty.</h1>
+                          <a href="/collections/all" class="btn btn-secondary">
+                            Continue shopping
+                          </a>
+                        </div>
+                      `;
+                    } else {
+                      updateCartDrawer();
+                    }
+                  })
+                  .catch((error) => console.error("Error removing item:", error));
+              });
+            });
+          }
+      
+          function attachQuantityUpdateEvents() {
+            document.querySelectorAll("#cart-drawer .qnt-input").forEach((button) => {
+              button.addEventListener("click", function () {
+                let quantityPicker = this.closest(".qnt-input-wrapper");
+                if (!quantityPicker) {
+                  console.error("Error: .quantity-picker not found!");
+                  return;
+                }
+                let quantityInput = quantityPicker.querySelector(
+                  "input[name='quantity']"
+                );
+                if (!quantityInput) {
+                  console.error("Error: Quantity input not found!");
+                  return;
+                }
+      
+                let quantity = parseInt(quantityInput.value);
+                let maxQuantity =
+                  parseInt(quantityInput.getAttribute("data-max")) || Infinity;
+                let lineIndex = parseInt(
+                  quantityInput.closest("tr")?.getAttribute("data-index")
+                );
+      
+                if (isNaN(lineIndex)) {
+                  console.error("Error: Line index not found!");
+                  return;
+                }
+      
+                if (
+                  this.classList.contains("qnt-inc") &&
+                  quantity < maxQuantity
+                ) {
+                  quantity++;
+                } else if (this.classList.contains("qnt-dec") && quantity > 1) {
+                  quantity--;
+                }
+      
+                updateCartItem(lineIndex, quantity);
+              });
+            });
+          }
+        
+      
+        function addTocart(){
+            document.querySelectorAll(".productadd-drawer").forEach((button) => {
+            button.addEventListener("click", function (event) {
+              event.preventDefault();
+      
+              console.log("hey clicked");
+              let form = this.closest("form");
+              let formData = new FormData(form);
+      
+              const quantityPicker = document.querySelector(
+                "input[name='quantity'].cart-drawer-col"
+              );
+              if (quantityPicker) {
+                let quantity = quantityPicker.value;
+                formData.set("quantity", quantity);
+              }
+      
+              fetch("/cart/add.js", {
+                method: "POST",
+                body: formData,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Product Added:", data);
+                  updateCartDrawer();
+                })
+                .catch((error) =>
+                  console.error("Error adding product:", error)
+                );
+            });
+          });
+          }
+
+           // Function to update cart item quantity
+        function updateCartItem(lineIndex, quantity) {
+          fetch("/cart/change.js", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ line: lineIndex, quantity: quantity }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Cart Updated:", data);
+              updateCartDrawer();
+            })
+            .catch((error) => console.error("Error updating cart:", error));
+        }
+
+  
+
   getCombinedVariant();
 
-  document
-    .querySelectorAll(".color-variant, .multiple-option-variant")
-    .forEach((element) => {
-      element.addEventListener("click", function () {
-        const parentFieldset = this.closest("fieldset");
-        if (parentFieldset) {
-          parentFieldset
-            .querySelectorAll(".checked")
-            .forEach((el) => el.classList.remove("checked"));
-        }
-        this.classList.add("checked");
-        getCombinedVariant();
-      });
+document.querySelectorAll(".color-variant, .multiple-option-variant")
+  .forEach((element) => {
+    const prodvariantHandle = (el) => {
+      const parentFieldset = el.closest("fieldset");
+      if (parentFieldset) {
+        parentFieldset
+          .querySelectorAll(".checked")
+          .forEach((el) => el.classList.remove("checked"));
+      }
+      el.classList.add("checked");
+      getCombinedVariant();
+    };
+
+    element.addEventListener("click", () => {
+      prodvariantHandle(element);
     });
+
+    element.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        prodvariantHandle(element);
+      }
+    });
+
+  });
+  
 });
 // 04/03/25 sticky-cart js
 document.addEventListener("DOMContentLoaded", function () {
   const target = document.querySelector(".product-block.block-buy_button"),
     stickyCart = document.querySelector(".sticky-content"),
+    stickyContent = document.querySelector("sticky-cart"),
     footerPrivacy = document.querySelector(".privacy-policy-text");
   if (target && stickyCart && footerPrivacy) {
     const observer = new IntersectionObserver(
@@ -352,9 +655,8 @@ document.addEventListener("DOMContentLoaded", function () {
             entry.isIntersecting &&
             (isStickyHidden = !0);
         }),
-          isStickyHidden
-            ? stickyCart.classList.remove("active")
-            : stickyCart.classList.add("active");
+          isStickyHidden? stickyCart.classList.remove("active"): stickyCart.classList.add("active");
+          isStickyHidden? stickyContent.setAttribute('aria-hidden', 'false'): stickyContent.setAttribute('aria-hidden', 'true');
       },
       { threshold: 0.1 }
     );
@@ -380,3 +682,44 @@ if (pswpElement) {
     attributeFilter: ["class"],
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdowns = document.querySelectorAll(".dropdown-variant");
+
+  dropdowns.forEach((dropdown) => {
+    const selectedOption = dropdown.querySelector(".dropdownList");
+    const optionsList = dropdown;
+    const options = dropdown.querySelectorAll(".dropdown-swatch");
+
+    if (!selectedOption || !optionsList) {
+      console.error("Dropdown structure is incomplete!");
+      return;
+    }
+
+    // Toggle dropdown on click
+    selectedOption.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent event bubbling to document
+      optionsList.classList.toggle("open");
+    });
+
+    // Handle option selection
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        optionsList.classList.remove("open");
+      });
+    });
+  });
+
+  // Close any open dropdown when clicking outside
+  document.addEventListener("click", (event) => {
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("open");
+      }
+    });
+  });
+});    
+document.querySelectorAll(".product-block")
+  .forEach((element) => {
+    element.setAttribute("tabindex", "0");
+});

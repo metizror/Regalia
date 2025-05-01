@@ -979,8 +979,7 @@
         "bg_image": {
           "label": "Image de fond",
           "title": "Titre",
-          "description": "Description",
-          "overlay_opacity": "Opacité de superposition"
+          "description": "Description"
         },
         "end_date": {
           "label": "Date de fin"

@@ -1,6 +1,5 @@
 .section-instagram .section-title {
-  font-size: 24px;
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   line-height: 27px;
   margin-bottom: 50px;
   font-family: var(--heading-font-family);
@@ -9,16 +8,16 @@
 
 .section-instagram .section-header__description {
   padding: 18px 26px;
-  border-radius: 6px;
-  font-size: 18px;
-  font-weight: 400;
+  border-radius: var(--btn-radius);
+  font-size: calc(var(--bs-size) + 4px);
+  font-weight: var(--weight-regular);
   line-height: 27px;
   width: 50%;
 }
 
 .section-header__description.text-center strong {
   color: #000;
-  font-weight: 400;
+  font-weight: var(--weight-regular);
   line-height: 27px;
 }
 
@@ -75,7 +74,7 @@
   height: 210px;
   overflow: hidden;
   position: relative;
-  border-radius: 8px;
+  border-radius: calc(var(--btn-radius) + 2px);
   aspect-ratio: 1 / 1;
 }
 
@@ -158,12 +157,12 @@
 
 @media (max-width: 1024px) {
   .section-instagram .section-title {
-    font-size: 20px;
+    font-size: calc(var(--bs-size) + 6px);
     margin-bottom: 40px;
   }
 
   .section-instagram .section-header__description {
-    font-size: 16px;
+    font-size: calc(var(--bs-size) + 2px);
     padding: 14px 20px;
     width: 50%;
   }
@@ -182,12 +181,12 @@
 
 @media (max-width: 768px) {
   .section-instagram .section-title {
-    font-size: 18px;
+    font-size: calc(var(--bs-size) + 4px );
     margin-bottom: 30px;
   }
 
   .section-instagram .section-header__description {
-    font-size: 14px;
+    font-size: var(--bs-size);
     padding: 12px 16px;
     width: 100%;
   }
@@ -211,12 +210,12 @@
 
 @media (max-width: 480px) {
   .section-instagram .section-title {
-    font-size: 16px;
+    font-size: calc(var(--bs-size) + 2px);
     margin-bottom: 20px;
   }
 
   .section-instagram .section-header__description {
-    font-size: 12px;
+    font-size:calc(var(--bs-size) - 2px);
     padding: 10px 14px;
   }
 
