@@ -19,12 +19,13 @@
           "settings": {
             "text": "<p>Mid-Season Sale Up to 70% OFF. <strong> </strong><a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://pages/about-us",
+            "new_tab": true
           }
         },
         "announcement_HGRbeL": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>Summer sale: Up to 70% off selected items</p>",
             "text_mobile": "<p>Summer sale: Up to 70% off selected items</p>",
@@ -40,6 +41,7 @@
       "settings": {
         "only_homepage": false,
         "enable_container": true,
+        "enable_navigation": false,
         "enable_autoscroll": true,
         "speed_delay": 1000,
         "autoscroll_speed": 3000,
@@ -51,23 +53,39 @@
     "header": {
       "type": "header",
       "blocks": {
-        "megamenu_D6Yhhh": {
+        "megamenu_8j39A6": {
+          "type": "megamenu",
+          "disabled": true,
+          "settings": {
+            "menu_title": "",
+            "image_1": "shopify://shop_images/57e4c4367ad505fd3021dbdb3ba9e430.png",
+            "image_1_heading": "Cushion Cut Ring",
+            "image_1_text": "Shop Now",
+            "image_1_link": "#",
+            "image_2": "shopify://shop_images/image_11.png",
+            "image_2_heading": "Cushion Cut Ring 2",
+            "image_2_text": "Shop now",
+            "image_2_link": "#"
+          }
+        },
+        "megamenu_DMdzBV": {
           "type": "megamenu",
           "settings": {
-            "menu_title": "collections",
-            "image_1": "shopify://shop_images/image_9_271d0d0d-bb63-4e20-83f4-cdf965f894f6.png",
-            "image_1_heading": "Diamond bracelets",
+            "menu_title": "Earrings",
+            "image_1": "shopify://shop_images/gallery-6.png",
+            "image_1_heading": "Text 1",
             "image_1_text": "Shop now",
-            "image_1_link": "shopify://collections/diamond-bracelet-for-women",
-            "image_2": "shopify://shop_images/image_13_23d70262-0f8b-4a83-bd82-5ca103ea3297.png",
-            "image_2_heading": "Rings",
+            "image_1_link": "#",
+            "image_2": "shopify://shop_images/57e4c4367ad505fd3021dbdb3ba9e430.png",
+            "image_2_heading": "Text 2",
             "image_2_text": "Shop now",
-            "image_2_link": "shopify://collections/rings"
+            "image_2_link": "#"
           }
         }
       },
       "block_order": [
-        "megamenu_D6Yhhh"
+        "megamenu_8j39A6",
+        "megamenu_DMdzBV"
       ],
       "settings": {
         "logo_position": "top-center",
@@ -76,6 +94,7 @@
         "enable_language_selector": true,
         "enable_customer_avatar": true,
         "sticky_header": true,
+        "inline_search": false,
         "margin_bottom": 24,
         "padding_top": 20,
         "padding_bottom": 20

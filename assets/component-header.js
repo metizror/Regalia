@@ -2,24 +2,32 @@ window.addEventListener("DOMContentLoaded", function () {
   const inlineMenu = document.querySelector(".header__inline-menu");
   const menuItem = document.querySelector(".header__menu-item.list-menu__item");
   const detailsItems = inlineMenu.querySelectorAll("details");
+  const predictiveSearch = document.querySelector("#predictive-search");
+  const body = document.querySelector('body'); 
 
   detailsItems.forEach((item) => {
     const summaryElement = item.querySelector("summary");
     const ulElement = item.querySelector("ul");
+    let closeTimeout;
 
     item.addEventListener("mouseover", () => {
+      clearTimeout(closeTimeout);
       item.setAttribute("open", true);
       summaryElement.classList.add("countryactive");
     });
 
     ulElement.addEventListener("mouseleave", () => {
+      closeTimeout = setTimeout(() => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
+      }, 90);
     });
 
     item.addEventListener("mouseleave", () => {
+      closeTimeout = setTimeout(() => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
+      }, 90);
     });
   });
 
@@ -54,6 +62,16 @@ window.addEventListener("DOMContentLoaded", function () {
       .dispatchEvent(new Event("input"));
     document.body.classList.toggle("search-warpper-open");
   });
+
+    let inlineSearchClose = document.querySelector('.inline-close');
+  if (inlineSearchClose && predictiveSearch) {
+  inlineSearchClose.addEventListener('click', () => {
+    document.querySelector('#predictive-search').value = '';
+    predictiveSearch.style.display = 'none';
+    body.classList.remove("inline-search-open");
+  });
+  }
+  
 });
 
 // header sticky

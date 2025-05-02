@@ -237,7 +237,7 @@
       <div class="atc-cart-drawer">
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-          <input class="visuallyhidden" min="1" type="number" id="quantity" name="quantity" value="1" aria-label="Quantity">
+          <input class="visuallyhidden cart-drawer-col" min="1" type="number" id="quantity" name="quantity" value="1" aria-label="Quantity">
 
           {% assign selected_variant = product.selected_or_first_available_variant %}
 

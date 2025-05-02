@@ -6,8 +6,8 @@
     margin-bottom:{{ section.settings.block_spc }}px; 
   }
 {% endstyle %}
-  {% assign show_percentage = false %}
   {% assign info_text = '' %}
+  {% assign quick_variant_type = settings.variant_type %}
 
   {% for block in section.blocks %}
     {% assign current_info_text = block.settings.info_text %}
@@ -23,6 +23,7 @@
     section_id: section.id, 
     section: section, 
     product: product, 
+    quick_variant_type: quick_variant_type,
     show_percentage:show_percentage,
     info_text: info_text
   -%}
@@ -195,21 +196,6 @@
       "name": "t:sections.product.blocks.variants.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "select",
-          "id": "variant_type",
-          "label": "t:sections.product.blocks.variants.variant_type.content",
-          "options": [
-            {
-              "value": "dropdown",
-              "label": "t:sections.product.blocks.variants.variant_type.dropdown"
-            },
-            {
-              "value": "buttons",
-              "label": "t:sections.product.blocks.variants.variant_type.radio"
-            }
-          ]
-        }
       ]
     },
     {
@@ -357,22 +343,6 @@
       "type": "sticky_cart",
       "name": "t:sections.product.blocks.sticky_cart.name",
       "limit": 1
-    },
-    {
-      "type": "stock-counter",
-      "name": "t:sections.product.blocks.stock_counter.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "range",
-          "id": "product_limit",
-          "label": "t:sections.product.blocks.stock_counter.product_limit.label",
-          "min": 3,
-          "max": 50,
-          "step": 1,
-          "default": 20
-        }
-      ]
     },
     {
       "type": "custom_liquid",

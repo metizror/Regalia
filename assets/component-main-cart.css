@@ -305,6 +305,15 @@
     width: 100%;
     padding: 0 0 6px;
 }
+.section-main-cart .maincart-remove{
+  padding:.8rem;
+  color: var(--color-text);
+}
+.section-main-cart .maincart-remove svg{
+width: 18px;
+  height: 18px;
+  margin-right: .3rem;
+}
 @media (max-width:1299px){
   .section-main-cart .main-cart-wrapper form .cart-summery{
     width:100%;

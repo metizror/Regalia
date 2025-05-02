@@ -9,6 +9,12 @@ if (!customElements.get("cart-drawer")) {
       document.addEventListener("DOMContentLoaded", function () {
         const cartDrawer = document.getElementById("cart-drawer");
         const sideCart = document.querySelector(".side-cartdrawer");
+        sideCart.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+          event.preventDefault();
+          updateCartDrawer();
+        }
+        });
         if (sideCart) {
           sideCart.addEventListener("click", function (event) {
             event.preventDefault();
@@ -134,21 +140,24 @@ if (!customElements.get("cart-drawer")) {
                 .then((res) => res.json())
                 .then((cart) => {
                   let cartItemCount = cart.item_count;
-                  let headerCartCount =
-                    document.querySelector("[data-cart-count]");
-                  let drawerCartCount = document.querySelector(
-                    "[data-cartdrawer-count]"
-                  );
-
+                  let headerCartCount = document.querySelector("[data-cart-count]");
+                  let drawerCartCount = document.querySelector("[data-cartdrawer-count]");
+                  let cartItemnum = document.querySelector(".side-cartdrawer.header__icon--cart");
                   if (headerCartCount) {
                     headerCartCount.textContent = `${cartItemCount}`;
                   }
                   if (drawerCartCount) {
-                    drawerCartCount.textContent = `(${cartItemCount})`;
+                    drawerCartCount.textContent = `${cartItemCount}`;
                   }
-                  if (cartItemCount > 0) {
-                    openCartDrawer();
-                  }
+                  if (cartItemnum) {
+  if (cartItemCount > 0) {
+    openCartDrawer();
+    cartItemnum.classList.add("cartNumber");
+  } else {
+    cartItemnum.classList.remove("cartNumber");
+  }
+}
+
                 })
                 .catch((error) =>
                   console.error("Error fetching cart count:", error)
@@ -202,6 +211,8 @@ if (!customElements.get("cart-drawer")) {
                         </a>
                       </div>
                     `;
+                   document.querySelector(".cartcountnum").textContent = `(${data.item_count || 0})`;
+                   
                   } else {
                     updateCartDrawer();
                   }
@@ -268,7 +279,7 @@ if (!customElements.get("cart-drawer")) {
                 "quantity-picker input[name='quantity']"
               );
               if (quantityPicker) {
-                let quantity = quantityPicker.value;
+                let quantity = 1;
                 formData.set("quantity", quantity);
               }
 

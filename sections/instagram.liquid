@@ -61,9 +61,9 @@
     <div class="container">
       {%- if section.settings.title -%}
         <div class="section-header text-{{ section.settings.heading_alignment }}">
-          <span class="section-title">
+          <{{ section.settings.heading_size }} class="section-title">
             {{- section.settings.title -}}
-          </span>
+          </{{ section.settings.heading_size }}>
         </div>
       {%- endif -%}
       <div class="instagram-wrapper container-narrow">

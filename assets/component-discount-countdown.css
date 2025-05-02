@@ -10,8 +10,10 @@
   align-items: center;
   padding: 45px 38px;
   width: 100%;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  background-color:var(--countdown-sec-bg);
+  color:var(--countdown-sec-color);
+  border-bottom-left-radius: var(--btn-radius);
+  border-bottom-right-radius: var(--btn-radius);
 }
 
 .discount-content {
@@ -49,7 +51,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
-  color: #E9CFB4;
+  color:var(--countdown-time-col);
 }
 
 .count-number span {
@@ -74,9 +76,9 @@
 
 .discount-code {
   padding: 10px;
-  border: 2px dashed #E9CFB4;
+  border: 2px dashed var(--countdown-time-col);
   border-radius: 20px;
-  color: #E9CFB4;
+  color: var(--countdown-time-col);
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   max-width: 100px;
@@ -87,7 +89,7 @@
 }
 
 .copy-to-clipboard.copid .discount-code {
-  background-color: #E9CFB4;
+  background-color: var(--countdown-time-col);
   border: 0;
   color: #153d47;
   transition: background-color 0.5s ease-in-out;
@@ -96,16 +98,31 @@
 /* Responsive Styles */
 @media (max-width: 767px) {
   .countdown-content {
-    justify-content: flex-start;
+    justify-content: var(--countdown-content-align);
+    padding-top:20px;
   }
-
-  span.copy-to-clipboard {
-    width: 100%;
+  .discount-sitewide{
+    flex-direction:column;
+    width:100%;
+    align-items:var(--countdown-content-align);
+  }
+  .discount-code{
+    max-width:110px;
+    font-size: calc(var(--bs-size) - 2px); 
+    padding:10px 30px;
+  }
+  .discount-content{
+    display: flex;
+    flex-direction: column;
+    align-items: var(--countdown-content-align);
+  }
+  .discount-countdown-content{
+    flex-direction:column;
   }
 }
 
 @media (max-width: 440px) {
   .discount-countdown-content {
-    padding: 20px 50px;
+    padding: 20px 15px;
   }
 }

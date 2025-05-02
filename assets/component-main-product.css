@@ -618,6 +618,110 @@ p.discount-percentage {
   display: none;
 }
 
+/* Dropdown variant */
+/* Main dropdown container styling */
+.dropdown-variant {
+  margin: 10px;
+}
+.dropdown-variant label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.dropdown-container {
+  position: relative;
+  width: 200px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+/* Individual swatches styling */
+.dropdown-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.dropdown-color-swatch{
+    width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.dropdownlistcontent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: none;
+  z-index: 10;
+}
+
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background-color: #ebf4ff;
+}
+.open.dropdown-variant .dropdownlistcontent{
+  display: block;
+}
+.dropdown-variant{
+  border: 1px solid var(--black);
+  height: 45px;
+  padding: 10px;
+  margin-left: 0px;
+  position: relative;
+}
+.dropdownIcon svg{
+  width:10px;
+}
+.dropdownIcon{
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+.dropdownlistcontent .variant-option.dropdown-swatch.soldout label:before{
+  content:'';
+  background-color: unset;
+  transform: none;
+}
+.open.dropdown-variant .dropdownIcon{
+   transform: rotate(180deg);
+    top: 0px;
+}
+.dropdownlistcontent .dropdown-swatch.checked{
+  font-weight:var(--weight-bold);
+}
+.dropdownlistcontent .multiple-option-variant{
+  font-family:var(--bs-font-family);
+}
+.dropdownlistcontent .multiple-option-variant.checked label{
+  font-weight:var(--weight-bold);
+  font-family:var(--bs-font-family);
+  box-shadow:unset;
+}
+.variant-options,.dropdownList{
+  width:100%;
+  display:block;
+  cursor: pointer;
+}
+
 @keyframes popupFade {
   from {
     opacity: 0;

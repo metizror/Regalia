@@ -15,6 +15,9 @@
   
 {% endstyle %}
 
+{% assign filters_order = section.settings.group_filter_prefix %}
+{% assign pricerange_order = section.settings.price_filter_index %}
+
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
   {% paginate collection.products by section.settings.pagination %}
     {%- liquid
@@ -63,7 +66,7 @@
           <div class="utility-bar__right">
             <div class="prod-count-sortby d-flex">
               {% if section.settings.product_count %}
-                <p class="product-count  mobile-hide" data-initial-count="{{ collection.all_products_count }}">
+             <p tabindex='0' aria-label="{{ 'collection.facets.product_counts' | t: product_count: collection.products_counts, count: collection.all_products_count }}" class="product-count  mobile-hide" data-initial-count="{{ collection.all_products_count }}">
                   {{
                     'collection.facets.product_counts'
                     | t: product_count: collection.products_counts, count: collection.all_products_count
@@ -72,24 +75,32 @@
               {% endif %}
               <div class="showprod-column d-flex mobile-hide">
                 <div
+                  tabindex="0"
+                  aria-label="listview"
                   grid-layout="listview"
                   class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'list-view' %}
                 </div>
                 <div
+                    tabindex="0"
+                  aria-label="grid view 2"
                   grid-layout="2"
                   class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'two-cloumn' %}
                 </div>
                 <div
+                   tabindex="0"
+                  aria-label="grid view 3"
                   grid-layout="3"
                   class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'three-cloumn' %}
                 </div>
                 <div
+                   tabindex="0"
+                  aria-label="grid view 4"
                   grid-layout="4"
                   class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}" tabindex="0"
                 >
@@ -111,10 +122,10 @@
                               {%- break -%}
                             {%- endif -%}
                           {% endfor %}
-                          <div class="sortby-header">
-                            <span class="sortby-header-title">
-                              {{- 'collection.facets.sort_by_label' | t }}<span class="mobile-hide">:</span>
-                              <span class="sortby-page mobile-hide">{{ collection_sort_by_name }} </span>
+                           <div tabindex="0" aria-label="{{- 'collection.facets.sort_by_label_filters' | t -}}" class="sortby-header">
+                              <span class="sortby-header-title">
+                              {{- 'collection.facets.sort_by_label' | t -}}<span class="mobile-hide">:</span>
+                              <span tabindex="0" aria-label="{{ collection_sort_by_name }}" class="sortby-page mobile-hide">{{ collection_sort_by_name }} </span>
                             </span>
                             {% render 'icons', icon: 'chevron-down' %}
                           </div>
@@ -146,7 +157,7 @@
       </div>
       <div class="collection-wrapper filter-container--side">
         {%- if collection.products.size > 0 -%}
-          {% render 'facet-filters', results: collection, enable_filtering: section.settings.enable_filtering %}
+          {% render 'facet-filters', results: collection, enable_filtering: section.settings.enable_filtering,filter_order:filters_order,pricerange_order:pricerange_order %}
         {%- endif -%}
         <div class="collection-grid-wrapper" id="ProductCardContainer">
           {% capture active_filters_html %}
@@ -362,6 +373,13 @@
       "id": "group_filter_prefix",
       "label": "t:sections.collection.settings.group_filter_prefix.label",
       "default": "color,size,material"
+    },
+    {
+      "type": "number",
+      "id": "price_filter_index",
+      "default": 2,
+      "label": "t:sections.collection.settings.price_filter_index.label",
+      "info":"t:sections.collection.settings.price_filter_index.info"
     },
     {
       "type": "checkbox",

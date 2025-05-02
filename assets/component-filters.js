@@ -227,12 +227,17 @@ if (!customElements.get("facet-filters")) {
 document.addEventListener("DOMContentLoaded", function () {
   const sortByHeader = document.querySelector(".sortby-header");
   if (sortByHeader) {
-    sortByHeader.addEventListener("click", function () {
-      console.log("click");
+  sortByHeader.addEventListener("click", function () {
+    const sortOption = document.querySelector(".sortbycontent");
+    sortOption.classList.toggle("dropdown");
+  });
+  sortByHeader.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
       const sortOption = document.querySelector(".sortbycontent");
       sortOption.classList.toggle("dropdown");
-    });
-  }
+    }
+  });
+  }  
 
   document.querySelectorAll(".sortby-value").forEach((sortby) => {
     sortby.addEventListener("click", function () {

@@ -65,6 +65,7 @@
               </button>
               <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                 <input
+                  class="featured-pro-btn"
                   id="quantity-{{ product.id }}"
                   type="number"
                   name="quantity"
@@ -80,8 +81,9 @@
             </quantity-picker>
           </div>
           
-          <div class="product-form__buttons">
+          <div tabindex="-1" class="product-form__buttons">
             <button
+               tabindex="0"
               id="ProductSubmitButton-{{ section_id }}"
               type="submit"
               name="add"

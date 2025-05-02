@@ -500,6 +500,26 @@
     ]
   },
   {
+    "name": "t:settings_schema.variant_type.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "variant_type",
+            "label": "t:settings_schema.variant_type.settings.variant_style.label",
+            "options": [
+              {
+                "value": "dropdown",
+                "label": "t:settings_schema.variant_type.settings.options.dropdown.label"
+              },
+              {
+                "value": "buttons",
+                "label": "t:settings_schema.variant_type.settings.options.buttons.label"
+              }
+            ]
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.product_tiles.name",
     "settings": [
       {
