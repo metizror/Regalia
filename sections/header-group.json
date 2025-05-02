@@ -72,14 +72,14 @@
           "type": "megamenu",
           "settings": {
             "menu_title": "shop",
-            "image_1": "shopify://shop_images/gallery-6.png",
-            "image_1_heading": "Text 1",
+            "image_1": "shopify://shop_images/image_9_271d0d0d-bb63-4e20-83f4-cdf965f894f6.png",
+            "image_1_heading": "Diamond bracelets",
             "image_1_text": "Shop now",
-            "image_1_link": "#",
-            "image_2": "shopify://shop_images/57e4c4367ad505fd3021dbdb3ba9e430.png",
-            "image_2_heading": "Text 2",
+            "image_1_link": "shopify://collections/diamond-bracelet-for-women",
+            "image_2": "shopify://shop_images/image_13_23d70262-0f8b-4a83-bd82-5ca103ea3297.png",
+            "image_2_heading": "Rings",
             "image_2_text": "Shop now",
-            "image_2_link": "#"
+            "image_2_link": "shopify://collections/rings"
           }
         }
       },
