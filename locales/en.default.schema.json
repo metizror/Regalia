@@ -830,7 +830,10 @@
           "enable_container": {
             "label": "Enable container"
           },
-          "enbale_auto_scroll": {
+          "enable_navigation": {
+            "label":"Slider navigation button disable"
+          },
+          "enable_auto_scroll": {
             "label": "Enable auto scroll"
           },
           "speed_delay": {
