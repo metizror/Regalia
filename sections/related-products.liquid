@@ -108,92 +108,98 @@
 
 {% schema %}
 {
-  "name": "t:sections.related_products.name",
-  "tag": "section",
-  "enabled_on": {
-    "templates": [
-      "collection", "product"
-    ]
-  },
+  "name": "Related products",
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.related_products.settings.header.content"
+      "content": "Header"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.related_products.settings.header.title.label",
+      "label": "Title",
       "default": "Shop the Style You Admire!"
+    },
+    {
+      "type": "header",
+      "content": "Heading size"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
           "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
+          "label": "Extra large"
         },
         {
           "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
+          "label": "Large"
         },
         {
           "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label"
+          "label": "Medium"
         },
         {
           "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
+          "label": "Small"
         },
         {
           "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
+          "label": "Extra small"
         },
         {
           "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
+          "label": "Tiny"
         }
       ],
       "default": "h3"
     },
     {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
       "type": "select",
       "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Alignment",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center"
     },
     {
+      "type": "header",
+      "content": "Content alignment"
+    },
+    {
       "type": "select",
       "id": "content_position",
-      "label": "t:sections.related_products.settings.content_position.label",
+      "label": "Content position",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center"
@@ -201,7 +207,7 @@
     {
       "type": "range",
       "id": "products_limit",
-      "label": "t:sections.related_products.settings.products_limit.label",
+      "label": "Number of related products",
       "min": 2,
       "max": 10,
       "step": 1,
@@ -214,11 +220,7 @@
       "max": 6,
       "step": 1,
       "default": 3,
-      "label": "t:sections.related_products.settings.product_per_row.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "label": "Products per row"
     },
     {
       "type": "range",
@@ -227,7 +229,7 @@
       "max": 30,
       "step": 2,
       "default": 26,
-      "label": "t:sections.header.settings.spacing.content"
+      "label": "Spacing"
     },
     {
       "type": "range",
@@ -236,7 +238,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -246,13 +248,13 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     }
   ],
   "presets": [
     {
-      "name": "t:sections.related_products.presets.name",
+      "name": "Related products",
       "category": "Product"
     }
   ]

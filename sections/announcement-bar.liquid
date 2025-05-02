@@ -94,24 +94,24 @@
 
 {% schema %}
 {
-  "name": "t:sections.announcement_bar.name",
+  "name": "Announcement bar",
   "class": "section-announcement-bar",
   "tag": "section",
   "settings": [
     {
       "type":"checkbox",
       "id": "only_homepage",
-      "label": "t:sections.announcement_bar.settings.show_in_homepage.label",
+      "label": "Only show on homepage",
       "default": false
     },
     {
       "type": "header",
-      "content": "t:sections.announcement_bar.settings.customization.content"
+      "content": "Customization"
     },
     {
       "type": "checkbox",
       "id": "enable_container",
-      "label": "t:sections.announcement_bar.settings.customization.enable_container.label",
+      "label": "Enable container",
       "default": false
     },
     {
@@ -129,7 +129,7 @@
     {
       "type": "range",
       "id": "speed_delay",
-      "label": "t:sections.announcement_bar.settings.customization.speed_delay.label",
+      "label": "Speed delay",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -139,7 +139,7 @@
     {
       "type": "range",
       "id": "autoscroll_speed",
-      "label": "t:sections.announcement_bar.settings.customization.autoscroll_speed.label",
+      "label": "Autoscroll speed",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -149,50 +149,50 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Background",
       "default": "#000"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.announcement_bar.settings.customization.text_color.label",
+      "label": "Text",
       "default": "#FFF"
     },
     {
       "type": "color",
       "id": "link_color",
-      "label": "t:sections.announcement_bar.settings.customization.link_color.label",
+      "label": "Link",
       "default": "#FFF"
     }
   ],
   "blocks": [
     {
       "type": "announcement",
-      "name": "t:sections.announcement_bar.blocks.name",
+      "name": "Announcement",
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "label": "t:sections.announcement_bar.blocks.settings.text.desktop",
+          "label": "Text",
           "default": "<p>Announce something here</p>"
         },
         {
           "type": "richtext",
           "id": "text_mobile",
-          "label": "t:sections.announcement_bar.blocks.settings.text.mobile",
+          "label": "Mobile text",
           "default": "<p>Announce something here</p>"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.announcement_bar.blocks.settings.link.label"
+          "label": "Link on announcement"
         },
         {
           "type": "checkbox",
           "id": "new_tab",
-          "label": "t:sections.announcement_bar.blocks.settings.open_in_new_tab.label",
+          "label": "Open in new tab",
           "default": false,
-          "info": "t:sections.announcement_bar.blocks.settings.open_in_new_tab.info"
+          "info": "Enable if you want to opens the link in new window."
         }
       ]
     }

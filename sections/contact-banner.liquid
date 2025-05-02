@@ -1,0 +1,173 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<style>
+  {% comment %} For contact us page linear gradient background {% endcomment %}
+  #template-page-contact {
+    background-image: linear-gradient(
+      {{ settings.top_color }} {{ settings.top_percentage }}%, 
+      {{ settings.bottom_color }} {{ settings.bottom_percentage }}%
+    );
+  }
+</style>
+
+
+{{ 'component-contact.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="contact-banner section-{{ section.id }}-padding" >
+  <div class="contact-wrapper" style="background-color: {{ section.settings.section_bg_color }};">
+    <div class="container contact-wrap align-{{ section.settings.content_align }}">
+
+      {%- if section.settings.img_top != blank -%}
+        <div class="coll-bg-image align-{{ section.settings.img_align }}">
+          <lazy-image>
+            <img src="{{ section.settings.img_top | image_url: width: section.settings.img_top.width }}"
+              alt="{{ section.settings.img_top.alt }}"
+              width="{{ section.settings.img_top.width }}"
+              height="{{ section.settings.img_top.height }}"
+              loading="lazy">
+          </lazy-image>
+        </div>
+      {%- endif -%}
+    
+      <div class="contact-heading" style="color:{{ section.settings.heading_color }}">
+        {% if section.settings.heading != blank  %}
+          <h2>{{ section.settings.heading }}</h2>
+        {% else %}
+          <h1>{{ page.title }}</h1>
+        {% endif %}
+      </div>
+
+      <div class="contact-text" style="color:{{ section.settings.text_color }}">
+        {% if section.settings.text != blank %}
+          <span class="h5">{{ section.settings.text }}</span>
+        {% endif %}
+      </div>  
+  
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact banner",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#082A32",
+      "label": "Heading color"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default":"<p>Add Text here</p>",
+      "label": "Text"  
+     },     
+     {
+      "type": "color",
+      "id": "text_color",
+      "default": "#5D5348",
+      "label": "Text color"
+    },
+    {
+      "type": "select",
+      "id": "content_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    }, 
+    {
+      "type": "header",
+      "content": "Section card customization"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_top",
+      "label": "Background image top"
+    },
+    {
+      "type": "select",
+      "id": "img_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right",
+      "label": "Content alignment"
+    }, 
+    {
+      "type": "header",
+      "content": "Section vertical spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact banner"
+    }
+  ]
+}
+{% endschema %}

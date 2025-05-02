@@ -600,7 +600,6 @@
     margin-top: 0.3rem;
   }
 }
-
 @media (max-width: 425px) {
   .product-item .product-card-swatches .color-swatch {
     width: 25px;

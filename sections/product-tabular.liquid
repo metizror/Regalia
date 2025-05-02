@@ -125,47 +125,42 @@
 
 {% schema %}
 {
-  "name": "t:sections.product_tabular.name",
-  "enabled_on": {
-    "templates": [
-      "product"
-    ]
-  },
+  "name": "Product tabs",
   "settings": [
     {
       "type": "color",
       "id": "section_bg_color",
-      "label": "t:sections.product_tabular.settings.section_bg_color.label",
+      "label": "Section Background Color",
       "default": "#ffffff"
     }
   ],
   "blocks": [
     {
       "type": "product_description",
-      "name": "t:sections.product_tabular.blocks.product_description.name",
+      "name": "Product description",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "t:sections.product_tabular.blocks.product_description.settings.tab_title.label",
+          "label": "Tab title",
           "default": "Description"
         }
       ]
     },
     {
       "type": "page_content",
-      "name": "t:sections.product_tabular.blocks.page_content.name",
+      "name": "Page content",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "t:sections.product_tabular.blocks.page_content.settings.tab_title.label",
+          "label": "Tab title",
           "default": "Page Content"
         },
         {
           "type": "range",
           "id": "page_spacing",
-          "label": "t:sections.product_tabular.blocks.page_content.settings.page_spacing.label",
+          "label": "Spacing",
           "min": 0,
           "max": 36,
           "default": 30
@@ -173,36 +168,36 @@
         {
           "type": "page",
           "id": "page_one",
-          "label": "t:sections.product_tabular.blocks.page_content.settings.page_one.label"
+          "label": "Select page"
         },
         {
           "type": "page",
           "id": "page_two",
-          "label": "t:sections.product_tabular.blocks.page_content.settings.page_two.label"
+          "label": "Select page"
         }
       ]
     },
     {
       "type": "rich_text",
-      "name": "t:sections.product_tabular.blocks.rich_text.name",
+      "name": "Rich text",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "t:sections.product_tabular.blocks.rich_text.settings.title.label",
+          "label": "Tab title",
           "default": "Rich Text"
         },
         {
           "type": "richtext",
           "id": "rich_text",
-          "label": "t:sections.product_tabular.blocks.rich_text.settings.content.label"
+          "label": "Rich text content"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.product_tabular.presets.name"
+      "name": "Product tabs"
     }
   ]
 }

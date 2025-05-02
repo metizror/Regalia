@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "section_group": {
     "header_group": {
       "name": "Header group"
@@ -290,22 +290,6 @@
         }
       }
     },
-    "variant_type":{
-      "name":"Variant type",
-      "settings":{
-        "variant_style":{
-          "label":"Variant type",
-        },
-        "options":{
-          "dropdown":{
-            "label":"Dropdown"
-          },
-          "buttons":{
-            "label":"buttons"
-          }
-        }
-      }
-    },
     "product_tiles": {
       "name": "Product tiles",
       "settings": {
@@ -547,9 +531,6 @@
       "subheading": {
         "label": "Subheading"
       },
-      "title_color":{
-        "label":"Title color"
-      },
       "text": {
         "label": "Text"
       },
@@ -728,7 +709,13 @@
           "label": "Main heading color"
         },
         "background_image": {
-          "label": "Background image"
+          "label": "Background image",
+          "desktop":{
+            "label": "Background image (desktop)"
+          },
+          "mobile": {
+            "label": "Background image (mobile)"
+          }
         },
         "background_image_height": {
           "label": "Background image height"
@@ -843,10 +830,7 @@
           "enable_container": {
             "label": "Enable container"
           },
-          "enable_navigation": {
-            "label":"Slider navigation button disable"
-          },
-          "enable_auto_scroll": {
+          "enbale_auto_scroll": {
             "label": "Enable auto scroll"
           },
           "speed_delay": {
@@ -983,11 +967,11 @@
             "multicolumn_icons": {
               "label": "SVG icon"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "Title"
             },
-            "multicolumne_text": {
-              "label": "text"
+            "multicolumn_text": {
+              "label": "Text"
             }
           }
         },
@@ -1039,7 +1023,8 @@
         "bg_image": {
           "label": "Background image",
           "title": "Title",
-          "description": "Description"
+          "description": "Description",
+          "overlay_opacity": "Overlay opacity"
         },
         "end_date": {
           "label": "End date"
@@ -1088,9 +1073,6 @@
       "presets": {
         "name": "Discount countdown"
       }
-    },
-    "featured_collection":{
-      "name":"Featured collection",
     },
     "duo_image": {
       "name": "Duo image",
@@ -1448,10 +1430,6 @@
         "group_filter_prefix": {
           "label": "Filter Group Prefix (comma-separated)"
         },
-        "price_filter_index":{
-          "label":"Price filter index",
-          "info":"The price filter comes first in the priority order"
-        },
         "filter_open": {
           "label": "Default filter open"
         },
@@ -1508,9 +1486,6 @@
         "header": {
           "content": "Content"
         },
-        "heading_show":{
-          "label":"Heading show"
-        },
         "heading": {
           "label": "Heading"
         },
@@ -1519,12 +1494,6 @@
         },
         "heading_opacity": {
           "label": "Heading opacity"
-        },
-        "card_color":{
-          "label":"Product card color"
-        },
-        "text_alignment":{
-          "label":"Text alignment"
         },
         "card_customization": {
           "content": "Section card customization",
@@ -1545,21 +1514,6 @@
           "products_to_show": {
             "label": "Maximum products to show"
           },
-          "products_column_show":{
-            "label":"Products column show"
-          },
-          "view_all":{
-            "label":"View All"
-          },
-          "btn_bg_color":{
-            "label":"Button background"
-          },
-          "type":{
-            "label":"Type"
-          },
-          "show_swatches":{
-            "label":"Show swatches"
-          },
           "countdown_timer": {
             "content": "Countdown timer",
             "show_countdown": {
@@ -1579,12 +1533,6 @@
         "coll_title": {
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
-        },
-        "view_all_btn":{
-          "label":"Button text",
-        },
-        "btn_url":{
-          "label":"Button url"
         }
       }
     },
@@ -1717,18 +1665,6 @@
     "footer": {
       "name": "Footer",
       "settings": {
-        "footer_lefttop":{
-          "label":"Left top image"
-        },
-        "footer_rightbottom":{
-          "label":"Right bottom image"
-        },
-        "menu_color":{
-          "label":"Menu color"
-        },
-        "menu_color_opacity":{
-          "label":"Menu opacity"
-        },
         "social_icons": {
           "label": "Social icons"
         },
@@ -1772,9 +1708,6 @@
             "info": {
               "label": "Store information"
             },
-            "footer_newsletter":{
-              "label":"News letter"
-            },
             "data": {
               "icon": {
                 "one": "Info icon 1",
@@ -1797,23 +1730,6 @@
             },
             "quick_menu": {
               "label": "Quick menu"
-            }
-          }
-        },
-        "social_details":{
-          "name":"Social icon",
-          "settings":{
-            "social_logo_1":{
-              "label":"Social icon one"
-            },
-             "social_logo_2":{
-              "label":"Social icon two"
-            },
-              "social_data_1":{
-              "label":"Social text one"
-            },
-             "social_data_2":{
-              "label":"Social text two"
             }
           }
         }
@@ -1852,9 +1768,6 @@
         },
         "sticky_header": {
           "label": "Sticky header"
-        },
-        "inline_search": {
-          "label":"Inline search"
         },
         "spacing": {
           "content": "Spacing",
@@ -2182,9 +2095,6 @@
         },
         "reverse_direction": {
           "label": "Reverse direction"
-        },
-        "icon_img":{
-          "label":"Icon name"
         }
       },
       "blocks": {
@@ -2506,13 +2416,6 @@
             "flip": "Flip"
           }
         },
-        "enable_overlay_bg":{
-          "label":"Enable overlay bg",
-          "info":"Enable this option to apply an overlay across the entire slide"
-        },
-        "whole_overlay_bg":{
-          "label":"Whole overlay bg"
-        },
         "enable_autoplay": {
           "label": "Enable autoplay"
         },
@@ -2813,9 +2716,6 @@
             },
             "title": {
               "label": "Title"
-            },
-            "description_size":{
-              "label":"Description size"
             }
           }
         },

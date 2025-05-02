@@ -93,7 +93,9 @@
         },
         "sticky_cart_khqGiU": {
           "type": "sticky_cart",
-          "settings": {}
+          "settings": {
+            "show_dynamic_checkout": true
+          }
         },
         "local_pickup_wg4zCH": {
           "type": "local_pickup",
@@ -141,14 +143,30 @@
           "settings": {
             "tab_title": "Shipping & return",
             "page_spacing": 30,
-            "page_one": "shipping-policy",
-            "page_two": "return-policy"
+            "page_one": "returns-policy",
+            "page_two": "shipping-returns"
+          }
+        },
+        "rich_text_kxGhb7": {
+          "type": "rich_text",
+          "settings": {
+            "tab_title": "Shipping & return",
+            "rich_text": ""
+          }
+        },
+        "rich_text_Dcxx4M": {
+          "type": "rich_text",
+          "settings": {
+            "tab_title": "Product reviews",
+            "rich_text": ""
           }
         }
       },
       "block_order": [
         "product_description_G483TL",
-        "page_content_H4cbQh"
+        "page_content_H4cbQh",
+        "rich_text_kxGhb7",
+        "rich_text_Dcxx4M"
       ],
       "settings": {
         "section_bg_color": "#ffffff"
@@ -186,9 +204,7 @@
       "block_order": [
         "judge_me_reviews_review_widget_YrpxLj"
       ],
-      "settings": {
-        "full_width": false
-      }
+      "settings": {}
     },
     "related_products_gfMwi7": {
       "type": "related-products",
