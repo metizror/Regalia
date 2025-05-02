@@ -200,6 +200,9 @@ details[open].menu-opening>.menu-drawer__submenu {
   .drawer-menu .header__menu-item svg path {
     fill: #082a32;
   }
+  .drawer-menu-list li a{
+    padding-bottom:20px;
+  }
 }
 
 .menu-drawer__account {
