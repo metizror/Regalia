@@ -39,7 +39,11 @@
   animation: scroll-right  linear infinite;
   animation-duration:var(--marqueen-txt-speed);
 }
-
+@media (max-width:768px){
+  .marquee-item, .marquee-text{
+    font-size:calc(var(--bs-size) + 6px)
+  }
+}
 /* Updated Keyframes for Right-to-Left Scrolling */
 @keyframes scroll-right {
   0% {
