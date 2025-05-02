@@ -71,7 +71,7 @@
         "megamenu_DMdzBV": {
           "type": "megamenu",
           "settings": {
-            "menu_title": "Shop",
+            "menu_title": "shop",
             "image_1": "shopify://shop_images/gallery-6.png",
             "image_1_heading": "Text 1",
             "image_1_text": "Shop now",
