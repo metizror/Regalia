@@ -120,7 +120,7 @@ summary.list-menu__item {
 .inline-search ul.product-list-wrapper{
   padding-left:0px;
 }
-.headercontent-flex.header--middle-left .list-menu--inline{
+.headercontent-flex.header--middle-left .list-menu--inline, .headercontent-flex.header--middle-center .list-menu--inline{
   padding-bottom:0px;
 }
 .headercontent-flex.header--middle-left .localization-country, .headercontent-flex.header--middle-center .localization-country{
