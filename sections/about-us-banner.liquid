@@ -3,7 +3,7 @@
 {%- style -%}
   #section-{{ section.id }} {
     padding-left: 15px;
-    padding-right: 15px;    
+    padding-right: 15px;
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
@@ -44,35 +44,41 @@
   }
 {%- endstyle -%}
 
-<section id="section-{{ section.id }}" class="about-us-banner">   
+<section id="section-{{ section.id }}" class="about-us-banner">
   <div class="banner-container {% if section.settings.full_width %}full-width{% else %}custom-width{% endif %}">
     <h2 class="banner-main-heading">
       {{ section.settings.main_heading }}
     </h2>
-    
-<div class="banner-content">
-  
-  <picture>
-    {% if section.settings.background_image_mob != blank %}
-      <source media="(max-width: 767px)" 
-              srcset="{{ section.settings.background_image_mob | image_url: width: 768 }}">
-    {% endif %}
-    
-    <source media="(min-width: 768px)" 
-            srcset="{{ section.settings.background_image | image_url: width: section.settings.background_image.width }}">
-    
-    <img 
-      src="{{ section.settings.background_image | image_url }}" 
-      alt="{{ section.settings.background_image.alt | default: 'Banner Image' }}"
-      width="{{ section.settings.background_image.width }}"
-      height="{{ section.settings.background_height }}"
-      loading="lazy"
-      style="width: 100%; object-fit: cover;">
-  </picture>
-      
-      <div class="banner-overlay"> </div>
+
+    <div class="banner-content">
+      <picture>
+        {% if section.settings.background_image_mob != blank %}
+          <source
+            media="(max-width: 767px)"
+            srcset="{{ section.settings.background_image_mob | image_url: width: 768 }}"
+          >
+        {% endif %}
+
+        <source
+          media="(min-width: 768px)"
+          srcset="{{ section.settings.background_image | image_url: width: section.settings.background_image.width }}"
+        >
+
+        <img
+          src="{{ section.settings.background_image | image_url }}"
+          alt="{{ section.settings.background_image.alt | default: 'Banner Image' }}"
+          width="{{ section.settings.background_image.width }}"
+          height="{{ section.settings.background_height }}"
+          loading="lazy"
+          style="width: 100%; object-fit: cover;"
+        >
+      </picture>
+
+      <div class="banner-overlay"></div>
       <div class="banner-text d-{{ section.settings.text_position_desk | replace: ' ', '-' }} m-{{ section.settings.text_position_mob | replace: ' ', '-' }}">
-        <{{ section.settings.subheading_size }} class="subheading">{{ section.settings.sub_heading }}</{{ section.settings.subheading_size }}>
+        <{{ section.settings.subheading_size }} class="subheading">
+          {{- section.settings.sub_heading -}}
+        </{{ section.settings.subheading_size }}>
         <span class="description {{ section.settings.desc_size }}">{{ section.settings.description }}</span>
       </div>
     </div>
@@ -98,7 +104,7 @@
       "max": 1600,
       "step": 10,
       "default": 1180
-    },   
+    },
     {
       "type": "range",
       "id": "inner_max_width",
@@ -126,16 +132,16 @@
       ]
     },
     {
-        "type": "select",
-        "id": "heading_align_mob",
-        "label": "Main heading alignment (Mobile)",
-        "default": "center",
-        "options": [
-          { "value": "left", "label": "Left" },
-          { "value": "center", "label": "Center" },
-          { "value": "right", "label": "Right" }
-        ]
-      },
+      "type": "select",
+      "id": "heading_align_mob",
+      "label": "Main heading alignment (Mobile)",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
     {
       "type": "color",
       "id": "main_heading_color",
@@ -154,15 +160,15 @@
       "min": 300,
       "max": 600,
       "step": 10,
-      "default": 570, 
+      "default": 570,
       "info": "On mobile, height will auto adapt."
-    },  
+    },
     {
       "type": "image_picker",
       "id": "background_image_mob",
       "label": "Background image (Mobile)"
     },
-     {
+    {
       "type": "text",
       "id": "sub_heading",
       "label": "Sub heading",
@@ -204,22 +210,22 @@
       ]
     },
     {
-        "type": "select",
-        "id": "text_position_mob",
-        "label": "Text alignment (Mobile)",
-        "default": "bottom left",
-        "options": [
-          { "value": "top left", "label": "Top left" },
-          { "value": "top center", "label": "Top center" },
-          { "value": "top right", "label": "Top right" },
-          { "value": "middle left", "label": "Middle left" },
-          { "value": "middle center", "label": "Middle center" },
-          { "value": "middle right", "label": "Middle right" },
-          { "value": "bottom left", "label": "Bottom left" },
-          { "value": "bottom center", "label": "Bottom center" },
-          { "value": "bottom right", "label": "Bottom right" }
-        ]
-      },
+      "type": "select",
+      "id": "text_position_mob",
+      "label": "Text alignment (Mobile)",
+      "default": "bottom left",
+      "options": [
+        { "value": "top left", "label": "Top left" },
+        { "value": "top center", "label": "Top center" },
+        { "value": "top right", "label": "Top right" },
+        { "value": "middle left", "label": "Middle left" },
+        { "value": "middle center", "label": "Middle center" },
+        { "value": "middle right", "label": "Middle right" },
+        { "value": "bottom left", "label": "Bottom left" },
+        { "value": "bottom center", "label": "Bottom center" },
+        { "value": "bottom right", "label": "Bottom right" }
+      ]
+    },
     {
       "type": "select",
       "id": "subheading_size",
@@ -232,40 +238,40 @@
       ]
     },
     {
-        "type": "select",
-        "id": "desc_size",
-        "label": "Description font size",
-        "default": "h5",
-        "options": [
-          { "value": "h5", "label": "Small" },
-          { "value": "h4", "label": "Medium" },
-          { "value": "h3", "label": "Large" }
-        ]
-      },
+      "type": "select",
+      "id": "desc_size",
+      "label": "Description font size",
+      "default": "h5",
+      "options": [
+        { "value": "h5", "label": "Small" },
+        { "value": "h4", "label": "Medium" },
+        { "value": "h3", "label": "Large" }
+      ]
+    },
     {
-        "type": "header",
-        "content": "Section vertical spacing"
-      },
+      "type": "header",
+      "content": "Section vertical spacing"
+    },
     {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Top padding",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Bottom padding",
-        "default": 36
-      }
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
   ],
   "presets": [
     {
@@ -274,5 +280,3 @@
   ]
 }
 {% endschema %}
-
-
