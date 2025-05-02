@@ -29,8 +29,7 @@
       data-slider-options='
         { "slidesPerView": 1, "direction": "vertical",  "grabCursor": true, "centeredSlides": true, "speed": {{ section.settings.speed_delay }}, "navigation": {"nextEl": "#shopify-section-{{ section.id }} .swiper-button-next", "prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev"}{% if section.blocks.size > 1 %},
         "loop": true {% endif %} {% if section.settings.enable_autoscroll %} , "autoplay": { "delay": {{ section.settings.autoscroll_speed }}, "disableOnInteraction": false} {% endif %} }
-      '
-    >
+      '>
       <div class="swiper-wrapper {% if section.blocks.size <= 1 %} disable__loop {% else %} swiper__enable {% endif %}">
         {%- for block in section.blocks -%}
           {%- liquid
@@ -82,12 +81,12 @@
         {%- endfor -%}
       </div>
     </div>
-    {% if section.settings.enable_navigation %}
+  {% if section.settings.enable_navigation %}
       <div class="swiper-navigations">
         <button type="button" class="swiper-button-prev" aria-label="Previous slide"></button>
         <button type="button" class="swiper-button-next" aria-label="Next slide"></button>
       </div>
-    {% endif %}
+  {% endif %}
   </div>
 
   <script src="{{ 'component-announcement-bar.js' | asset_url }}" type="text/javascript" defer></script>
@@ -100,7 +99,7 @@
   "tag": "section",
   "settings": [
     {
-      "type": "checkbox",
+      "type":"checkbox",
       "id": "only_homepage",
       "label": "Only show on homepage",
       "default": false
@@ -116,10 +115,10 @@
       "default": false
     },
     {
-      "type": "checkbox",
-      "id": "enable_navigation",
-      "label": "t:sections.announcement_bar.settings.customization.enable_navigation.label",
-      "default": true
+      "type":"checkbox",
+      "id":"enable_navigation",
+      "label":"t:sections.announcement_bar.settings.customization.enable_navigation.label",
+      "default":true
     },
     {
       "type": "checkbox",

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-/* sticky header */
 .section-main-header {
 	position: sticky;
 	top: 0;
@@ -8,73 +6,40 @@
 	transition: top 0.3s ease-in-out;
 }
 
-=======
->>>>>>> production
 .pswp-popup-body .section-main-header {
 	z-index: 0;
 }
+
 .list-menu--right {
 	right: 0;
 }
-
-<<<<<<< HEAD
-.header--middle-left {
-	.single-menu {
-		padding-bottom: 0px;
-	}
-
-	.list-menu__item {
-		padding-bottom: 0px;
-	}
-
-	.header__submenu.list-menu {
-		top: 180px;
-	}
-
-	.megamenu-content {
-		transform: translate(0px, 30px);
-	}
-=======
 
 /* Header Middle Left */
 .header--middle-left .single-menu,
 .header--middle-left .list-menu__item {
   padding-bottom: 0px;
->>>>>>> production
 }
 
 .header--middle-left .header__submenu.list-menu {
-  top: 180px;
+	top: 180px;
 }
 
 .header--middle-left .megamenu-content {
-  transform: translate(0px, 30px);
+	transform: translate(0px, 30px);
 }
+
 .mega-submenucontent .list-menu__item--active {
 	opacity: 1;
 }
 
-<<<<<<< HEAD
-.header-top-center {
-	.header__submenu.list-menu {
-		top: 40px;
-	}
-
-	.header__submenu.subchild-menu {
-		transform: translate(100%, 0%);
-		border-radius: 6px;
-	}
-=======
-
 /* Header Top Center */
 .header-top-center .header__submenu.list-menu {
-  top: 40px;
+	top: 40px;
 }
 
 .header-top-center .header__submenu.subchild-menu {
   transform: translate(100%, 0%);
   border-radius: 6px;
->>>>>>> production
 }
 
 .language-selector {
@@ -109,6 +74,7 @@
 	width: 10rem;
 	padding: 0.5rem;
 }
+
 .list-menu {
 	list-style: none;
 	padding: 0;
@@ -118,10 +84,7 @@
 .list-menu--inline {
 	display: inline-flex;
 	flex-wrap: wrap;
-<<<<<<< HEAD
-=======
-    padding-bottom:20px;
->>>>>>> production
+   padding-bottom:20px;
 }
 
 summary.list-menu__item {
@@ -137,8 +100,6 @@ summary.list-menu__item {
 	text-decoration: none;
 	padding-bottom: 1rem;
 	padding-top: 1rem;
-<<<<<<< HEAD
-=======
 }
 /* search-css middle-left logo  */
 .inline-search .predicative-input{
@@ -172,7 +133,6 @@ summary.list-menu__item {
   max-width:25%;
   width:25%;
   justify-content: end;
->>>>>>> production
 }
 @media screen and (min-width: 750px) {
 	.list-menu__item--link {
@@ -257,21 +217,13 @@ summary.list-menu__item {
 	line-height: 0;
 }
 
-<<<<<<< HEAD
 .header__heading,
 .header__heading-link {
-=======
-.header__heading .header__heading-link {
->>>>>>> production
 	grid-area: heading;
 	justify-self: center;
 }
 
-<<<<<<< HEAD
-.header__heading-link {
-=======
 .header__heading .header__heading-link {
->>>>>>> production
 	display: inline-block;
 	padding: 0.75rem;
 	text-decoration: none;
@@ -355,10 +307,7 @@ summary.list-menu__item {
 .header__icons {
 	display: flex;
 	gap: 20px;
-<<<<<<< HEAD
-	padding-right: 0.8rem;
-=======
->>>>>>> production
+  padding-right: 0.8rem;
 }
 
 .header__icons .shopify-app-block {
@@ -411,10 +360,7 @@ summary.list-menu__item {
 
 .header__icon--cart {
 	position: relative;
-<<<<<<< HEAD
 	margin-right: -1.2rem;
-=======
->>>>>>> production
 }
 
 .header__icon--cart .cart-count {
@@ -460,31 +406,36 @@ details[open] .header__icon-close {
 
 account-icon {
 	display: flex;
-<<<<<<< HEAD
-=======
 }
-.inline-search #predictive-search{
-  position:absolute;
-  height:calc(100vh - 30vh);
-  overflow:auto;
-  width: 350px;
-  transform: translate(-70px, 10px);
-  display:none;
-  z-index:1;
+
+.inline-search #predictive-search {
+	position: absolute;
+	height: calc(100vh - 30vh);
+	overflow: auto;
+	width: 350px;
+	transform: translate(-70px, 10px);
+	display: none;
+	z-index: 1;
 }
-.inline-search .predictive-search-results{
-  background: #fff;
+
+.inline-search .predictive-search-results {
+	background: #fff;
 }
-.inline-search .predictive-search-content{
-  flex-wrap:wrap;
+
+.inline-search .predictive-search-content {
+	flex-wrap: wrap;
 }
-.inline-search .suggestions-wrapper, .inline-search .products-wrapper, .inline-search .page-wrapper{
-  width:100%;
+
+.inline-search .suggestions-wrapper,
+.inline-search .products-wrapper,
+.inline-search .page-wrapper {
+	width: 100%;
 }
+
 .inline-search .products-wrapper li{
   list-style-type: none;
->>>>>>> production
 }
+
 /* Search */
 menu-drawer+.header__search {
 	display: none;
@@ -691,20 +642,14 @@ details[open]>.header__submenu {
 }
 
 .header__menu-item {
-<<<<<<< HEAD
 	padding: 1.2rem;
-=======
-	padding: 0 1.2rem;
->>>>>>> production
 	text-decoration: none;
 	color: (var(--color-link));
 	opacity: 0.75;
 	gap: 6px;
-<<<<<<< HEAD
 	padding-top: 0px;
 	padding-bottom: 18px;
-=======
->>>>>>> production
+
 }
 
 .header__menu-item:hover {
@@ -764,14 +709,7 @@ details[open]>.header__menu-item .icon-caret {
 	justify-content: space-between;
 	padding: 0.8rem 2rem;
 }
-<<<<<<< HEAD
 
-.header__submenu .header__menu-item:hover {
-	/* text-decoration-line: underline; */
-}
-
-=======
->>>>>>> production
 .header__menu-item .icon-caret {
 	right: 0.8rem;
 }
@@ -786,24 +724,17 @@ details[open]>.header__menu-item .icon-caret {
 	position: relative;
 	text-align: center;
 }
-<<<<<<< HEAD
 
 header-menu>details,
 details-disclosure>details {
 	/* position: relative; */
 }
 
-=======
->>>>>>> production
 .top-header-set {
 	width: 100%;
 	display: flex;
 	align-items: center;
-<<<<<<< HEAD
 	justify-content: space-evenly;
-=======
-	justify-content: space-between;
->>>>>>> production
 }
 
 /* Start Mega menu */
@@ -918,7 +849,6 @@ details-disclosure>details {
 
 .megamenuinner-data {
 	background-color: #fff;
-	/* box-shadow: 0px 4px 8px #003; */
 }
 
 .header__submenu.mega-submenucontent.list-menu {
@@ -948,12 +878,7 @@ h2.megamenutitle {
 }
 
 .single-menu {
-<<<<<<< HEAD
-	padding: 20px;
-	padding-top: 0px;
-=======
 	padding: 0 20px;
->>>>>>> production
 	text-decoration: none;
 	opacity: .75;
 }
@@ -969,15 +894,14 @@ h2.megamenutitle {
 
 .quick-view-popup .section-main-header {
 	display: none;
-<<<<<<< HEAD
-=======
 }
-.header__icon--cart .cartzero{
-  display:none;
+
+.header__icon--cart .cartzero {
+	display: none;
 }
+
 .header__icon--cart.cartNumber .cartzero{
   display:inline-flex;
->>>>>>> production
 }
 
 @media only screen and (max-width:989px) {
@@ -1021,10 +945,6 @@ h2.megamenutitle {
 
 	.search-left-side.desk-hide,
 	.menu-icon-mobile.desk-hide {
-<<<<<<< HEAD
-		/* display: block; */
-=======
->>>>>>> production
 		display: flex;
 		gap: 15px;
 	}
