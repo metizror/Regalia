@@ -13,7 +13,6 @@
   width: 100%;   
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  max-height:420px;
 }
 
 .video-product-section .vidproinner {
@@ -85,6 +84,9 @@
 
   .video-product-section .vidpro-heading {
     padding-bottom: 0;
+  }
+  .video-product-section .vidproinner video{
+    max-height: 420px;
   }
 }
 
