@@ -19,8 +19,8 @@
           "settings": {
             "text": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
-            "link": "shopify://pages/about-us",
-            "new_tab": true
+            "link": "",
+            "new_tab": false
           }
         },
         "announcement_HGRbeL": {
