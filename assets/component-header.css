@@ -88,7 +88,7 @@
 }
 
 summary.list-menu__item {
-	padding-right: 2.7rem;
+	padding-right: 0rem;
 }
 
 .list-menu__item {
@@ -648,7 +648,7 @@ details[open]>.header__submenu {
 	opacity: 0.75;
 	gap: 6px;
 	padding-top: 0px;
-	padding-bottom: 18px;
+	padding-bottom: 0px;
 
 }
 
