@@ -707,7 +707,7 @@ details[open]>.header__menu-item .icon-caret {
 
 .header__submenu .header__menu-item {
 	justify-content: space-between;
-	padding: 0.8rem 2rem;
+	padding: 0.8rem 0rem;
 }
 
 .header__menu-item .icon-caret {
