@@ -120,6 +120,9 @@ summary.list-menu__item {
 .inline-search ul.product-list-wrapper{
   padding-left:0px;
 }
+.headercontent-flex.header--middle-left .list-menu--inline{
+  padding-bottom:0px;
+}
 /* top-center-logo */
 .header--top-center .language-location-content{
   max-width:25%;
