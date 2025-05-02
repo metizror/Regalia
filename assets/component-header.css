@@ -1,38 +1,45 @@
+.section-main-header {
+	position: sticky;
+	top: 0;
+	z-index: 111;
+	background-color: var(--white);
+	transition: top 0.3s ease-in-out;
+}
+
 .pswp-popup-body .section-main-header {
 	z-index: 0;
 }
+
 .list-menu--right {
 	right: 0;
 }
-.header--middle-left {
-	.single-menu {
-		padding-bottom: 0px;
-	}
 
-	.list-menu__item {
-		padding-bottom: 0px;
-	}
-
-	.header__submenu.list-menu {
-		top: 180px;
-	}
-
-	.megamenu-content {
-		transform: translate(0px, 30px);
-	}
+/* Header Middle Left */
+.header--middle-left .single-menu,
+.header--middle-left .list-menu__item {
+	padding-bottom: 0px;
 }
+
+.header--middle-left .header__submenu.list-menu {
+	top: 180px;
+}
+
+.header--middle-left .megamenu-content {
+	transform: translate(0px, 30px);
+}
+
 .mega-submenucontent .list-menu__item--active {
 	opacity: 1;
 }
-.header-top-center {
-	.header__submenu.list-menu {
-		top: 40px;
-	}
 
-	.header__submenu.subchild-menu {
-		transform: translate(100%, 0%);
-		border-radius: 6px;
-	}
+/* Header Top Center */
+.header-top-center .header__submenu.list-menu {
+	top: 40px;
+}
+
+.header-top-center .header__submenu.subchild-menu {
+	transform: translate(100%, 0%);
+	border-radius: 6px;
 }
 
 .language-selector {
@@ -40,6 +47,7 @@
 	z-index: 9;
 }
 
+/* Disclosure Menus */
 .list-menu--disclosure {
 	position: absolute;
 	min-width: 12rem;
@@ -66,6 +74,7 @@
 	width: 10rem;
 	padding: 0.5rem;
 }
+
 .list-menu {
 	list-style: none;
 	padding: 0;
@@ -75,16 +84,12 @@
 .list-menu--inline {
 	display: inline-flex;
 	flex-wrap: wrap;
-    padding-bottom:20px;
 }
 
 summary.list-menu__item {
 	padding-right: 2.7rem;
 }
 
-/* New header css */
-/* Header css */
-/* Main Header Layout */
 .list-menu__item {
 	display: flex;
 	align-items: center;
@@ -95,39 +100,7 @@ summary.list-menu__item {
 	padding-bottom: 1rem;
 	padding-top: 1rem;
 }
-/* search-css middle-left logo  */
-.inline-search .predicative-input{
-  border-radius: 270px;  
-  border-color:#FFF0F5;
-  color:rgba(33, 33, 33, 0.2);
-}
-.inline-search .inline-submit circle, .inline-search .inline-submit path{
- stroke: rgba(0, 0, 0, 0.1);  
-}
-.predictive-search-content{
-  position:relative;
-}
-.predictive-search-content.search-field button[type=submit]:after{
-  content: "";
-  border:0px;
-}
-.inline-search ul.product-list-wrapper{
-  padding-left:0px;
-}
-/* top-center-logo */
-.header--top-center .language-location-content{
-  max-width:25%;
-  width:25%;
-}
-.header--top-center .header__heading{
-  max-width:50%;
-  width:50%;
-}
-.header--top-center .header__icons{
-  max-width:25%;
-  width:25%;
-  justify-content: end;
-}
+
 @media screen and (min-width: 750px) {
 	.list-menu__item--link {
 		padding-bottom: 0.5rem;
@@ -398,27 +371,35 @@ details[open] .header__icon-close {
 account-icon {
 	display: flex;
 }
-.inline-search #predictive-search{
-  position:absolute;
-  height:calc(100vh - 30vh);
-  overflow:auto;
-  width: 350px;
-  transform: translate(-70px, 10px);
-  display:none;
-  z-index:1;
+
+.inline-search #predictive-search {
+	position: absolute;
+	height: calc(100vh - 30vh);
+	overflow: auto;
+	width: 350px;
+	transform: translate(-70px, 10px);
+	display: none;
+	z-index: 1;
 }
-.inline-search .predictive-search-results{
-  background: #fff;
+
+.inline-search .predictive-search-results {
+	background: #fff;
 }
-.inline-search .predictive-search-content{
-  flex-wrap:wrap;
+
+.inline-search .predictive-search-content {
+	flex-wrap: wrap;
 }
-.inline-search .suggestions-wrapper, .inline-search .products-wrapper, .inline-search .page-wrapper{
-  width:100%;
+
+.inline-search .suggestions-wrapper,
+.inline-search .products-wrapper,
+.inline-search .page-wrapper {
+	width: 100%;
 }
-.inline-search .products-wrapper li{
-  list-style-type: none;
+
+.inline-search .products-wrapper li {
+	list-style-type: none;
 }
+
 /* Search */
 menu-drawer+.header__search {
 	display: none;
@@ -880,11 +861,13 @@ h2.megamenutitle {
 .quick-view-popup .section-main-header {
 	display: none;
 }
-.header__icon--cart .cartzero{
-  display:none;
+
+.header__icon--cart .cartzero {
+	display: none;
 }
-.header__icon--cart.cartNumber .cartzero{
-  display:inline-flex;
+
+.header__icon--cart.cartNumber .cartzero {
+	display: inline-flex;
 }
 
 @media only screen and (max-width:989px) {
