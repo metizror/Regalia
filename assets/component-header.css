@@ -123,6 +123,9 @@ summary.list-menu__item {
 .headercontent-flex.header--middle-left .list-menu--inline{
   padding-bottom:0px;
 }
+.headercontent-flex.header--middle-left .localization-country{
+  justify-content:end;
+}
 /* top-center-logo */
 .header--top-center .language-location-content{
   max-width:25%;
