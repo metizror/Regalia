@@ -41,28 +41,12 @@
     {%- endif -%}
   </div>
   
-  <div class="col-content swiper" data-slider-options='{
-    "breakpoints": {
-      "320": { "slidesPerView": 2 },
-      "600": { "slidesPerView": 2 },
-      "767": { "slidesPerView": 3 },
-      "1024": { "slidesPerView": 4 },
-      "1440": { "slidesPerView": {{ section.settings.number_slide }} }
-    },
-    "a11y": false,
-    "grabCursor": true,
-    "spaceBetween": {{ section.settings.space_between }},
-    {% if section.blocks.size > 5 %}
-      "loop": true {% if section.settings.enable_autoplay %},
-      "autoplay": { "delay": 2000, "disableOnInteraction": false }
-      {% endif %}
-    {% endif %}
-  }'>
+  <div class="col-content">
     
-    <ul class="col-innercontent swiper-wrapper" role="list">
+    <ul class="col-innercontent" role="list">
       {% for block in section.blocks %}
         {% assign collection = block.settings.collection %}
-        <li class="collection-list-item bgimgcol swiper-slide" role="listitem">
+        <li class="collection-list-item bgimgcol" role="listitem">
           <div class="listitem-wrapper" role="group">
             {%- if block.settings.collection_image -%}
               <a href="{{ collection.url }}" tabindex="0">
@@ -148,31 +132,6 @@
       "type": "image_picker",
       "id": "bgimgcol",
       "label": "t:sections.featured_collection_list.settings.background_image.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured_collection_list.settings.slider.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_autoplay",
-      "label": "t:sections.featured_collection_list.settings.slider.enable_autoplay.label",
-      "default": true
-    },
-    {
-      "type": "number",
-      "id": "number_slide",
-      "label": "t:sections.featured_collection_list.settings.slider.slide_per_view.label",
-      "default": 6
-    },
-    {
-      "type": "range",
-      "id": "space_between",
-      "label": "t:sections.featured_collection_list.settings.slider.space_between_image.label",
-      "min": 2,
-      "max": 50,
-      "step": 1,
-      "default": 21
     },
     {
       "type": "header",
