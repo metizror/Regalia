@@ -60,7 +60,6 @@
       };
 
       initQuickView = () => {
->>>>>>> production
         
         if (!this.productJson || !this.quickViewEle) return;
         this.quickViewEle.classList.add("active");
