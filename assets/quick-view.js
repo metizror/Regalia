@@ -35,17 +35,7 @@
         let overlayclose = closestContainer.querySelector(".overlay-background");
 
 
-      if (quickviewClose) {
-        quickviewClose.addEventListener("click", () => {
-          this.closeQuickView();
-        });
 
-      quickviewClose.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          this.closeQuickView();
-        }
-      });
 
         if (quickviewClose) {
           quickviewClose.addEventListener("click", () => {
