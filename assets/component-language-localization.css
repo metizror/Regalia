@@ -17,3 +17,6 @@
 .header--middle-left .defaultlanguage{
   width:35px;
 }
+.header--middle-left .desktop-localization-wrapper{
+  width:90px;
+}
