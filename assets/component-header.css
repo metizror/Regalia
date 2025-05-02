@@ -123,7 +123,7 @@ summary.list-menu__item {
 .headercontent-flex.header--middle-left .list-menu--inline{
   padding-bottom:0px;
 }
-.headercontent-flex.header--middle-left .localization-country{
+.headercontent-flex.header--middle-left .localization-country, .headercontent-flex.header--middle-center.localization-country{
   justify-content:end;
 }
 /* top-center-logo */
