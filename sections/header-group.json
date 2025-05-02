@@ -25,7 +25,6 @@
         },
         "announcement_HGRbeL": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>Summer sale: Up to 70% off selected items</p>",
             "text_mobile": "<p>Summer sale: Up to 70% off selected items</p>",
@@ -88,7 +87,7 @@
         "megamenu_DMdzBV"
       ],
       "settings": {
-        "logo_position": "top-center",
+        "logo_position": "middle-left",
         "menu": "main-menu",
         "enable_country_selector": true,
         "enable_language_selector": true,
