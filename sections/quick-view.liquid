@@ -2,6 +2,8 @@
 {{ 'component-featured-product.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-product-model.css' | asset_url | stylesheet_tag:preload: true}}
 {{ 'quick-view.css' | asset_url | stylesheet_tag:preload: true }}
+
+{% assign quick_variant_type = settings.variant_type %}
 <main-product>
   <div class="container">
     <div class="product-wrapper media-width-{{ settings.media_width }}">
@@ -129,12 +131,11 @@
                 </div>
             </div> 
               {% endif %}
-          <div class="product-block">
+         <div {{ variant_type }} class="product-block">
             {%- render 'product-variants',
               product: product,
-              layout: settings.variant_type,
-              size_guide: settings.size_guide_page,
-              hide_size: settings.hide_size
+              block:block,  
+              quick_variant_type: quick_variant_type
             -%}
           </div>
           <div class="product-block block-buy_button">
@@ -197,8 +198,6 @@
   
 </main-product>
 
-<script src="{{ 'component-featured-product.js' | asset_url }}" type="text/javascript" defer></script>
-<script src="{{ 'component-main-product.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-model.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-zoom.js' | asset_url }}" type="text/javascript" defer></script>
 

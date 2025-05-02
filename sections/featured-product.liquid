@@ -6,19 +6,29 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+  .product-info-content .product-block{
+    margin-top:{{ section.settings.block_space }}px;
+  }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
-  }
+    }
 {%- endstyle -%}
+
+ {% for block in section.blocks %}
+ {% if block.settings.show_percentage %}
+      {% assign show_percentage = true %}
+    {% endif %}
+{% endfor %}
 
 {% assign product = section.settings.product %}
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign show_percentage = section.settings.show_percentage %}
+{% assign quick_variant_type = settings.variant_type %}
 
-<section class="featured-product">
+<section class="featured-product {{ quick_variant_type }}">
   <div class="container">
     <div class="featured-product-content  {%- if product.available == false %} product-sold-out{% endif -%} {%- if product.compare_at_price > product.price and product.quantity_price_breaks_configured? != true %} product-sale{% endif -%}">
       <div class="product-img-content featureProduct">
@@ -135,7 +145,7 @@
 
             {%- when 'title' -%}
               <div
-                class="product-block block-{{ block.type }}"
+                class="product-title block-{{ block.type }}"
                 mag-animation
                 data-mag-delay="{{ forloop.index | times: 100 }}"
               >
@@ -193,7 +203,7 @@
             {%- when 'info_text' -%}
               {% if block.settings.info_text %}
                 <div
-                  class="info_text block-{{ block.type }}"
+                  class="info_text product-block block-{{ block.type }}"
                   mag-animation
                   data-mag-delay="{{ forloop.index | times: 100 }}"
                 >
@@ -201,12 +211,12 @@
                 </div>
               {% endif %}
             {% when 'product_sold' %}
-              <div class="products-sold-mess">
+              <div class="products-sold-mess product-block">
                 <span>{% render 'icons', icon: 'fire-icon' %}</span>
                 <div id="sold-message" data-min-sold="30" data-max-sold="50" data-hours="21">{{ 'products.featured_product.loading' | t }}</div>
               </div>
             {% when 'product_stock' %}
-              <div class="stock-indicator">
+              <div class="stock-indicator product-block">
                 <p>
                   Hurry! Only <span id="stock-count"></span><span class="variant-after-text">items</span> left in stock.
                 </p>
@@ -216,7 +226,7 @@
               </div>
             {%- when 'variants' -%}
               <div class="product-block block-{{ block.type }}" id="{{ form_id }}">
-                {%- render 'product-variants', product: product -%}
+                {%- render 'product-variants', product: product, quick_variant_type: quick_variant_type, show_percentage: show_percentage, block:block  -%}
               </div>
 
             {%- when 'price', product: product -%}
@@ -278,7 +288,6 @@
 </section>
 
 <script src="{{ 'component-featured-product.js' | asset_url }}" type="text/javascript" defer></script>
-<script src="{{ 'component-main-product.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-model.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-zoom.js' | asset_url }}" type="text/javascript" defer></script>
 
@@ -327,9 +336,14 @@
       "default": 20
     },
     {
-      "type": "text",
-      "id": "pro_title",
-      "label": "Product title"
+      "type":"range",
+      "id":"block_space",
+      "min":0,
+      "max":50,
+      "step":5,
+      "unit":"px",
+      "label":"Each block space",
+      "default":20
     },
     {
       "type": "header",

@@ -273,7 +273,10 @@ summary.list-menu__item {
 .header__icons {
 	display: flex;
 	gap: 20px;
+<<<<<<< HEAD
 	padding-right: 0.8rem;
+=======
+>>>>>>> production
 }
 
 .header__icons .shopify-app-block {
@@ -326,7 +329,10 @@ summary.list-menu__item {
 
 .header__icon--cart {
 	position: relative;
+<<<<<<< HEAD
 	margin-right: -1.2rem;
+=======
+>>>>>>> production
 }
 
 .header__icon--cart .cart-count {

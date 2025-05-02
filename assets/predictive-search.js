@@ -3,14 +3,12 @@ class PredictiveSearch extends HTMLElement {
     super();
 
     this.input = this.querySelector('input[type="search"]');
-    this.predictiveSearchResults = this.querySelector("#predictive-search");
+    this.predictiveSearchResults = this.querySelector('#predictive-search');
+    this.body = document.querySelector('body'); 
 
-    this.input.addEventListener(
-      "input",
-      this.debounce((event) => {
-        this.onChange(event);
-      }, 300).bind(this)
-    );
+    this.input.addEventListener('input', this.debounce((event) => {
+      this.onChange(event);
+    }, 300).bind(this));
   }
 
   onChange() {
@@ -36,9 +34,7 @@ class PredictiveSearch extends HTMLElement {
         return response.text();
       })
       .then((text) => {
-        const resultsMarkup = new DOMParser()
-          .parseFromString(text, "text/html")
-          .querySelector("#shopify-section-predictive-search").innerHTML;
+        const resultsMarkup = new DOMParser().parseFromString(text, 'text/html').querySelector('#shopify-section-predictive-search').innerHTML;
         this.predictiveSearchResults.innerHTML = resultsMarkup;
         this.open();
         theme.onScrollAnimation();
@@ -50,11 +46,13 @@ class PredictiveSearch extends HTMLElement {
   }
 
   open() {
-    this.predictiveSearchResults.style.display = "block";
+    this.predictiveSearchResults.style.display = 'block';
+    this.body.classList.add('inline-search-open');
   }
 
   close() {
-    this.predictiveSearchResults.style.display = "none";
+    this.predictiveSearchResults.style.display = 'none';
+     this.body.classList.remove('inline-search-open');
   }
 
   debounce(fn, wait) {
@@ -66,4 +64,4 @@ class PredictiveSearch extends HTMLElement {
   }
 }
 
-customElements.define("predictive-search", PredictiveSearch);
+customElements.define('predictive-search', PredictiveSearch);

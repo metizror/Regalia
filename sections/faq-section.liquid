@@ -35,13 +35,13 @@
       </lazy-image>
       <div class="faq-content">
         {%- if section.settings.title -%}
-          <{{ section.settings.heading_size }} class="faq-heading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">{{ section.settings.title }}</{{ section.settings.heading_size }}>
+          <{{ section.settings.heading_size }} tabindex="0" class="faq-heading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">{{ section.settings.title }}</{{ section.settings.heading_size }}>
         {%- endif -%}
         <div class="faq-items">
           {% for faq in section.blocks %}
             {%- if faq.settings.question != blank and faq.settings.answer != blank -%}
-              <div class="faq-item-wrapper" ms-aos data-ms-delay={{ forloop.index0 | times: 150 }}>
-                <div class="faq-question">
+              <div  tabindex="0" class="faq-item-wrapper" ms-aos data-ms-delay={{ forloop.index0 | times: 150 }}>
+                <div tabindex="-1" class="faq-question">
                   <div class="faq-icon-wrapper">
                     <span class="faq-icon">
                       {%- if faq.settings.faq_icon -%}
@@ -53,7 +53,7 @@
                       {%- endif -%}
                     </span>
                     {%- if faq.settings.question -%}
-                      <span class="faq-qa">{{ faq.settings.question }}</span>
+                      <span tabindex="0" class="faq-qa">{{ faq.settings.question }}</span>
                     {%- endif -%}
                   </div>
                   <span class="faq-toggle">
@@ -61,9 +61,11 @@
                   </span>
                 </div>
                 <div class="faq-answer">
+                     <div aria-label="{{ faq.settings.answer }}" tabindex="0">
                   {%- if faq.settings.answer -%}
                     {{ faq.settings.answer }}
                   {%- endif -%}
+                     </div>
                 </div>
               </div>
             {%- endif -%}

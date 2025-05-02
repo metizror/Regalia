@@ -5,6 +5,21 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }  
+    {% for block in section.blocks %}
+    .overlaywhole-{{ block.id }} .imgundercontent{
+      right:0;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+        position: absolute;
+        inset: 0;
+      background: {{ block.settings.whole_overlay_bg }};
+      z-index: 1;
+    }
+    .overlacontent h2{
+      color:{{ block.settings.title_color }};
+    }
+ 
+  {% endfor %}
 
   @media (max-width:768px){
     #shopify-section-{{ section.id }} {
@@ -52,7 +67,7 @@
   <div class="swiper-wrapper">
     {% for block in section.blocks %}
       <div
-        class="swiper-slide sliderimg"
+        class="swiper-slide sliderimg {% if block.settings.overlay_bg %}overlaywhole-{{ block.id }}{% endif %}"
         data-image="{{ block.settings.image  | image_url: width: block.settings.image.width }}"
       >
         {% if block.settings.image %}
@@ -75,15 +90,15 @@
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
         <div class="imgundercontent content-{{ block.settings.content_alignment }}">
-          <div class="overlacontent text-{{ block.settings.heading_alignment }} align-{{ block.settings.btn_alignment }}" ms-aos data-ms-delay="100">
+          <div class="overlacontent {% if block.settings.overlay_bg %}container{% endif %} text-{{ block.settings.heading_alignment }} align-{{ block.settings.btn_alignment }}" ms-aos data-ms-delay="100">
             {% if block.settings.maintitle %}
-              <h2>{{ block.settings.maintitle }}</h2>
+              <{{ block.settings.heading_size }}>{{ block.settings.maintitle }}</{{ block.settings.heading_size }}>
             {% endif %}
             {% if block.settings.sub_title %}
               <p>{{ block.settings.sub_title }}</p>
             {% endif %}
             {% if block.settings.btn_link %}
-              <a href="{{ block.settings.btn_link }}" class="btn btn-effect">
+              <a href="{{ block.settings.btn_link }}" {% if block.settings.new_tab %}target="_blank"{% endif %} class="btn btn-effect">
                 <span class="text-container">
                   <p class="slidebtn">{{ block.settings.button_label }}</p>
                 </span>
@@ -210,6 +225,12 @@
           "default": "left"
         },
         {
+          "type":"checkbox",
+            "id":"overlay_bg",
+          "label":"t:sections.slideshow.settings.enable_overlay_bg.label",
+          "info":"t:sections.slideshow.settings.enable_overlay_bg.info",
+        },
+        {
           "type": "text",
           "id": "maintitle",
           "label": "Main title"
@@ -218,6 +239,11 @@
           "type": "richtext",
           "id": "sub_title",
           "label": "Sub title"
+        },
+        {
+          "type":"color",
+            "id":"title_color",
+          "label":"t:sections.general.title_color.label"
         },
         {
           "type": "header",
@@ -252,7 +278,8 @@
               "label": "Right"
             }
           ],
-          "default": "center"
+          "default": "center",
+          "info": "This alignment work on button and text content only desktop view."
         },
         {
           "type": "select",
@@ -294,6 +321,12 @@
           ],
           "default": "right",
           "info": "This position is only applicable in Desktop & Tablet view."
+        },
+        {
+          "type": "color_background",
+          "id": "whole_overlay_bg",
+          "label": "t:sections.slideshow.settings.whole_overlay_bg.label",
+          "default": "linear-gradient(#ffffff, #000000)"
         },
         {
           "type": "checkbox",

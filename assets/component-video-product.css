@@ -6,7 +6,7 @@
 .video-product-section .vidpro-heading {
   line-height: 39.23px;
   font-weight: var(--weight-regular);
-  padding-bottom: 12px;
+  padding-bottom: 25px;
 }
 
 .video-product-section .vidproinner video {
@@ -55,7 +55,7 @@
 
 .proimg .img-wrapper img {
   border-radius: 6px;
-  width: 70px;
+  width: 75px;
   background-color: var(--placeholder_bg_color);
 }
 
@@ -109,13 +109,5 @@
     height: 330px;
     object-fit: cover;
   }
-  
-}
 
-@media (min-width:768px) and (max-width:1024px) {
-  
-  .procontent-wrapper .pricecontent{
-     flex-direction: column;
-  }
-  
 }

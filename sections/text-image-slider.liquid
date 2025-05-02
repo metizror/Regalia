@@ -12,6 +12,21 @@
       --btn-bg-color: {{ block.settings.btn_bg_color }};
       --bg-blur: {{ block.settings.bg_blur }}px;
     }
+    .iwt-title{
+      color:{{ block.settings.main_title }};
+    }
+    .overlayslider .image-with-text .content-wrapper{
+      padding-left:{{ block.settings.text_padding }}%;
+    }
+    .overlay-slider-{{ block.id }} .bg-image-wrapper{
+          right:0;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+        position: absolute;
+        inset: 0;
+      background: {{ block.settings.overlay_bg }};
+      z-index: 1;
+    }
   {%- endfor -%}
   @media (max-width:768px){
     #shopify-section-{{ section.id }}{
@@ -22,34 +37,20 @@
 {%- endstyle -%}
 {{ 'component-textImage-slider.css' | asset_url |stylesheet_tag: preload: true }}
 
-<section class="text-image-slider-section">
+{% capture slider_enable %}
+  {% if section.settings.slider_enable %}sliderenable{% else %}sliderdisable{% endif %}
+{% endcapture %}
+<section class="text-image-slider-section {{ slider_enable }}">
   <div class="{% if section.settings.enable_full_width %}full-width{% else %}container{% endif %}">
-    <div class="text-image-wrapper swiper"
-      data-slider-options='
-      {
-      "direction": "vertical", 
-      "speed": 1000,
-      "slidesPerView": 1, 
-      "breakpoints": 
-      { 
-      "320": { "direction": "vertical", "slidesPerView": 1 },
-      "768": { "direction": "vertical", "slidesPerView": 1 },
-      "1280": { "direction": "vertical", "slidesPerView": 1 }
-      },
-      
-      {% if section.blocks.size > 1 %} 
-      "loop": true ,
-        {% endif %}
-        {% if section.settings.enable_autoscroll %} 
-       "autoplay": { "delay": {{ section.settings.autoscroll_speed }}, "disableOnInteraction": false},
+    <div       
+      {% if section.settings.slider_enable %} 
+      class="text-image-wrapper swiper"
+      data-slider-options='{"direction": "vertical", "speed": 1000, "slidesPerView": 1, "breakpoints": { "320": { "direction": "vertical", "slidesPerView": 1 }, "768": { "direction": "vertical", "slidesPerView": 1 }, "1280": { "direction": "vertical", "slidesPerView": 1 } }, {% if section.blocks.size > 1 %} "loop": true {% endif %} {% if section.settings.enable_autoscroll %} , "autoplay": { "delay": {{ section.settings.autoscroll_speed }}, "disableOnInteraction": false}, {% endif %} "navigation": {"nextEl": "#shopify-section-{{ section.id }} .swiper-button-next","prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev" }}'
       {% endif %}
-      
-      "navigation": {
-      "nextEl": "#shopify-section-{{ section.id }} .swiper-button-next",
-      "prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev" }}'>
-      <div class="swiper-wrapper">
+      >
+      <div class="swiper-wrapper overlayslider">
         {%- for block in section.blocks -%}
-          <div class="text-image-items swiper-slide block-id-{{ block.id }}">
+          <div class="text-image-items {% if block.settings.bg_overlay_content %}overlay-slider-{{ block.id }}{% endif %} swiper-slide block-id-{{ block.id }}">
             {%- case block.type -%}
               {%- when 'image-with-text' -%}
                 <div class="image-with-text flex-reverse">
@@ -73,7 +74,9 @@
                     {%- endif -%}
                     {%- if block.settings.description -%}
                       <span class="iwt-description">
-                        {{ block.settings.description }}
+                          <{{block.settings.description_size}} class="iwt-description">
+                        {{ block.settings.description | strip_html }}
+                          </{{block.settings.description_size}}>   
                       </span>
                     {%- endif -%}
                     {%- if block.settings.btn_text -%}
@@ -81,6 +84,50 @@
                         {{ block.settings.btn_text }}
                       </a>
                     {%- endif -%}
+                  </div>
+                 <div class="images-content">
+                    <div class="image-left-side">
+                      {% if section.settings.image_first %}
+                      <img src="{{ section.settings.image_first | image_url: width: section.settings.image_first.width }}"
+                alt="{{ section.settings.image_first.alt | default: 'collection-image' }}"
+                width="{{ section.settings.image_first.width }}"
+                height="{{ section.settings.image_first.height }}"
+                loading="lazy"
+                style="--object-position:{{ section.settings.image_first.presentation.focal_point }}">
+                      {% endif %}
+                    </div>
+                    <div class="image-right-side">
+                        {% if section.settings.image_sec %}
+                           <img src="{{ section.settings.image_sec | image_url: width: section.settings.image_sec.width }}"
+                alt="{{ section.settings.image_sec.alt | default: 'collection-image' }}"
+                width="{{ section.settings.image_sec.width }}"
+                height="{{ section.settings.image_sec.height }}"
+                loading="lazy"
+                style="--object-position:{{ section.settings.image_sec.presentation.focal_point }}">
+                      {% endif %}
+                    </div>
+                    <div class="image-btn-side">
+                      {% if section.settings.image_third %}
+                           <img src="{{ section.settings.image_third | image_url: width: section.settings.image_third.width }}"
+                alt="{{ section.settings.image_third.alt | default: 'collection-image' }}"
+                width="{{ section.settings.image_third.width }}"
+                height="{{ section.settings.image_third.height }}"
+                loading="lazy"
+                style="--object-position:{{ section.settings.image_third.presentation.focal_point }}">
+                       
+                      {% endif %}
+                    </div>
+                    <div class="image-bottom-side">
+                      {% if section.settings.image_four %}
+                           <img src="{{ section.settings.image_four | image_url: width: section.settings.image_four.width }}"
+                alt="{{ section.settings.image_four.alt | default: 'collection-image' }}"
+                width="{{ section.settings.image_four.width }}"
+                height="{{ section.settings.image_four.height }}"
+                loading="lazy"
+                style="--object-position:{{ section.settings.image_four.presentation.focal_point }}">
+                       
+                      {% endif %}
+                    </div>
                   </div>
                 </div>
               {%- when 'image-overlay-text' -%}
@@ -133,10 +180,12 @@
           </div>
         {%- endfor -%}
       </div>
+        {% if section.settings.slider_enable %}          
       <div class="swiper-navigation">
         <button type="button" class="swiper-button-prev"></button>
         <button type="button" class="swiper-button-next"></button>
       </div>  
+      {% endif %}
     </div>
   </div>
 </section>
@@ -270,6 +319,38 @@
           "type": "text",
           "id": "title",
           "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "description_size",
+          "label": "t:sections.text_image_slider.blocks.image_with_text.settings.description_size.label",
+          "options": [
+            {
+              "value": "h1",
+              "label": "t:sections.general.font_size.extra_large.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:sections.general.font_size.large_size.label"
+            },
+            {
+              "value": "h3",
+              "label": "t:sections.general.font_size.medium_size.label"
+            },
+            {
+              "value": "h4",
+              "label": "t:sections.general.font_size.small_size.label"
+            },
+            {
+              "value": "h5",
+              "label": "t:sections.general.font_size.extra_small.label"
+            },
+            {
+              "value": "h6",
+              "label": "t:sections.general.font_size.tiny.label"
+            }
+          ],
+          "default": "h2"
         },
         {
           "type": "richtext",

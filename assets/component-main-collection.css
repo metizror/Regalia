@@ -114,7 +114,10 @@
 .showprod-column {
   column-gap: 10px;
 }
-
+.filter-list-content{
+  display: flex;
+  flex-direction: column;
+}
 /* List view css */
 [data-grid-column="listview"] .grid-item {
   width: 100%;

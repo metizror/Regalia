@@ -45,19 +45,63 @@
   endfor
 -%}
 
+<style>
+  .headercontent-flex .header__icon--cart .cart-count{
+    right:0px;
+    top:0px;
+  }
+  @media (max-width:989px){
+  .cart-hide-tablet .cart-tablet-drawer{
+    display:none;
+  } 
+    .container.inline-search{
+  display: none;
+    } 
+    .headercontent-flex{
+      display:flex;
+      justify-content: space-between;
+    }
+  .headercontent-flex .cart-drawer-icon{
+      display:flex;    
+    }
+    .header__heading.middle-center-hide{
+      display:none;
+    }
+  }
+  @media (min-width:990px){
+   header .header__icon:not(.header__icon--summary).tablet-icon-cart{
+     display:none; 
+    }
+    .search-icon-mob{
+      display:none;
+    }
+    .header__icon.search-icon-mob.desk-hide{
+      display:none;
+    }
+  }
+  @media (min-width:989px) and (max-width:1399px){
+    .headercontent-flex{
+      grid-template-columns: auto auto 1fr;
+    }
+    .header--top-left.headercontent-flex{
+      grid-template-columns: 1fr auto;
+    }
+  }
+</style>
+
 <sticky-drawer id="header" class="sticky-header">
-  <header class="header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
+  <header class="{% unless section.settings.logo_position == 'top-center' %}headercontent-flex{% endunless %} header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
     {% unless section.settings.logo_position == 'top-center' %}
-      <div class="language-location-content">
+      <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
-          <div class="language-content-data">
+          <div tabindex="0" class="language-content-data">
             {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
               <div>
                 {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
               </div>
             {%- endif -%}
           </div>
-          <div class="desktop-localization-wrapper">
+          <div tabindex="0" class="desktop-localization-wrapper">
             <localization-form class="small-hide medium-hide" data-prevent-hide>
               {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                 <div>
@@ -68,10 +112,14 @@
           </div>
 
           <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-            <a href="{{ routes.search_url }}" class="header__icon header__icon--search action-search">
-              {{- 'icon-search.svg' | inline_asset_content -}}
-              <span class="visuallyhidden">{{ 'sections.header.search' | t }}</span>
-            </a>
+              {% if section.settings.inline_search %}
+                  {%- render 'predictive-search-right' -%}
+              {% else %}         
+                <a href="{{ routes.search_url }}" class="header__icon header__icon--search action-search">
+                    {{- 'icon-search.svg' | inline_asset_content -}} 
+                <span class="visuallyhidden">{{ 'sections.header.search' | t }}</span>
+                </a>
+             {% endif %}
 
             {%- if shop.customer_accounts_enabled -%}
               <a
@@ -110,26 +158,16 @@
               {%- endcase -%}
             {%- endfor -%}
 
-            <a
-              href="{{ routes.cart_url }}"
-              class="header__icon header__icon--cart link focus-inset"
-              id="cart-icon-bubble"
-              aria-label="Go to cart"
-            >
-              {% if cart == empty %}
-                <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-              {% else %}
-                <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-              {% endif %}
-              <span class="visuallyhidden">{{ 'sections.header.cart' | t }}</span>
-              <span
-                data-cart-count
-                {% if cart.item_count == 0 %}
-                  style="display:none;"
-                {%- endif -%}
-              >
-                {{- cart.item_count -}}
-              </span>
+            <a href="{{ routes.cart_url }}" class="cart-tablet-drawer {% if settings.cart_type == 'drawer' %}side-cartdrawer{% endif %} header__icon header__icon--cart link focus-inset" id="cart-icon-bubble" aria-label="Go to cart">
+            {% if cart == empty %}
+              <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+            {% else %}
+              <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+            {% endif %}
+            <span class="visuallyhidden">{{ 'sections.header.cart' | t }}</span>
+            <span class="cart-count {% if cart.item_count == 0 %}cartzero{%- endif -%}" data-cart-count>
+              {{- cart.item_count -}}
+            </span>
             </a>
           </div>
           {%- render 'predictive-search' -%}
@@ -178,6 +216,26 @@
       {%- endif -%}
     {%- endif -%}
 
+     {% unless section.settings.logo_position == 'top-center' %}   
+      <div class="cart-drawer-icon">
+          <a class="tablet-icon-cart {% if settings.cart_type == 'drawer' %}side-cartdrawer {% endif %}header__icon header__icon--cart link focus-inset" {% if settings.cart_type == 'page' %}href="{{ routes.cart_url }}"{% endif %} id="cart-icon-bubble" aria-label="Go to cart">
+          {% if cart == empty %}
+            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+          {% else %}
+            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+          {% endif %}
+          <span class="visuallyhidden">{{ 'sections.header.cart' | t }}</span>
+          <span class="cart-count {% if cart.item_count == 0 %}cartzero{%- endif -%}" data-cart-count>
+            {{- cart.item_count -}}
+          </span>
+        </a>
+       
+    <div class="menu-icon-mobile desk-hide">
+         {% render 'menu-drawer' %}
+    </div>
+    </div>   
+  {% endunless %}
+    
     {% unless section.settings.logo_position == 'top-center' %}
       {% render 'header-dropdown-menu' %}
     {% endunless %}
@@ -256,14 +314,15 @@
         </div>
         <div class="language-location-content mobile-hide">
           <div class="localization-country">
-            <div class="language-content-data">
+            <div class="language-content-data" tabindex='0'>
               {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
                 <div>
                   {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
                 </div>
               {%- endif -%}
             </div>
-            <div class="desktop-localization-wrapper">
+             {% if section.settings.enable_country_selector %}
+            <div class="desktop-localization-wrapper" tabindex='0'>
               <localization-form class="small-hide medium-hide" data-prevent-hide>
                 {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                   <div>
@@ -272,6 +331,7 @@
                 {%- endform -%}
               </localization-form>
             </div>
+            {% endif %} 
           </div>
         </div>
         <h1 class="header__heading">
@@ -306,10 +366,14 @@
         </h1>
 
         <div class="header__icons search-mobile-hide action-wrapper{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-          <a href="{{ routes.search_url }}" class="header__icon right-side header__icon--search action-search">
-            {{- 'icon-search.svg' | inline_asset_content -}}
+            {% if section.settings.inline_search %}
+                {%- render 'predictive-search-right' -%}
+            {% else %}         
+            <a href="{{ routes.search_url }}" class="header__icon header__icon--search action-search">
+                {{- 'icon-search.svg' | inline_asset_content -}} 
             <span class="visuallyhidden">{{ 'sections.header.search' | t }}</span>
-          </a>
+            </a>
+            {% endif %}
 
           {%- if shop.customer_accounts_enabled -%}
             <a
@@ -347,30 +411,16 @@
                 {% render block %}
             {%- endcase -%}
           {%- endfor -%}
-          <a
-            class="{% if settings.cart_type == 'drawer' %}side-cartdrawer {% endif %}header__icon header__icon--cart link focus-inset"
-            {% if settings.cart_type == 'page' %}
-              href="{{ routes.cart_url }}"
-              {% else %} role="button" tabindex="0"
-            {% endif %}
-            id="cart-icon-bubble"
-            aria-label="Go to cart"
-          >
-            {% if cart == empty %}
-              <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-            {% else %}
-              <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-            {% endif %}
-            <span class="visuallyhidden">{{ 'sections.header.cart' | t }}</span>
-            <span
-              class="cart-count"
-              data-cart-count
-              {% if cart.item_count == 0 %}
-                style="display:none;"
-              {%- endif -%}
-            >
-              {{- cart.item_count -}}
-            </span>
+          <a class="{% if settings.cart_type == 'drawer' %}side-cartdrawer {% endif %}header__icon header__icon--cart link focus-inset" {% if settings.cart_type == 'page' %}href="{{ routes.cart_url }}"{% endif %} id="cart-icon-bubble" aria-label="Go to cart" tabindex="0">
+          {% if cart == empty %}
+            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+          {% else %}
+            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+          {% endif %}
+          <span class="visuallyhidden">{{ 'sections.header.cart' | t }}</span>
+          <span class="cart-count {% if cart.item_count == 0 %}cartzero{%- endif -%}" data-cart-count>
+            {{- cart.item_count -}}
+          </span>
           </a>
           <div class="menu-icon-mobile desk-hide">
             {% render 'menu-drawer' %}
@@ -464,8 +514,19 @@
     {
       "type": "checkbox",
       "id": "sticky_header",
+<<<<<<< HEAD
       "label": "Sticky header",
       "default": true
+=======
+      "label": "t:sections.header.settings.sticky_header.label",
+      "default": false
+    },
+    {
+      "type":"checkbox",
+        "id":"inline_search",
+      "label":"t:sections.header.settings.inline_search.label",
+      "default":true
+>>>>>>> production
     },
     {
       "type": "header",
