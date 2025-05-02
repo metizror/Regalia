@@ -24,22 +24,21 @@
     </div>
   </div>
 </div>
-
 {% schema %}
 {
-  "name": "t:sections.main_page.name",
+  "name": "Page",
   "tag": "section",
   "class": "section",
   "settings": [
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Show full width",
       "default": false
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -48,7 +47,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 0
     },
     {
@@ -58,7 +57,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 0
     }
   ]

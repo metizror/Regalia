@@ -262,7 +262,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.store_locator.name",
+  "name": "Store locator",
   "class": "section-store-locator",
   "tag": "section",
   "disabled_on": {
@@ -271,43 +271,43 @@
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.store_locator.settings.layout.label"
+      "content": "Layout"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Enable full width",
       "default": false
     },
     {
       "type": "header",
-      "content": "t:sections.general.heading.label"
+      "content": "Heading"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.general.text.label",
+      "label": "Text",
       "default": "Visit Us"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
-          "label": "t:sections.general.font_size.extra_large.label",
+          "label": "Extra large",
           "value": "h1"
         },
         {
-          "label": "t:sections.general.font_size.large_size.label",
+          "label": "Large",
           "value": "h2"
         },
         {
-          "label": "t:sections.general.font_size.medium_size.label",
+          "label": "Medium",
           "value": "h3"
         },
         {
-          "label": "t:sections.general.font_size.small_size.label",
+          "label": "Small",
           "value": "h4"
         }
       ],
@@ -316,61 +316,61 @@
     {
       "type": "select",
       "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Alignment",
       "options": [
         {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left",
+          "value": "left"
         },
         {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center",
+          "value": "center"
         },
         {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right",
+          "value": "right"
         }
       ],
       "default": "left"
     },
     {
       "type": "header",
-      "content": "t:sections.map.settings.map.content"
+      "content": "Map"
     },
     {
       "type": "text",
       "id": "api_key",
-      "label": "t:sections.map.settings.map_api.label",
-      "info": "t:sections.map.settings.map_api.info"
+      "label": "Google maps api key",
+      "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
     },
     {
       "type": "select",
       "id": "map_style",
-      "label": "t:sections.map.settings.map_style.label",
+      "label": "Style",
       "default": "default",
       "options": [
         {
-          "label": "t:sections.map.settings.map_style.options.default_style",
+          "label": "Default",
           "value": "default"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.silver_style",
+          "label": "Silver",
           "value": "silver"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.retro_style",
+          "label": "Retro",
           "value": "retro"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.dark_style",
+          "label": "Dark",
           "value": "dark"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.night_style",
+          "label": "Night",
           "value": "night"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.aubergine",
+          "label": "Aubergine",
           "value": "aubergine"
         }
       ]
@@ -378,67 +378,67 @@
     {
       "type": "select",
       "id": "map_position",
-      "label": "t:sections.store_locator.settings.map_position.label",
+      "label": "Map position",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "right"
     },
     {
       "type": "header",
-      "content": "t:sections.general.color.content"
+      "content": "Color"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label",
+      "label": "Heading",
       "default": "#082A32"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Store backgorund",
       "default": "#FBF5F0"
     },
     {
       "type": "color",
       "id": "location_title_color",
-      "label": "t:sections.store_locator.settings.location_title_color.label",
+      "label": "Location title",
       "default": "#082A32"
     },
     {
       "type": "color",
       "id": "location_address_color",
-      "label": "t:sections.store_locator.settings.location_address_color.label",
+      "label": "Location address",
       "default": "#797979"
     },
     {
       "type": "color",
       "id": "active_location_color",
-      "label": "t:sections.store_locator.settings.active_location_color.label",
+      "label": "Active location",
       "default": "#FFFFFF"
     },
     {
       "type": "color",
       "id": "btn_color",
-      "label": "t:sections.general.button.button_text_color.label",
+      "label": "Button text",
       "default": "#082A32"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -448,7 +448,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -459,52 +459,52 @@
   "blocks": [
     {
       "type": "location",
-      "name": "t:sections.store_locator.blocks.name",
+      "name": "Location",
       "settings": [
         {
           "type": "header",
-          "content": "t:sections.store_locator.blocks.settings.address.content"
+          "content": "Address"
         },
         {
           "type": "text",
           "id": "address_title",
-          "label": "t:sections.store_locator.blocks.settings.address.label",
+          "label": "Title",
           "default": "Briefly on earth"
         },
         {
           "type": "richtext",
           "id": "address",
-          "label": "t:sections.store_locator.blocks.settings.address.address.label",
-          "info": "t:sections.store_locator.blocks.settings.address.address.info",
+          "label": "Address",
+          "info": "Google Maps will find the exact location",
           "default": "<p>75 9th Ave, New York, NY 10011-7006</p>"
         },
         {
           "type": "image_picker",
           "id": "background_image",
-          "label": "t:sections.store_locator.blocks.settings.address.placeholder_image.label",
+          "label": "Placeholder image",
           "info": "To display if there is no map key"
         },
         {
           "type": "header",
-          "content": "t:sections.general.button.content"
+          "content": "Buttton"
         },
         {
           "type": "text",
           "id": "btn_text",
-          "label": "t:sections.general.button.button_text.label",
+          "label": "Text",
           "default": "View details"
         },
         {
           "type": "url",
           "id": "btn_link",
-          "label": "t:sections.general.button.button_link.label"
+          "label": "Link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.store_locator.presets.name",
+      "name": "Store locator",
       "blocks": [
         {
           "type": "location"

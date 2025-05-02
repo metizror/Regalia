@@ -17,7 +17,7 @@
         "announcement_k6878x": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Mid-Season Sale Up to 70% OFF. <strong> </strong><a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
+            "text": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "link": "shopify://pages/about-us",
             "new_tab": true

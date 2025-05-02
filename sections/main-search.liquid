@@ -375,7 +375,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main_search.name",
+  "name": "Search",
   "class": "search-page",
   "enabled_on": {
     "templates": [
@@ -386,25 +386,25 @@
     {
       "type": "checkbox",
       "id": "enable_sort",
-      "label": "t:sections.collection.settings.show_sorting.label",
+      "label": "Show sorting",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "enable_filters",
-      "label": "t:sections.collection.settings.show_filters.label",
+      "label": "Show filters",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "default_open",
-      "label": "t:sections.collection.settings.filter_open.label",
+      "label": "Filter open",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "product_count",
-      "label": "t:sections.collection.settings.show_product_count.label",
+      "label": "Show product count",
       "default": true
     },
     {
@@ -414,7 +414,7 @@
       "max": 4,
       "step": 1,
       "default": 4,
-      "label": "t:sections.collection.settings.product_per_row.label"
+      "label": "Product per row"
     },
     {
       "type": "range",
@@ -423,12 +423,12 @@
       "max": 30,
       "step": 1,
       "default": 25,
-      "label": "t:sections.collection.settings.gap_between_products.label"
+      "label": "Spacing"
     },
     {
       "type": "range",
       "id": "pagination",
-      "label": "t:sections.collection.settings.show_products_in_page.label",
+      "label": "Show procuts in page",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -436,35 +436,35 @@
     },
     {
       "type": "header",
-      "content": "t:sections.blog.settings.select_blog.customization.article.label"
+      "content": "Article"
     },
     {
       "type": "checkbox",
       "id": "show_image",
-      "label": "t:sections.blog.settings.select_blog.customization.show_image.label",
+      "label": "Show image",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_date",
-      "label": "t:sections.blog.settings.select_blog.customization.show_date.label",
+      "label": "Show date",
       "default": true
     },
     {
       "type": "select",
       "id": "date_formats_patterns",
-      "label": "t:sections.blog.settings.select_blog.customization.date_formats.content",
+      "label": "Date formats",
       "options": [
         {
-          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.dmy",
+          "label": "DD MM, YY",
           "value": "%d %b, %Y"
         },
         {
-          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.mdy",
+          "label": "MM DD, YY",
           "value": "%b %d, %Y"
         },
         {
-          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.ydm",
+          "label": "YY-DD-MM",
           "value": "%Y-%d-%b"
         }
       ],
@@ -473,19 +473,19 @@
     {
       "type": "checkbox",
       "id": "show_author",
-      "label": "t:sections.blog.settings.select_blog.customization.show_author.label",
+      "label": "Show author",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_excerpt",
-      "label": "t:sections.blog.settings.select_blog.customization.show_excerpt.label",
+      "label": "Show Excerpt",
       "default": true
     },
     {
       "type": "range",
       "id": "product_per_coll",
-      "label": "t:sections.collection.settings.show_products_in_page.label",
+      "label": "Show procuts in page",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -493,47 +493,47 @@
     },
     {
       "type": "header",
-      "content": "t:sections.general.color.content"
+      "content": "Color"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background"
     },
     {
       "type": "color",
       "id": "article_color",
-      "label": "t:sections.blog.settings.select_blog.customization.article_background.label"
+      "label": "Article background"
     },
     {
       "type": "color",
       "id": "title_color",
       "default": "#153D47",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading"
     },
     {
       "type": "color",
       "id": "text_color",
       "default": "#797979",
-      "label": "t:sections.article.settings.customizations.article_text_color.label"
+      "label": "Article content"
     },
     {
       "type": "color",
       "id": "date_bg_color",
       "default": "#EFEFEF",
-      "label": "t:sections.article.settings.customizations.field_background.label"
+      "label": "Field background"
     },
     {
       "type": "color",
       "id": "link_color",
       "default": "#000000",
-      "label": "t:sections.general.color.link_color.label"
+      "label": "Link"
     },
     {
       "type": "color",
       "id": "border_color",
       "default": "#E9CFB4",
-      "label": "t:sections.blog.settings.select_blog.customization.border_color.label"
+      "label": "Border"
     }
   ]
 }

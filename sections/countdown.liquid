@@ -1,4 +1,14 @@
 {%- style -%}
+    #shopify-section-{{ section.id }} .countdown-image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;  
+      background-color: {{ section.settings.overlay_color | color_modify: 'alpha', section.settings.overlay_opacity }};
+      backdrop-filter: blur(5.9px);
+  }
   #shopify-section-{{ section.id }}{
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -28,7 +38,7 @@
       width: 100%;
     " 
     loading="lazy">
-    
+     <div class="countdown-image-overlay"></div>
     {%- else -%}
       {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
@@ -73,7 +83,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.countdown.name",
+  "name": "Countdown",
   "class": "section section-countdown",
   "tag": "section",
   "disabled_on": {
@@ -86,50 +96,65 @@
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Enable full width",
       "default": false
     },
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "t:sections.countdown.settings.bg_image.label"
+      "label": "Background image"
+    },
+      {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:sections.general.color.overlay_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.countdown.settings.bg_image.overlay_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.4
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.countdown.settings.bg_image.title",
+      "label": "Title",
       "default": "Deal of the week"
     },
     {
       "type": "richtext",
       "id": "description",
-      "label": "t:sections.countdown.settings.bg_image.description",
+      "label": "Description",
       "default": "<p>This week only they are all 20% off. While supplies last, planters not be restocked.</p>"
     },
     {
       "type": "text",
       "id": "end_date",
-      "label": "t:sections.countdown.settings.end_date.label",
+      "label": "End date",
       "default": "2022-12-31"
     },
     {
       "type": "header",
-      "content": "t:sections.general.button.content"
+      "content": "Button"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "t:sections.general.button.button_text.label",
+      "label": "Text",
       "default": "Shop now"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "t:sections.general.button.button_link.label"
+      "label": "Link"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -138,7 +163,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -148,13 +173,13 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     }
   ],
   "presets": [
     {
-      "name": "t:sections.countdown.presets.name",
+      "name": "Countdown",
     }
   ]
 }

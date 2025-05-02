@@ -16,20 +16,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  padding: 4rem 2rem;
   background-color: var(--bg-color, #f8f4ef);
   color: var(--text-color, #000);
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-top: 0;
 }
 
 .image-with-text .image-wrapper {
   flex: 1;
   text-align: center;
-  width: 610px;
-  height: 610px;
+  max-width: 50%;
+  height: 605px;
   overflow: hidden;
   position: relative;
 }
@@ -70,11 +65,11 @@
 
 .image-with-text .iwt-btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+    padding: 14px 20px;
+    font-size: 16px;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: 600;
+    font-weight: 500;
   transition: background-color 0.3s ease;
   color: var(--btn-text-color);
   background: var(--btn-bg-color);
@@ -285,7 +280,6 @@
 
   .image-with-text .iwt-btn {
     font-size: calc(var(--bs-size) + 2px);
-    ;
     padding: 13px 27px;
     font-weight: var(--weight-medium);
   }

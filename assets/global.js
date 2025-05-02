@@ -354,7 +354,7 @@ theme.languageOnHeader = () => {
   });
 };
 
-// Collection product grid
+
 theme.productCollectionGrid = () => {
   document.querySelectorAll(".prod-column-change").forEach((btn) => {
     const handleGridChange = () => {
@@ -377,6 +377,7 @@ theme.productCollectionGrid = () => {
     });
   });
 };
+
 
 // Animation.js
 theme.onScrollAnimation = () => {
