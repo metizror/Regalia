@@ -34,7 +34,7 @@
         let quickviewClose = closestContainer.querySelector(".quick-view-close");
         let overlayclose = closestContainer.querySelector(".overlay-background");
 
-<<<<<<< HEAD
+
       if (quickviewClose) {
         quickviewClose.addEventListener("click", () => {
           this.closeQuickView();
@@ -46,7 +46,7 @@
           this.closeQuickView();
         }
       });
-=======
+
         if (quickviewClose) {
           quickviewClose.addEventListener("click", () => {
             this.closeQuickView();
