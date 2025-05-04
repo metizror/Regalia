@@ -191,7 +191,9 @@ details[open].menu-opening>.menu-drawer__submenu {
   .language-location-content.mobile-hide {
     display: none;
   }
-
+ .desktop-localization-wrapper.mobile-tablet-hide{
+   display: none;
+ }
   .drawer-menu-btn .close-icon svg {
     width: 16px;
     height: 16px;
