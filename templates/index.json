@@ -194,9 +194,6 @@
         "title": "Gorgeous Collections",
         "preheading": "Attractive jewellery",
         "bgimgcol": "shopify://shop_images/Isolation_Mode.png",
-        "enable_autoplay": false,
-        "number_slide": 6.5,
-        "space_between": 20,
         "heading_size": "h2",
         "heading_alignment": "center",
         "heading_color": "#082a32",
@@ -371,7 +368,7 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
-        "pro_title": "",
+        "block_space": 20,
         "heading_size": "h3",
         "heading_alignment": "center",
         "heading_color": "",
@@ -401,7 +398,6 @@
         },
         "image_overlay_text_EydJDC": {
           "type": "image-overlay-text",
-          "disabled": true,
           "settings": {
             "bg_image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0.jpg",
             "bg_blur": 4,
@@ -568,6 +564,8 @@
       "settings": {
         "enable_full_width": true,
         "background_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4,
         "title": "Deal of the Week",
         "description": "<p>This week only, get 20% off all jewelry. Limited stock available! </p>",
         "end_date": "2026-01-31",
