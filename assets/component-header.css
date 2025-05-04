@@ -953,6 +953,9 @@ h2.megamenutitle {
 		display: flex;
 		gap: 15px;
 	}
+  .header-logo-data{
+    display:none;
+  }
 }
 
 @media only screen and (max-width:1024px) {
