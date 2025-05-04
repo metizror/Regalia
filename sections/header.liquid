@@ -94,7 +94,7 @@
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
-          <div tabindex="0" class="language-content-data mobile >
+          <div tabindex="0" class="language-content-data mobile-hide">
             {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
               <div>
                 {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
