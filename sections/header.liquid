@@ -94,7 +94,7 @@
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
-          <div tabindex="0" class="language-content-data">
+          <div tabindex="0" class="language-content-data mobile >
             {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
               <div>
                 {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
@@ -102,7 +102,7 @@
             {%- endif -%}
           </div>
           <div tabindex="0" class="desktop-localization-wrapper">
-            <localization-form class="small-hide medium-hide" data-prevent-hide>
+            <localization-form data-prevent-hide>
               {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                 <div>
                   {%- render 'country-localization', localPosition: 'HeaderLanguage' -%}
