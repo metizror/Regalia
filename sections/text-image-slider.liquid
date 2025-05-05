@@ -45,7 +45,29 @@
     <div       
       {% if section.settings.slider_enable %} 
       class="text-image-wrapper swiper"
-      data-slider-options='{"direction": "vertical", "speed": 1000, "slidesPerView": 1, "breakpoints": { "320": { "direction": "vertical", "slidesPerView": 1 }, "768": { "direction": "vertical", "slidesPerView": 1 }, "1280": { "direction": "vertical", "slidesPerView": 1 } }, {% if section.blocks.size > 1 %} "loop": true {% endif %} {% if section.settings.enable_autoscroll %} , "autoplay": { "delay": {{ section.settings.autoscroll_speed }}, "disableOnInteraction": false}, {% endif %} "navigation": {"nextEl": "#shopify-section-{{ section.id }} .swiper-button-next","prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev" }}'
+      data-slider-options='{
+    "direction": "vertical",
+    "speed": 1000,
+    "slidesPerView": 1,
+    "breakpoints": {
+      "320": { "direction": "vertical", "slidesPerView": 1 },
+      "768": { "direction": "vertical", "slidesPerView": 1 },
+      "1280": { "direction": "vertical", "slidesPerView": 1 }
+    }
+    {% if section.blocks.size > 1 %},
+    "loop": true
+    {% endif %}
+    {% if section.settings.enable_autoscroll %},
+    "autoplay": {
+      "delay": {{ section.settings.autoscroll_speed }},
+      "disableOnInteraction": false
+    }
+    {% endif %},
+    "navigation": {
+      "nextEl": "#shopify-section-{{ section.id }} .swiper-button-next",
+      "prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev"
+    }
+  }'
       {% endif %}
       >
       <div class="swiper-wrapper overlayslider">
