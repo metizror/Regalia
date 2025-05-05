@@ -45,6 +45,7 @@
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
+        <label for="pdpQnt" class="qtylabeltitle">{{ 'product.quantity_picker' | t }}</label>
         <div class="qua-atc-btn">
           <div class="quantity-picker-wrapper cart-qnt">
             <div class="error" style="display:none;">

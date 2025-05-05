@@ -43,6 +43,9 @@
   .marquee-item, .marquee-text{
     font-size:calc(var(--bs-size) + 6px)
   }
+  .marquee-content{
+    height:40px;
+  }
 }
 /* Updated Keyframes for Right-to-Left Scrolling */
 @keyframes scroll-right {

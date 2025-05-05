@@ -88,6 +88,12 @@
   .video-product-section .vidproinner video{
     max-height: 420px;
   }
+  .video-product-section .vidpro-heading{
+    line-height: 20px;
+  }
+  .vidpro-content .vidpro-heading{
+    text-align: left;
+  }
 }
 
 @media(max-width:500px) {

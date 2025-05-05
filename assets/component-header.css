@@ -941,7 +941,8 @@ h2.megamenutitle {
 		width: 25%;
 		justify-content: end;
 		padding-right: 0px;
-		gap: 26px;
+		gap: 15px;
+		align-items: center;
 	}
 
 	.search-left-side .header__icon--search {
@@ -969,5 +970,8 @@ h2.megamenutitle {
 
 	.menuimgdata .textcontent a {
 		padding: 0;
+	}
+	.drawer-menu-btn{
+		padding:0px;
 	}
 }

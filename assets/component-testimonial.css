@@ -208,7 +208,9 @@
 }
 
 @media(max-width:767px) {
-
+  .testimonial-wrapper .quote-icon{
+    font-size:1rem;
+  }
   .testimonial-wrapper {
     position: static;
   }
@@ -241,6 +243,7 @@
 
   .testimonial-description {
     width: 100%;
+    margin-bottom:5px;
   }
 
   .testimonial-text {
@@ -255,8 +258,11 @@
 
   .testimonial-title {
     font-size: calc(var(--bs-size) + 6px);
+    margin-bottom:0px;
   }
-
+  .testimonial-rating .review-stars{
+    margin-bottom: 1.2rem;
+  }
   .testimonial-product .product-info .product-price {
     font-size: calc(var(--bs-size) - 2px);
   }
@@ -316,10 +322,25 @@
   .testimonial-section .swiper-button-next {
     right: -40px;
     top: 35px;
+    backdrop-filter: blur(4.0740742683410645px);
+    background: rgba(8, 42, 50, 0.1);
+    box-shadow: none;
   }
 
   .testimonial-section .swiper-button-prev {
     top: 35px;
     left: -40px;
+    backdrop-filter: blur(4.07px);
+    background: rgba(8, 42, 50, 0.1);
+    box-shadow: none;
+  }
+  .testimonial-product .product-card{
+    margin-top:18px;
+  }
+  .testimonial-section .swiper-button-next:hover, .testimonial-section .swiper-button-prev:hover{
+    transform: translate(-50%, -50%);
+  }
+  .testimonial-section .swiper-button-prev:after, .testimonial-section .swiper-button-next:after{
+    color:#000;
   }
 }

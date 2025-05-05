@@ -17,8 +17,8 @@
   }
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 1.50 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
     }
   }
 
@@ -27,15 +27,15 @@
 {{ 'component-featured-collection-list.css' | asset_url | stylesheet_tag: preload: true }}
 
 <section class="featured-collection-list" ms-aos data-ms-delay="100">
-  <div class="titlecontent">
+  <div class="titlecontent container text-{{ section.settings.heading_alignment }}">
     {% if section.settings.preheading != blank %}
-      <p class="preheading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+      <p class="preheading" ms-aos data-ms-delay="100">
         {{ section.settings.preheading | upcase }}
       </p>
     {% endif %}
     
     {%- if section.settings.title != blank -%}
-      <{{ section.settings.heading_size }} class="fcl-heading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+      <{{ section.settings.heading_size }} class="fcl-heading" ms-aos data-ms-delay="100">
         {{- section.settings.title -}}
       </{{ section.settings.heading_size }}>
     {%- endif -%}
@@ -101,9 +101,21 @@
     </ul>
   </div>
 </section>
-{% comment %}
-<script src="{{ 'component-featured-collection-list.js' | asset_url }}" type="text/javascript" defer></script>
-{% endcomment %}
+
+<script>
+  const listItems = document.querySelectorAll('ul.col-innercontent li');
+const total = listItems.length;
+
+if (total % 2 === 0) {
+  // Even: last two
+  listItems[total - 2].classList.add('even-spc');
+  listItems[total - 1].classList.add('even-spc');
+} else {
+  // Odd: last one
+  listItems[total - 1].classList.add('odd-spc');
+}
+
+</script>
 
 {% schema %}
 {
