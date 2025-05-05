@@ -169,7 +169,7 @@
 
 .image-overlay-text .iot-btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 15px 30px;
   font-size: 1rem;
   text-decoration: none;
   border-radius: var(--btn-radius);
