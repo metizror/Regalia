@@ -136,10 +136,6 @@
   margin-bottom: 0;
 }
 
-.product-price.compare--price-grt .price__sale {
-  justify-content: space-around;
-}
-
 @media (max-width: 1440px) {
   .animated-text-wrap {
     margin: 0 5%;
@@ -178,7 +174,7 @@
   }
 
   .collections-list-wrapper {
-    padding: 4% 7%;
+    padding: 4% 0%;
   }
 
   .collections-list-wrapper .tab-button {
@@ -201,7 +197,12 @@
   .collections-list-wrapper .tab-content {
     column-gap: 12px;
   }
-
+  .collections-wrapper .coll-bg-image.top-left{
+    top:14%;
+  }
+  .collections-wrapper .coll-bg-image.bottom-right{
+    top:18%;
+  }
 }
 
 @media (max-width: 480px) {

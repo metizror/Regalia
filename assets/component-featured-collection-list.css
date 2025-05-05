@@ -34,14 +34,15 @@
   padding-bottom: 8px;
   position: relative;
   color:var(--preheading-color);
+  display: inline-block;
 }
 
 .featured-collection-list .preheading:after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 46%;
-  right: 46%;
+  left: 10%;
+  right: 10%;
   border-bottom: 1px dashed #D86F6F;
 }
 
@@ -99,11 +100,17 @@
 @media (max-width: 767px) { 
   .featured-collection-list .col-innercontent {
     flex-wrap: wrap; 
-    padding: 0 20px;
+    padding: 0 15px;
   }  
   
   .collection-list-item {
     flex: 1 1 calc(50% - 16px); 
+  }
+  .collection-list-item{
+    padding-bottom:32px;
+  }
+  .collection-list-item.even-spc{
+    padding-bottom:0px;
   }
 }
 

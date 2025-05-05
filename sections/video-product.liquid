@@ -30,8 +30,8 @@
   }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 0 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0 | round: 0 }}px;
     }
     .grid-2-column-tablet .grid-item{
       width:calc(50% - {{ section.settings.spacing }}px);
@@ -46,7 +46,7 @@
   <div class="vidpro-content">
     {%- if section.settings.title -%}
       <{{ section.settings.heading_size }}
-        class="vidpro-heading text-{{ section.settings.heading_alignment }}"
+        class="vidpro-heading container text-{{ section.settings.heading_alignment }}"
         ms-aos
         data-ms-delay="100"
       >

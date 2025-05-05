@@ -204,6 +204,19 @@ details[open].menu-opening>.menu-drawer__submenu {
   }
   .drawer-menu-list li a{
     padding-bottom:20px;
+    opacity: 1;
+    font-weight:var(--weight-medium);
+  }
+  details[open] .header__menu-item svg{
+    transform: rotate(180deg);
+  }
+  .header__menu-item span{
+    font-weight:var(--weight-medium);
+    color: var(--color-text);
+  }
+  #drawer-menu-list summary.list-menu__item{
+    color:var(--color-text);
+    opacity: 1;
   }
 }
 

@@ -51,24 +51,42 @@
       {%- if section.settings.coll_bg_1 -%}
         <div class="coll-bg-image top-left">
           <lazy-image>
-            <img src="{{ section.settings.coll_bg_1 | image_url: width: section.settings.coll_bg_1.width }}"
-              alt="{{ section.settings.coll_bg_1.alt }}"
-              width="{{ section.settings.coll_bg_1.width }}"
-              height="{{ section.setitngs.coll_bg_1.height | default: 'auto' }}"
-              loading="lazy"
-              style="--object-postion:{{ section.settings.coll_bg_1.presentation.focal_point }}">
+            <picture>
+              <source
+                srcset="{{ section.settings.coll_bg_1_mobile | image_url: width: section.settings.coll_bg_1_mobile.width }}"
+                width="{{ section.settings.coll_bg_1_mobile.width }}"
+                height="{{ section.settings.coll_bg_1_mobile.height | default: 'auto' }}"
+                loading="lazy"
+                style="--object-position: {{ section.settings.coll_bg_1_mobile.presentation.focal_point }};" media="(max-width: 767px)">
+              <img
+                src="{{ section.settings.coll_bg_1 | image_url: width: section.settings.coll_bg_1.width }}"
+                alt="{{ section.settings.coll_bg_1.alt }}"
+                width="{{ section.settings.coll_bg_1.width }}"
+                height="{{ section.settings.coll_bg_1.height | default: 'auto' }}"
+                loading="lazy"
+                style="--object-position: {{ section.settings.coll_bg_1.presentation.focal_point }};">
+            </picture>
           </lazy-image>
         </div>
       {%- endif -%}
       {%- if section.settings.coll_bg_2 -%}
         <div class="coll-bg-image bottom-right">
           <lazy-image>
-            <img src="{{ section.settings.coll_bg_2 | image_url: width: section.settings.coll_bg_2.width }}"
-              alt="{{ section.settings.coll_bg_2.alt }}"
-              width="{{ section.settings.coll_bg_2.width }}"
-              height="{{ section.setitngs.coll_bg_2.height | default: 'auto'  }}"
-              loading="lazy"
-              style="--object-postion:{{ section.settings.coll_bg_2.presentation.focal_point }}">
+            <picture>
+              <source
+                srcset="{{ section.settings.coll_bg_2_mobile | image_url: width: section.settings.coll_bg_2_mobile.width }}"
+                width="{{ section.settings.coll_bg_2_mobile.width }}"
+                height="{{ section.settings.coll_bg_2_mobile.height | default: 'auto' }}"
+                loading="lazy"
+                style="--object-position: {{ section.settings.coll_bg_1_mobile.presentation.focal_point }};" media="(max-width: 767px)">
+              <img
+                src="{{ section.settings.coll_bg_2 | image_url: width: section.settings.coll_bg_1.width }}"
+                alt="{{ section.settings.coll_bg_2.alt }}"
+                width="{{ section.settings.coll_bg_2.width }}"
+                height="{{ section.settings.coll_bg_2.height | default: 'auto' }}"
+                loading="lazy"
+                style="--object-position: {{ section.settings.coll_bg_2.presentation.focal_point }};">
+            </picture>
           </lazy-image>
         </div>
       {%- endif -%}
@@ -228,8 +246,18 @@
     },
     {
       "type": "image_picker",
+      "id": "coll_bg_1_mobile",
+      "label": "Mobile Background left"
+    },
+    {
+      "type": "image_picker",
       "id": "coll_bg_2",
       "label": "Background image bottom right"
+    },
+    {
+      "type": "image_picker",
+      "id": "coll_bg_2_mobile",
+      "label": "Mobile Background right"
     },
     {
       "type": "color",
