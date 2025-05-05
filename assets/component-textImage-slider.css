@@ -10,14 +10,22 @@
 .text-image-slider-section .text-image-items.swiper-slide {
   height: 100%;
 }
-
+.sliderdisable .overlayslider{
+  flex-wrap:wrap;
+}
 /* Image with text  */
 .image-with-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+  padding: 4rem 2rem;
   background-color: var(--bg-color, #f8f4ef);
   color: var(--text-color, #000);
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  position:relative;
 }
 
 .image-with-text .image-wrapper {
