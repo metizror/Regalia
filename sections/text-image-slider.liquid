@@ -144,7 +144,7 @@
                       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
                   </div>
-                  <div class="content-wrapper container-narrow">
+                  <div class="content-wrapper container-narrow image-{{ block.settings.layout }}">
                     <div class="image-wrapper">
                       {%- if block.settings.image -%}
                         <img src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
