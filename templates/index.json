@@ -425,7 +425,7 @@
         "enable_autoscroll": true,
         "speed_delay": 3000,
         "autoscroll_speed": 3000,
-        "slider_enable": true,
+        "slider_enable": false,
         "padding_top": 20,
         "padding_bottom": 20
       }
