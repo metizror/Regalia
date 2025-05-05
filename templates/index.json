@@ -399,10 +399,11 @@
         "image_overlay_text_EydJDC": {
           "type": "image-overlay-text",
           "settings": {
-            "bg_image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0.jpg",
+            "bg_image": "shopify://shop_images/image_27.png",
             "bg_blur": 4,
-            "image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0_1.jpg",
+            "image": "shopify://shop_images/image_18_1.png",
             "title_size": "h2",
+            "layout": "image_first",
             "title": "Responsibility Report",
             "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
             "btn_text": "EXPLORE NOW",
