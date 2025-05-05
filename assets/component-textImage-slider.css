@@ -231,7 +231,36 @@
   color: #fff;
   transform: rotate(90deg);
 }
+/* overlay images */
 
+.images-content .image-left-side{
+  position:absolute;
+  top:0;
+  left:0;
+  
+}
+.images-content .image-right-side{
+  position:absolute;
+  right: 50%;
+  top: 20%;
+  transform: translate(125%, 20%);
+}
+.images-content .image-btn-side{
+  position:absolute;
+  left: 25%;
+  transform: translate(10px, 78px);
+}
+.images-content .image-bottom-side{
+  position:absolute;
+  right: 50%;
+  bottom: 0;
+  transform: translate(-25px, 0px);
+}
+.images-content img{
+  max-width: max-content;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* Tablet and Small Devices (max-width: 1024px) */
 @media (max-width: 1024px) {
