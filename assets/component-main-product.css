@@ -999,7 +999,13 @@ p.discount-percentage {
     padding-top: 30px;
   }
 }
-
+@media (max-width:1024px){
+  .main-image-slider:hover .swipersliderbtn,
+.main-image-slider:hover .shopify-model-viewer-ui__controls-overlay,
+.main-image-slider:hover .img-overlay-icon {
+  display: none;
+}
+}
 @media (max-width:768px) {
 
   .product-slider,

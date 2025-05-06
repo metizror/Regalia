@@ -109,6 +109,9 @@
   .collection-list-item{
     padding-bottom:32px;
   }
+  .featured-collection-list .fcl-heading{
+    margin-bottom:32px;
+  }
   .collection-list-item.even-spc{
     padding-bottom:0px;
   }

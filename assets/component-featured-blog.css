@@ -10,6 +10,12 @@
   height: 100%;
 }
 
+@media (max-width:767px){
+  .blog-articles{
+    margin-bottom:0px;
+  }
+}
+
 @media (max-width: 425px) {
   .featured-blog-section .article-card {
     display: flex;
