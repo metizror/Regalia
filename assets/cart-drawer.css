@@ -132,7 +132,7 @@
   order: 3;
 }
 
-.content-wrapper a {
+.cart-drawer-content .content-wrapper a {
   font-size: calc(var(--bs-size) + 4px);
   text-decoration: none;
 }

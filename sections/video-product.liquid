@@ -28,6 +28,11 @@
     width:calc(16.66% - {{ section.settings.spacing }}px);
     max-width:calc(16.66% - {{ section.settings.spacing }}px);
   }
+  @media(max-width: 1024px){ 
+    #shopify-section-{{ section.id }}{
+      padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    }
+  }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0 | round: 0 }}px;

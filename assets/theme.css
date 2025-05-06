@@ -76,6 +76,12 @@ video {
 	font-size: 100%;
 	vertical-align: baseline;
 }
+select {
+	-webkit-appearance: none; /* Safari and Chrome */
+	-moz-appearance: none;    /* Firefox */
+	appearance: none;
+	background: transparent; 
+}
 
 nav ul,
 .list-none,
@@ -1138,6 +1144,9 @@ body.quick-view-popup {
 summary {
 	cursor: pointer;
 	list-style: none;
+}
+summary::-webkit-details-marker {
+	display: none;              
 }
 
 .btn-effect {

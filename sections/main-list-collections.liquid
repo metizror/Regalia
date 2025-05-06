@@ -4,12 +4,24 @@
     padding-top: {{ section.settings.padding_top | append: 'px' }};
     padding-bottom: {{ section.settings.padding_bottom | append: 'px' }};
   }
-  @media screen and(max-width: 767px){
-    #shopify-section-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 | append: 'px' }};
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 | append: 'px' }};
+  :root{
+    --collection-grid-spc:{{ section.settings.gap_spc  | append: 'px' }};
+  }
+  @media (min-width: 992px) {
+    .container-narrow{
+      max-width:958px;
     }
   }
+  @media (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 | append: 'px' }};
+    padding-bottom: {{ section.settings.padding_bottom | times: 0 | round: 0 | append: 'px' }};
+  }
+  #shopify-section-{{ section.id }} .collection-list-wrapper {
+    row-gap: {{ section.settings.gap_spc | times: 0.50 | round: 0 | append: 'px' }};
+    padding-bottom: {{ section.settings.gap_spc | times: 0.33 | round: 0 | append: 'px' }};
+  }
+}
 {%- endstyle -%}
 
 {{ 'component-collection-list.css' | asset_url | stylesheet_tag: preload: true }}
@@ -103,6 +115,15 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type":"range",
+      "id": "gap_spc",
+      "label":"Space between row",
+      "min": 5,
+      "max":100,
+      "step": 5,
+      "default":100
     },
     {
       "type": "checkbox",

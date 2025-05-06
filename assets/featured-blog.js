@@ -7,6 +7,7 @@ function initializeSwiper() {
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
+        autoHeight: true,
       });
     }
   } else {

@@ -529,7 +529,9 @@ input.featured-pro-btn{
   .featured-product-content {
     display: block;
   }
-
+  .product-media .media-item.swiper-slide{
+    border-radius: 0px;
+  }
   .product-img-content {
     width: 100%;
     max-width: 100%;
@@ -551,6 +553,25 @@ input.featured-pro-btn{
   .products-sold-mess{
     padding-right:16px;
     justify-content:center;
+  }
+  .product-title h2 a{
+    font-size: calc(var(--bs-size) + 6px);
+  }
+  .info_text span.h6{
+    font-size:calc(var(--bs-size) - 2px);
+    font-family: var(--bs-font-family);
+    font-weight:var(--weight-medium);
+  }
+  .prosold-text, .lasthours-text, .stock-indicator p, #stock-count, .variant-after-text, .product-options-content .product-option, .variant-options, .dropdownList, .qtylabeltitle{
+    font-size: calc(var(--bs-size) - 2px);
+  }
+  .product-form__buttons .atcbtn-content span:last-child{
+    font-size: calc(var(--bs-size) - 2px);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  .atcbtn-content:hover span:first-child{
+    transform: translate(115px, 2px);
   }
 }
 

@@ -388,6 +388,11 @@
   .text-image-items .image-overlay-text .content-wrapper {
     padding: 0px 0px 50px 0px;
   }
+  .iwt-description{
+    font-family: var(--bs-font-family);
+    color:var(--color-base);
+    font-weight: var(--weight-regular);
+  }
 }
 
 /* Extra Small Devices (max-width: 480px) */
@@ -398,7 +403,7 @@
   }
 
   .image-with-text .iwt-title {
-    font-size: 1rem;
+    font-size: 32px;
   }
 
   .image-with-text .iwt-description p {
@@ -406,6 +411,8 @@
   }
 
   .image-with-text .iwt-btn {
-    font-size: 0.8rem;
+    font-size: calc(var(--bs-size) + 1px);
+    font-weight: var(--weight-medium);
+    color:var(--black);
   }
 }

@@ -247,7 +247,9 @@
         "card_color": "",
         "alignment": "center",
         "coll_bg_1": "shopify://shop_images/Vector_4.png",
+        "coll_bg_1_mobile": "shopify://shop_images/Vector_9.png",
         "coll_bg_2": "shopify://shop_images/Vector_3.png",
+        "coll_bg_2_mobile": "shopify://shop_images/Vector_10.png",
         "bg_color": "#fbf5f0",
         "tab_color": "#a69e8d",
         "active_tab_color": "#082a32",
@@ -423,7 +425,7 @@
       ],
       "settings": {
         "enable_full_width": true,
-        "enable_autoscroll": true,
+        "enable_autoscroll": false,
         "speed_delay": 3000,
         "autoscroll_speed": 3000,
         "slider_enable": true,
@@ -486,6 +488,7 @@
         "quote_bg_1": "shopify://shop_images/Graphic_Elemnts.png",
         "quote_bg_2": "shopify://shop_images/Graphic_Elements.png",
         "title": "QUOTE OF THE WEEK",
+        "heading_alignment": "center",
         "heading_color": "#797979",
         "padding_top": 20,
         "padding_bottom": 0
@@ -574,7 +577,7 @@
         "button_text": "Explore Now",
         "button_link": "shopify://collections/lab-diamond-rings-for-women",
         "padding_top": 0,
-        "padding_bottom": 20
+        "padding_bottom": 0
       }
     },
     "faq_section_zNKj4F": {
@@ -671,7 +674,7 @@
       ],
       "settings": {
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "bg_color": "#fff7ee",
         "box_shadow": "#e9c398",
         "heading_size": "h2",
@@ -708,7 +711,7 @@
         "slide_transition": "fade",
         "speed_delay": 1000,
         "padding_top": 50,
-        "padding_bottom": 50,
+        "padding_bottom": 30,
         "enable_arrow": true
       }
     },

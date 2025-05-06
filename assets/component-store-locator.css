@@ -93,4 +93,13 @@
   .section-store-locator .locator-wrapper {
     flex-direction: column;
   }
+  .store-locator-section .container{
+    padding:0px;
+  }
+  .store-locator-section .heading-title{
+    font-size:48px;
+    line-height:58px;
+    text-align: center;
+    margin-bottom:20px;
+  }
 }
