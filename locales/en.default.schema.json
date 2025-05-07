@@ -1581,6 +1581,12 @@
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
         },
+        "view_all_btn":{
+          "label":"Button text",
+        },
+        "btn_url":{
+          "label":"Button url"
+        }
       }
     },
     "product": {
