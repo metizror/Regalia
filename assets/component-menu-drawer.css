@@ -221,6 +221,10 @@ details[open].menu-opening>.menu-drawer__submenu {
   menu-drawer .language-selector{
     bottom:0%;
   }
+  .language-selector .mainlangcontent{
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .menu-drawer__account {
