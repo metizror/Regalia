@@ -1552,6 +1552,15 @@
           "products_to_show": {
             "label": "Maximum products to show"
           },
+          "products_column_show":{
+            "label":"Products column show"
+          },
+          "view_all":{
+            "label":"View All"
+          },
+          "btn_bg_color":{
+            "label":"Button background"
+          },
           "countdown_timer": {
             "content": "Countdown timer",
             "show_countdown": {
