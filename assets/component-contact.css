@@ -256,24 +256,24 @@
 @media screen and (max-width: 500px) {
   .image-background img.right-bg {
     right: 0%;
-    top: 12%;
+    top: 9%;
   }
 
   .image-background img.left-bg {
     left: 0%;
-    top: 14%;
+    top: 10%;
   }
 }
 
 @media screen and (min-width: 501px) and (max-width: 767px) {
   .image-background img.right-bg {
     right: 0%;
-    top: 10%;
+    top: 8%;
   }
 
   .image-background img.left-bg {
     left: 0%;
-    top: 12%;
+    top: 9%;
   }
 }
 
@@ -320,7 +320,7 @@
 
   .image-background img.top-bg {
     left: 60%;
-    bottom: 97%;
+    bottom: 98%;
   }
 
   .contact-form .contact-form-wrap {
@@ -387,14 +387,14 @@
 
   .image-background img.right-bg {
     right: 3%;
-    top: 75%;
+    top: 45%;
     animation: float 4s ease-in-out infinite;
     animation-delay: 0s;
   }
 
   .image-background img.top-bg {
     left: 60%;
-    bottom: 92%;
+    bottom: 94%;
   }
 }
 

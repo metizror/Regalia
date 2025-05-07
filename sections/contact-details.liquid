@@ -29,8 +29,6 @@
       {% if settings.top_bg_image %}
         <source srcset="{{ settings.top_bg_image | image_url: width: 90 }}" media="(max-width: 768px)">
         <img src="{{ settings.top_bg_image | image_url: width: 256 }}" alt="{{ settings.top_bg_image.alt | default: 'Top background image' }}" class="top-bg"
-        width="{{ settings.top_bg_image.width }}"
-        height="{{ settings.top_bg_image.height }}"
         loading="lazy"
         style="--object-postion:{{ settings.top_bg_image.presentation.focal_point }}">
       {% endif %}
@@ -39,8 +37,6 @@
       {% if settings.left_bg_image %}
         <source srcset="{{ settings.left_bg_image | image_url: width: 26 }}" media="(max-width: 768px)">
         <img src="{{ settings.left_bg_image | image_url: width: 130 }}" alt="{{ settings.left_bg_image.alt | default: 'Left background image' }}"class="left-bg"
-        width="{{ settings.left_bg_image.width }}"
-        height="{{ settings.left_bg_image.height }}"
         loading="lazy"
         style="--object-postion:{{ settings.left_bg_image.presentation.focal_point }}">
       {% endif %}
@@ -50,8 +46,6 @@
         <source srcset="{{ settings.right_bg_image | image_url: width: 45 }}" media="(max-width: 768px)">
         <img src="{{ settings.right_bg_image | image_url: width: 130 }}" alt="{{ settings.right_bg_image.alt | default: 'Right background image' }}"  
           class="right-bg"
-          width="{{ settings.right_bg_image.width }}"
-          height="{{ settings.right_bg_image.height }}"
           loading="lazy"
           style="--object-postion:{{ settings.right_bg_image.presentation.focal_point }}">
       {% endif %}
