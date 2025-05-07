@@ -38,8 +38,7 @@
       {% if settings.left_bg_image %}
         <source srcset="{{ settings.left_bg_image | image_url: width: 26 }}" media="(max-width: 768px)">
         <img src="{{ settings.left_bg_image | image_url: width: 130 }}" alt="{{ settings.left_bg_image.alt | default: 'Left background image' }}"class="left-bg"
-        <!-- width="{{ settings.left_bg_image.width }}"
-        height="{{ settings.left_bg_image.height }}" -->
+
         loading="lazy"
         style="--object-postion:{{ settings.left_bg_image.presentation.focal_point }}">
       {% endif %}
