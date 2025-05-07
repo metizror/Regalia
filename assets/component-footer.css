@@ -70,6 +70,7 @@
   font-family: var(--bs-font-family);
   font-size:calc(var(--bs-size) + 2px);
   font-weight: var(--weight-regular);
+  color:#B5BFC1;
 }
 
 .card-languageselector {
