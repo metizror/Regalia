@@ -1580,7 +1580,7 @@
         "coll_title": {
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
-        }
+        },
       }
     },
     "product": {
