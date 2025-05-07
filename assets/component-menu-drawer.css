@@ -442,7 +442,7 @@ menu-drawer .header__submenu.list-menu {
   max-height: calc(100vh - 215px);
   overflow-y: auto;
 }
-.drawer-content{
+.drawer-innercontent{
     display: grid;
     grid-template-rows: 1fr auto;
     align-content: space-between;
