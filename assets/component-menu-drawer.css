@@ -440,8 +440,8 @@ menu-drawer .header__submenu.list-menu {
 }
 
 .menu-drawer-inner {
-  max-height: calc(100vh - 215px);
-  overflow-y: auto;
+  /* max-height: calc(100vh - 215px);
+  overflow-y: auto; */
 }
 .drawer-innercontent{
     display: grid;
