@@ -2814,6 +2814,9 @@
             },
             "title": {
               "label": "Title"
+            },
+            "description_size":{
+              "label":"Description size"
             }
           }
         },
