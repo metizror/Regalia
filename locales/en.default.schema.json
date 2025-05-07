@@ -547,6 +547,9 @@
       "subheading": {
         "label": "Subheading"
       },
+      "title_color":{
+        "label":"Title color"
+      },
       "text": {
         "label": "Text"
       },
