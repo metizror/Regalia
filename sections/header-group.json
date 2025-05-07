@@ -93,6 +93,7 @@
         "enable_language_selector": true,
         "enable_customer_avatar": true,
         "sticky_header": true,
+        "inline_search": false,
         "margin_bottom": 24,
         "padding_top": 20,
         "padding_bottom": 20
