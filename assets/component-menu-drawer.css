@@ -218,6 +218,9 @@ details[open].menu-opening>.menu-drawer__submenu {
     color:var(--color-text);
     opacity: 1;
   }
+  menu-drawer .language-selector{
+    bottom:0%;
+  }
 }
 
 .menu-drawer__account {
