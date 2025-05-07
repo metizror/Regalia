@@ -87,7 +87,8 @@
                 {{ 'image' | placeholder_svg_tag }}
               {% endif %}
             </div>
-            <div class="member-name">{{ block.settings.name }}</div>
+            <div class="member-name">
+          <h2>{{ block.settings.name }}</h2></div>
             <div class="member-position">{{ block.settings.position }}</div>
           </div>
         {% endfor %}
