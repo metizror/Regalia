@@ -290,6 +290,22 @@
         }
       }
     },
+    "variant_type":{
+      "name":"Variant type",
+      "settings":{
+        "variant_style":{
+          "label":"Variant type",
+        },
+        "options":{
+          "dropdown":{
+            "label":"Dropdown"
+          },
+          "buttons":{
+            "label":"buttons"
+          }
+        }
+      }
+    },
     "product_tiles": {
       "name": "Product tiles",
       "settings": {
