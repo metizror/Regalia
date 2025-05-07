@@ -2481,6 +2481,13 @@
             "flip": "Flip"
           }
         },
+        "enable_overlay_bg":{
+          "label":"Enable overlay bg",
+          "info":"Enable this option to apply an overlay across the entire slide"
+        },
+        "whole_overlay_bg":{
+          "label":"Whole overlay bg"
+        },
         "enable_autoplay": {
           "label": "Enable autoplay"
         },
