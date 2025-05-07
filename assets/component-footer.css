@@ -55,7 +55,7 @@
 }
 
 .navigation-content nav ul li a {
-  font-size: var(--bs-size);
+  font-size: calc(var(--bs-size) + 2px);
   line-height: 24px;
   color: #b5bfc1;
   text-decoration: none;
