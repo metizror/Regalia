@@ -68,6 +68,7 @@
 .text-content h6 {
   color: var(--white);
   font-family: var(--bs-font-family);
+  font-size:calc(var(--bs-size) + 2px);
 }
 
 .card-languageselector {
