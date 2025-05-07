@@ -69,6 +69,7 @@
   color: var(--white);
   font-family: var(--bs-font-family);
   font-size:calc(var(--bs-size) + 2px);
+  font-weight: var(--weight-regular);
 }
 
 .card-languageselector {
