@@ -287,7 +287,10 @@ details[open].menu-opening>.menu-drawer__submenu {
 .close-icon {
   display: none;
 }
-
+.drawer-content-relative{
+  position: relative;
+  height:100%;
+}
 .drawer-menu-list {
   list-style: none;
   background: rgba(255, 255, 255, 0.8);
