@@ -386,8 +386,6 @@ menu-drawer .megamenu-content {
 
 .drawer-footer-items {
   padding-left: 20px;
-  position: fixed;
-  bottom: 0;
 }
 
 menu-drawer .header__icon:not(.header__icon--summary) {
