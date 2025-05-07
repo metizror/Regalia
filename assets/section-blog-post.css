@@ -1,3 +1,4 @@
+
 .tag-btn {
   color: var(--block-text);
   background-color: var(--date-bg-color);
@@ -222,6 +223,10 @@ a.blog-item {
 .main-article .comment-title {
   margin-bottom: 10px;
   margin-top: 20px;
+}
+
+.article-template__comments-fields .field{
+  padding: 10px 0;
 }
 
 /* Content box css */
