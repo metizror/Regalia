@@ -20,28 +20,14 @@ window.addEventListener("DOMContentLoaded", function () {
       closeTimeout = setTimeout(() => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
-<<<<<<< HEAD
-      // closeTimeout = setTimeout(() => {
-      //   item.removeAttribute("open");
-      //   summaryElement.classList.remove("countryactive");
-      // }, 90);
-=======
       }, 90);
->>>>>>> production
     });
 
     item.addEventListener("mouseleave", () => {
       closeTimeout = setTimeout(() => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
-<<<<<<< HEAD
-      // closeTimeout = setTimeout(() => {
-      //   item.removeAttribute("open");
-      //   summaryElement.classList.remove("countryactive");
-      // }, 90);
-=======
       }, 90);
->>>>>>> production
     });
   });
 

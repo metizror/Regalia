@@ -10,15 +10,15 @@
     --featuredcol-head-col:{{ section.settings.heading_color }};
     --preheading-color:{{ section.settings.subtitle_col }};
   }
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .featured-collection-list .bgimgcol {
-      background-image: url({{ section.settings.bgimgcol | image_url: width: 140 }});
+      background-image: url({{ section.settings.bgimgcol | image_url: width: 125 }});
     }
   }
   @media (max-width: 767px) {
     #shopify-section-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 1.50 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.50 | round: 0 }}px;
     }
   }
 
@@ -27,42 +27,26 @@
 {{ 'component-featured-collection-list.css' | asset_url | stylesheet_tag: preload: true }}
 
 <section class="featured-collection-list" ms-aos data-ms-delay="100">
-  <div class="titlecontent">
+  <div class="titlecontent container text-{{ section.settings.heading_alignment }}">
     {% if section.settings.preheading != blank %}
-      <p class="preheading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+      <p class="preheading" ms-aos data-ms-delay="100">
         {{ section.settings.preheading | upcase }}
       </p>
     {% endif %}
     
     {%- if section.settings.title != blank -%}
-      <{{ section.settings.heading_size }} class="fcl-heading text-{{ section.settings.heading_alignment }}" ms-aos data-ms-delay="100">
+      <{{ section.settings.heading_size }} class="fcl-heading" ms-aos data-ms-delay="100">
         {{- section.settings.title -}}
       </{{ section.settings.heading_size }}>
     {%- endif -%}
   </div>
   
-  <div class="col-content swiper" data-slider-options='{
-    "breakpoints": {
-      "320": { "slidesPerView": 2 },
-      "600": { "slidesPerView": 2 },
-      "767": { "slidesPerView": 3 },
-      "1024": { "slidesPerView": 4 },
-      "1440": { "slidesPerView": {{ section.settings.number_slide }} }
-    },
-    "a11y": false,
-    "grabCursor": true,
-    "spaceBetween": {{ section.settings.space_between }},
-    {% if section.blocks.size > 5 %}
-      "loop": true {% if section.settings.enable_autoplay %},
-      "autoplay": { "delay": 2000, "disableOnInteraction": false }
-      {% endif %}
-    {% endif %}
-  }'>
+  <div class="col-content">
     
-    <ul class="col-innercontent swiper-wrapper" role="list">
+    <ul class="col-innercontent" role="list">
       {% for block in section.blocks %}
         {% assign collection = block.settings.collection %}
-        <li class="collection-list-item bgimgcol swiper-slide" role="listitem">
+        <li class="collection-list-item bgimgcol" role="listitem">
           <div class="listitem-wrapper" role="group">
             {%- if block.settings.collection_image -%}
               <a href="{{ collection.url }}" tabindex="0">
@@ -118,7 +102,20 @@
   </div>
 </section>
 
-<script src="{{ 'component-featured-collection-list.js' | asset_url }}" type="text/javascript" defer></script>
+<script>
+  const listItems = document.querySelectorAll('ul.col-innercontent li');
+const total = listItems.length;
+
+if (total % 2 === 0) {
+  // Even: last two
+  listItems[total - 2].classList.add('even-spc');
+  listItems[total - 1].classList.add('even-spc');
+} else {
+  // Odd: last one
+  listItems[total - 1].classList.add('odd-spc');
+}
+
+</script>
 
 {% schema %}
 {
@@ -148,31 +145,6 @@
       "type": "image_picker",
       "id": "bgimgcol",
       "label": "t:sections.featured_collection_list.settings.background_image.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured_collection_list.settings.slider.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_autoplay",
-      "label": "t:sections.featured_collection_list.settings.slider.enable_autoplay.label",
-      "default": true
-    },
-    {
-      "type": "number",
-      "id": "number_slide",
-      "label": "t:sections.featured_collection_list.settings.slider.slide_per_view.label",
-      "default": 6
-    },
-    {
-      "type": "range",
-      "id": "space_between",
-      "label": "t:sections.featured_collection_list.settings.slider.space_between_image.label",
-      "min": 2,
-      "max": 50,
-      "step": 1,
-      "default": 21
     },
     {
       "type": "header",
@@ -277,6 +249,7 @@
     {
       "type": "collection",
       "name": "t:sections.featured_collection_list.blocks.name",
+      "limit": 6,
       "settings": [
         {
           "type": "collection",

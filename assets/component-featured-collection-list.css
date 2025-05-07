@@ -2,7 +2,8 @@
   background-repeat: no-repeat, repeat;
   text-align: center;
   background-position: top, center;
-  overflow: hidden;
+  list-style: none;
+  width:100%;
 }
 
 .featured-collection-list .collection-images img {
@@ -21,7 +22,7 @@
 }
 
 .featured-collection-list .fcl-heading {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   color:var(--featuredcol-head-col);
 }
 
@@ -33,14 +34,15 @@
   padding-bottom: 8px;
   position: relative;
   color:var(--preheading-color);
+  display: inline-block;
 }
 
 .featured-collection-list .preheading:after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 46%;
-  right: 46%;
+  left: 10%;
+  right: 10%;
   border-bottom: 1px dashed #D86F6F;
 }
 
@@ -86,43 +88,51 @@
 .featured-collection-list .col-innercontent {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  padding:0 30px;
 }
 
 .featured-collection-list .col-innercontent li a {
   display: block;
 }
 
-<<<<<<< HEAD
+
 @media (max-width: 767px) { 
   .featured-collection-list .col-innercontent {
     flex-wrap: wrap; 
-    padding: 0 20px;
+    padding: 0 15px;
   }  
   
   .collection-list-item {
     flex: 1 1 calc(50% - 16px); 
-=======
-.featured-collection-list .col-innercontent li a:before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-@media (max-width: 600px) {
-  .featured-collection-list .col-content .swiper-wrapper {
-    grid-template-columns: repeat(2, 1fr);
->>>>>>> production
+  }
+  .collection-list-item{
+    padding-bottom:32px;
+  }
+  .featured-collection-list .fcl-heading{
+    margin-bottom:32px;
+  }
+  .collection-list-item.even-spc{
+    padding-bottom:0px;
   }
 }
 
-@media (max-width: 600px) {
+@media (min-width: 768px) and (max-width: 1400px) {    
+  .featured-collection-list .col-innercontent {
+      flex-wrap: wrap;
+  }  
+  
+  .collection-list-item {
+    flex: 1 1 calc(33.33% - 16px); 
+  }
+}
+
+@media (max-width: 1024px) {
   .featured-collection-list .collection-images img {
-    width: 134px;
-    height: 134px;
+    width: 122px;
+    height: 122px;
   }
 }
-
 
 
 

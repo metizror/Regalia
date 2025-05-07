@@ -34,19 +34,20 @@
         let quickviewClose = closestContainer.querySelector(".quick-view-close");
         let overlayclose = closestContainer.querySelector(".overlay-background");
 
-<<<<<<< HEAD
-      if (quickviewClose) {
-        quickviewClose.addEventListener("click", () => {
-          this.closeQuickView();
-        });
 
-      quickviewClose.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          this.closeQuickView();
-        }
-      });
-=======
+if (quickviewClose) {
+  quickviewClose.addEventListener("click", () => {
+    this.closeQuickView();
+  });
+
+  quickviewClose.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      this.closeQuickView();
+    }
+  });
+}
+
         if (quickviewClose) {
           quickviewClose.addEventListener("click", () => {
             this.closeQuickView();
@@ -60,7 +61,6 @@
       };
 
       initQuickView = () => {
->>>>>>> production
         
         if (!this.productJson || !this.quickViewEle) return;
         this.quickViewEle.classList.add("active");

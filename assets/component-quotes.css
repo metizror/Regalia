@@ -36,8 +36,8 @@
   content: "";
   position: absolute;
   bottom: 0;
-  left: 46%;
-  right: 46%;
+  left: 10%;
+  right: 10%;
   border-bottom: 1px dashed #D86F6F;
 }
 
@@ -94,7 +94,17 @@
   filter: grayscale(0%) brightness(0%);
   transform: scale(1.1);
 }
-
+.quotes-title.h6{
+  display:inline-block;
+}
+@media (max-width:1024px){
+  .quotes-section{
+    padding-top:15px;
+  }
+  .quote-container{
+    padding-top:0px;
+  }
+}
 @media (max-width: 767px) {
   .quotes-section .quote-logo-wrapper {
     display: grid;

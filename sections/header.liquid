@@ -94,15 +94,15 @@
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
-          <div tabindex="0" class="language-content-data">
+          <div tabindex="0" class="language-location-content mobile-hide">
             {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
               <div>
                 {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
               </div>
             {%- endif -%}
           </div>
-          <div tabindex="0" class="desktop-localization-wrapper">
-            <localization-form class="small-hide medium-hide" data-prevent-hide>
+          <div tabindex="0" class="desktop-localization-wrapper mobile-tablet-hide">
+            <localization-form data-prevent-hide>
               {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                 <div>
                   {%- render 'country-localization', localPosition: 'HeaderLanguage' -%}
@@ -242,7 +242,7 @@
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
+        <h1 class="header__heading header-logo-data">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="Store logo">
         {%- if settings.logo_image != blank -%}
@@ -442,7 +442,7 @@
 
 {% schema %}
 {
-  "name": "Header",
+  "name": "t:sections.header.name",
   "class": "section section-main-header",
   "max_blocks": 3,
   "settings": [
@@ -452,72 +452,67 @@
       "options": [
         {
           "value": "top-left",
-          "label": "Top left"
+          "label": "t:sections.general.alignment.alignment_top_left.label"
         },
         {
           "value": "top-center",
-          "label": "Top center"
+          "label": "t:sections.general.alignment.alignment_top_center.label"
         },
         {
           "value": "middle-left",
-          "label": "Middle left"
+          "label": "t:sections.general.alignment.alignment_middle_left.label"
         },
         {
           "value": "middle-center",
-          "label": "Middle center"
+          "label": "t:sections.general.alignment.alignment_middle_center.label"
         }
       ],
       "default": "middle-left",
-      "label": "Middle left",
-      "info": "Edit your logo in"
+      "label": "t:sections.header.settings.logo_position.label",
+      "info": "t:sections.header.settings.logo_position.info"
     },
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
-      "label": "Menu"
+      "label": "t:sections.header.settings.menu.label"
     },
     {
       "type": "header",
-      "content": "Country/region selector",
-      "info": "To add a country/region, go to your"
+      "content": "t:sections.header.settings.country_region_selector.content",
+      "info": "t:sections.header.settings.country_region_selector.info"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": false,
-      "label": "Enable country/region selector"
+      "label": "t:sections.header.settings.country_region_selector.enable_country_selector.label"
     },
     {
       "type": "header",
-      "content": "Language selector",
-      "info": "To add a language, go to your"
+      "content": "t:sections.header.settings.language_selector.content",
+      "info": "t:sections.header.settings.language_selector.info"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": false,
-      "label": "Enable language selector"
+      "label": "t:sections.header.settings.language_selector.enable_language_selector.label"
     },
     {
       "type": "header",
-      "content": "Customer accounts log in",
-      "info": "To manage customer accounts, go to your"
+      "content": "t:sections.header.settings.customer_login.content",
     },
     {
       "type": "checkbox",
       "id": "enable_customer_avatar",
       "default": true,
-      "label": "Show avatar",
-      "info": "Customers will only see their avatar when they're signed in with Shop"
+      "label": "t:sections.header.settings.customer_login.enable_customer_avatar.label",
+      "info": "t:sections.header.settings.customer_login.enable_customer_avatar.info"
     },
     {
       "type": "checkbox",
       "id": "sticky_header",
-<<<<<<< HEAD
-      "label": "Sticky header",
-      "default": true
-=======
       "label": "t:sections.header.settings.sticky_header.label",
       "default": false
     },
@@ -526,11 +521,10 @@
         "id":"inline_search",
       "label":"t:sections.header.settings.inline_search.label",
       "default":true
->>>>>>> production
     },
     {
       "type": "header",
-      "content": "Spacing"
+      "content": "t:sections.header.settings.spacing.content"
     },
     {
       "type": "range",
@@ -539,12 +533,12 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Bottom margin",
+      "label": "t:sections.header.settings.spacing.margin_bottom.label",
       "default": 0
     },
     {
       "type": "header",
-      "content": "Section padding"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -553,7 +547,7 @@
       "max": 36,
       "step": 2,
       "unit": "px",
-      "label": "Top padding",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 20
     },
     {
@@ -563,67 +557,75 @@
       "max": 36,
       "step": 2,
       "unit": "px",
-      "label": "Bottom padding",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 20
     }
   ],
   "blocks": [
     {
       "type": "megamenu",
-      "name": "Menu",
+      "name": "t:sections.header.blocks.name",
       "settings": [
         {
           "type": "text",
           "id": "menu_title",
-          "label": "Title"
+          "label": "t:sections.header.blocks.settings.label"
         },
         {
           "type": "header",
-          "content": "Image 1"
+          "content": "t:sections.header.blocks.settings.image_1.content"
         },
         {
           "type": "image_picker",
           "id": "image_1",
-          "label": "Image"
+          "label": "t:sections.header.blocks.settings.image_1.label"
         },
         {
           "type": "inline_richtext",
           "id": "image_1_heading",
-          "label": "Heading"
+          "label": "t:sections.header.blocks.settings.image_1.heading"
+        },
+        {
+          "type":"header",
+          "content": "t:sections.general.button.content"
         },
         {
           "type": "text",
           "id": "image_1_text",
-          "label": "Text"
+          "label": "t:sections.general.button.button_text.label"
         },
         {
           "type": "url",
           "id": "image_1_link",
-          "label": "Link"
+          "label": "t:sections.general.button.button_link.label"
         },
         {
           "type": "header",
-          "content": "Image 2"
+          "content": "t:sections.header.blocks.settings.image_2.content"
         },
         {
           "type": "image_picker",
           "id": "image_2",
-          "label": "Image"
+          "label": "t:sections.header.blocks.settings.image_2.label"
         },
         {
           "type": "inline_richtext",
           "id": "image_2_heading",
-          "label": "Heading"
+          "label": "t:sections.header.blocks.settings.image_2.heading"
+        },
+        {
+          "type":"header",
+          "content": "t:sections.general.button.content"
         },
         {
           "type": "text",
           "id": "image_2_text",
-          "label": "Text"
+          "label": "t:sections.general.button.button_text.label"
         },
         {
           "type": "url",
           "id": "image_2_link",
-          "label": "Link"
+          "label": "t:sections.general.button.button_link.label"
         }
       ]
     }

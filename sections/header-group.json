@@ -19,13 +19,12 @@
           "settings": {
             "text": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
-            "link": "shopify://pages/about-us",
-            "new_tab": true
+            "link": "",
+            "new_tab": false
           }
         },
         "announcement_HGRbeL": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>Summer sale: Up to 70% off selected items</p>",
             "text_mobile": "<p>Summer sale: Up to 70% off selected items</p>",
@@ -71,15 +70,15 @@
         "megamenu_DMdzBV": {
           "type": "megamenu",
           "settings": {
-            "menu_title": "Earrings",
-            "image_1": "shopify://shop_images/gallery-6.png",
-            "image_1_heading": "Text 1",
+            "menu_title": "collections",
+            "image_1": "shopify://shop_images/image_9_271d0d0d-bb63-4e20-83f4-cdf965f894f6.png",
+            "image_1_heading": "Diamond bracelets",
             "image_1_text": "Shop now",
-            "image_1_link": "#",
-            "image_2": "shopify://shop_images/57e4c4367ad505fd3021dbdb3ba9e430.png",
-            "image_2_heading": "Text 2",
+            "image_1_link": "shopify://collections/diamond-bracelet-for-women",
+            "image_2": "shopify://shop_images/image_13_23d70262-0f8b-4a83-bd82-5ca103ea3297.png",
+            "image_2_heading": "Rings",
             "image_2_text": "Shop now",
-            "image_2_link": "#"
+            "image_2_link": "shopify://collections/rings"
           }
         }
       },

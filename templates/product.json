@@ -93,9 +93,7 @@
         },
         "sticky_cart_khqGiU": {
           "type": "sticky_cart",
-          "settings": {
-            "show_dynamic_checkout": true
-          }
+          "settings": {}
         },
         "local_pickup_wg4zCH": {
           "type": "local_pickup",

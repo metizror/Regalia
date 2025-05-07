@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "section_group": {
     "header_group": {
       "name": "Header group"
@@ -728,7 +728,13 @@
           "label": "Main heading color"
         },
         "background_image": {
-          "label": "Background image"
+          "label": "Background image",
+          "desktop":{
+            "label": "Background image (desktop)"
+          },
+          "mobile": {
+            "label": "Background image (mobile)"
+          }
         },
         "background_image_height": {
           "label": "Background image height"
@@ -983,11 +989,11 @@
             "multicolumn_icons": {
               "label": "SVG icon"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "Title"
             },
-            "multicolumne_text": {
-              "label": "text"
+            "multicolumn_text": {
+              "label": "Text"
             }
           }
         },
@@ -1039,7 +1045,8 @@
         "bg_image": {
           "label": "Background image",
           "title": "Title",
-          "description": "Description"
+          "description": "Description",
+          "overlay_opacity": "Overlay opacity"
         },
         "end_date": {
           "label": "End date"
@@ -1088,9 +1095,6 @@
       "presets": {
         "name": "Discount countdown"
       }
-    },
-    "featured_collection":{
-      "name":"Featured collection",
     },
     "duo_image": {
       "name": "Duo image",
@@ -1554,12 +1558,6 @@
           "btn_bg_color":{
             "label":"Button background"
           },
-          "type":{
-            "label":"Type"
-          },
-          "show_swatches":{
-            "label":"Show swatches"
-          },
           "countdown_timer": {
             "content": "Countdown timer",
             "show_countdown": {
@@ -1579,12 +1577,6 @@
         "coll_title": {
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
-        },
-        "view_all_btn":{
-          "label":"Button text",
-        },
-        "btn_url":{
-          "label":"Button url"
         }
       }
     },
@@ -1797,23 +1789,6 @@
             },
             "quick_menu": {
               "label": "Quick menu"
-            }
-          }
-        },
-        "social_details":{
-          "name":"Social icon",
-          "settings":{
-            "social_logo_1":{
-              "label":"Social icon one"
-            },
-             "social_logo_2":{
-              "label":"Social icon two"
-            },
-              "social_data_1":{
-              "label":"Social text one"
-            },
-             "social_data_2":{
-              "label":"Social text two"
             }
           }
         }

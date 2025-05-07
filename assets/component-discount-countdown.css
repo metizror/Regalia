@@ -118,6 +118,11 @@
   }
   .discount-countdown-content{
     flex-direction:column;
+    padding:18px 15px;
+    border-radius:0px;
+  }
+  .discount-content .h6{
+    margin-bottom:8px;
   }
 }
 

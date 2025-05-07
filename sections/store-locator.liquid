@@ -12,7 +12,7 @@
 
   @media (max-width:768px){
     #shopify-section-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 0 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
   }
@@ -20,8 +20,8 @@
 
 {{ 'component-store-locator.css' | asset_url | stylesheet_tag: preload: true }}
 
-<section class="store-locatore-section">
-  <div class="{% if section.settings.enable_full_width %}full-width{% else %}container{% endif %}">
+<section class="store-locator-section">
+  <div class="mobile-full-width {% if section.settings.enable_full_width %}full-width{% else %}container{% endif %}">
     <div class="header-wrapper main-title container-narrow">
       {%- if section.settings.heading -%}
         <{{ section.settings.heading_size }} class="heading-title text-{{ section.settings.heading_alignment }}">

@@ -46,7 +46,7 @@
     </div>
   {%- endif -%}
   <div class="quote-container">
-    <div class="container">
+    <div class="container text-{{ section.settings.heading_alignment }}">
       {%- if section.settings.title -%}
         <span class="quotes-title h6">
           {{- section.settings.title -}}
@@ -117,6 +117,30 @@
       "id": "title",
       "label": "Heading",
       "default": "Quotes of the day"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.alignment.content"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.general.alignment.content",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.general.alignment.alignment_left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.general.alignment.alignment_center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.general.alignment.alignment_right.label"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "color",

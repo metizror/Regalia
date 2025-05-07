@@ -11,7 +11,6 @@
 
 .video-product-section .vidproinner video {
   width: 100%;   
-  max-height: 420px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
@@ -55,7 +54,7 @@
 
 .proimg .img-wrapper img {
   border-radius: 6px;
-  width: 75px;
+  width: 70px;
   background-color: var(--placeholder_bg_color);
 }
 
@@ -85,6 +84,15 @@
 
   .video-product-section .vidpro-heading {
     padding-bottom: 0;
+  }
+  .video-product-section .vidproinner video{
+    max-height: 420px;
+  }
+  .video-product-section .vidpro-heading{
+    line-height: 20px;
+  }
+  .vidpro-content .vidpro-heading{
+    text-align: left;
   }
 }
 

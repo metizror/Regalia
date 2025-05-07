@@ -194,9 +194,6 @@
         "title": "Gorgeous Collections",
         "preheading": "Attractive jewellery",
         "bgimgcol": "shopify://shop_images/Isolation_Mode.png",
-        "enable_autoplay": false,
-        "number_slide": 6.5,
-        "space_between": 20,
         "heading_size": "h2",
         "heading_alignment": "center",
         "heading_color": "#082a32",
@@ -250,7 +247,9 @@
         "card_color": "",
         "alignment": "center",
         "coll_bg_1": "shopify://shop_images/Vector_4.png",
+        "coll_bg_1_mobile": "shopify://shop_images/Vector_9.png",
         "coll_bg_2": "shopify://shop_images/Vector_3.png",
+        "coll_bg_2_mobile": "shopify://shop_images/Vector_10.png",
         "bg_color": "#fbf5f0",
         "tab_color": "#a69e8d",
         "active_tab_color": "#082a32",
@@ -371,7 +370,7 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
-        "pro_title": "",
+        "block_space": 20,
         "heading_size": "h3",
         "heading_alignment": "center",
         "heading_color": "",
@@ -401,12 +400,12 @@
         },
         "image_overlay_text_EydJDC": {
           "type": "image-overlay-text",
-          "disabled": true,
           "settings": {
-            "bg_image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0.jpg",
+            "bg_image": "shopify://shop_images/image_27.png",
             "bg_blur": 4,
-            "image": "shopify://shop_images/4f1182f96ee0631977f55a7b75214bc0_1.jpg",
+            "image": "shopify://shop_images/image_18_1.png",
             "title_size": "h2",
+            "layout": "image_first",
             "title": "Responsibility Report",
             "description": "<p>We worked with Mejuri to approach sustainability with social <br/>justice in mind including the health and wellbeing of their <br/>employees and communities.<br/><br/>By working with other brands, this work will help them to use their<br/> influence to support women’s access to safe healthcare.</p>",
             "btn_text": "EXPLORE NOW",
@@ -426,9 +425,10 @@
       ],
       "settings": {
         "enable_full_width": true,
-        "enable_autoscroll": true,
+        "enable_autoscroll": false,
         "speed_delay": 3000,
         "autoscroll_speed": 3000,
+        "slider_enable": true,
         "padding_top": 20,
         "padding_bottom": 20
       }
@@ -488,6 +488,7 @@
         "quote_bg_1": "shopify://shop_images/Graphic_Elemnts.png",
         "quote_bg_2": "shopify://shop_images/Graphic_Elements.png",
         "title": "QUOTE OF THE WEEK",
+        "heading_alignment": "center",
         "heading_color": "#797979",
         "padding_top": 20,
         "padding_bottom": 0
@@ -568,13 +569,15 @@
       "settings": {
         "enable_full_width": true,
         "background_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4,
         "title": "Deal of the Week",
         "description": "<p>This week only, get 20% off all jewelry. Limited stock available! </p>",
         "end_date": "2026-01-31",
         "button_text": "Explore Now",
         "button_link": "shopify://collections/lab-diamond-rings-for-women",
         "padding_top": 0,
-        "padding_bottom": 20
+        "padding_bottom": 0
       }
     },
     "faq_section_zNKj4F": {
@@ -671,7 +674,7 @@
       ],
       "settings": {
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "bg_color": "#fff7ee",
         "box_shadow": "#e9c398",
         "heading_size": "h2",
@@ -708,7 +711,7 @@
         "slide_transition": "fade",
         "speed_delay": 1000,
         "padding_top": 50,
-        "padding_bottom": 50,
+        "padding_bottom": 30,
         "enable_arrow": true
       }
     },

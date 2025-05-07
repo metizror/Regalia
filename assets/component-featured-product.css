@@ -284,25 +284,27 @@ a.checkout-button {
 }
 
 /* quantity */
-
+.qtylabeltitle{
+  font-family: var(--bs-font-family);
+  font-size:calc(var(--bs-size) + 2px);
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
 .quantity-container {
   display: flex;
   align-items: center;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   background-color: #fdf9f6;
-  /* Light background color */
   width: 120px;
   justify-content: space-between;
   overflow: hidden;
   padding: 2px 5px;
   transition: background-color 0.3s ease;
-  /* Smooth background transition */
 }
 
 .quantity-container:hover {
   background-color: #f4ece3;
-  /* Slightly darker background color on hover */
 }
 
 .atcbtn-content {
@@ -402,7 +404,6 @@ a.checkout-button {
 
 .quantity-btn:hover {
   color: #555;
-  /* Slightly darker on hover */
 }
 
 .quantity-input {
@@ -415,13 +416,11 @@ a.checkout-button {
   background-color: transparent;
   outline: none;
   -moz-appearance: textfield;
-  /* Remove spinner in Firefox */
 }
 
 .quantity-input::-webkit-outer-spin-button,
 .quantity-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  /* Remove spinner in Chrome, Safari, Edge */
   margin: 0;
 }
 
@@ -429,6 +428,16 @@ a.checkout-button {
   border: 0px;
   background-color: transparent;
   font-size: 20px;
+}
+.featured-product .qnt-input-wrapper .btn{
+  background-color: transparent;
+}
+input.featured-pro-btn{
+  border-color: #DBDBDB;
+  background-color: transparent;
+}
+.featured-product .qnt-input-wrapper{
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .featured-product-content {
@@ -520,7 +529,9 @@ a.checkout-button {
   .featured-product-content {
     display: block;
   }
-
+  .product-media .media-item.swiper-slide{
+    border-radius: 0px;
+  }
   .product-img-content {
     width: 100%;
     max-width: 100%;
@@ -538,6 +549,29 @@ a.checkout-button {
 
   .featured-product .swipersliderbtn .swiper--prev {
     left: 33%;
+  }
+  .products-sold-mess{
+    padding-right:16px;
+    justify-content:center;
+  }
+  .product-title h2 a{
+    font-size: calc(var(--bs-size) + 6px);
+  }
+  .info_text span.h6{
+    font-size:calc(var(--bs-size) - 2px);
+    font-family: var(--bs-font-family);
+    font-weight:var(--weight-medium);
+  }
+  .prosold-text, .lasthours-text, .stock-indicator p, #stock-count, .variant-after-text, .product-options-content .product-option, .variant-options, .dropdownList, .qtylabeltitle{
+    font-size: calc(var(--bs-size) - 2px);
+  }
+  .product-form__buttons .atcbtn-content span:last-child{
+    font-size: calc(var(--bs-size) - 2px);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  .atcbtn-content:hover span:first-child{
+    transform: translate(115px, 2px);
   }
 }
 

@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "section_group": {
     "header_group": {
       "name": "હેડર જૂથ"
@@ -979,7 +979,8 @@
         "bg_image": {
           "label": "પૃષ્ઠભૂમિ છબી",
           "title": "શીર્ષક",
-          "description": "વર્ણન"
+          "description": "વર્ણન",
+          "overlay_opacity": "ઓવરલેય ઓપેસિટી"
         },
         "end_date": {
           "label": "સમાપ્તિ તારીખ"

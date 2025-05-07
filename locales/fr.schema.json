@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "section_group": {
     "header_group": {
       "name": "Groupe d'en-tête"
@@ -979,7 +979,8 @@
         "bg_image": {
           "label": "Image de fond",
           "title": "Titre",
-          "description": "Description"
+          "description": "Description",
+          "overlay_opacity": "Opacité de superposition"
         },
         "end_date": {
           "label": "Date de fin"

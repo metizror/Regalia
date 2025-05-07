@@ -97,7 +97,24 @@
     display:block;
   } */
 }
-
+@media (min-width:768px) and (max-width:1024px){
+  .section-slideshow .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    padding: 2px;
+  }
+  .section-slideshow .swiper-pagination .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+  }
+  .overlacontent .btn-effect{
+    max-width: 300px;
+  }
+  .section-slideshow .swiper-pagination{
+    bottom:5px;
+  }
+}
 @media (max-width: 767px) {
   .swiper-pagination {
     /* position: static; */

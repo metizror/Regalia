@@ -191,7 +191,9 @@ details[open].menu-opening>.menu-drawer__submenu {
   .language-location-content.mobile-hide {
     display: none;
   }
-
+ .desktop-localization-wrapper.mobile-tablet-hide{
+   display: none;
+ }
   .drawer-menu-btn .close-icon svg {
     width: 16px;
     height: 16px;
@@ -199,6 +201,22 @@ details[open].menu-opening>.menu-drawer__submenu {
 
   .drawer-menu .header__menu-item svg path {
     fill: #082a32;
+  }
+  .drawer-menu-list li a{
+    padding-bottom:20px;
+    opacity: 1;
+    font-weight:var(--weight-medium);
+  }
+  details[open] .header__menu-item svg{
+    transform: rotate(180deg);
+  }
+  .header__menu-item span{
+    font-weight:var(--weight-medium);
+    color: var(--color-text);
+  }
+  #drawer-menu-list summary.list-menu__item{
+    color:var(--color-text);
+    opacity: 1;
   }
 }
 
