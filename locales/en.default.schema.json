@@ -1854,6 +1854,9 @@
         "sticky_header": {
           "label": "Sticky header"
         },
+        "inline_search": {
+          "label":"Inline search"
+        },
         "spacing": {
           "content": "Spacing",
           "margin_bottom": {
