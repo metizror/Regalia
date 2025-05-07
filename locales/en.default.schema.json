@@ -1800,6 +1800,23 @@
               "label": "Quick menu"
             }
           }
+        },
+           "social_details":{
+          "name":"Social icon",
+          "settings":{
+            "social_logo_1":{
+              "label":"Social icon one"
+            },
+             "social_logo_2":{
+              "label":"Social icon two"
+            },
+              "social_data_1":{
+              "label":"Social text one"
+            },
+             "social_data_2":{
+              "label":"Social text two"
+            }
+          }
         }
       }
     },
