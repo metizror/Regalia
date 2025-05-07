@@ -222,6 +222,7 @@ details[open].menu-opening>.menu-drawer__submenu {
     bottom:0%;
   }
   .language-selector .mainlangcontent{
+    padding:10px;
     width: 100%;
     max-width: 100%;
   }
