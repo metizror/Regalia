@@ -1524,6 +1524,12 @@
         "heading_opacity": {
           "label": "Heading opacity"
         },
+        "card_color":{
+          "label":"Product card color"
+        },
+        "text_alignment":{
+          "label":"Text alignment"
+        },
         "card_customization": {
           "content": "Section card customization",
           "background_image": {
