@@ -2157,6 +2157,9 @@
         },
         "reverse_direction": {
           "label": "Reverse direction"
+        },
+        "icon_img":{
+          "label":"Icon name"
         }
       },
       "blocks": {
