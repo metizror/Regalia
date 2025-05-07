@@ -1096,6 +1096,9 @@
         "name": "Discount countdown"
       }
     },
+    "featured_collection":{
+      "name":"Featured collection",
+    },
     "duo_image": {
       "name": "Duo image",
       "settings": {
