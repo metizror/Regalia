@@ -175,7 +175,7 @@
         "padding_bottom": 0,
         "bg_color": "#082a32",
         "menu_color": "",
-        "menu_color_opacity": 50,
+        "menu_color_opacity": 100,
         "social_icons": true,
         "enable_follow_on_shop": true,
         "hr_line": "linear-gradient(130deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
