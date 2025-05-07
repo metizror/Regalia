@@ -28,6 +28,7 @@
     <picture>
       {% if settings.top_bg_image %}
         <source srcset="{{ settings.top_bg_image | image_url: width: 90 }}" media="(max-width: 768px)">
+        <source srcset="{{ settings.top_bg_image | image_url: width: 175 }}" media="(max-width: 1600px)">  
         <img src="{{ settings.top_bg_image | image_url: width: 256 }}" alt="{{ settings.top_bg_image.alt | default: 'Top background image' }}" class="top-bg"
         loading="lazy"
         style="--object-postion:{{ settings.top_bg_image.presentation.focal_point }}">
@@ -36,6 +37,7 @@
     <picture>
       {% if settings.left_bg_image %}
         <source srcset="{{ settings.left_bg_image | image_url: width: 26 }}" media="(max-width: 768px)">
+        <source srcset="{{ settings.left_bg_image | image_url: width: 50 }}" media="(max-width: 1600px)">  
         <img src="{{ settings.left_bg_image | image_url: width: 130 }}" alt="{{ settings.left_bg_image.alt | default: 'Left background image' }}"class="left-bg"
         loading="lazy"
         style="--object-postion:{{ settings.left_bg_image.presentation.focal_point }}">
@@ -44,6 +46,7 @@
     <picture>
       {% if settings.right_bg_image %}
         <source srcset="{{ settings.right_bg_image | image_url: width: 45 }}" media="(max-width: 768px)">
+        <source srcset="{{ settings.right_bg_image | image_url: width: 70 }}" media="(max-width: 1600px)">  
         <img src="{{ settings.right_bg_image | image_url: width: 130 }}" alt="{{ settings.right_bg_image.alt | default: 'Right background image' }}"  
           class="right-bg"
           loading="lazy"

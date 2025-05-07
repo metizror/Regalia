@@ -379,27 +379,46 @@
   .multicolumn .multi-column-wrap h2 {
     font-size: 34px;
   }
-
-  .image-background img.left-bg {
-    left: 5%;
-    top: 38%;
-  }
-
-  .image-background img.right-bg {
-    right: 3%;
-    top: 45%;
-    animation: float 4s ease-in-out infinite;
-    animation-delay: 0s;
-  }
-
-  .image-background img.top-bg {
-    left: 60%;
-    bottom: 94%;
-  }
 }
 
 @media screen and (min-width: 1024px) {
   .multicolumn .multi-column {
     padding: 33px 50px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1600px) {
+  .image-background img.right-bg {
+    right: 3%;
+    top: 45%;
+  }
+
+  .image-background img.left-bg{
+    left: 5%;
+    top: 9%;
+  }
+
+  .image-background img.top-bg {
+    left: 60%;
+    bottom: 96%;
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  .image-background img.right-bg {
+    right: 1%;
+    top: 45%;
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .image-background img.left-bg{
+    left: 1%;
+    top: 38%;
+  }
+  
+  .image-background img.top-bg {
+    left: 60%;
+    bottom: 94%;
   }
 }
