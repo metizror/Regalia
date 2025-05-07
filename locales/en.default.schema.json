@@ -1515,6 +1515,9 @@
         "header": {
           "content": "Content"
         },
+        "heading_show":{
+          "label":"Heading show"
+        },
         "heading": {
           "label": "Heading"
         },
