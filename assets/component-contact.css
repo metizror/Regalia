@@ -330,7 +330,7 @@
   .multicolumn-wrap {
     padding-bottom: 15px;
   }
-  .contact-text h5 p{
+  .contact-text .h5 p{
     font-size:var(--bs-size); 
   }
 }
