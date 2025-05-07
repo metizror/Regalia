@@ -267,7 +267,6 @@ summary.list-menu__item {
 }
 
 @media screen and (max-width: 989px) {
-
 	.header__heading,
 	.header__heading-link {
 		text-align: center;
@@ -282,6 +281,10 @@ summary.list-menu__item {
 	.header--mobile-left {
 		grid-template-columns: auto 2fr 1fr;
 	}
+    body .section-main-header .language-location-content{
+      width:100%;
+      max-width:100%;
+    }
 }
 
 @media screen and (min-width: 990px) {
