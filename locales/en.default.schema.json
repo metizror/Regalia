@@ -1718,6 +1718,18 @@
     "footer": {
       "name": "Footer",
       "settings": {
+        "footer_lefttop":{
+          "label":"Left top image"
+        },
+        "footer_rightbottom":{
+          "label":"Right bottom image"
+        },
+        "menu_color":{
+          "label":"Menu color"
+        },
+        "menu_color_opacity":{
+          "label":"Menu opacity"
+        },
         "social_icons": {
           "label": "Social icons"
         },
