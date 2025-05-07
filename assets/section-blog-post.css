@@ -279,3 +279,6 @@ a.blog-item {
     scrollbar-width: thin; 
   }
 }
+.field.field--with-error {
+    padding: 10px 0;
+}
