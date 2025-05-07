@@ -226,6 +226,10 @@ details[open].menu-opening>.menu-drawer__submenu {
     width: 100%;
     max-width: 100%;
   }
+  .drawer-menu-list .mainlangcontent li a{
+    padding-top:5px;
+    padding-bottom:5px;
+  }
 }
 
 .menu-drawer__account {
