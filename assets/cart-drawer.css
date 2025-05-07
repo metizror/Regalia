@@ -530,6 +530,9 @@
   #shopify-section-cart-drawer #cart-drawer.cart-drawer {
     display: block;
   }
+ .main-cart-wrapper .product-mobile-content{
+   padding-right:15px;
+ }
 }
 
 @media (max-width: 767px) {
