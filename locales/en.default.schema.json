@@ -1764,6 +1764,9 @@
             "info": {
               "label": "Store information"
             },
+            "footer_newsletter":{
+              "label":"News letter"
+            },
             "data": {
               "icon": {
                 "one": "Info icon 1",
