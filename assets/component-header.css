@@ -281,7 +281,7 @@ summary.list-menu__item {
 	.header--mobile-left {
 		grid-template-columns: auto 2fr 1fr;
 	}
-    .language-location-content{
+    body .language-location-content{
       width:100%;
       max-width:100%;
     }
