@@ -1452,6 +1452,10 @@
         "group_filter_prefix": {
           "label": "Filter Group Prefix (comma-separated)"
         },
+        "price_filter_index":{
+          "label":"Price filter index",
+          "info":"The price filter comes first in the priority order"
+        },
         "filter_open": {
           "label": "Default filter open"
         },
