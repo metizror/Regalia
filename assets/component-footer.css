@@ -179,19 +179,19 @@ ul.policies .copyright__content a {
     gap: 10px;
   }
 
-  .newsletter-form input[type="email"],
-  .newsletter-form input[type="checkbox"] {
+  .newsletter-form-footer input[type="email"],
+  .newsletter-form-footer input[type="checkbox"] {
     font-size: 14px;
   }
 
-  .newsletter-form input[type="email"] {
+  .newsletter-form-footer input[type="email"] {
     padding: 10px 15px;
     width: 100%;
     border: 0;
     border-bottom: 1px solid #DDDDDD;
     background:transparent;
   }
- .newsletter-form input[type="email"]:placeholder{
+ .newsletter-form-footer input[type="email"]:placeholder{
    color:var(--white);
    opacity:0.5;
  } 
