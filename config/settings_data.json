@@ -45,6 +45,7 @@
     "media_ratio": "original",
     "show_thumbs": false,
     "show_qnt_picker": true,
+    "variant_type": "buttons",
     "tiles_media_ratio": "portrait",
     "tiles_fill_media_zooom": true,
     "show_percentage": false,
