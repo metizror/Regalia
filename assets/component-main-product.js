@@ -328,8 +328,7 @@ async function updateCartItem(lineIndex, quantity) {
 }
 
 // Initialize Variant Selection
-document.addEventListener("DOMContentLoaded", () => {
-  handleVariantSelection();
-
-  addEventListenerToElements(".color-variant, .multiple-option-variant", "change", handleVariantSelection);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   handleVariantSelection();
+//   addEventListenerToElements(".color-variant, .multiple-option-variant", "change", handleVariantSelection);
+// });
