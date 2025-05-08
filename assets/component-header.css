@@ -104,7 +104,7 @@ summary.list-menu__item {
 /* search-css middle-left logo  */
 .inline-search .predicative-input{
   border-radius: 270px;  
-  border-color:#FFF0F5;
+  border-color:var(--search-bg-color);
   color:rgba(33, 33, 33, 0.2);
 }
 .inline-search .inline-submit circle, .inline-search .inline-submit path{
