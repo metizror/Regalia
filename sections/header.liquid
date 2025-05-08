@@ -4,9 +4,6 @@
 {{ 'component-header.css' | asset_url | stylesheet_tag: preload: true }}
 
 {%- style -%}
-  root:{
-    --search-bg-color:{{ section.settings.inline_search_color }};
-  }
    .header {
      padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
    }
@@ -26,6 +23,9 @@
        max-width: {{ settings.logo_width_mobile }}px;
   }
    }
+   :root{
+    --search-bg-color:{{ section.settings.inline_search_color }};
+  } 
 {%- endstyle -%}
 
 {% if section.settings.sticky_header %}
