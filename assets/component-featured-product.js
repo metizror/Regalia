@@ -19,7 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
 theme.featuredProduct = () => {
   const featureproEle = document.querySelector(".featureProduct");
   if (!featureproEle) return;
-  const swiperOptions = JSON.parse(featureproEle.dataset.sliderData);
+
+  const sliderData = featureproEle.dataset.sliderData;
+  let swiperOptions;
+  try {
+    swiperOptions = JSON.parse(sliderData); // Validate JSON
+  } catch (error) {
+    console.error("Invalid JSON in sliderData:", sliderData, error);
+    return; // Exit early if JSON is invalid
+  }
   const swiper = new Swiper(featureproEle, swiperOptions);
 
   //Pause/stop the slider when new block/announcement added
