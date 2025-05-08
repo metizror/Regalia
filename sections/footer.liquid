@@ -89,7 +89,7 @@
 {% endform %}
   
   {% if form.posted_successfully? %}
-    <div class="newsletter-message success">Thanks for subscribing!</div>
+    <div class="newsletter-message success">{{ 'newsletter.success_msg' | t }}</div>
   {% elsif form.errors %}
     <div class="newsletter-message error">
       {% for field in form.errors %}
