@@ -19,8 +19,8 @@
           "settings": {
             "text": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
             "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections",
+            "new_tab": true
           }
         },
         "announcement_HGRbeL": {
@@ -94,7 +94,7 @@
         "enable_customer_avatar": true,
         "sticky_header": true,
         "inline_search": true,
-        "inline_search_color": "#000",
+        "inline_search_color": "#000000",
         "margin_bottom": 24,
         "padding_top": 20,
         "padding_bottom": 20
