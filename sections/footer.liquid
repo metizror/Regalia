@@ -66,7 +66,7 @@
 
           <div class="footer-newsletter">
   <h2>{{ "newsletter.footer.title" | t }}</h2>
-  <form method="post" action="{{ routes.newsletter_subscribe_url }}" accept-charset="UTF-8" class="newsletter-form-footer" onsubmit="return validateNewsletterForm()">
+  {% form 'customer', class: 'newsletter-form-footer', onsubmit: 'return validateNewsletterForm()' %}
     <input type="hidden" name="form_type" value="customer" />
     <input type="hidden" name="utf8" value="✓" />
     
@@ -86,7 +86,7 @@
                           aria-label="{{ 'newsletter.submit_btn' | t }}"
                         >{% render 'icons', icon:'footer-submit' %}
          </button>
-  </form>
+{% endform %}
   
   {% if form.posted_successfully? %}
     <div class="newsletter-message success">Thanks for subscribing!</div>
