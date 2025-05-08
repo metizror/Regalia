@@ -132,7 +132,7 @@
           "type": "logo-information",
           "settings": {
             "logo": "shopify://shop_images/jewellery_1.png",
-            "footer_newsletter": false,
+            "footer_newsletter": true,
             "text_data": "At Regalia, we create jewelry that combines elegance with timeless appeal. Our pieces are crafted to enhance your style and celebrate your individuality.",
             "info_logo_1": "location",
             "info_data_1": "Addresss: 123 Pall Mall, London England",
