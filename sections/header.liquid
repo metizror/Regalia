@@ -90,7 +90,7 @@
 </style>
 
 <sticky-drawer id="header" class="sticky-header">
-  <header class="{% unless section.settings.logo_position == 'top-center' %}headercontent-flex{% endunless %} header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
+  <header class="{% if section.settings.inline_search %}inline-search-header{% endif %} {% unless section.settings.logo_position == 'top-center' %}headercontent-flex{% endunless %} header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
