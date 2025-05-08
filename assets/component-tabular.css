@@ -108,3 +108,13 @@ span.tab-title {
 .accordin-icon svg path {
   fill: var(--black);
 }
+
+@media (max-width:768px) {
+  .tab-page-content{
+    flex-direction: column;
+  }
+  .tab-page-data{
+    width: 100%;
+    padding: 20px;
+  }
+}

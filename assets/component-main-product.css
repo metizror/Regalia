@@ -320,7 +320,7 @@ p.discount-percentage {
 
 .sticky-content {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   right: 0;
   display: block;
@@ -615,6 +615,10 @@ p.discount-percentage {
 }
 
 .sticky-content .checkoutbtn-text {
+  display: none;
+}
+
+.sticky-content .qtylabeltitle{
   display: none;
 }
 
