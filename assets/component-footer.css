@@ -181,7 +181,7 @@ ul.policies .copyright__content a {
 
   .newsletter-form-footer input[type="email"],
   .newsletter-form-footer input[type="checkbox"] {
-    font-size: 14px;
+    font-size:var(--bs-size);
   }
 
   .newsletter-form-footer input[type="email"] {
