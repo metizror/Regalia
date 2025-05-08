@@ -190,6 +190,7 @@ ul.policies .copyright__content a {
     border: 0;
     border-bottom: 1px solid #DDDDDD;
     background:transparent;
+    border-radius: 0px;
   }
  .newsletter-form-footer input[type="email"]:placeholder{
    color:var(--white);
