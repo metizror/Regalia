@@ -28,8 +28,8 @@
           "settings": {
             "text": "<p>Summer sale: Up to 70% off selected items</p>",
             "text_mobile": "<p>Summer sale: Up to 70% off selected items</p>",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/best-seller",
+            "new_tab": true
           }
         }
       },
