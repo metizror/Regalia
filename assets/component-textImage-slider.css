@@ -396,6 +396,9 @@
 }
 
 @media (max-width: 599px) {
+  .image-overlay-text{
+    height:100%;
+  }
   .text-image-wrapper.swiper {
     height: clamp(400px, 50vh, 600px); /* Adjust as needed */
   }
