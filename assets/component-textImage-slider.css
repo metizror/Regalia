@@ -395,7 +395,7 @@
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 767px) {
   .image-with-text .image-wrapper{
     height:100%;
   }
