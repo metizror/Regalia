@@ -403,7 +403,7 @@
     height: 100%;
   }
   .text-image-wrapper.swiper {
-    height: clamp(400px, 100vh, 600px); /* Adjust as needed */
+    height: clamp(800px, 100vh, 800px); /* Adjust as needed */
   }
   .text-image-slider-section .text-image-items.swiper-slide{
     height:100% !important;
