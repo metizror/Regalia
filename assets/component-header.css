@@ -109,6 +109,9 @@ summary.list-menu__item {
 .inline-search .inline-submit circle, .inline-search .inline-submit path{
  stroke: var(--search-bg-color);  
 }
+.inline-search-header .inline-search{
+  padding-left:40px;
+}
 .predictive-search-content{
   position:relative;
 }
