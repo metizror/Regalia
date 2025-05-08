@@ -627,9 +627,13 @@ document.querySelectorAll(".color-variant, .multiple-option-variant")
       getCombinedVariant();
     };
 
-    element.addEventListener("click", () => {
-      prodvariantHandle(element);
-    });
+       element.addEventListener("change", () => {
+        prodvariantHandle(element);
+      });
+    
+    // element.addEventListener("click", () => {
+    //   prodvariantHandle(element);
+    // });
 
     element.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
