@@ -105,7 +105,9 @@ summary.list-menu__item {
 .inline-search .predicative-input{
   border-radius: 270px;  
   border-color:var(--search-bg-color);
-  color:rgba(33, 33, 33, 0.2);
+}
+.inline-submit svg{
+  fill:var(--search-bg-color);
 }
 .inline-search .inline-submit circle, .inline-search .inline-submit path{
  stroke: rgba(0, 0, 0, 0.1);  
