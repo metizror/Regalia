@@ -626,14 +626,10 @@ document.querySelectorAll(".color-variant, .multiple-option-variant")
       el.classList.add("checked");
       getCombinedVariant();
     };
-
-       element.addEventListener("change", () => {
-        prodvariantHandle(element);
-      });
     
-    // element.addEventListener("click", () => {
-    //   prodvariantHandle(element);
-    // });
+    element.addEventListener("click", () => {
+      prodvariantHandle(element);
+    });
 
     element.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
