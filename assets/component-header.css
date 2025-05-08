@@ -111,6 +111,7 @@ summary.list-menu__item {
 }
 .inline-search-header .inline-search{
   padding-left:40px;
+  padding:0px;
 }
 .predictive-search-content{
   position:relative;
