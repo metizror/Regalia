@@ -443,7 +443,9 @@ account-icon {
 .inline-search .products-wrapper li{
   list-style-type: none;
 }
-
+.inline-search-header .cart-count{
+      top: 5px;
+}
 /* Search */
 menu-drawer+.header__search {
 	display: none;
