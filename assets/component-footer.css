@@ -210,7 +210,7 @@ ul.policies .copyright__content a {
     font-family:var(--bs-font-family);
   }
 
-  .newsletter-form button {
+  .newsletter-form-footer button {
     color: #fff;
     padding: 10px 20px;
     font-size: 14px;
@@ -224,7 +224,7 @@ ul.policies .copyright__content a {
   .privacy-wrapper label, .privacy-wrapper label a{
     color:var(--white);
   }
-  .newsletter-form button:hover {
+  .newsletter-form-footer button:hover {
     background-color: #333;
   }
 
