@@ -394,7 +394,17 @@
     font-weight: var(--weight-regular);
   }
 }
-
+@media (max-width: 767px) {
+  .image-with-text .image-wrapper{
+    height:100%;
+  }
+  .image-overlay-text{
+    height: 100%;
+  }
+  .text-image-wrapper.swiper {
+    height: 100vh;
+  }
+}
 /* Extra Small Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .image-with-text {
