@@ -225,7 +225,7 @@ ul.policies .copyright__content a {
     color:var(--white);
   }
   .newsletter-form-footer button:hover {
-    background-color: var(--p-btn-hover-secondary);
+    background-color: var(--p-btn-hover-primary);
   }
 
   .newsletter-message {
