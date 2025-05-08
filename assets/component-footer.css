@@ -173,7 +173,7 @@ ul.policies .copyright__content a {
     font-size: 16px;
   }
 
-  .newsletter-form {
+  .newsletter-form-footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
