@@ -396,7 +396,7 @@
 }
 
 @media (max-width: 599px) {
-  .image-overlay-text{
+  .image-with-text .image-wrapper{
     height:100%;
   }
   .text-image-wrapper.swiper {
