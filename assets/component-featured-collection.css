@@ -105,7 +105,7 @@
 .featured-collection-section .animated-text.animated-letters {
   display: inline-block;
   width: 0%;
-  animation: typewriter 5s 2s infinite alternate;
+  animation: typewriter 5s 1s infinite alternate;
   overflow: hidden;
   white-space: nowrap;
   vertical-align: bottom;
