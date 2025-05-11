@@ -227,7 +227,8 @@ document.addEventListener("DOMContentLoaded", function () {
       productVariant.value = variantId;
       stickyVariant.value = variantId;
       pickupcontent();
-      const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
+
+            const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
 
       if (variantStock === 0) {
           variantName.classList.add("soldout");
