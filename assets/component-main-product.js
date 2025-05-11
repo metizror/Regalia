@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
       stickyVariant.value = variantId;
       pickupcontent();
       const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
-
+  alert(variantStock);
           if (
                 variantStock &&
                 parseInt(variantStock.getAttribute("data-variant-left")) === 0
