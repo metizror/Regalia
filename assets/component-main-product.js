@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   .join(" / ");
               }
               const stockOption = document.querySelector(
-                `.soldout .combination_id option[data-variant-name="${variantKey}"]`
+                `.mainproduct .combination_id option[data-variant-name="${variantKey}"]`
               );
               if (
                 stockOption &&
