@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectedVariants.length === 0) return;
     const combinedVariant = selectedVariants.join(" / ");
     const matchingOption = document.querySelector(
-      `.combination_id option[data-variant-name="${combinedVariant}"]`
+      `.mainproduct .combination_id option[data-variant-name="${combinedVariant}"]`
     );
     if (stickyVariantchange) {
       stickyVariantchange.textContent = combinedVariant;
