@@ -227,8 +227,17 @@ document.addEventListener("DOMContentLoaded", function () {
       productVariant.value = variantId;
       stickyVariant.value = variantId;
       pickupcontent();
-      const variantStock =
-        parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
+      const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
+
+          if (
+                variantStock &&
+                parseInt(variantStock.getAttribute("data-variant-left")) === 0
+              ) {
+                variantName.classList.add("soldout");
+              } else {
+                variantName.classList.remove("soldout");
+              }
+      
       matchingOption.setAttribute("selectedVariant", "true");
       if (atcBtnContent) {
         if (variantStock === 0) {
