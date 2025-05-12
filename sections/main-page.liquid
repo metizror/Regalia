@@ -12,6 +12,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .default-page h3{
+    color: {{ section.settings.heading_color }};
+  }
+  .default-page {
+    color: {{ section.settings.content_color }};
+  }
 {%- endstyle -%}
 <div class="default-page"> 
   <div class="{% if section.settings.full_width %}container full-width{% else %}container-narrow{% endif %}">
@@ -79,7 +85,19 @@
       "type": "checkbox",
       "id": "show_title",
       "label": "Show page title"
-    },    
+    },  
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#153D47"
+    },  
+    { 
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#797979"
+    },
     {
       "type": "header",
       "content": "Section vertical spacing"
