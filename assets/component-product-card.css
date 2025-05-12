@@ -276,7 +276,7 @@
 
 .product-content .h6 {
   color: var(--color-text);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
   font-size: calc(var(--bs-size) + 2px);
   line-height: 24px;
 }

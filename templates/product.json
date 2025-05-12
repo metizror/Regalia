@@ -141,8 +141,8 @@
           "settings": {
             "tab_title": "Shipping & return",
             "page_spacing": 30,
-            "page_one": "returns-policy",
-            "page_two": "shipping-returns"
+            "page_one": "shipping-policy",
+            "page_two": "return-policy"
           }
         },
         "rich_text_kxGhb7": {

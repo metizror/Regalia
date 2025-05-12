@@ -51,7 +51,7 @@
     "tiles_fill_media_zooom": true,
     "show_percentage": false,
     "tiles_swatches": true,
-    "enable_infinite_scroll": true,
+    "enable_infinite_scroll": false,
     "show_countdown": true,
     "countdown_timer": "2025-12-31",
     "show_cart_notes": true,

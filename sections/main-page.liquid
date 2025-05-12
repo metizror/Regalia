@@ -13,17 +13,46 @@
     }
   }
 {%- endstyle -%}
-<div class="{% if section.settings.full_width %}container full-width{% else %}container-narrow{% endif %}">
-  <div class="page-width section-{{ section.id }}-padding">
-    {%- render 'breadcrumbs' -%}
-    <h1 class="main-page-title page-title h0 section-heading" ms-aos data-ms-delay="100">
-      {{ page.title | escape }}
-    </h1>
-    <div class="rte" ms-aos data-ms-delay="200">
-      {{ page.content }}
+<div class="default-page"> 
+  <div class="{% if section.settings.full_width %}container full-width{% else %}container-narrow{% endif %}">
+    {%- if section.settings.default_bg_img_1 != blank -%}
+      <div class="background-image vector-top">
+        <lazy-image>
+       <img src="{{ section.settings.default_bg_img_1 | image_url: width: section.settings.default_bg_img_1.width }}"
+            width="{{ section.settings.default_bg_img_1.width }}"
+            height="{{ section.settings.default_bg_img_1.height }}"
+            loading="lazy"
+            alt="Vector top">               
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.default_bg_img_2 != blank -%}
+      <div class="background-image vector-left mobile-hide tablet-hide">
+        <lazy-image>
+         <img src="{{ section.settings.default_bg_img_2 | image_url: width: section.settings.default_bg_img_2.width }}"
+            width="{{ section.settings.default_bg_img_2.width }}"
+            height="{{ section.settings.default_bg_img_2.height }}"
+            loading="lazy"
+            alt="Vector right"> 
+
+        </lazy-image>
+      </div>
+    {%- endif -%}
+
+    <div class="page-width section-{{ section.id }}-padding">
+      {%- render 'breadcrumbs' -%}
+      {%  if section.settings.show_title == true %}
+        <h1 class="main-page-title page-title h0 section-heading" ms-aos data-ms-delay="100">
+          {{ page.title | escape }}
+        </h1>
+      {% endif %}
+      <div class="rte" ms-aos data-ms-delay="200">
+        {{ page.content }}
+      </div>
     </div>
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Page",
@@ -36,6 +65,21 @@
       "label": "Show full width",
       "default": false
     },
+    {
+      "type": "image_picker",
+      "id": "default_bg_img_1",
+      "label": "Background image top right"
+    },
+    {
+      "type": "image_picker",
+      "id": "default_bg_img_2",
+      "label": "Background image middle left"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show page title"
+    },    
     {
       "type": "header",
       "content": "Section vertical spacing"

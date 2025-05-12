@@ -173,15 +173,21 @@
                               >
                             </div>
 
-                            <div class="mobile-remove-icon desk-hide">
+                            {% comment %} <div class="mobile-remove-icon desk-hide">
                                <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
                                 {%- render 'icons', icon: 'trash' -%}
 
                                 <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
                               </a>
-                            </div>
+                            </div> {% endcomment %}
                           </div>
-
+                          {% comment %} <div class="mobile-remove-icon desk-hide">
+                            <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
+                             {%- render 'icons', icon: 'trash' -%}
+  
+                             <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
+                           </a>
+                         </div> {% endcomment %}
                           <div class="quantity-picker-wrapper cart-qnt desk-hide">
                             <div class="error" style="display:none;">
                               {%- render 'icons', icon: 'cross' -%}
@@ -215,6 +221,15 @@
                             </quantity-picker>
                           </div>
                         </div>
+                          
+                        <div class="mobile-remove-icon desk-hide">
+                          <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
+                           {%- render 'icons', icon: 'trash' -%}
+
+                           <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
+                         </a>
+                       </div>
+                       
                       </div>
                     </td>
                     <td class="mobile-hide">
