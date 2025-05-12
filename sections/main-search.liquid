@@ -1,6 +1,14 @@
 {{ 'component-search.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-filters.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-main-collection.css' | asset_url | stylesheet_tag: preload:true }}
+{% if section.settings.show_separator %}
+  <style>
+    .product-item.mobile-article-content {
+      border-top: 1px solid {{ section.settings.separator_border_color }};
+      padding-top: 3.75rem;
+    }
+  </style>
+{% endif %}
 
 
 {% paginate search.results by section.settings.product_per_coll %}
@@ -435,6 +443,12 @@
       "default": 12
     },
     {
+      "type": "checkbox",
+      "id": "show_separator",
+      "label": "Show separator line",
+      "default": true
+    },
+    {
       "type": "header",
       "content": "Article"
     },
@@ -534,7 +548,13 @@
       "id": "border_color",
       "default": "#E9CFB4",
       "label": "Border"
-    }
+    },
+    {
+      "type": "color",
+      "id": "separator_border_color",
+      "label": "Separator Border Color",
+      "default": "#E9CFB4"
+    }    
   ]
 }
 {% endschema %}

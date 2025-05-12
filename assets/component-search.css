@@ -7,7 +7,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 55%;
   border-radius: 50px;
   background: #fff;
   padding: 5px 10px;
@@ -498,5 +498,9 @@ h5.align-centre.fully-spaced-row.no-result {
 
   .search-page .article-card {
     padding: 2rem 0;
+  }
+  
+  .search-outer .search-field {
+    width: 68%;
   }
 }
