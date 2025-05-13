@@ -147,7 +147,6 @@ if (quickviewClose) {
   initializeSharepopup = () => {
       document.querySelectorAll('.open-quick-popup').forEach(button => {
     button.addEventListener('click', function () {
-      alert("demo");
       const gallery = this.closest('.main-image-slider'); // changed from .gallery
       if (gallery) {
         const popupOverlay = gallery.querySelector('.popup-overlay');
