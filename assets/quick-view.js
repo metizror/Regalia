@@ -178,13 +178,13 @@ if (quickviewClose) {
     const inputField = this.closest('.share-product-url');
     const input = inputField?.querySelector('.field__input');
 
-    alert("demodata");
+    
 
     if (!input) return;
 
     input.select();
     input.setSelectionRange(0, 99999); // For mobile devices
-
+alert(input);
     navigator.clipboard.writeText(input.value).then(() => {
       const originalText = input.innerHTML; // Save button text
       originalText.innerHTML = "Link copied to clipboard!"; // Change button text
