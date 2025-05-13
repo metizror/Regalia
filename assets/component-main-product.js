@@ -53,17 +53,17 @@ document.addEventListener('DOMContentLoaded', function () {
       alert("demo");
       console.log(this);
 
-      const gallery = this.closest('.main-image-slider');
+      const gallery = this.closest('.main-image-slider'); // changed from .gallery
       if (gallery) {
         const popupOverlay = gallery.querySelector('.popupOverlay');
         if (popupOverlay) {
           popupOverlay.style.display = 'block';
           console.log(popupOverlay.innerHTML); // Show popup content
         } else {
-          console.warn('.popupOverlay not found inside .gallery');
+          console.warn('.popupOverlay not found inside .main-image-slider');
         }
       } else {
-        console.warn('.gallery not found as a parent of .open-popup');
+        console.warn('.main-image-slider not found as a parent of .open-popup');
       }
     });
   });
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
 
 // function openPopup() {
 //   document.getElementById("popupOverlay").style.display = "block";
