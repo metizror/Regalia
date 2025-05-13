@@ -11,7 +11,7 @@
             <div class="product-slider-content"> 
             <div class="product-thumnails {%- if settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
               <div class="swiper-container product-thumnails-slide">
-                  <div class="swiper gallery-thumbs product__slider-main">
+                  <div class="swiper gallery-thumbs quick-view-thumbs product__slider-main">
                     {%- render 'product-thumbs', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom -%}
                   </div>
               </div>
