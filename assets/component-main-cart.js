@@ -25,8 +25,6 @@ window.theme.cartQntHandle = () => {
 
       that.value = quantity;
 
-
-      //start
       // 🧠 ICON TOGGLE LOGIC (moved from separate script)
       const wrapper = that.closest('quantity-picker');
       if (wrapper) {
@@ -35,15 +33,13 @@ window.theme.cartQntHandle = () => {
         if (iconMinus && iconTrash) {
           if (quantity <= 1) {
             iconMinus.style.display = 'none';
-            iconTrash.style.display = 'inline-block';
+            iconTrash.style.display = 'flex';
           } else {
-            iconMinus.style.display = 'inline-block';
+            iconMinus.style.display = 'flex';
             iconTrash.style.display = 'none';
           }
         }
       }
-
-      // end
 
       inputBtns.forEach((btn) => (btn.disabled = true));
 
