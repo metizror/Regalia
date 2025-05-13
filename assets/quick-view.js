@@ -171,31 +171,33 @@ if (quickviewClose) {
     });
   });
 
-     document.querySelectorAll('.btn-copy').forEach(copyinput => {
-
-  copyinput.addEventListener('click', function () {
-           alert("link");
+  document.querySelectorAll('.btn-copy').forEach(copyButton => {
+  copyButton.addEventListener('click', function () {
+    alert("link");
+    
     const inputField = this.closest('.share-product-url');
+    const input = inputField?.querySelector('.field__input');
 
-    const inputValuecopy = inputField.querySelector('.field__input');
     alert("demodata");
-    if(!inputValuecopy) return;
-    inputValuecopy.select();
-    inputValuecopy.setSelectionRange(0, 99999); // For mobile devices
 
-    // Copy to clipboard
-    navigator.clipboard.writeText(inputValuecopy.value).then(() => {
-      const originalText = inputValuecopy.innerHTML;
-      alert(originalText);
-      originalText.innerText = "Link copied to clipboard!";
+    if (!input) return;
+
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile devices
+
+    navigator.clipboard.writeText(input.value).then(() => {
+      const originalText = this.innerHTML; // Save button text
+      this.innerHTML = "Link copied to clipboard!"; // Change button text
 
       setTimeout(() => {
-        this.innerHTML = originalText;
+        this.innerHTML = originalText; // Revert button text
       }, 2000);
+    }).catch(err => {
+      console.error("Copy failed:", err);
     });
-       
-      });  
-     });
+  });
+});
+
   
 
   }
