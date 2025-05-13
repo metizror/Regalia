@@ -173,26 +173,25 @@ if (quickviewClose) {
 document.querySelectorAll('.btn-copy').forEach(btn => {
   btn.addEventListener('click', function () {
     const container = this.closest('.share-product-url');
-    const input    = container?.querySelector('.field__input');
-    if (!input) return;
+    const inputContent  = container?.querySelector('.field__input');
+    if (!inputContent) return;
 
     // 1) Select the URL text in the <input>
-    input.select();
-    input.setSelectionRange(0, 99999);
+    inputContent.select();
+    inputContent.setSelectionRange(0, 99999);
 
     // 2) Copy to clipboard
-    navigator.clipboard.writeText(input.value)
+    navigator.clipboard.writeText(inputContent.value)
       .then(() => {
-        console.log(this.innerHTML);
         // // SAFELY change the *button’s* text
         // const button = this;
-        const origText = input.value;
+        const origText = inputContent.value;
 
-        input.value = "Link copied to clipboard!";
+        inputContent.value = "Link copied to clipboard!";
 
         // 3) After 2s, restore
         setTimeout(() => {
-         input.value = origText;
+         inputContent.value = origText;
         }, 2000);
       })
       .catch(err => {
