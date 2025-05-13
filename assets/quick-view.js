@@ -179,30 +179,21 @@ if (quickviewClose) {
     });
   }); 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const copyBtn = document.getElementById("copylink");
+  document.getElementById("copylink").addEventListener("click", function () {
+    const input = document.getElementById("to-link");
+    input.select();
+    input.setSelectionRange(0, 99999); // For mobile devices
 
-    copyBtn.addEventListener("click", function () {
-      CopyTolink("to-link");
+    // Copy to clipboard
+    navigator.clipboard.writeText(input.value).then(() => {
+      const originalText = this.innerHTML;
+      this.innerText = "Link copied to clipboard!";
+
+      setTimeout(() => {
+        this.innerHTML = originalText;
+      }, 2000);
     });
   });
-
-  function CopyTolink(inputId) {
-    var inputField = document.getElementById(inputId);
-    var urlToCopy = inputField.getAttribute("data-url");
-
-    navigator.clipboard
-      .writeText(urlToCopy)
-      .then(function () {
-        inputField.value = "Link copied to clipboard!";
-        setTimeout(() => {
-          inputField.value = urlToCopy;
-        }, 2000);
-      })
-      .catch(function (err) {
-        console.error("Failed to copy: ", err);
-      });
-  }
     
 
   }
