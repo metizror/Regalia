@@ -178,6 +178,7 @@ if (quickviewClose) {
     const inputField = this.closest('.form-field');
 
     const inputValuecopy = inputField.querySelector('.field__input').value();
+    if(!inputValuecopy) return;
     inputValuecopy.select();
     inputValuecopy.setSelectionRange(0, 99999); // For mobile devices
 
