@@ -71,6 +71,12 @@ window.onclick = function (event) {
   }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.open-popup').forEach((btn) => {
+      btn.addEventListener("click", openPopup);
+    });
+});
+
 //  Product page social-share
 function CopyTolink(inputId) {
   var inputField = document.getElementById(inputId);
