@@ -541,3 +541,34 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Open popup
+  document.querySelectorAll('.open-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      alert("demo");
+      console.log(this);
+
+      const gallery = this.closest('.main-image-slider'); // changed from .gallery
+      if (gallery) {
+        const popupOverlay = gallery.querySelector('.popup-overlay');
+        if (popupOverlay) {
+          popupOverlay.style.display = 'block';
+          console.log(popupOverlay.innerHTML); // Show popup content
+        } else {
+          console.warn('.popupOverlay not found inside .main-image-slider');
+        }
+      } else {
+        console.warn('.main-image-slider not found as a parent of .open-popup');
+      }
+    });
+  });
+
+  // Close popup
+  document.querySelectorAll('.close-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      const popup = this.closest('.popupOverlay');
+      if (popup) popup.style.display = 'none';
+    });
+  });
+});
+
