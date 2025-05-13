@@ -54,28 +54,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Click event for the main gallery images
-document.querySelectorAll(".gallery").forEach(function (gallery) {
-  gallery.addEventListener("click", function (event) {
-    var target = event.target.closest("a");
+  document
+    .querySelector("#gallery")
+    .addEventListener("click", function (event) {
+      var target = event.target.closest("a");
 
-    if (!target || !target.closest("figure")) {
-      return;
-    }
+      if (!target || !target.closest("figure")) {
+        return;
+      }
 
-    event.preventDefault();
+      event.preventDefault();
 
-    var figures = gallery.querySelectorAll("figure");
-    var index = Array.from(figures).indexOf(target.closest("figure"));
+      var index = Array.from(
+        document.querySelectorAll("#gallery figure")
+      ).indexOf(target.closest("figure"));
 
-    if (index < 0 || index >= figures.length) {
-      console.error("Invalid index for PhotoSwipe.");
-      return;
-    }
+      if (index < 0 || index >= container.length) {
+        console.error("Invalid index for PhotoSwipe.");
+        return;
+      }
 
-    openPhotoSwipe(index, gallery);
-  });
-});
-
+      openPhotoSwipe(index);
+    });
 
   // Click event for the zoom icon inside img-overlay-icon
   document
