@@ -565,6 +565,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', function () {
       const popup = this.closest('.popup-overlay');
       if (popup) popup.style.display = 'none';
+        document.body.classList.remove("popupOverlay-body");
     });
   });
 });
