@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function openPopup() {
-  alert("product-main.js");
   document.getElementById("popupOverlay").style.display = "block";
   document.addEventListener("keydown", handleKeyPress);
   document.body.classList.add("popupOverlay-body");
