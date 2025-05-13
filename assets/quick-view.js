@@ -171,6 +171,24 @@ if (quickviewClose) {
     });
   });
 
+    function CopyTolink(inputId) {
+  var inputField = document.getElementById(inputId);
+  var urlToCopy = inputField.getAttribute("data-url"); // Get the data-url attribute value
+
+  navigator.clipboard
+    .writeText(urlToCopy)
+    .then(function () {
+      inputField.value = "Link copied to clipboard!"; // Update input field text
+      setTimeout(() => {
+        inputField.value = urlToCopy; // Reset back to original URL after 2 seconds
+      }, 2000);
+    })
+    .catch(function (err) {
+      console.error("Failed to copy: ", err);
+    });
+}
+    
+
   }
 
       
