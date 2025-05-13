@@ -46,36 +46,54 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function openPopup() {
-  document.getElementById("popupOverlay").style.display = "block";
-  document.addEventListener("keydown", handleKeyPress);
-  document.body.classList.add("popupOverlay-body");
-}
 
-function closePopup() {
-  document.getElementById("popupOverlay").style.display = "none";
-  document.removeEventListener("keydown", handleKeyPress);
-  document.body.classList.remove("popupOverlay-body");
-}
-
-function handleKeyPress(e) {
-  if (e.key === "Escape") {
-    closePopup();
-  }
-}
-// Close popup when clicking outside the content
-window.onclick = function (event) {
-  const overlay = document.getElementById("popupOverlay");
-  if (event.target === overlay) {
-    closePopup();
-  }
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.open-popup').forEach((btn) => {
-      btn.addEventListener("click", openPopup);
-    });
+// Open popup (scoped to the clicked section)
+document.querySelectorAll('.open-popup').forEach(button => {
+  button.addEventListener('click', function () {
+    const popup = this.closest('.main-image-slider').querySelector('.popupOverlay');
+    if (popup) popup.style.display = 'block';
+  });
 });
+
+// Close popup (inside popup)
+document.querySelectorAll('.close-popup').forEach(button => {
+  button.addEventListener('click', function () {
+    const popup = this.closest('.popupOverlay');
+    if (popup) popup.style.display = 'none';
+  });
+});
+
+
+// function openPopup() {
+//   document.getElementById("popupOverlay").style.display = "block";
+//   document.addEventListener("keydown", handleKeyPress);
+//   document.body.classList.add("popupOverlay-body");
+// }
+
+// function closePopup() {
+//   document.getElementById("popupOverlay").style.display = "none";
+//   document.removeEventListener("keydown", handleKeyPress);
+//   document.body.classList.remove("popupOverlay-body");
+// }
+
+// function handleKeyPress(e) {
+//   if (e.key === "Escape") {
+//     closePopup();
+//   }
+// }
+// // Close popup when clicking outside the content
+// window.onclick = function (event) {
+//   const overlay = document.getElementById("popupOverlay");
+//   if (event.target === overlay) {
+//     closePopup();
+//   }
+// };
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     document.querySelectorAll('.open-popup').forEach((btn) => {
+//       btn.addEventListener("click", openPopup);
+//     });
+// });
 
 //  Product page social-share
 function CopyTolink(inputId) {
