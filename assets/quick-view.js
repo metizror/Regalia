@@ -175,12 +175,14 @@ if (quickviewClose) {
 
   copyinput.addEventListener('click', function () {
            alert("link");
-    const input = document.getElementById("to-link");
-    input.select();
-    input.setSelectionRange(0, 99999); // For mobile devices
+    const inputField = this.closest('.form-field');
+
+    const inputValuecopy = inputField.querySelector('.field__input').value();
+    inputValuecopy.select();
+    inputValuecopy.setSelectionRange(0, 99999); // For mobile devices
 
     // Copy to clipboard
-    navigator.clipboard.writeText(input.value).then(() => {
+    navigator.clipboard.writeText(inputValuecopy.value).then(() => {
       const originalText = this.innerHTML;
       this.innerText = "Link copied to clipboard!";
 
