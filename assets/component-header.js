@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (menuList) {
       const totalHeight = announcementBarHeight + headerHeight;
-      menuList.style.height = `calc(100vh - ${totalHeight}px)`;
+      // menuList.style.height = `calc(100vh - ${totalHeight}px)`;
     }
   }
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const drawerFooterHeight = drawerFooter.offsetHeight || 0;
 
       if (drawerMenu) {
-        drawerMenu.style.height = `calc(100vh - ${drawerFooterHeight}px - 30px)`;
+        // drawerMenu.style.height = `calc(100vh - ${drawerFooterHeight}px - 30px)`;
       }
 
       // Hide it back if necessary (optional, only if it was initially hidden)

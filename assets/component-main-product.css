@@ -320,7 +320,7 @@ p.discount-percentage {
 
 .sticky-content {
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   right: 0;
   display: block;
@@ -610,9 +610,18 @@ p.discount-percentage {
 }
 
 /* 04/03/25 stickycontent  */
-.sticky-content .quantity-picker-wrapper, .sticky-content .qtylabeltitle, .sticky-content .checkoutbtn-text {
+.sticky-content .quantity-picker-wrapper {
   display: none;
 }
+
+.sticky-content .checkoutbtn-text {
+  display: none;
+}
+
+.sticky-content .qtylabeltitle{
+  display: none;
+}
+
 /* Dropdown variant */
 /* Main dropdown container styling */
 .dropdown-variant {
@@ -641,7 +650,7 @@ p.discount-percentage {
   padding: 10px;
 }
 .dropdown-color-swatch{
-    width: 16px;
+  width: 16px;
   height: 16px;
   border-radius: 50%;
   margin-right: 8px;
@@ -661,7 +670,6 @@ p.discount-percentage {
   display: none;
   z-index: 10;
 }
-
 
 .dropdown-option {
   display: flex;
@@ -952,6 +960,15 @@ p.discount-percentage {
 
 .product-recommendations .product-price.compare--price-grt .price__sale {
   justify-content: center;
+}
+
+.product-recommendations .price__sale .main-price{
+  font-size: var(--bs-size);
+  font-weight: var(--weight-medium); 
+}
+
+.product-recommendations .product-price{
+  color: var(--color-base);
 }
 
 .title-wrapper span.h5{

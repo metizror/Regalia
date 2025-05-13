@@ -28,6 +28,7 @@
   .product-recommendations .related-products{
     column-gap:{{ section.settings.spacing }}px;
     flex-wrap:wrap;
+    padding-left:0;
   }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
@@ -105,7 +106,7 @@
 
   observer.observe(productRecommendationsSection);
 {% endjavascript %}
-<script src="{{ 'component-product-zoom.js' | asset_url }}" type="text/javascript" defer></script>
+
 {% schema %}
 {
   "name": "Related products",

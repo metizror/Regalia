@@ -102,4 +102,7 @@
     text-align: center;
     margin-bottom:20px;
   }
+  .locator-wrapper .store-address-container{
+    padding:20px 15px;
+  }
 }

@@ -963,6 +963,7 @@ dd.unit-price {
     flex: 1 0 23%;
     padding: 30px;
   }
+
 }
 
 @media (min-width: 990px) {
@@ -987,6 +988,7 @@ dd.unit-price {
   :is(.account, .order) h3 {
     margin-top: 0px;
   }
+
 }
 
 @media (max-width: 767px) {
@@ -1100,10 +1102,43 @@ dd.unit-price {
     content: attr(data-label) ": ";
     font-weight: bold;
   }
+
+  .main-login-wrapper {
+    padding: 0 15px;
+  }
+
+
+}
+
+@media (max-width:990px) {
+  .bg-image.top-right{
+    width: 40px;
+    height: auto;
+    right: 30px;
+    top: 15%;
+  }
+
+  .bg-image.top-left{
+    width: 30px;
+    height: auto;
+    left: 7%;
+  }
+
+  .bg-image.middle-right{
+    width: 30px;
+    height: auto;
+  }
 }
 
 @media (max-width:450px) {
   .addresses ul.address-item li[data-address] {
     width: 100%;
+  }
+
+  .login-bottom-wrapper {
+    flex-direction: column;
+  }
+  .btn.btn-large{
+    width: 70%;
   }
 }

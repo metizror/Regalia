@@ -10,7 +10,6 @@
   .tab-page-content{
     display:flex;
     column-gap:{{ block.settings.page_spacing }}px;
-    /* padding-top:40px; */
   }
   {% endfor %}
   @media screen and (min-width: 750px) {
@@ -48,18 +47,20 @@
                 <div class="tab-page-content">
                   {% if block.settings.page_one %}
                     <div class="tab-page-data">
-                      <h2>{{ pages[block.settings.page_one].title }}</h2>
-                      <div class="tab-page-description">
-                        {{ pages[block.settings.page_one].content }}
-                      </div>
+                      {% assign page_obj = pages[block.settings.page_one] %} 
+                          <h2>{{ page_obj.title }}</h2>
+                          <div class="tab-page-description">
+                            {{ page_obj.content }}
+                          </div>
                     </div>
                   {% endif %}
                   {% if block.settings.page_two %}
                     <div class="tab-page-data">
-                      <h2>{{ pages[block.settings.page_two].title }}</h2>
-                      <div class="tab-page-description">
-                        {{ pages[block.settings.page_two].content }}
-                      </div>
+                      {% assign page_obj_two = pages[block.settings.page_two] %} 
+                        <h2>{{ page_obj_two.title }}</h2>
+                        <div class="tab-page-description">
+                          {{ page_obj_two.content }}
+                        </div>
                     </div>
                   {% endif %}
                 </div>

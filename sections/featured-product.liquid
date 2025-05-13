@@ -31,7 +31,7 @@
 <section class="featured-product {{ quick_variant_type }}">
   <div class="container">
     <div class="featured-product-content  {%- if product.available == false %} product-sold-out{% endif -%} {%- if product.compare_at_price > product.price and product.quantity_price_breaks_configured? != true %} product-sale{% endif -%}">
-      <div class="product-img-content featureProduct">
+      <div class="product-img-content featureProduct" data-slider-data='{"loop":true}'>
         <div class="main-image-slider swiper gallery-main swiper-container">
           {% render 'product-media',
             classes: 'slide-item',

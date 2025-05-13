@@ -49,7 +49,8 @@
               {{ block.shopify_attributes }}
               role="group"
             >
-              {%- if annouce_link != blank -%}
+           {%- if annouce_link != blank -%}
+               <div class="dekstop-annouce"> 
                 <a
                   href="{{ annouce_link }}"
                   class="dekstop-annouce"
@@ -57,10 +58,11 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   {% endif %}
-                  aria-label="Announcement: {{ desk_text }}"
-                >
-                  {{- desk_text -}}
+                  aria-label="Announcement: {{- desk_text | strip_html -}}">
+                  {{- desk_text | replace: '<p>', '<span>' | replace: '</p>', '</span>' -}}
                 </a>
+               </div>
+              <div class="mobile-annouce">
                 <a
                   href="{{ annouce_link }}"
                   class="mobile-annouce"
@@ -68,10 +70,11 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   {% endif %}
-                  aria-label="Announcement: {{ mobile_text }}"
+                  aria-label="Announcement: {{ mobile_text | strip_html }}"
                 >
-                  {{- mobile_text -}}
+                  {{- mobile_text | replace: '<p>', '<div>' | replace: '</p>', '</div>' -}}
                 </a>
+              </div>
               {% else %}
                 <div class="dekstop-annouce">{{ desk_text }}</div>
                 <div class="mobile-annouce">{{ mobile_text }}</div>

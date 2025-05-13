@@ -172,14 +172,7 @@
                                 %</span
                               >
                             </div>
-
-                            <div class="mobile-remove-icon desk-hide">
-                               <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
-                                {%- render 'icons', icon: 'trash' -%}
-
-                                <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
-                              </a>
-                            </div>
+                            
                           </div>
 
                           <div class="quantity-picker-wrapper cart-qnt desk-hide">
@@ -197,7 +190,14 @@
                                 {%- endif -%}
                               >
                                 <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                                {%- render 'icons', icon: 'minus' -%}
+                         
+                                <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                  {% render 'icons', icon: 'minus' %}
+                                </span>
+                                <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                  {% render 'icons', icon: 'trash' %}
+                                </span>
+
                               </button>
                               <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                               <input
@@ -215,6 +215,15 @@
                             </quantity-picker>
                           </div>
                         </div>
+                          
+                        <div class="mobile-remove-icon desk-hide">
+                          <a href="{{ item.url_to_remove }}" class="maincart-remove" data-line="{{ forloop.index }}">
+                           {%- render 'icons', icon: 'trash' -%}
+
+                           <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
+                         </a>
+                       </div>
+
                       </div>
                     </td>
                     <td class="mobile-hide">
@@ -278,7 +287,14 @@
                             {%- endif -%}
                           >
                             <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                            {%- render 'icons', icon: 'minus' -%}
+                      
+                            <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                              {% render 'icons', icon: 'minus' %}
+                            </span>
+                            <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                              {% render 'icons', icon: 'trash' %}
+                            </span>
+                                    
                           </button>
                             <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                             <input type="number" name="quantity" 
@@ -289,7 +305,7 @@
                           <button
                             type="button"
                             class="btn qnt-input qnt-inc"
-                            {%- if item.quantity >= item.variant.inventory_quantity %}
+                            {% if item.quantity >= item.variant.inventory_quantity %}
                               disabled
                             {% endif -%}
                           >

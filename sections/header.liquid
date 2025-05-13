@@ -23,6 +23,9 @@
        max-width: {{ settings.logo_width_mobile }}px;
   }
    }
+   :root{
+    --search-bg-color:{{ section.settings.inline_search_color }};
+  } 
 {%- endstyle -%}
 
 {% if section.settings.sticky_header %}
@@ -90,7 +93,7 @@
 </style>
 
 <sticky-drawer id="header" class="sticky-header">
-  <header class="{% unless section.settings.logo_position == 'top-center' %}headercontent-flex{% endunless %} header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
+  <header class="{% if section.settings.inline_search %}inline-search-header{% endif %} {% unless section.settings.logo_position == 'top-center' %}headercontent-flex{% endunless %} header container header--{{ section.settings.logo_position }} {% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %} header--has-social{% if shop.customer_accounts_enabled %} header--has-account{% endif %} header--has-localizations">
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
@@ -201,7 +204,7 @@
                 class: 'header__heading-logo motion-reduce',
                 widths: widths,
                 width: settings.logo_width,
-                height: logo_height | default: 'auto',
+                height: logo_height,
                 alt: logo_alt,
                 sizes: sizes,
                 preload: true
@@ -258,7 +261,7 @@
                 class: 'header__heading-logo',
                 widths: widths,
                 width: settings.logo_width,
-                height: 'auto',
+                height: logo_height,
                 alt: logo_alt,
                 sizes: sizes,
                 preload: true
@@ -353,7 +356,7 @@
                     class: 'header__heading-logo',
                     widths: widths,
                     width: settings.logo_width,
-                    height: 'auto',
+                    height: logo_height,
                     alt: logo_alt,
                     sizes: sizes,
                     preload: true
@@ -439,6 +442,7 @@
 {% endif %}
 
 <script src="{{ 'component-header.js' | asset_url }}" type="text/javascript" defer></script>
+<script src="{{ 'predictive-search.js' | asset_url }}" type="text/javascript" defer></script>
 
 {% schema %}
 {
@@ -521,6 +525,11 @@
         "id":"inline_search",
       "label":"t:sections.header.settings.inline_search.label",
       "default":true
+    },
+    {
+      "type":"color",
+        "id":"inline_search_color",
+      "label":"t:sections.header.settings.inline_search_bg_color.label"
     },
     {
       "type": "header",

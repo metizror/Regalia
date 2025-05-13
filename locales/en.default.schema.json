@@ -1096,6 +1096,9 @@
         "name": "Discount countdown"
       }
     },
+    "featured_collection":{
+      "name":"Featured collection",
+    },
     "duo_image": {
       "name": "Duo image",
       "settings": {
@@ -1577,6 +1580,12 @@
         "coll_title": {
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
+        },
+        "view_all_btn":{
+          "label":"Button text",
+        },
+        "btn_url":{
+          "label":"Button url"
         }
       }
     },
@@ -1791,6 +1800,23 @@
               "label": "Quick menu"
             }
           }
+        },
+           "social_details":{
+          "name":"Social icon",
+          "settings":{
+            "social_logo_1":{
+              "label":"Social icon one"
+            },
+             "social_logo_2":{
+              "label":"Social icon two"
+            },
+              "social_data_1":{
+              "label":"Social text one"
+            },
+             "social_data_2":{
+              "label":"Social text two"
+            }
+          }
         }
       }
     },
@@ -1830,6 +1856,9 @@
         },
         "inline_search": {
           "label":"Inline search"
+        },
+        "inline_search_bg_color": {
+          "label":"Inline search border color"
         },
         "spacing": {
           "content": "Spacing",

@@ -241,7 +241,7 @@
       "settings": {
         "heading_show": true,
         "heading": "Collections",
-        "enable_animation": false,
+        "enable_animation": true,
         "heading_color": "#082a32",
         "heading_opacity": 4,
         "card_color": "",

@@ -27,16 +27,15 @@
   }
   #section-{{ section.id }} .member-position {
     color: {{ section.settings.position_color }};
-    font-size: 0.9rem;
+    font-size: calc(var(--bs-size) + 2px);
   }
   #section-{{ section.id }} .team-footer {
     margin-top: 2rem;
     text-align: {{ section.settings.text_align_desk }};
     color: {{ section.settings.footer_text_color }};
   }
-  #section-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  .member-name h3{
+    margin-bottom:10px;
   }
   @media screen and (min-width: 768px) {
       #section-{{ section.id }} {
@@ -54,6 +53,10 @@
     #section-{{ section.id }} .team-footer {
       text-align: {{ section.settings.text_align_desk }};
     }
+    #section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: 0;
+    }
   }
 {%- endstyle -%}
 
@@ -70,7 +73,7 @@
     <div class="team-members-wrapper {% if use_slider %}swiper{% endif %}">
       <div class="team-members {% if use_slider %}swiper-wrapper{% else %}no-swiper{% endif %}">
         {% for block in section.blocks %}
-          <div class="team-member {% if use_slider %}swiper-slide{% endif %} image-{{ section.settings.image_ratio }}">
+          <div class="team-member{% if use_slider %}swiper-slide{% endif %} image-{{ section.settings.image_ratio }}">
             <div class="image-wrapper">
               {% if block.settings.image != blank %}
                 <img src=" {% if section.settings.image_ratio == 'square' %}
@@ -87,7 +90,8 @@
                 {{ 'image' | placeholder_svg_tag }}
               {% endif %}
             </div>
-            <div class="member-name">{{ block.settings.name }}</div>
+            <div class="member-name">
+          <h3>{{ block.settings.name }}</h3></div>
             <div class="member-position">{{ block.settings.position }}</div>
           </div>
         {% endfor %}
@@ -208,6 +212,18 @@
       "id": "footer_text_color",
       "label": "Footer text color",
       "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "name_color",
+      "label": "Member name color",
+      "default": "#153D47"
+    },
+    {
+      "type": "color",
+      "id": "position_color",
+      "label": "Member position color",
+      "default": "#082A32"
     },
     {
       "type": "select",

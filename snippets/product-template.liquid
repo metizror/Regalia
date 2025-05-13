@@ -1,4 +1,4 @@
-<section class="mainproduct  {{ show_percentage }}">
+<section class="mainproduct {{ show_percentage }}">
   <main-product
     data-is-featured-product="{{ is_featured_product | default: false }}"
     id="productInfo-{{ section_id }}"
@@ -64,15 +64,15 @@
                     <div class="icon-inner-content product-zoom-icon">
                       {% render 'icons', icon: 'zoom-icon' %}
                     </div>
-                    <div class="icon-inner-content open-popup">
+                    <div class="icon-inner-content open-popup" onclick="openPopup()">
                       {% render 'icons', icon: 'message-icon' %}
                     </div>
                   </div>
                 </div>
 
-                <div class="popup-overlay">
+                <div class="popup-overlay" id="popupOverlay">
                   <div class="popup-content">
-                    <span class="close-btn">&times;</span>
+                    <span class="close-btn" onclick="closePopup()">&times;</span>
                     <div class="product-share">
                       <p>{{ 'products.product.copy_link' | t }}</p>
                       <div class="share-product-url">
@@ -139,9 +139,9 @@
                     data-mag-delay="{{ forloop.index | times: 100 }}"
                   >
                     {%- if is_featured -%}
-                      <h2 class="{{ block.settings.heading_size }}">{{ product.title | escape }}</h2>
+                      <h2 class="{{ block.settings.heading_size }}" style="color:{{ block.settings.heading_color }}">{{ product.title | escape }}</h2>
                     {%- else -%}
-                      <h1 class="{{ block.settings.heading_size }}">{{ product.title | escape }}</h1>
+                      <h1 class="{{ block.settings.heading_size }}" style="color:{{ block.settings.heading_color }}">{{ product.title | escape }}</h1>
                     {%- endif -%}
                   </div>
 
@@ -302,7 +302,6 @@
                     </div>
                   </sticky-cart>
 
-                  <script src="{{ 'component-sticky-cart.js' | asset_url }}" defer type="text/javascript"></script>
                 {%- when 'buy_button' -%}
                   <div
                     class="product-block block-{{ block.type }}"

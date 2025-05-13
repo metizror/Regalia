@@ -24,6 +24,23 @@ window.theme.cartQntHandle = () => {
       }
 
       that.value = quantity;
+
+      // 🧠 ICON TOGGLE LOGIC (moved from separate script)
+      const wrapper = that.closest('quantity-picker');
+      if (wrapper) {
+        const iconMinus = wrapper.querySelector('.icon-minus');
+        const iconTrash = wrapper.querySelector('.icon-trash');
+        if (iconMinus && iconTrash) {
+          if (quantity <= 1) {
+            iconMinus.style.display = 'none';
+            iconTrash.style.display = 'flex';
+          } else {
+            iconMinus.style.display = 'flex';
+            iconTrash.style.display = 'none';
+          }
+        }
+      }
+
       inputBtns.forEach((btn) => (btn.disabled = true));
 
       // update cart
