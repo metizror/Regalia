@@ -172,6 +172,7 @@ if (quickviewClose) {
   });
 
   document.getElementById("copylink").addEventListener("click", function () {
+    alert("link");
     const input = document.getElementById("to-link");
     input.select();
     input.setSelectionRange(0, 99999); // For mobile devices
