@@ -200,10 +200,6 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
       });
   });
 });
-
-
-  
-
   }
 
       
