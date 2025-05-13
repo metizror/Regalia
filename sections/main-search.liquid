@@ -2,6 +2,12 @@
 {{ 'component-filters.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-main-collection.css' | asset_url | stylesheet_tag: preload:true }}
 
+  {%- style -%}
+    .search-page .content-overlap {
+      background: {{ section.settings.article_color }};
+      border-color: {{ section.settings.border_color }};
+    }
+{%- endstyle -%}
 
 {% paginate search.results by section.settings.product_per_coll %}
   {%- liquid
@@ -10,6 +16,56 @@
   -%}
 
   <div class="container">
+
+    {%- if settings.bg_img_1 -%}
+      <div class="list-bg-image top-right">
+        <lazy-image>
+          <img src="{{ settings.bg_img_1 | image_url: width: settings.bg_img_1.width }}"
+            alt="{{ settings.bg_img_1.alt }}"
+            width="{{ settings.bg_img_1.width }}"
+            height="{{ settings.bg_img_1.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_1.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_2 -%}
+      <div class="list-bg-image top-left">
+        <lazy-image>
+          <img src="{{ settings.bg_img_2 | image_url: width: settings.bg_img_2.width }}"
+            alt="{{ settings.bg_img_2.alt }}"
+            width="{{ settings.bg_img_2.width }}"
+            height="{{ settings.bg_img_2.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_2.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_3 -%}
+      <div class="list-bg-image middle-right">
+        <lazy-image>
+          <img src="{{ settings.bg_img_3 | image_url: width: settings.bg_img_3.width }}"
+            alt="{{ settings.bg_img_3.alt }}"
+            width="{{ settings.bg_img_3.width }}"
+            height="{{ settings.bg_img_3.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_3.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_4 -%}
+      <div class="list-bg-image middle-left">
+        <lazy-image>
+          <img src="{{ settings.bg_img_4 | image_url: width: settings.bg_img_4.width }}"
+            alt="{{ settings.bg_img_4.alt }}"
+            width="{{ settings.bg_img_4.width }}"
+            height="{{ settings.bg_img_4.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_4.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    
     <div data-section-id="{{ section.id }}" data-section-type="search-template">
       {%- render 'breadcrumbs' -%}
       <h2 class="h2 text-center">{{ 'general.search.search' | t }}</h2>
@@ -154,79 +210,41 @@
               {%- endif -%}
             </div>
           </div>
-
                    <div class="mobile-search-count desk-hide">
-
             <div class="prod-count-sortby d-flex">
-
               {% if section.settings.product_count %}
-
                 <p class="search-count">
-
                   {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" }}
-
                 </p>
-
               {% endif %}
-
               <div class="showprod-column d-flex">
-
                 <div
-
                   grid-layout="listview"
-
                   class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'list-view' %}
-
                 </div>
-
                 <div
-
                   grid-layout="2"
-
                   class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'two-cloumn' %}
-
                 </div>
-
                 <div
-
                   grid-layout="3"
-
                   class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'three-cloumn' %}
-
                 </div>
-
                 <div
-
                   grid-layout="4"
-
                   class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'four-column' %}
-
                 </div>
-
               </div>
-
             </div>
-
-          </div>
-
-
-          
+          </div>          
         </div>
         <div class="filter__container">
           {% liquid
@@ -428,7 +446,7 @@
     {
       "type": "range",
       "id": "pagination",
-      "label": "Show procuts in page",
+      "label": "Show products in page",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -485,7 +503,7 @@
     {
       "type": "range",
       "id": "product_per_coll",
-      "label": "Show procuts in page",
+      "label": "Show products in page",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -534,6 +552,12 @@
       "id": "border_color",
       "default": "#E9CFB4",
       "label": "Border"
+    },
+    {
+      "type": "color",
+      "id": "separator_border_color",
+      "label": "Separator Border Color",
+      "default": "#E9CFB4"
     }
   ]
 }

@@ -70,10 +70,7 @@
   gap: 10px;
   font-size: 14px;
   padding: 16px;
-  /* border-radius: 6px; */
   width: fit-content;
-  /* color: var(--text-color); */
-  /* background: var(--date-bg-color); */
 }
 
 .article-content {
@@ -137,7 +134,7 @@
       height: 18px;
   }
   .main-article .background-image.vector-top {
-    right: 0%;  
+    right: -4%;  
     width: 50px;
     height: auto;
   }
