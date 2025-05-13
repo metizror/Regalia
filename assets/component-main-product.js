@@ -47,18 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Open popup
   document.querySelectorAll('.open-popup').forEach(button => {
     button.addEventListener('click', function () {
-      alert("demo");
-      console.log(this);
-
       const gallery = this.closest('.gallery');
+      console.log('Clicked:', this);
+      console.log('Found gallery:', gallery);
+
       if (gallery) {
         const popupOverlay = gallery.querySelector('.popupOverlay');
         if (popupOverlay) {
           popupOverlay.style.display = 'block';
-          console.log(popupOverlay.innerHTML); // Show popup content
         } else {
           console.warn('.popupOverlay not found inside .gallery');
         }
@@ -68,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Close popup
   document.querySelectorAll('.close-popup').forEach(button => {
     button.addEventListener('click', function () {
       const popup = this.closest('.popupOverlay');
@@ -76,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
 
 // function openPopup() {
 //   document.getElementById("popupOverlay").style.display = "block";
