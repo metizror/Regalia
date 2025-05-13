@@ -610,14 +610,9 @@ p.discount-percentage {
 }
 
 /* 04/03/25 stickycontent  */
-.sticky-content .quantity-picker-wrapper {
+.sticky-content .quantity-picker-wrapper, .sticky-content .qtylabeltitle, .sticky-content .checkoutbtn-text {
   display: none;
 }
-
-.sticky-content .checkoutbtn-text {
-  display: none;
-}
-
 /* Dropdown variant */
 /* Main dropdown container styling */
 .dropdown-variant {
