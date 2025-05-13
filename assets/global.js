@@ -566,7 +566,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close popup
   document.querySelectorAll('.close-popup').forEach(button => {
     button.addEventListener('click', function () {
-      const popup = this.closest('.popupOverlay');
+      const popup = this.closest('.popup-overlay');
       if (popup) popup.style.display = 'none';
     });
   });
