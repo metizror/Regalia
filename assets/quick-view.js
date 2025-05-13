@@ -171,8 +171,10 @@ if (quickviewClose) {
     });
   });
 
-  document.getElementById("copylink").addEventListener("click", function () {
-    alert("link");
+     document.querySelectorAll('.btn-copy').forEach(copyinput => {
+
+
+           alert("link");
     const input = document.getElementById("to-link");
     input.select();
     input.setSelectionRange(0, 99999); // For mobile devices
@@ -186,8 +188,10 @@ if (quickviewClose) {
         this.innerHTML = originalText;
       }, 2000);
     });
-  });
-    
+       
+       
+     });
+  
 
   }
 
