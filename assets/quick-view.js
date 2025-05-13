@@ -177,7 +177,7 @@ if (quickviewClose) {
            alert("link");
     const inputField = this.closest('.form-field');
 
-    const inputValuecopy = inputField.querySelector('.field__input').value();
+    const inputValuecopy = inputField.querySelector('.share-product-url');
     if(!inputValuecopy) return;
     inputValuecopy.select();
     inputValuecopy.setSelectionRange(0, 99999); // For mobile devices
