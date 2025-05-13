@@ -41,6 +41,10 @@
   top: 27%;
 }
 
+.default-page ul {
+  padding-left: 25px;
+}
+
 @media (max-width: 767px) {
   .shopify-policy__container {
     padding: 1.8rem var(--gutter-width);

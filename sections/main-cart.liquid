@@ -190,7 +190,14 @@
                                 {%- endif -%}
                               >
                                 <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                                {%- render 'icons', icon: 'minus' -%}
+                         
+                                <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% endif %}>
+                                  {% render 'icons', icon: 'minus' %}
+                                </span>
+                                <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% endif %}>
+                                  {% render 'icons', icon: 'trash' %}
+                                </span>
+
                               </button>
                               <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                               <input
@@ -280,7 +287,14 @@
                             {%- endif -%}
                           >
                             <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                            {%- render 'icons', icon: 'minus' -%}
+                      
+                            <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% endif %}>
+                              {% render 'icons', icon: 'minus' %}
+                            </span>
+                            <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% endif %}>
+                              {% render 'icons', icon: 'trash' %}
+                            </span>
+                                    
                           </button>
                             <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                             <input type="number" name="quantity" 
@@ -291,7 +305,7 @@
                           <button
                             type="button"
                             class="btn qnt-input qnt-inc"
-                            {%- if item.quantity >= item.variant.inventory_quantity %}
+                            {% if item.quantity >= item.variant.inventory_quantity %}
                               disabled
                             {% endif -%}
                           >
@@ -533,3 +547,38 @@
   ]
 }
 {% endschema %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.qnt-input.qnt-dec, .qnt-input.qnt-inc').forEach(button => {
+      button.addEventListener('click', function () {
+        const wrapper = this.closest('quantity-picker');
+        if (!wrapper) {
+          console.warn('No quantity-picker found for this button');
+          return;
+        }
+        const input = wrapper.querySelector('input[name="quantity"]');
+        if (!input) {
+          console.warn('No input[name="quantity"] found');
+          return;
+        }
+        let quantity = parseInt(input.value);
+        const iconMinus = wrapper.querySelector('.icon-minus');
+        const iconTrash = wrapper.querySelector('.icon-trash');
+        if (!iconMinus || !iconTrash) {
+          console.warn('Icons not found');
+          return;
+        }
+        if (quantity <= 1) {
+          iconMinus.style.display = 'none';
+          iconTrash.style.display = 'inline-block';
+        } else {
+          iconMinus.style.display = 'inline-block';
+          iconTrash.style.display = 'none';
+        }
+        input.dispatchEvent(new Event('change'));
+      });
+    });
+  });
+</script>

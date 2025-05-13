@@ -4,6 +4,7 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 750px) {
@@ -19,7 +20,7 @@
     color: {{ section.settings.content_color }};
   }
 {%- endstyle -%}
-<div class="default-page"> 
+<div class="default-page section-{{ section.id }}-padding"> 
   <div class="{% if section.settings.full_width %}container full-width{% else %}container-narrow{% endif %}">
     {%- if section.settings.default_bg_img_1 != blank -%}
       <div class="background-image vector-top">
