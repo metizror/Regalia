@@ -47,38 +47,36 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-// Open popup (scoped to the clicked section)
-document.querySelector('.open-popup').addEventListener('click', function () {
-  button.addEventListener('click', function () {
-    alert("demo");
-    console.log(this);
-    const popup = this.closest('.gallery');
+  // Open popup
+  document.querySelectorAll('.open-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      alert("demo");
+      console.log(this);
 
-
-    if (popup) {
-      const gallery = gallery.querySelector('.popupOverlay');
+      const gallery = this.closest('.gallery');
       if (gallery) {
-         gallery.style.display = 'block';
-        console.log(gallery.innerHTML); // or show the popup
+        const popupOverlay = gallery.querySelector('.popupOverlay');
+        if (popupOverlay) {
+          popupOverlay.style.display = 'block';
+          console.log(popupOverlay.innerHTML); // Show popup content
+        } else {
+          console.warn('.popupOverlay not found inside .gallery');
+        }
       } else {
-        console.warn('.popupOverlay not found inside .gallery');
+        console.warn('.gallery not found as a parent of .open-popup');
       }
-    } else {
-      console.warn('.gallery not found as a parent of .open-popup');
-    }
-      
+    });
+  });
+
+  // Close popup
+  document.querySelectorAll('.close-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      const popup = this.closest('.popupOverlay');
+      if (popup) popup.style.display = 'none';
+    });
   });
 });
 
-// Close popup (inside popup)
-document.querySelectorAll('.close-popup').forEach(button => {
-  button.addEventListener('click', function () {
-    const popup = this.closest('.popupOverlay');
-    if (popup) popup.style.display = 'none';
-  });
-});
-
-});
 // function openPopup() {
 //   document.getElementById("popupOverlay").style.display = "block";
 //   document.addEventListener("keydown", handleKeyPress);
