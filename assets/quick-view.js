@@ -199,30 +199,6 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
       });
   });
 });
-
-
-     document.addEventListener('DOMContentLoaded', function() {
-
-      // Initialize Swiper
-      const thumbsSwiper = new Swiper('.gallery-thumbs', {
-        spaceBetween: 26,
-        direction: 'vertical',
-        slidesPerView:2.3,
-        watchSlidesProgress: true,
-      });
-    
-      const mainSwiper = new Swiper('.gallery-main', {
-        spaceBetween: 0,
-        navigation: {
-          nextEl: '.swiper--next',
-          prevEl: '.swiper--prev',
-        },
-        thumbs: {
-          swiper: thumbsSwiper,
-        },
-      });
-    }); 
-
     
     
   }
