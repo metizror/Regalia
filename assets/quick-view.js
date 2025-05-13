@@ -82,8 +82,8 @@ if (quickviewClose) {
                 this.initSwiper();
                 this.initVariantSelection();
                 this.initQuantityPicker();
-                this.initializeDropdowns();
                 this.initializeSharepopup();
+                this.initializeDropdowns();
               }, 100);
             }
           });
