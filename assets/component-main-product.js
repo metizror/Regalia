@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 // Open popup (scoped to the clicked section)
-document.querySelectorAll('.open-popup').forEach(button => {
+document.querySelector('.open-popup').addEventListener('click', function () {
   button.addEventListener('click', function () {
     alert("demo");
     console.log(this);
