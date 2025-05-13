@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
       alert("demo");
       console.log(this);
 
-      const gallery = this.closest('.gallery');
+      const gallery = this.closest('.main-image-slider');
       if (gallery) {
         const popupOverlay = gallery.querySelector('.popupOverlay');
         if (popupOverlay) {
