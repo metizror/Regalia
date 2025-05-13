@@ -183,7 +183,7 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
     // 2) Copy to clipboard
     navigator.clipboard.writeText(input.value)
       .then(() => {
-        console.log(this);
+        console.log(this.innerHTML);
         // SAFELY change the *button’s* text
         const button = this;
         const origText = button.textContent;
