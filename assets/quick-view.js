@@ -186,13 +186,13 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
         console.log(this.innerHTML);
         // // SAFELY change the *button’s* text
         // const button = this;
-        // const origText = button.textContent;
+        const origText = input.value;
 
         input.value = "Link copied to clipboard!";
 
         // 3) After 2s, restore
         setTimeout(() => {
-          button.textContent = origText;
+         input.value = origText;
         }, 2000);
       })
       .catch(err => {
