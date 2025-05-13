@@ -88,41 +88,41 @@
 
 {% schema %}
 {
-  "name": "Logo listing",
+  "name": "t:sections.logo_list.name",
   "tag": "section",
   "class": "section-logo-list",
   "disabled_on": {
     "groups": [
-      "header",
+      "header"
     ]
   },
   "settings": [
     {
       "type": "header",
-      "content": "Heading"
+      "content": "t:sections.logo_list.settings.header.content"
     },
     {
       "type": "textarea",
       "id": "heading",
-      "label": "Text",
+      "label": "t:sections.logo_list.settings.header.label",
       "default": "Official partners"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "Size",
+      "label": "t:sections.general.font_size.content",
       "options": [
         {
           "value": "h2",
-          "label": "Large"
+         "label": "t:sections.general.font_size.large_size.label"
         },
         {
           "value": "h3",
-          "label": "Medium"
+          "label": "t:sections.general.font_size.medium_size.label"
         },
         {
           "value": "h4",
-          "label": "Small"
+          "label": "t:sections.general.font_size.small_size.label"
         }
       ],
       "default": "h2"
@@ -130,19 +130,19 @@
     {
       "type": "select",
       "id": "heading_alignment",
-      "label": "Text alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "left"
@@ -150,15 +150,15 @@
     {
       "type": "select",
       "id": "list_style",
-      "label": "List style",
+      "label": "t:sections.logo_list.settings.header.list_type.label",
       "options": [
         {
           "value": "grid",
-          "label": "Grid"
+          "label": "t:sections.logo_list.settings.header.list_type.options.grid.label"
         },
         {
           "value": "slider",
-          "label": "Slider"
+          "label": "t:sections.logo_list.settings.header.list_type.options.slider.label"
         }
       ],
       "default": "slider"
@@ -166,37 +166,37 @@
     {
       "type": "range",
       "id": "desktop_row",
-      "label": "Min. logo on single row desktop",
+      "label": "t:sections.logo_list.settings.desktop_row.label",
       "unit": "img",
       "min": 1,
       "max": 10,
       "step": 1,
       "default": 3,
-      "info": "This settings will only work when list style is set as Slider."
+      "info": "t:sections.logo_list.settings.desktop_row.info"
     },
     {
       "type": "header",
-      "content": "Color"
+      "content": "t:sections.general.color.content"
     },
     {
       "type": "color",
       "id": "list_text_color",
-      "label": "List title color"
+      "label": "t:sections.logo_list.settings.list_color.title.label"
     },
     {
       "type": "color",
       "id": "list_subheading_color",
-      "label": "List subheading color"
+      "label": "t:sections.logo_list.settings.list_color.subheading.label"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Section background color"
+      "label": "t:sections.logo_list.settings.section_bg_color.label"
     },
     {
       "type": "range",
       "id": "image_width",
-      "label": "Image size",
+      "label": "t:sections.logo_list.settings.image_size.label",
       "unit": "px",
       "min": 10,
       "max": 150,
@@ -205,7 +205,7 @@
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -214,7 +214,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 0
     },
     {
@@ -224,37 +224,37 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 0
     }
   ],
   "blocks": [
     {
       "type": "logo",
-      "name": "Logo",
+      "name": "t:sections.logo_list.blocks.name",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image",
-          "info": "Please use transparent image."
+          "label": "t:sections.logo_list.blocks.settings.image.label",
+          "info": "t:sections.logo_list.blocks.settings.image.info"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title"
+          "label": "t:sections.logo_list.blocks.settings.heading.label"
         },
         {
           "type": "richtext",
           "id": "subheading",
-          "label": "Subheading"
+          "label": "t:sections.logo_list.blocks.settings.description.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Logo list",
+      "name": "t:sections.logo_list.presets.name",
       "blocks": [
         {
           "type": "logo"

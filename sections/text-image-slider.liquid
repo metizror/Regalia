@@ -216,7 +216,7 @@
 
 {% schema %}
 {
-  "name": "Text-image slider",
+  "name": "t:sections.text_image_slider.name",
   "class": "section-text-image-slider",
   "tag": "section",
   "disabled_on": {
@@ -228,24 +228,24 @@
   "settings": [
     {
       "type": "header",
-      "content": "Layout"
+      "content": "t:sections.text_image_slider.settings.layout.label"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "Enable full width",
+      "label": "t:sections.general.full_width",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "enable_autoscroll",
-      "label": "Enable auto-scroll",
+      "label": "t:sections.text_image_slider.settings.enbale_auto_scroll.label",
       "default": true
     },
     {
       "type": "range",
       "id": "speed_delay",
-      "label": "Speed delay",
+      "label": "t:sections.text_image_slider.settings.speed_delay.label",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -255,7 +255,7 @@
     {
       "type": "range",
       "id": "autoscroll_speed",
-      "label": "Autoscroll speed",
+      "label": "t:sections.text_image_slider.settings.autoscroll_speed.label",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -263,18 +263,13 @@
       "default": 9000
     },
     {
-      "type":"checkbox",
-        "id":"slider_enable",
-      "label":"Slider Enable"
-    },
-    {
       "type": "header",
-      "content": "Section vetical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "Padding top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -284,7 +279,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Padding bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -295,62 +290,25 @@
   "blocks": [
     {
       "type": "image-with-text",
-      "name": "Image with text",
+      "name": "t:sections.text_image_slider.blocks.image_with_text.name",
       "settings": [
         {
           "type": "header",
-          "content": "Media"
+          "content": "t:sections.text_image_slider.blocks.image_with_text.settings.media.content"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.text_image_slider.blocks.image_with_text.settings.media.image.label"
         },
         {
           "type": "header",
-          "content": "Content"
+          "content": "t:sections.general.content.label"
         },
         {
           "type": "select",
           "id": "title_size",
-          "label": "Title size",
-          "options": [
-            {
-              "value": "h1",
-              "label": "Extra large"
-            },
-            {
-              "value": "h2",
-              "label": "Large"
-            },
-            {
-              "value": "h3",
-              "label": "Medium"
-            },
-            {
-              "value": "h4",
-              "label": "Small"
-            },
-            {
-              "value": "h5",
-              "label": "Extra small"
-            },
-            {
-              "value": "h6",
-              "label": "Tiny"
-            }
-          ],
-          "default": "h2"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "select",
-          "id": "description_size",
-          "label": "t:sections.text_image_slider.blocks.image_with_text.settings.description_size.label",
+          "label": "t:sections.general.font_size.content",
           "options": [
             {
               "value": "h1",
@@ -358,15 +316,15 @@
             },
             {
               "value": "h2",
-              "label": "t:sections.general.font_size.large_size.label"
+              "label":"t:sections.general.font_size.large_size.label"
             },
             {
               "value": "h3",
-              "label": "t:sections.general.font_size.medium_size.label"
+              "label":"t:sections.general.font_size.medium_size.label"
             },
             {
               "value": "h4",
-              "label": "t:sections.general.font_size.small_size.label"
+              "label":"t:sections.general.font_size.small_size.label"
             },
             {
               "value": "h5",
@@ -380,35 +338,40 @@
           "default": "h2"
         },
         {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.text_image_slider.blocks.image_with_text.settings.title.label"
+        },
+        {
           "type": "richtext",
           "id": "description",
-          "label": "Description"
+          "label": "t:sections.general.description.label"
         },
         {
           "type": "header",
-          "content": "Button"
+          "content": "t:sections.general.button.content"
         },
         {
           "type": "text",
           "id": "btn_text",
-          "label": "Title"
+          "label": "t:sections.general.button.button_text.label"
         },
         {
           "type": "url",
           "id": "btn_link",
-          "label": "Link"
+          "label": "t:sections.general.button.button_link.label"
         },
         {
           "type": "select",
           "id": "btn_type",
-          "label": "Type",
+          "label": "t:sections.general.button.button_type.label",
           "options": [
             {
-              "label": "Primary",
+              "label": "t:sections.general.button.button_type.options.btn_primary.label",
               "value": "primary"
             },
             {
-              "label": "Secondary",
+              "label": "t:sections.general.button.button_type.options.btn_secondary.label",
               "value": "secondary"
             }
           ],
@@ -416,54 +379,54 @@
         },
         {
           "type": "header",
-          "content": "Color"
+          "content": "t:sections.general.color.content"
         },
         {
           "type": "color",
           "id": "bg_color",
-          "label": "Background color" 
+          "label": "t:sections.general.color.background_color.label" 
         },
         {
           "type": "color",
           "id": "text_color",
-          "label": "Title"
+          "label": "t:sections.general.color.text_color.label"
         },
         {
           "type": "color",
           "id": "description_color",
-          "label": "Description"
+          "label": "t:sections.general.description.label"
         },
         {
           "type": "color",
           "id": "btn_text_color",
-          "label": "Button text"
+          "label": "t:sections.general.button.button_text_color.label"
         },
         {
           "type": "color",
           "id": "btn_bg_color",
-          "label": "Button background"
+          "label": "t:sections.general.button.button_background_color.label"
         }
       ]
     },
     {
       "type": "image-overlay-text",
-      "name": "Image overlay text",
+      "name": "t:sections.text_image_slider.blocks.image_overlay_text.name",
       "settings": [
         {
           "type": "header",
-          "content": "Media"
+          "content": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.content"
         },
         {
           "type": "image_picker",
           "id": "bg_image",
-          "label": "Background image"
+          "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.bg_image.label"
         },
         {
           "type": "range",
           "min": 0,
           "max": 100,
           "id": "bg_blur",
-          "label": "Background blur",
+          "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.bg_blur.label",
           "step": 2,
           "unit": "px",
           "default": 4
@@ -475,91 +438,75 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image.label"
         },
         {
           "type": "select",
           "id": "title_size",
-          "label": "Title size",
+          "label": "t:sections.general.font_size.content",
           "options": [
             {
               "value": "h1",
-              "label": "Extra large"
+              "label": "t:sections.general.font_size.extra_large.label"
             },
             {
               "value": "h2",
-              "label": "Large"
+              "label":"t:sections.general.font_size.large_size.label"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label":"t:sections.general.font_size.medium_size.label"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label":"t:sections.general.font_size.small_size.label"
             },
             {
               "value": "h5",
-              "label": "Extra small"
+              "label": "t:sections.general.font_size.extra_small.label"
             },
             {
               "value": "h6",
-              "label": "Tiny"
+              "label": "t:sections.general.font_size.tiny.label"
             }
           ],
           "default": "h2"
         },
         {
-          "type":"select",
-          "id": "layout",
-          "default":"image_first",
-          "label":"Image placement",
-          "options": [
-           {
-             "value": "image_first",
-             "label": "Image first"
-           },
-           {
-             "value":"image_second",
-             "label":"Image second"
-           }
-         ]
-        },
-        {
           "type": "text",
           "id": "title",
-          "label": "Title"
+          "label": "t:sections.general.heading.label"
         },
         {
           "type": "richtext",
           "id": "description",
-          "label": "Description"
+          "label": "t:sections.general.description.label"
         },
         {
           "type": "header",
-          "content": "Button"
+          "content": "t:sections.general.button.content"
         },
         {
           "type": "text",
           "id": "btn_text",
-          "label": "Title"
+          "label": "t:sections.general.button.button_text.label"
         },
         {
           "type": "url",
           "id": "btn_link",
-          "label": "Link"
+          "label": "t:sections.general.button.button_link.label"
         },
         {
           "type": "select",
           "id": "btn_type",
-          "label": "Type",
+          "label": "t:sections.general.button.button_type.label",
           "options": [
             {
-              "label": "Primary",
+              "label": "t:sections.general.button.button_type.options.btn_primary.label",
               "value": "primary"
             },
             {
-              "label": "Secondary",
+              "label": "t:sections.general.button.button_type.options.btn_secondary.label",
               "value": "secondary"
             }
           ],
@@ -567,39 +514,39 @@
         },
         {
           "type": "header",
-          "content": "Color"
+          "content": "t:sections.general.color.content"
         },
         {
           "type": "color",
           "id": "bg_color",
-          "label": "Background color" 
+          "label": "t:sections.general.color.background_color.label"
         },
         {
           "type": "color",
           "id": "text_color",
-          "label": "Title"
+          "label": "t:sections.general.color.text_color.label"
         },
         {
           "type": "color",
           "id": "description_color",
-          "label": "Description"
+          "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.description_color.label"
         },
         {
           "type": "color",
           "id": "btn_text_color",
-          "label": "Button text"
+          "label": "t:sections.general.button.button_text_color.label"
         },
         {
           "type": "color",
           "id": "btn_bg_color",
-          "label": "Button background"
+          "label": "t:sections.general.button.button_background_color.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Text image slider",
+      "name": "t:sections.text_image_slider.presets.label",
       "blocks": [
         {
           "type": "image-with-text"

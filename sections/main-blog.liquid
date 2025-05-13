@@ -90,14 +90,14 @@
 
 {% schema %}
 {
-  "name": "Main blog",
+  "name": "t:sections.blog.name",
   "tag": "section",
   "class": "section-main-blogs",
   "settings": [
     {
       "type": "range",
       "id": "show_per_page",
-      "label": "Article per page",
+      "label": "t:sections.blog.settings.show_per_page.label",
       "min": 3,
       "max": 20,
       "step": 1,
@@ -105,47 +105,56 @@
     },
     {
       "type": "header",
-      "content": "Article"
+      "content": "t:sections.blog.settings.select_blog.customization.article.label"
     },
     {
       "type": "checkbox",
       "id": "show_image",
-      "label": "Show image",
+      "label": "t:sections.blog.settings.select_blog.customization.show_image.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_date",
-      "label": "Show date",
+      "label": "t:sections.blog.settings.select_blog.customization.show_date.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_tags",
-      "label": "Show tags",
+      "label": "t:sections.blog.settings.select_blog.customization.show_tags.label",
       "default": true
     },
     {
       "type": "select",
       "id": "date_formats_patterns",
-      "label": "Date formats",
+      "label": "t:sections.blog.settings.select_blog.customization.date_formats.content",
       "options": [
-        { "label": "DD MM, YY", "value": "%d %b, %Y" },
-        { "label": "MM DD, YY", "value": "%b %d, %Y" },
-        { "label": "YY-DD-MM", "value": "%Y-%d-%b" }
+        {
+          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.dmy",
+          "value": "%d %b, %Y"
+        },
+        {
+          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.mdy",
+          "value": "%b %d, %Y"
+        },
+        {
+          "label": "t:sections.blog.settings.select_blog.customization.date_formats.options.ydm",
+          "value": "%Y-%d-%b"
+        }
       ],
       "default": "%b %d, %Y"
     },
     {
       "type": "checkbox",
       "id": "show_author",
-      "label": "Show author",
+      "label": "t:sections.blog.settings.select_blog.customization.show_author.label",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "show_excerpt",
-      "label": "Show excerpt",
+      "label": "t:sections.blog.settings.select_blog.customization.show_excerpt.label",
       "default": true
     },
     {
@@ -154,90 +163,87 @@
       "options": [
         { 
           "value": "left", 
-          "label": "Left" 
+          "label": "t:sections.general.alignment.alignment_left.label" 
         },
         { 
           "value": "center", 
-          "label": "Center" 
+          "label": "t:sections.general.alignment.alignment_center.label" 
         },
         { 
           "value": "right", 
-          "label": "Right" 
+          "label": "t:sections.general.alignment.alignment_right.label" 
         }
       ],
       "default": "left",
-      "label": "Content alignment"
+      "label": "t:sections.general.alignment.content"
     },
     {
       "type": "header",
-      "content": "Color"
+      "content": "t:sections.general.color.content"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background"
+      "label": "t:sections.general.color.background_color.label"
     },
     {
       "type": "color",
       "id": "article_color",
-      "label": "Article background"
+      "label": "t:sections.blog.settings.select_blog.customization.article_background.label"
     },
     {
       "type": "color",
       "id": "title_color",
       "default": "#153D47",
-      "label": "Heading"
+      "label": "t:sections.article.settings.customizations.article_heading_color.label"
     },
     {
       "type": "color",
       "id": "text_color",
       "default": "#797979",
-      "label": "Article content"
+      "label": "t:sections.article.settings.customizations.article_text_color.label"
     },
     {
       "type": "color",
       "id": "date_bg_color",
       "default": "#EFEFEF",
-      "label": "Field background"
+      "label": "t:sections.article.settings.customizations.field_background.label"
     },
     {
       "type": "color",
       "id": "link_color",
       "default": "#000000",
-      "label": "Link"
+      "label": "t:sections.general.color.link_color.label"
     },
     {
       "type": "color",
       "id": "border_color",
       "default": "#E9CFB4",
-      "label": "Border"
+      "label": "t:sections.blog.settings.select_blog.customization.border_color.label"
     },
     {
       "type": "header",
-      "content": "Section background images"
-    },
-    {
-      "type": "paragraph",
-      "content": "Please use transparent image."
+      "content": "t:sections.article.settings.customizations.section_bg_images.content",
+      "info": "t:sections.article.settings.customizations.sections_bg_images.info"
     },
     {
       "type": "image_picker",
       "id": "vector_top",
-      "label": "Vector top"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_top.label"
     },
     {
       "type": "image_picker",
       "id": "vector_left",
-      "label": "Vector left"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_left.label"
     },
     {
       "type": "image_picker",
       "id": "vector_right",
-      "label": "Vector right"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_right.label"
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -246,7 +252,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 36
     },
     {
@@ -256,7 +262,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 36
     }
   ]

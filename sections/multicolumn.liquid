@@ -14,67 +14,66 @@
 
 {{ 'multicolumn.css' | asset_url | stylesheet_tag: preload: true }}
 
-<section class="multicolumn section-{{ section.id }}-padding" >
+<section class="multicolumn section-{{ section.id }}-padding">
   <div class="multi-column-wrapper" style="background-color: {{ section.settings.section_bg_color }};">
-  <div class="{% if section.settings.layout == 'container' %}container {% elsif section.settings.layout == 'container-narrow' %}container-narrow {% endif %}multicolumn-wrap">
+    <div class="{% if section.settings.layout == 'container' %}container {% elsif section.settings.layout == 'container-narrow' %}container-narrow {% endif %}multicolumn-wrap">
+      {%- if section.settings.img_top_right != blank -%}
+        <div class="coll-bg-image top-right">
+          <lazy-image>
+            <img
+              src="{{ section.settings.img_top_right | image_url: width: section.settings.img_top_right.width }}"
+              alt="{{ section.settings.img_top_right.alt }}"
+              width="{{ section.settings.img_top_right.width }}"
+              height="{{ section.settings.img_top_right.height }}"
+              loading="lazy"
+            >
+          </lazy-image>
+        </div>
+      {%- endif -%}
 
-    {%- if section.settings.img_top_right != blank -%}
-      <div class="coll-bg-image top-right">
-        <lazy-image>
-          <img src="{{ section.settings.img_top_right | image_url: width: section.settings.img_top_right.width }}"
-            alt="{{ section.settings.img_top_right.alt }}"
-            width="{{ section.settings.img_top_right.width }}"
-            height="{{ section.settings.img_top_right.height }}"
-            loading="lazy">
-        </lazy-image>
-      </div>
-    {%- endif -%}
-
-    <div class="multi-column-wrap">
-      
-      {% if section.settings.heading != blank %}
+      <div class="multi-column-wrap">
+        {% if section.settings.heading != blank %}
           <h2 style="color:{{ section.settings.heading_color }}">{{ section.settings.heading }}</h2>
-      {% endif %}
+        {% endif %}
 
         <div class="multi-columns">
           {% for block in section.blocks %}
-              <div class="multi-column" style="background-color: {{ section.settings.col_bg_color }};">
+            <div class="multi-column" style="background-color: {{ section.settings.col_bg_color }};">
+              {% if block.settings.svg_icon != blank %}
+                <div class="column-icon">
+                  <img
+                    src="{{ block.settings.svg_icon | image_url: width: block.settings.svg_icon.width }}"
+                    alt="{{ block.settings.svg_icon.alt }}"
+                    width="{{ block.settings.svg_icon.width }}"
+                    height="{{ block.settings.svg_icon.height }}"
+                    loading="lazy"
+                    style="--object-position:{{ block.settings.svg_icon.presentation.focal_point }}"
+                  >
+                </div>
+              {% endif %}
 
-                {% if block.settings.svg_icon != blank %}
-                  <div class="column-icon">
-                    <img src="{{ block.settings.svg_icon | image_url: width: block.settings.svg_icon.width }}"
-                      alt="{{ block.settings.svg_icon.alt }}"
-                      width="{{ block.settings.svg_icon.width }}"
-                      height="{{ block.settings.svg_icon.height }}"
-                      loading="lazy"
-                      style="--object-position:{{ block.settings.svg_icon.presentation.focal_point }}">
-                    </div>
-                  {% endif %}
+              {% if block.settings.title != blank %}
+                <div class="column-title" style="color:{{ section.settings.col_title_color }}">
+                  <span class="h5">{{ block.settings.title }}</span>
+                </div>
+              {% endif %}
 
-                  {% if block.settings.title != blank %}
-                  <div class="column-title" style="color:{{ section.settings.col_title_color }}">
-                    <span class="h5">{{ block.settings.title }}</span>
-                    </div>
-                  {% endif %}
-
-                  {% if block.settings.text != blank %}
-                  <div class="column-text text-center" style="color:{{ section.settings.col_text_color }}">
-                     {{ block.settings.text }}
-                  </div>
-                {% endif %} 
-              </div>
+              {% if block.settings.text != blank %}
+                <div class="column-text text-center" style="color:{{ section.settings.col_text_color }}">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+            </div>
           {% endfor %}
+        </div>
       </div>
-
-    </div>
-       
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Multicolumn",
+  "name": "t:sections.multicolumn.name",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
@@ -85,112 +84,112 @@
       "options": [
         {
           "value": "container",
-          "label": "1440px"
+          "label": "t:sections.multicolumn.settings.layout.options.container.label"
         },
         {
           "value": "container-narrow",
-          "label": "910px"
+          "label": "t:sections.multicolumn.settings.layout.options.container_narrow.label"
         }
       ],
       "default": "container",
-      "label": "Desktop layout"
+      "label": "t:sections.multicolumn.settings.layout.label"
     },
-      {
+    {
       "type": "color",
       "id": "section_bg_color",
-      "label": "Background"
+      "label": "t:sections.general.color.background_color.label"
     },
     {
       "type": "text",
       "id": "heading",
       "default": "Heading",
-      "label": "Heading"
+      "label": "t:sections.general.heading.label"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color",
+      "label": "t:sections.general.color.heading_color.label",
       "default": "#082A32"
     },
     {
       "type": "header",
-      "content": "Column customization"
+      "content": "t:sections.multicolumn.settings.layout.column_customization.content"
     },
     {
       "type": "color",
       "id": "col_title_color",
-      "label": "Title color",
+      "label": "t:sections.multicolumn.settings.layout.column_customization.title_color.label",
       "default": "#082A32"
-    }, 
+    },
     {
       "type": "color",
       "id": "col_text_color",
-      "label": "Text color",
+      "label": "t:sections.general.color.text_color.label",
       "default": "#797979"
-    }, 
+    },
     {
       "type": "color",
       "id": "col_bg_color",
-      "label": "Background color",
+      "label": "t:sections.general.color.background_color.label",
       "default": "#FBF5F0"
     },
     {
       "type": "header",
-      "content": "Section card customization"
+      "content": "t:sections.multicolumn.settings.layout.section_card_customization.content"
     },
     {
       "type": "image_picker",
       "id": "img_top_right",
-      "label": "Background image right"
+      "label": "t:sections.multicolumn.settings.layout.section_card_customization.background_image.label"
     },
     {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Top padding",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Bottom padding",
-        "default": 36
-      }
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "default": 36
+    }
   ],
   "blocks": [
     {
       "type": "column",
-      "name": "Column",
+      "name": "t:sections.multicolumn.blocks.name",
       "limit": 5,
       "settings": [
         {
           "type": "image_picker",
           "id": "svg_icon",
-          "label": "SVG icon"
+          "label": "t:sections.multicolumn.blocks.settings.svg_icon.label"
         },
         {
           "type": "text",
-          "id": "title",  
-          "label": "Title"
+          "id": "title",
+          "label": "t:sections.multicolumn.blocks.settings.title.label"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Text"
+          "label": "t:sections.multicolumn.blocks.settings.text.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Multicolumn",
+      "name": "t:sections.multicolumn.presets.name",
       "blocks": [
         {
           "type": "column",
