@@ -52,9 +52,21 @@ document.querySelectorAll('.open-popup').forEach(button => {
   button.addEventListener('click', function () {
     alert("demo");
     console.log(this);
-    const popup = this.closest('.gallery').querySelector('.popupOverlay');
+    const popup = this.closest('.gallery');
 
-    if (popup) popup.style.display = 'block';
+
+    if (popup) {
+      const gallery = gallery.querySelector('.popupOverlay');
+      if (gallery) {
+         gallery.style.display = 'block';
+        console.log(gallery.innerHTML); // or show the popup
+      } else {
+        console.warn('.popupOverlay not found inside .gallery');
+      }
+    } else {
+      console.warn('.gallery not found as a parent of .open-popup');
+    }
+      
   });
 });
 
