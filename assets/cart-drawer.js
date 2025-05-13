@@ -271,7 +271,6 @@ if (!customElements.get("cart-drawer")) {
             button.addEventListener("click", function (event) {
               event.preventDefault();
 
-              console.log("hey clicked");
               let form = this.closest("form");
               let formData = new FormData(form);
 
