@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelectorAll('.open-popup').forEach(button => {
   button.addEventListener('click', function () {
     alert("demo");
-    const popup = this.closest('.img-overlay-icon').querySelector('.popupOverlay');
+    const popup = this.closest('.gallery').querySelector('.popupOverlay');
 console.log(popup.innerHTML);
     if (popup) popup.style.display = 'block';
   });
