@@ -172,21 +172,38 @@ if (quickviewClose) {
   });
 
      document.querySelectorAll('.btn-copy').forEach(button => {
-  var inputField = document.getElementById(inputId);
-  var urlToCopy = inputField.getAttribute("data-url"); // Get the data-url attribute value
-
-  navigator.clipboard
-    .writeText(urlToCopy)
-    .then(function () {
-      inputField.value = "Link copied to clipboard!"; // Update input field text
-      setTimeout(() => {
-        inputField.value = urlToCopy; // Reset back to original URL after 2 seconds
-      }, 2000);
-    })
-    .catch(function (err) {
-      console.error("Failed to copy: ", err);
+    button.addEventListener('click', function () {
+      const popup = this.closest('.popup-overlay');
+      if (popup) popup.style.display = 'none';
+        document.body.classList.remove("popupOverlay-body");
     });
   }); 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const copyBtn = document.getElementById("copylink");
+
+    copyBtn.addEventListener("click", function () {
+      CopyTolink("to-link");
+    });
+  });
+
+  function CopyTolink(inputId) {
+    var inputField = document.getElementById(inputId);
+    var urlToCopy = inputField.getAttribute("data-url");
+
+    navigator.clipboard
+      .writeText(urlToCopy)
+      .then(function () {
+        inputField.value = "Link copied to clipboard!";
+        setTimeout(() => {
+          inputField.value = urlToCopy;
+        }, 2000);
+      })
+      .catch(function (err) {
+        console.error("Failed to copy: ", err);
+      });
+  }
+    
 
   }
 
