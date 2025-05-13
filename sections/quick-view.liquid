@@ -17,7 +17,7 @@
               </div>
             </div>
             <div class="product-slider slider__images {%- if settings.show_thumbs == false %} full-width{%- endif -%}">
-              <div class="main-image-slider swiper gallery-main swiper-container">
+              <div class="main-image-slider swiper gallery-main quick-view-main swiper-container">
                   {%- render 'product-media', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom, image_zoom: section.settings.image_zoom -%}
                 
                   {% render 'pswp-code' %}
