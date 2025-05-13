@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Open popup (scoped to the clicked section)
 document.querySelectorAll('.open-popup').forEach(button => {
   button.addEventListener('click', function () {
+    alert("demo");
     const popup = this.closest('.main-image-slider').querySelector('.popupOverlay');
     if (popup) popup.style.display = 'block';
   });
