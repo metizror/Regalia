@@ -175,9 +175,9 @@ if (quickviewClose) {
 
   copyinput.addEventListener('click', function () {
            alert("link");
-    const inputField = this.closest('.form-field');
+    const inputField = this.closest('.share-product-url');
 
-    const inputValuecopy = inputField.querySelector('.share-product-url');
+    const inputValuecopy = inputField.querySelector('.field__input');
     if(!inputValuecopy) return;
     inputValuecopy.select();
     inputValuecopy.setSelectionRange(0, 99999); // For mobile devices
