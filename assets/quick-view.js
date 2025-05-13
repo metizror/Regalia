@@ -171,7 +171,7 @@ if (quickviewClose) {
     });
   });
 
-    function CopyTolink(inputId) {
+     document.querySelectorAll('.btn-copy').forEach(button => {
   var inputField = document.getElementById(inputId);
   var urlToCopy = inputField.getAttribute("data-url"); // Get the data-url attribute value
 
@@ -186,8 +186,7 @@ if (quickviewClose) {
     .catch(function (err) {
       console.error("Failed to copy: ", err);
     });
-}
-    
+  }); 
 
   }
 
