@@ -201,88 +201,27 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
 });
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-  var container = [];
+     document.addEventListener('DOMContentLoaded', function() {
 
-  // Select all figure elements inside #gallery and loop over them
-  document.querySelectorAll("#gallery figure").forEach(function (figure) {
-    var link = figure.querySelector("a");
-
-    if (link) {
-      var item = {
-        src: link.getAttribute("href"),
-        w: parseInt(link.getAttribute("data-width"), 10) || 800,
-        h: parseInt(link.getAttribute("data-height"), 10) || 600,
-        title: link.getAttribute("data-caption") || "No Title",
-      };
-      container.push(item);
-    } else {
-      console.warn("Figure does not contain a valid <a> tag:", figure);
-    }
-  });
-
-  // Function to open PhotoSwipe
-  function openPhotoSwipe(index) {
-    var pswpElement = document.querySelector(".pswp");
-
-    if (!pswpElement) {
-      console.error("PhotoSwipe container not found.");
-      return;
-    }
-
-    var options = {
-      captionEl: false,
-      index: index,
-      closeOnOutsideClick: true,
-      shareEl: false,
-      bgOpacity: 0.8,
-      closeOnScroll: false,
-      preloaderEl: true,
-      zoomEl: true,
-      fullscreenEl: true,
-    };
-
-    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, container, options);
-    gallery.init();
-  }
-
-  // Add click event for the #gallery element
-  const gallery = document.querySelector("#gallery");
-  if (gallery) {
-    gallery.addEventListener("click", function (event) {
-      var target = event.target.closest("a");
-
-      if (!target || !target.closest("figure")) {
-        return;
-      }
-
-      event.preventDefault();
-
-      var index = Array.from(document.querySelectorAll("#gallery figure")).indexOf(
-        target.closest("figure")
-      );
-
-      if (index < 0 || index >= container.length) {
-        console.error("Invalid index for PhotoSwipe.");
-        return;
-      }
-
-      openPhotoSwipe(index);
-    });
-  } else {
-    console.warn("#gallery element not found.");
-  }
-
-  // Add click event for the zoom icon
-  const zoomIcon = document.querySelector(".img-overlay-icon .product-zoom-icon");
-  if (zoomIcon) {
-    zoomIcon.addEventListener("click", function () {
-      openPhotoSwipe(0);
-    });
-  } else {
-    console.warn("Zoom icon not found on the page.");
-  }
-});
+      // Initialize Swiper
+      const thumbsSwiper = new Swiper('.gallery-thumbs', {
+        spaceBetween: 26,
+        direction: 'vertical',
+        slidesPerView:2.3,
+        watchSlidesProgress: true,
+      });
+    
+      const mainSwiper = new Swiper('.gallery-main', {
+        spaceBetween: 0,
+        navigation: {
+          nextEl: '.swiper--next',
+          prevEl: '.swiper--prev',
+        },
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
+      });
+    }); 
 
     
     
