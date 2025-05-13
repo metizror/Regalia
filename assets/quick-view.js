@@ -152,7 +152,6 @@ if (quickviewClose) {
         const popupOverlay = gallery.querySelector('.popup-overlay');
         if (popupOverlay) {
           popupOverlay.style.display = 'block';
-          console.log(popupOverlay.innerHTML); // Show popup content
         } else {
           console.warn('.popupOverlay not found inside .main-image-slider');
         }
