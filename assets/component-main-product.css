@@ -609,12 +609,8 @@ p.discount-percentage {
   animation: popupFade 0.3s;
 }
 
-/* 04/03/25 stickycontent  */
-.sticky-content .quantity-picker-wrapper {
-  display: none;
-}
-
-.sticky-content .checkoutbtn-text {
+/* stickycontent  */
+.sticky-content .quantity-picker-wrapper, .sticky-content .qtylabeltitle, .sticky-content .checkoutbtn-text {
   display: none;
 }
 
