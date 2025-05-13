@@ -184,7 +184,7 @@ if (quickviewClose) {
 
     input.select();
     input.setSelectionRange(0, 99999); // For mobile devices
-alert(input);
+console.log(input);
     navigator.clipboard.writeText(input.value).then(() => {
       const originalText = input.innerHTML; // Save button text
       originalText.innerHTML = "Link copied to clipboard!"; // Change button text
