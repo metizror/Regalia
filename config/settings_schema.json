@@ -63,9 +63,9 @@
         "id": "logo_width",
         "label": "t:settings_schema.logo.settings.logo_max_width.label",
         "unit": "px",
-        "min": 50,
+        "min": 20,
         "max": 250,
-        "step": 2,
+        "step": 5,
         "default": 100
       },
       {
