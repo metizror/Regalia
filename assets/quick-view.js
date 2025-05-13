@@ -201,7 +201,7 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
 });
 
 
-    document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
   var container = [];
 
   // Select all figure elements inside #gallery and loop over them
@@ -211,11 +211,13 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
     if (link) {
       var item = {
         src: link.getAttribute("href"),
-        w: parseInt(link.getAttribute("data-width"), 10) || 0,
-        h: parseInt(link.getAttribute("data-height"), 10) || 0,
-        title: link.getAttribute("data-caption") || "",
+        w: parseInt(link.getAttribute("data-width"), 10) || 800,
+        h: parseInt(link.getAttribute("data-height"), 10) || 600,
+        title: link.getAttribute("data-caption") || "No Title",
       };
       container.push(item);
+    } else {
+      console.warn("Figure does not contain a valid <a> tag:", figure);
     }
   });
 
@@ -233,33 +235,21 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
       index: index,
       closeOnOutsideClick: true,
       shareEl: false,
-      bgOpacity: 1,
+      bgOpacity: 0.8,
       closeOnScroll: false,
       preloaderEl: true,
-      zoomEl: false,
-      fullscreenEl: false,
-      showHideOpacity: true,
-      clickToCloseNonZoomable: false,
-      allowPanToNext: false,
-      getDoubleTapZoom: function (isMouseClick, item) {
-        return item.w > 200 ? 1.5 : 1.5;
-      },
-      maxSpreadZoom: 1.5,
+      zoomEl: true,
+      fullscreenEl: true,
     };
 
-    var gallery = new PhotoSwipe(
-      pswpElement,
-      PhotoSwipeUI_Default,
-      container,
-      options
-    );
+    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, container, options);
     gallery.init();
   }
 
-  // Click event for the main gallery images
-  document
-    .querySelector("#gallery")
-    .addEventListener("click", function (event) {
+  // Add click event for the #gallery element
+  const gallery = document.querySelector("#gallery");
+  if (gallery) {
+    gallery.addEventListener("click", function (event) {
       var target = event.target.closest("a");
 
       if (!target || !target.closest("figure")) {
@@ -268,9 +258,9 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
 
       event.preventDefault();
 
-      var index = Array.from(
-        document.querySelectorAll("#gallery figure")
-      ).indexOf(target.closest("figure"));
+      var index = Array.from(document.querySelectorAll("#gallery figure")).indexOf(
+        target.closest("figure")
+      );
 
       if (index < 0 || index >= container.length) {
         console.error("Invalid index for PhotoSwipe.");
@@ -279,13 +269,19 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
 
       openPhotoSwipe(index);
     });
+  } else {
+    console.warn("#gallery element not found.");
+  }
 
-  // Click event for the zoom icon inside img-overlay-icon
-  document
-    .querySelector(".img-overlay-icon .product-zoom-icon")
-    .addEventListener("click", function () {
-      openPhotoSwipe(0); // Open the first image in the gallery
+  // Add click event for the zoom icon
+  const zoomIcon = document.querySelector(".img-overlay-icon .product-zoom-icon");
+  if (zoomIcon) {
+    zoomIcon.addEventListener("click", function () {
+      openPhotoSwipe(0);
     });
+  } else {
+    console.warn("Zoom icon not found on the page.");
+  }
 });
 
     
