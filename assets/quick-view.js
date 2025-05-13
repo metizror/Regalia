@@ -187,7 +187,7 @@ if (quickviewClose) {
     navigator.clipboard.writeText(inputValuecopy.value).then(() => {
       const originalText = inputValuecopy.innerHTML;
       alert(originalText);
-      this.innerText = "Link copied to clipboard!";
+      originalText.innerText = "Link copied to clipboard!";
 
       setTimeout(() => {
         this.innerHTML = originalText;
