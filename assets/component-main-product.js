@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
+document.addEventListener('DOMContentLoaded', function () {
 // Open popup (scoped to the clicked section)
 document.querySelectorAll('.open-popup').forEach(button => {
   button.addEventListener('click', function () {
@@ -63,7 +63,7 @@ document.querySelectorAll('.close-popup').forEach(button => {
   });
 });
 
-
+});
 // function openPopup() {
 //   document.getElementById("popupOverlay").style.display = "block";
 //   document.addEventListener("keydown", handleKeyPress);
