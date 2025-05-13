@@ -171,32 +171,36 @@ if (quickviewClose) {
     });
   });
 
-  document.querySelectorAll('.btn-copy').forEach(copyButton => {
-  copyButton.addEventListener('click', function () {
-    alert("link");
-    
-    const inputField = this.closest('.share-product-url');
-    const input = inputField?.querySelector('.field__input');
-
-    
-
+document.querySelectorAll('.btn-copy').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const container = this.closest('.share-product-url');
+    const input    = container?.querySelector('.field__input');
     if (!input) return;
 
+    // 1) Select the URL text in the <input>
     input.select();
-    input.setSelectionRange(0, 99999); // For mobile devices
-console.log(input);
-    navigator.clipboard.writeText(input.value).then(() => {
-      const originalText = input.innerHTML; // Save button text
-      originalText.innerHTML = "Link copied to clipboard!"; // Change button text
+    input.setSelectionRange(0, 99999);
 
-      setTimeout(() => {
-        this.innerHTML = originalText; // Revert button text
-      }, 2000);
-    }).catch(err => {
-      console.error("Copy failed:", err);
-    });
+    // 2) Copy to clipboard
+    navigator.clipboard.writeText(input.value)
+      .then(() => {
+        // SAFELY change the *button’s* text
+        const button = this;
+        const origText = button.textContent;
+
+        button.textContent = "Link copied to clipboard!";
+
+        // 3) After 2s, restore
+        setTimeout(() => {
+          button.textContent = origText;
+        }, 2000);
+      })
+      .catch(err => {
+        console.error("Copy failed:", err);
+      });
   });
 });
+
 
   
 
