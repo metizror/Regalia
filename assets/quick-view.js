@@ -171,14 +171,6 @@ if (quickviewClose) {
     });
   });
 
-     document.querySelectorAll('.btn-copy').forEach(button => {
-    button.addEventListener('click', function () {
-      const popup = this.closest('.popup-overlay');
-      if (popup) popup.style.display = 'none';
-        document.body.classList.remove("popupOverlay-body");
-    });
-  }); 
-
   document.getElementById("copylink").addEventListener("click", function () {
     const input = document.getElementById("to-link");
     input.select();
