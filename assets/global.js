@@ -545,9 +545,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Open popup
   document.querySelectorAll('.open-popup').forEach(button => {
     button.addEventListener('click', function () {
-      alert("demo");
-      console.log(this);
-
       const gallery = this.closest('.main-image-slider'); // changed from .gallery
       if (gallery) {
         const popupOverlay = gallery.querySelector('.popup-overlay');
