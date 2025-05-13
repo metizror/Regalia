@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const gallery = this.closest('.main-image-slider'); // changed from .gallery
       if (gallery) {
-        const popupOverlay = gallery.querySelector('.popupOverlay');
+        const popupOverlay = gallery.querySelector('.popup-overlay');
         if (popupOverlay) {
           popupOverlay.style.display = 'block';
           console.log(popupOverlay.innerHTML); // Show popup content
