@@ -52,7 +52,7 @@ document.querySelectorAll('.open-popup').forEach(button => {
   button.addEventListener('click', function () {
     alert("demo");
     const popup = this.closest('.img-overlay-icon').querySelector('.popupOverlay');
-     alert("demo123");
+     alert(popup);
     if (popup) popup.style.display = 'block';
   });
 });
