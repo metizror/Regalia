@@ -173,7 +173,7 @@ if (quickviewClose) {
 
      document.querySelectorAll('.btn-copy').forEach(copyinput => {
 
-
+  copyinput.addEventListener('click', function () {
            alert("link");
     const input = document.getElementById("to-link");
     input.select();
@@ -189,7 +189,7 @@ if (quickviewClose) {
       }, 2000);
     });
        
-       
+      });  
      });
   
 
