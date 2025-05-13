@@ -227,8 +227,8 @@ document.addEventListener("DOMContentLoaded", function () {
       productVariant.value = variantId;
       stickyVariant.value = variantId;
       pickupcontent();
-      const variantStock =
-        parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
+
+      const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
       matchingOption.setAttribute("selectedVariant", "true");
       if (atcBtnContent) {
         if (variantStock === 0) {
@@ -301,6 +301,49 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the message
       soldMessage.innerHTML = `<span class="prosold-text">${randomSold} products sold</span><span class="lasthours-text"> in the last ${hours} hours.</span>`;
     }
+
+
+     // Apply .soldout class to unavailable options
+    document
+      .querySelectorAll(".mainproduct .product-options-content fieldset")
+      .forEach((fieldset) => {
+        fieldset
+          .querySelectorAll(".mainproduct .variant-option")
+          .forEach((option) => {
+            const optionVariant =
+              option.getAttribute("data-variant-name") ||
+              option.getAttribute("data-multiple-variant");
+
+            if (optionVariant) {
+              // let variantKey = "";
+              console.log(selectedVariants.length);
+              if (selectedVariants.length === 2) {
+                variantKey = `${selectedVariants[0]} / ${optionVariant}`;
+              } else if (selectedVariants.length === 3) {
+                variantKey = [
+                  selectedVariants[0],
+                  selectedVariants[1],
+                  selectedVariants[2],
+                ]
+                  .filter(Boolean)
+                  .join(" / ");
+              }
+              const stockOption = document.querySelector(
+                `.mainproduct .combination_id option[data-variant-name="${variantKey}"]`
+              );
+              if (
+                stockOption &&
+                parseInt(stockOption.getAttribute("data-variant-left")) === 0
+              ) {
+                option.classList.add("soldout");
+              } else {
+                option.classList.remove("soldout");
+              }
+            }
+          });
+      });
+    
+    
   }
 
   function updateStockBar(currentStock) {

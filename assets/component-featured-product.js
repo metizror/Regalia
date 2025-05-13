@@ -17,12 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 theme.featuredProduct = () => {
-  const featureproEle = document.querySelector(".featureProduct");
-  if (!featureproEle) return;
-  const swiperOptions = JSON.parse(featureproEle.dataset.sliderData);
-  const swiper = new Swiper(featureproEle, swiperOptions);
-
-  //Pause/stop the slider when new block/announcement added
+  // Pause/stop the slider when new block/announcement added
   if (Shopify.designMode) {
     document.addEventListener("shopify:block:select", (e) => {
       let targetEle = e.target,

@@ -64,4 +64,7 @@ class PredictiveSearch extends HTMLElement {
   }
 }
 
-customElements.define('predictive-search', PredictiveSearch);
+if (!customElements.get('predictive-search')) {
+  customElements.define('predictive-search', PredictiveSearch);
+}
+

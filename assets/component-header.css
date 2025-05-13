@@ -104,11 +104,14 @@ summary.list-menu__item {
 /* search-css middle-left logo  */
 .inline-search .predicative-input{
   border-radius: 270px;  
-  border-color:#FFF0F5;
-  color:rgba(33, 33, 33, 0.2);
+  border-color:var(--search-bg-color);
 }
 .inline-search .inline-submit circle, .inline-search .inline-submit path{
- stroke: rgba(0, 0, 0, 0.1);  
+ stroke: var(--search-bg-color);  
+}
+.inline-search-header .inline-search{
+  padding:0px;
+  padding-left:40px;
 }
 .predictive-search-content{
   position:relative;

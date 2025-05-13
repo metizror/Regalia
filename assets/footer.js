@@ -28,13 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function validateNewsletterForm() {
-    var checkbox = document.getElementById('privacy-policy');
-    if (!checkbox.checked) {
-      return false;
-    }
-    return true;
+function validateNewsletterForm() {
+  var checkbox = document.getElementById('privacy-policy');
+  if (!checkbox) return true; 
+
+  if (!checkbox.checked) {
+    return false;
   }
+  return true;
+}
+
 
   setupFooterDropdowns();
   validateNewsletterForm();

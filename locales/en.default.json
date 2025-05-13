@@ -255,7 +255,12 @@
     "success_msg": "Thank you for subscribing",
     "email_placeholder": "Enter your mail",
     "email": "Enter your email",
-    "submit_btn": "Subscribe"
+    "submit_btn": "Subscribe",
+    "footer":{
+      "title":"Join Our Newsletter",
+      "email":"Enter Your Email Address",
+      "privacy_policy_html": "<span class=\"agree-text\">I agree to the</span> <a href=\"/policies/privacy-policy\" target=\"_blank\" class=\"privacy-link\">Privacy Policy</a>"
+    }
   },
   "collection": {
     "general": {
