@@ -188,7 +188,7 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
         // const button = this;
         // const origText = button.textContent;
 
-        input.textContent = "Link copied to clipboard!";
+        input.value = "Link copied to clipboard!";
 
         // 3) After 2s, restore
         setTimeout(() => {
