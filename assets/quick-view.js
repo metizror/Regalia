@@ -186,8 +186,8 @@ if (quickviewClose) {
     input.setSelectionRange(0, 99999); // For mobile devices
 
     navigator.clipboard.writeText(input.value).then(() => {
-      const originalText = this.innerHTML; // Save button text
-      this.innerHTML = "Link copied to clipboard!"; // Change button text
+      const originalText = input.innerHTML; // Save button text
+      originalText.innerHTML = "Link copied to clipboard!"; // Change button text
 
       setTimeout(() => {
         this.innerHTML = originalText; // Revert button text
