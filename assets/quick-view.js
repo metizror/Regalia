@@ -145,36 +145,31 @@ if (quickviewClose) {
 
 
   initializeSharepopup = () => {
-function openPopup() {
-  document.getElementById("popupOverlay").style.display = "block";
-  document.addEventListener("keydown", handleKeyPress);
-  document.body.classList.add("popupOverlay-body");
-}
-
-function closePopup() {
-  document.getElementById("popupOverlay").style.display = "none";
-  document.removeEventListener("keydown", handleKeyPress);
-  document.body.classList.remove("popupOverlay-body");
-}
-
-function handleKeyPress(e) {
-  if (e.key === "Escape") {
-    closePopup();
-  }
-}
-// Close popup when clicking outside the content
-window.onclick = function (event) {
-  const overlay = document.getElementById("popupOverlay");
-  if (event.target === overlay) {
-    closePopup();
-  }
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.open-popup').forEach((btn) => {
-      btn.addEventListener("click", openPopup);
+      document.querySelectorAll('.open-quick-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      const gallery = this.closest('.main-image-slider'); // changed from .gallery
+      if (gallery) {
+        const popupOverlay = gallery.querySelector('.popup-overlay');
+        if (popupOverlay) {
+          popupOverlay.style.display = 'block';
+          console.log(popupOverlay.innerHTML); // Show popup content
+        } else {
+          console.warn('.popupOverlay not found inside .main-image-slider');
+        }
+      } else {
+        console.warn('.main-image-slider not found as a parent of .open-popup');
+      }
     });
-});
+  });
+
+  // Close popup
+  document.querySelectorAll('.close-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const popup = this.closest('.popup-overlay');
+      if (popup) popup.style.display = 'none';
+        document.body.classList.remove("popupOverlay-body");
+    });
+  });
 
   }
 
