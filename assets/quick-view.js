@@ -82,6 +82,7 @@ if (quickviewClose) {
                 this.initSwiper();
                 this.initVariantSelection();
                 this.initQuantityPicker();
+                this.initializeSharepopup();
                 this.initializeDropdowns();
               }, 100);
             }
