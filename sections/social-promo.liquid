@@ -104,22 +104,18 @@
 
 {% schema %}
 {
-  "name": "t:sections.social_promo.name",
-  "tag": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
+  "name": "Social promo",
   "settings": [
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Full width",
       "default": false
     },
     {
       "type": "range",
       "id": "max_width",
-      "label": "t:sections.social_promo.settings.max_width.label",
+      "label": "Max Container Width (px)",
       "min": 800,
       "max": 1600,
       "step": 10,
@@ -128,13 +124,13 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label":"t:sections.general.color.background_color.label",
+      "label": "Background color",
       "default": "#FFFFFF"
     },
     {
       "type": "range",
       "id": "image_overlay_opacity",
-      "label": "t:sections.social_promo.settings.overlay_opacity.label",
+      "label": "Overlay opacity (%)",
       "min": 0,
       "max": 100,
       "step": 5,
@@ -143,7 +139,7 @@
     {
       "type": "range",
       "id": "text_width",
-      "label": "t:sections.social_promo.settings.text_width.label",
+      "label": "Text content width (%)",
       "min": 20,
       "max": 80,
       "step": 5,
@@ -152,7 +148,7 @@
     {
       "type": "range",
       "id": "image_width",
-      "label": "t:sections.social_promo.settings.image_width.label",
+      "label": "Image content width (%)",
       "min": 20,
       "max": 80,
       "step": 5,
@@ -161,19 +157,19 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.general.heading.label",
+      "label": "Heading text",
       "default": "Follow Our Journey"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label",
+      "label": "Heading color",
       "default": "#082A32"
     },
     {
       "type": "range",
       "id": "heading_size",
-      "label": "t:sections.social_promo.settings.heading_size.label",
+      "label": "Heading font size (px)",
       "min": 12,
       "max": 60,
       "step": 1,
@@ -182,19 +178,19 @@
     {
       "type": "text",
       "id": "description",
-      "label": "t:sections.general.description.label",
+      "label": "Description text",
       "default": "Discover the artistry behind our collections, explore styling inspiration, and connect with us on social media."
     },
     {
       "type": "color",
       "id": "description_color",
-      "label": "t:sections.social_promo.settings.description_color.label",
+      "label": "Description color",
       "default": "#797979"
     },
     {
       "type": "range",
       "id": "description_size",
-      "label": "t:sections.social_promo.settings.description_size.label",
+      "label": "Description font size (px)",
       "min": 10,
       "max": 30,
       "step": 1,
@@ -203,75 +199,57 @@
     {
       "type": "select",
       "id": "text_align_desk",
-      "label": "t:sections.social_promo.settings.text_alignment.desktop.label",
+      "label": "Text alignment (desktop)",
       "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
       ],
       "default": "left"
     },
     {
       "type": "select",
       "id": "text_align_mob",
-      "label": "t:sections.social_promo.settings.text_alignment.mobile.label",
+      "label": "Text alignment (mobile)",
       "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
       ],
       "default": "center"
     },
     {
       "type": "image_picker",
       "id": "social_icon",
-      "label": "t:sections.social_promo.settings.social.icon.label"
+      "label": "Social icon (PNG)"
     },
     {
       "type": "text",
       "id": "social_text",
-      "label": "t:sections.social_promo.settings.social.text.label",
+      "label": "Social media label",
       "default": "Follow us on Instagram"
     },
     {
       "type": "text",
       "id": "social_handle",
-      "label": "t:sections.social_promo.settings.social.handle.label",
+      "label": "Social handle",
       "default": "@regaliajewels"
     },
     {
       "type": "url",
       "id": "social_link",
-      "label": "t:sections.social_promo.settings.social.link.label"
+      "label": "Social link"
     },
     {
       "type": "color",
       "id": "social_color",
-      "label": "t:sections.social_promo.settings.social.color.label",
+      "label": "Social media label color",
       "default": "#000000"
     },
     {
       "type": "range",
       "id": "social_size",
-      "label": "t:sections.social_promo.settings.social.text_size.label",
+      "label": "Social text size (px)",
       "min": 10,
       "max": 30,
       "step": 1,
@@ -280,18 +258,18 @@
     {
       "type": "color",
       "id": "social_handle_color",
-      "label": "t:sections.social_promo.settings.social.handle_color.label",
+      "label": "Social media handle color",
       "default": "#2081D0"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.social_promo.settings.promo_image.label"
+      "label": "Promo image"
     },
     {
       "type": "range",
       "id": "image_radius",
-      "label": "t:sections.social_promo.settings.promo_image.image_radius.label",
+      "label": "Image border radius (px)",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -299,7 +277,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -308,7 +286,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top padding",
       "default": 36
     },
     {
@@ -318,13 +296,13 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom padding",
       "default": 36
     }
   ],
   "presets": [  
     {
-      "name": "t:sections.social_promo.presets.name"
+      "name": "Social promo"
     }
   ]
 }

@@ -86,75 +86,75 @@
 
 {% schema %}
 {
-  "name": "t:sections.popup.name",
+  "name": "Popup",
   "class": "section-popup",
   "tag": "section",
   "settings": [
     {
       "type": "select",
       "id": "popup_mode",
-      "label": "t:sections.popup.settings.mode.label",
+      "label": "Popup mode",
       "options": [
         {
           "value": "testing",
-          "label": "t:sections.popup.settings.mode.test.label"
+          "label": "Test"
         },
         {
           "value": "production",
-          "label": "t:sections.popup.settings.mode.production.label"
+          "label": "Production"
         },
         {
           "value": "disabled",
-          "label": "t:sections.popup.settings.mode.disabled.label"
+          "label": "Disabled"
         }
       ],
       "default": "production",
-      "info": "t:sections.popup.settings.mode.info"
+      "info": "Popup will show everytime page refresh on testing mode"
     },
     {
       "type": "range",
       "id": "time_to_interact",
-      "label": "t:sections.popup.settings.popup_interaction.label",
+      "label": "Popup interaction",
       "unit": "sec",
       "min": 0,
       "max": 50,
       "step": 1,
       "default": 15,
-      "info": "t:sections.popup.settings.popup_interaction.info"
+      "info": "Delay the popup to show"
     },
     {
       "type": "image_picker",
       "id": "pop_image",
-      "label": "t:sections.popup.settings.popup_image.label"
+      "label": "Popup image"
     },
     {
       "type": "checkbox",
       "id": "tiles_fill_media_zooom",
-      "label": "t:sections.popup.settings.zoom_image_fill_space.label",
+      "label": "Zoom image to fill space",
       "default": true
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.general.heading.label",
+      "label": "Heading",
       "default": "Sign up and get 10% off your first order"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
           "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label"
+          "label": "Medium"
         },
         {
           "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
+          "label": "Small"
         },
         {
           "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
+          "label": "Extra small"
         }
       ],
       "default": "h3"
@@ -162,24 +162,24 @@
     {
       "type": "checkbox",
       "id": "heading_uppercase",
-      "label": "t:sections.popup.settings.heading_uppercase.label",
+      "label": "Uppercase",
       "default": true,
-      "info": "t:sections.popup.settings.heading_uppercase.info"
+      "info": "Enable this setting if you want to show heading in uppercase."
     },
     {
       "type": "richtext",
       "id": "content",
-      "label": "t:sections.popup.settings.content.label",
+      "label": "Content",
       "default": "<p>Subscribe to our newsletter and be the first to hear about our new arrivals, special promotions and online exclusives.</p>"
     },
     {
       "type": "header",
-      "content": "t:sections.popup.settings.customization.content"
+      "content": "Customization"
     },
     {
       "type": "range",
       "id": "border_radius",
-      "label": "t:sections.popup.settings.customization.border_radius.label",
+      "label": "Border radius",
       "max": 30,
       "min": 0,
       "step": 2,
@@ -189,68 +189,68 @@
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.general.color.text_color.label",
+      "label": "text color",
       "default": "#000"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Background color",
       "default": "#FFF"
     },
     {
       "type": "select",
       "id": "content_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Content alignment",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "t:sections.general.button.content"
+      "content": "Button"
     },
     {
       "type": "text",
       "id": "btn_text",
-      "label": "t:sections.general.text.label",
+      "label": "Text",
       "default": "Subscribe"
     },
     {
       "type": "color",
       "id": "btn_text_color",
-      "label": "t:sections.general.color.text_color.label"
+      "label": "Text color"
     },
     {
       "type": "color",
       "id": "btn_bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background color"
     },
     {
       "type": "header",
-      "content": "t:sections.popup.settings.customization.hover_color.content"
+      "content": "Hover color"
     },
     {
       "type": "color",
       "id": "btn_hover_color",
-      "label": "t:sections.popup.settings.customization.hover_color.text.label"
+      "label": "Text hover"
     },
     {
       "type": "color",
       "id": "bg_hover_color",
-      "label": "t:sections.popup.settings.customization.hover_color.background.label"
+      "label": "Background hover"
     }
   ]
 }

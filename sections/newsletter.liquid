@@ -128,7 +128,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.newsletter.name",
+  "name": "Newsletter",
   "tag": "section",
   "class": "section-newsletter",
   "enabled_on": {
@@ -141,33 +141,33 @@
       "type": "checkbox",
       "id": "full_width",
       "default": true,
-      "label": "t:sections.general.full_width"
+      "label": "Show full width"
     },
     {
       "type": "paragraph",
-      "content": "t:sections.newsletter.settings.paragraph.info"
+      "content": "Each email subscription creates a customer account [learn more](https://help.shopify.com/en/manual/customers)."
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "t:sections.general.color.text_color.label",
+      "label": "Text color",
       "default": "#000"
     },
     {
       "type": "color",
       "id": "subheading_color",
-      "label": "t:sections.general.color.subheading_color.label",
+      "label": "Subheading color",
       "default": "#797979"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label",
+      "label": "Background",
       "default": "#F6F1EF"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -176,7 +176,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 40
     },
     {
@@ -186,38 +186,38 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 40
     }
   ],
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.newsletter.blocks.heading.name",
+      "name": "Heading",
       "limit": 1,
       "settings": [
         {
           "type": "textarea",
           "id": "heading",
-          "label": "t:sections.general.text.label",
+          "label": "Text",
           "default": "Sign up to the newsletter."
         },
         {
           "type": "select",
           "id": "heading_size",
-          "label": "t:sections.general.font_size.content",
+          "label": "Size",
           "options": [
             {
               "value": "h4",
-              "label": "t:sections.general.font_size.small_size.label"
+              "label": "Small"
             },
             {
               "value": "h3",
-              "label": "t:sections.general.font_size.medium_size.label"
+              "label": "Medium"
             },
             {
               "value": "h2",
-              "label": "t:sections.general.font_size.large_size.label"
+              "label": "Large"
             }
           ],
           "default": "h3"
@@ -226,20 +226,20 @@
     },
     {
       "type": "paragraph",
-      "name": "t:sections.newsletter.blocks.paragraph.name",
+      "name": "Paragraph",
       "limit": 1,
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "label": "t:sections.newsletter.blocks.paragraph.settings.description.label",
+          "label": "Description",
           "default": "<p>Be the first to know about new collections and exclusive offers.</p>"
         }
       ]
     },
     {
       "type": "email_form",
-      "name": "t:sections.newsletter.blocks.form.name",
+      "name": "Form",
       "limit": 1
     },
     {
@@ -248,7 +248,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.newsletter.presets.name",
+      "name": "Newsletter",
       "blocks": [
         {
           "type": "heading"

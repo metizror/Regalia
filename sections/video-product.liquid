@@ -116,16 +116,13 @@
 
 {% schema %}
 {
-  "name": "t:sections.video_product.name",
+  "name": "Video product",
   "class": "section-video-product",
   "tag": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
   "settings": [
     {
       "type": "header",
-      "content": "t:sections.video_product.settings.media.label"
+      "content": "Media"
     },
     {
       "type": "range",
@@ -134,7 +131,7 @@
       "max": 6,
       "step": 1,
       "default": 3,
-      "label": "t:sections.video_product.settings.videos_per_row.label"
+      "label": "Videos per row"
     },
     {
       "type": "range",
@@ -143,88 +140,95 @@
       "max": 30,
       "step": 2,
       "default": 26,
-      "label": "t:sections.video_product.settings.spacing.label"
-
+      "label": "Spacing"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background color"
     },
     {
       "type": "header",
-      "content": "t:sections.video_product.settings.header.content"
+      "content": "Header"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "t:sections.general.heading.label",
+      "label": "Title",
       "default": "Shop the Style You Admire!"
+    },
+    {
+      "type": "header",
+      "content": "Heading size"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
           "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
+          "label": "Extra large"
         },
         {
           "value": "h2",
-          "label":"t:sections.general.font_size.large_size.label"
+          "label": "Large"
         },
         {
           "value": "h3",
-          "label":"t:sections.general.font_size.medium_size.label"
+          "label": "Medium"
         },
         {
           "value": "h4",
-          "label":"t:sections.general.font_size.small_size.label"
+          "label": "Small"
         },
         {
           "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
+          "label": "Extra small"
         },
         {
           "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
+          "label": "Tiny"
         }
       ],
       "default": "h3"
     },
     {
+      "type": "header",
+      "content": "Alignment"
+    },
+    {
       "type": "select",
       "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Alignment",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
+          "label": "Left"
         },
         {
           "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
+          "label": "Center"
         },
         {
           "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
+          "label": "Right"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "t:sections.general.color.content"
+      "content": "Color"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
+      "label": "Heading color"
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
       "type": "range",
@@ -233,7 +237,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+      "label": "Top",
       "default": 20
     },
     {
@@ -243,31 +247,31 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+      "label": "Bottom",
       "default": 20
     }
   ],
   "blocks": [
     {
       "type": "video-product",
-      "name": "t:sections.video_product.blocks.name",
+      "name": "Video product",
       "settings": [
         {
           "type": "video",
           "id": "video",
-          "label": "t:sections.video_product.blocks.settings.video.label"
+          "label": "Custom video URL"
         },
         {
           "type": "product",
           "id": "video_product",
-          "label": "t:sections.video_product.blocks.settings.product.label"
+          "label": "Select product"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.video_product.presets.name"
+      "name": "Video product"
     }
   ]
 }
