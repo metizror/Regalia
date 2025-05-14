@@ -39,18 +39,18 @@
 
 {% schema %}
   {
-    "name": "404",
+    "name": "t:sections.main_404.name",
     "tag": "section",
     "class": "section-404",
     "settings": [
       {
         "type": "image_picker",
         "id": "bg_image",
-        "label": "Background image"
+        "label": "t:sections.main_404.settings.background_image.label"
       },
       {
         "type": "header",
-        "content": "Section vertical spacing"
+        "content": "t:sections.general.section_vertical_spacing.content"
       },
       {
         "type": "range",
@@ -59,7 +59,7 @@
         "max": 50,
         "step": 2,
         "unit": "px",
-        "label": "Top",
+        "label": "t:sections.general.section_vertical_spacing.top_padding.label",
         "default": 20
       },
       {
@@ -69,7 +69,7 @@
         "max": 50,
         "step": 2,
         "unit": "px",
-        "label": "Bottom",
+        "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
         "default": 20
       }
     ]

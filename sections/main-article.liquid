@@ -459,95 +459,113 @@
 
 {% schema %}
 {
-  "name": "Main article",
+  "name": "t:sections.article.name",
   "tag": "section",
   "class": "section-main-article",
   "settings": [
     {
       "type": "range",
       "id": "container",
-      "label": "Article width",
+      "label": "t:sections.article.settings.customizations.article_width.label",
       "unit": "px",
       "min": 1260,
       "max": 1600,
       "step": 20,
       "default": 1260,
-      "info": "Width auto-optimizes for screens under 1440px."
+      "info": "t:sections.article.settings.customizations.article_width.info"
     },
     {
       "type": "checkbox",
       "id": "blog_show_author",
-      "label": "Show author",
+      "label": "t:sections.article.settings.customizations.show_author.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "blog_show_date",
-      "label": "Show date",
+      "label": "t:sections.article.settings.customizations.show_date.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "blog_show_comment",
-      "label": "Show comments",
+      "label": "t:sections.article.settings.customizations.show_comments.label",
       "default": true
     },
     {
       "type": "select",
       "id": "date_formats_patterns",
-      "label": "Date formats",
+      "label": "t:sections.article.settings.customizations.date_formats.label",
       "options": [
-        { "label": "DD MM, YY", "value": "%d %b, %Y" },
-        { "label": "MM DD, YY", "value": "%b %d, %Y" },
-        { "label": "YY-DD-MM", "value": "%Y-%d-%b" }
+        { 
+          "label": "t:sections.article.settings.customizations.date_formats.options.dmy", 
+          "value": "%d %b, %Y" 
+        },
+        { 
+          "label": "t:sections.article.settings.customizations.date_formats.options.mdy", 
+          "value": "%b %d, %Y" 
+        },
+        { 
+          "label": "t:sections.article.settings.customizations.date_formats.options.ydm", 
+          "value": "%Y-%d-%b" 
+        }
       ],
       "default": "%b %d, %Y"
     },
     {
       "type": "checkbox",
       "id": "social_icons",
-      "label": "Show social icons",
+      "label": "t:sections.article.settings.customizations.show_social_icons.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "show_content_box",
-      "label": "Show content box",
+      "label": "t:sections.article.settings.customizations.show_content_box.label",
       "default": true
     },
     {
       "type": "richtext",
       "id": "box_content",
-      "label": "Add content",
+      "label": "t:sections.article.settings.customizations.box_content.label",
       "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita in recusandae sit officia ipsa, natus ad voluptatem doloribus dolorum placeat, rem deleniti est accusamus ipsum corporis voluptates soluta totam maiores nostrum reprehenderit quasi? Laboriosam itaque...</p>"
     },
     {
       "type": "select",
       "id": "box_content_align",
-      "label": "Box content alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
-        { "label": "Left", "value": "left" },
-        { "label": "Center", "value": "center" },
-        { "label": "Right", "value": "right" }
+        { 
+          "label": "t:sections.general.alignment.alignment_left.label", 
+          "value": "left" 
+        },
+        { 
+          "label": "t:sections.general.alignment.alignment_center.label", 
+          "value": "center" 
+        },
+        { 
+          "label": "t:sections.general.alignment.alignment_right.label", 
+          "value": "right" 
+        }
       ],
       "default": "center"
     },
     {
       "type": "checkbox",
       "id": "show_related_articles",
-      "label": "Show related articles",
+      "label": "t:sections.article.settings.customizations.show_related_articles.label",
       "default": true
     },
     {
       "type": "text",
       "id": "related_article_title",
-      "label": "Related article title",
+      "label": "t:sections.article.settings.customizations.related_article_title.label",
       "default": "Related Articles"
     },
     {
       "type": "range",
       "id": "related_articles_per_page",
-      "label": "Related articles per page",
+      "label": "t:sections.article.settings.customizations.related_articles_per_page.label",
       "min": 1,
       "max": 10,
       "step": 1,
@@ -556,7 +574,7 @@
     {
       "type": "range",
       "id": "columns_desktop",
-      "label": "Number of columns on desktop",
+      "label": "t:sections.article.settings.customizations.column_desktop.label",
       "min": 2,
       "max": 4,
       "step": 1,
@@ -564,145 +582,145 @@
     },
     {
       "type": "header",
-      "content": "Sidebar"
+      "content": "t:sections.article.settings.customizations.sidebar.content"
     },
     {
       "type": "checkbox",
       "id": "show_category",
-      "label": "Show categories",
+      "label": "t:sections.article.settings.customizations.sidebar.show_categories.label",
       "default": true
     },
     {
       "type": "text",
       "id": "category_heading",
-      "label": "Heading",
+      "label": "t:sections.article.settings.customizations.sidebar.categories_heading.label",
       "default": "Categories"
     },
     {
       "type": "checkbox",
       "id": "show_post_article",
-      "label": "Show post article",
+      "label": "t:sections.article.settings.customizations.sidebar.show_post_article.label",
       "default": true
     },
     {
       "type": "text",
       "id": "post_article_heading",
-      "label": "Heading",
+      "label": "t:sections.article.settings.customizations.sidebar.post_article_heading.label",
       "default": "Post Article"
     },
     {
       "type": "checkbox",
       "id": "show_tags",
-      "label": "Show related tags",
+      "label": "t:sections.article.settings.customizations.sidebar.show_related_tags.label",
       "default": true
     },
     {
       "type": "text",
       "id": "tags_heading",
-      "label": "Heading",
+      "label": "t:sections.article.settings.customizations.sidebar.related_tags_heading.label",
       "default": "Related Tags"
     },
     {
       "type": "header",
-      "content": "Color"
+      "content": "t:sections.general.color.content"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background"
+      "label": "t:sections.general.color.background_color.label"
     },
     {
       "type": "color",
       "id": "title_color",
       "default": "#153D47",
-      "label": "Article heading"
+      "label": "t:sections.article.settings.customizations.article_heading_color.label"
     },
     {
       "type": "color",
       "id": "text_color",
       "default": "#797979",
-      "label": "Article content & icons"
+      "label": "t:sections.article.settings.customizations.article_text_color.label"
     },
     {
       "type": "color",
       "id": "date_bg_color",
       "default": "#EFEFEF",
-      "label": "Field background"
+      "label": "t:sections.article.settings.customizations.field_background.label"
     },
     {
       "type": "color",
       "id": "block_text_color",
       "default": "#000000",
-      "label": "Block title text"
+      "label": "t:sections.article.settings.customizations.block_text_color.label"
     },
     {
       "type": "color",
       "id": "content_box_color",
       "default": "#153D47",
-      "label": "Content box text"
+      "label": "t:sections.article.settings.customizations.content_box_color.label"
     },
     {
       "type": "color",
       "id": "content_box_bg_color",
       "default": "#FBF5F0",
-      "label": "Content box background"
+      "label": "t:sections.article.settings.customizations.content_box_bg_color.label"
     },
     {
       "type": "paragraph",
-      "content": "Related article"
+      "content": "t:sections.article.settings.customizations.related_article.content"
     },
     {
       "type": "color",
       "id": "related_bg",
       "default": "#F0F0F0",
-      "label": "Background"
+      "label": "t:sections.general.color.background_color.label"
     },
     {
       "type": "color",
       "id": "related_heading",
       "default": "#153D47",
-      "label": "Heading"
+      "label": "t:sections.general.color.heading_color.label"
     },
     {
       "type": "color",
       "id": "related_title",
       "default": "#153D47",
-      "label": "Title"
+      "label": "t:sections.article.settings.customizations.related_article.title_color.label"
     },
     {
       "type": "color",
       "id": "related_date",
       "default": "#797979",
-      "label": "Date"
+      "label": "t:sections.article.settings.customizations.related_article.date_color.label"
     },
     {
       "type": "header",
       "content": "t:sections.article.settings.customizations.section_bg_images.content",
-      "info": "t:sections.article.settings.customizations.sections_bg_images.info"
+      "info": "t:sections.article.settings.customizations.section_bg_images.info"
     },
     {
       "type": "image_picker",
       "id": "vector_top",
-      "label": "Vector top"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_top.label"
     },
     {
       "type": "image_picker",
       "id": "vector_left",
-      "label": "Vector left"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_left.label"
     },
     {
       "type": "image_picker",
       "id": "vector_right",
-      "label": "Vector right"
+      "label": "t:sections.article.settings.customizations.section_bg_images.vector_right.label"
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "unit": "px",
       "min": 0,
       "max": 50,
@@ -712,7 +730,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "unit": "px",
       "min": 0,
       "max": 50,

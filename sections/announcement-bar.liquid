@@ -97,7 +97,7 @@
 
 {% schema %}
 {
-  "name": "Announcement bar",
+  "name": "t:sections.announcement_bar.name",
   "class": "section-announcement-bar",
   "tag": "section",
   "settings": [
@@ -118,15 +118,9 @@
       "default": false
     },
     {
-      "type":"checkbox",
-      "id":"enable_navigation",
-      "label":"t:sections.announcement_bar.settings.customization.enable_navigation.label",
-      "default":true
-    },
-    {
       "type": "checkbox",
       "id": "enable_autoscroll",
-      "label": "t:sections.announcement_bar.settings.customization.enable_auto_scroll.label",
+      "label": "t:sections.announcement_bar.settings.customization.enbale_auto_scroll.label",
       "default": true
     },
     {
@@ -195,7 +189,7 @@
           "id": "new_tab",
           "label": "t:sections.announcement_bar.blocks.settings.open_in_new_tab.label",
           "default": false,
-          "info": "Enable if you want to opens the link in new window."
+          "info": "t:sections.announcement_bar.blocks.settings.open_in_new_tab.info"
         }
       ]
     }

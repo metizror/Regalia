@@ -11,13 +11,13 @@
             <div class="product-slider-content"> 
             <div class="product-thumnails {%- if settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
               <div class="swiper-container product-thumnails-slide">
-                  <div class="swiper gallery-thumbs quick-view-thumbs product__slider-main">
+                  <div class="swiper gallery-thumbs product__slider-main">
                     {%- render 'product-thumbs', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom -%}
                   </div>
               </div>
             </div>
             <div class="product-slider slider__images {%- if settings.show_thumbs == false %} full-width{%- endif -%}">
-              <div class="main-image-slider swiper gallery-main quick-view-main swiper-container">
+              <div class="main-image-slider swiper gallery-main swiper-container">
                   {%- render 'product-media', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom, image_zoom: section.settings.image_zoom -%}
                 
                   {% render 'pswp-code' %}
@@ -31,10 +31,10 @@
     
                 <div class="img-overlay-icon">
                   <div class="icon-content">
-                    <div class="icon-inner-content product-zoom-icon checkzoombutton">
+                    <div class="icon-inner-content product-zoom-icon">
                       {% render 'icons', icon:'zoom-icon' %}
                     </div>
-                    <div class="icon-inner-content open-quick-popup">
+                    <div class="icon-inner-content open-popup" onclick="openPopup()">
                       {%  render 'icons', icon:'message-icon' %}
                     </div>
                   </div>
@@ -42,15 +42,15 @@
     
                 <div class="popup-overlay" id="popupOverlay">
                   <div class="popup-content">
-                      <span class="close-btn">&times;</span>
+                      <span class="close-btn" onclick="closePopup()">&times;</span>
                       <div class="product-share">
                         <p>{{ 'products.product.copy_link' | t }}</p>
                         <div class="share-product-url">
                           <div class="form-field">
-                              <input id="to-link" type="text" class="field__input" id="url"  value="{{ shop.url | append: product.url }}" placeholder="{{ 'products.product.share_url' | t }}" data-url="{{ shop.url | append: product.url }}"  readonly="">
+                              <input id="to-link" type="text" class="field__input" id="url"  value="{{ shop.url | append: product.url }}" placeholder="{{ 'products.product.share_url' | t }}" data-url="{{ shop.url | append: product.url }}"  onclick="this.select();" readonly="">
                               <label class="field__label hidden" for="url">{{ 'products.product.link' | t }}</label>
                           </div>
-                          <div class="btn-copy" id="copylink"><svg class="icon icon-clipboard" width="11" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z" fill="currentColor"></path></svg>
+                          <div class="btn-copy" id="copylink" onClick="CopyTolink('to-link')"><svg class="icon icon-clipboard" width="11" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z" fill="currentColor"></path></svg>
                           {{ 'products.product.copy_link' | t }}
                         </div>
                       </div>

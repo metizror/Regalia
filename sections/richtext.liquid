@@ -76,9 +76,10 @@
     {%- endfor -%}
   </div>
 </div>
+
 {% schema %}
 {
-  "name": "Richtext",
+  "name": "t:sections.richtext.name",
   "class": "section-richtext",
   "tag": "section",
   "disabled_on": {
@@ -91,29 +92,29 @@
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "Show in full width",
+      "label": "t:sections.general.full_width",
       "default": false
     },
     {
       "type": "header",
-      "content": "Customization"
+      "content": "t:sections.richtext.settings.customization.label"
     },
     {
       "type": "select",
       "id": "alignment",
-      "label": "Alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center"
@@ -121,21 +122,21 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background"
+      "label": "t:sections.general.color.background_color.label"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text"
+      "label": "t:sections.general.color.text_color.label"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color"
+      "label": "t:sections.general.color.heading_color.label"
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -144,7 +145,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 36
     },
     {
@@ -154,79 +155,79 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 36
     }
   ],
   "blocks": [
     {
       "type": "gradient",
-      "name": "Gradient text",
+      "name": "t:sections.richtext.blocks.name",
       "settings": [
         {
           "type": "text",
           "id": "gradient_text",
-          "label": "Title",
-          "info": "For best results, keep this text short."
+          "label": "t:sections.richtext.blocks.settings.gradient_text.label",
+          "info": "t:sections.richtext.blocks.settings.gradient_text.info"
         },
         {
           "type": "select",
           "id": "gradient_text_size",
-          "label": "Size",
+          "label": "t:sections.general.font_size.content",
           "options": [
             {
               "value": "h2",
-              "label": "Large"
+              "label": "t:sections.general.font_size.large_size.label"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label": "t:sections.general.font_size.medium_size.label"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label": "t:sections.general.font_size.small_size.label"
             }
           ],
           "default": "h2"
         },
         {
           "type": "header",
-          "content": "Colors",
-          "info": "Gradient replaces solid colors when set. Gradient text outline and gradient background cannot be combined."
+          "content": "t:sections.richtext.blocks.settings.colors.label",
+          "info": "t:sections.richtext.blocks.settings.colors.info"
         },
         {
           "type": "color_background",
           "id": "background_gradient",
-          "label": "Background gradient"
+          "label": "t:sections.richtext.blocks.settings.bg_gradient.label"
         }
       ]
     },
     {
       "type": "heading",
-      "name": "Heading",
+      "name": "t:sections.general.heading.label",
       "settings": [
         {
           "type": "text",
           "id": "heading_text",
-          "label": "Text",
+          "label": "t:sections.general.text.label",
           "default": "Heading"
         },
         {
           "type": "select",
           "id": "heading_size",
-          "label": "Size",
+          "label": "t:sections.general.font_size.content",
           "options": [
             {
               "value": "h2",
-              "label": "Large"
+              "label": "t:sections.general.font_size.large_size.label"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label": "t:sections.general.font_size.medium_size.label"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label": "t:sections.general.font_size.small_size.label"
             }
           ],
           "default": "h3"
@@ -235,41 +236,41 @@
     },
     {
       "type": "subheading",
-      "name": "Subheading",
+      "name": "t:sections.general.subheading.label",
       "settings": [
         {
           "type": "textarea",
           "id": "subheading_text",
-          "label": "Subheading"
+          "label": "t:sections.general.subheading.label"
         }
       ]
     },
     {
       "type": "description",
-      "name": "Description",
+      "name": "t:sections.general.description.label",
       "settings": [
         {
           "type": "richtext",
           "id": "content_text",
-          "label": "Content",
+          "label": "t:sections.general.content.label",
           "default": "<p>Add content here</p>"
         },
         {
           "type": "select",
           "id": "text_size",
-          "label": "Size",
+          "label": "t:sections.general.font_size.content",
           "options": [
             {
               "value": "h4",
-              "label": "Large"
+              "label": "t:sections.general.font_size.large_size.label"
             },
             {
               "value": "h5",
-              "label": "Medium"
+              "label": "t:sections.general.font_size.medium_size.label"
             },
             {
               "value": "h6",
-              "label": "Small"
+              "label": "t:sections.general.font_size.small_size.label"
             }
           ],
           "default": "h6"
@@ -278,31 +279,30 @@
     },
     {
       "type": "button",
-      "name": "Button",
+      "name": "t:sections.general.button.content",
       "settings": [
         {
           "type": "text",
           "id": "btn",
-          "label": "Text",
-          "info": "Leave button blank to hide."
+          "label": "t:sections.general.button.button_text.label"
         },
         {
           "type": "url",
           "id": "btn_link",
-          "label": "Link"
+          "label": "t:sections.general.button.button_link.label"
         },
         {
           "type": "select",
           "id": "btn_style",
-          "label": "Style",
+          "label": "t:sections.general.button.button_type.label",
           "options": [
             {
               "value": "btn-primary",
-              "label": "Primary"
+              "label": "t:sections.general.button.button_type.options.btn_primary.label"
             },
             {
               "value": "btn-secondary",
-              "label": "Secondary"
+              "label": "t:sections.general.button.button_type.options.btn_secondary.label"
             }
           ],
           "default": "btn-primary"
@@ -310,7 +310,7 @@
         {
           "type": "checkbox",
           "id": "is_newpage",
-          "label": "Opens in new page",
+          "label": "t:sections.general.button.open_in_new_tab.label",
           "default": false
         }
       ]
@@ -318,7 +318,7 @@
   ],
   "presets": [
     {
-      "name": "Richtext",
+      "name": "t:sections.richtext.presets.name",
       "settings": {
       },
       "blocks": [

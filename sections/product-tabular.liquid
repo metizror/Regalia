@@ -47,20 +47,20 @@
                 <div class="tab-page-content">
                   {% if block.settings.page_one %}
                     <div class="tab-page-data">
-                      {% assign page_obj = pages[block.settings.page_one] %} 
-                          <h2>{{ page_obj.title }}</h2>
-                          <div class="tab-page-description">
-                            {{ page_obj.content }}
-                          </div>
+                      {% assign page_obj = pages[block.settings.page_one] %}
+                      <h2>{{ page_obj.title }}</h2>
+                      <div class="tab-page-description">
+                        {{ page_obj.content }}
+                      </div>
                     </div>
                   {% endif %}
                   {% if block.settings.page_two %}
                     <div class="tab-page-data">
-                      {% assign page_obj_two = pages[block.settings.page_two] %} 
-                        <h2>{{ page_obj_two.title }}</h2>
-                        <div class="tab-page-description">
-                          {{ page_obj_two.content }}
-                        </div>
+                      {% assign page_obj_two = pages[block.settings.page_two] %}
+                      <h2>{{ page_obj_two.title }}</h2>
+                      <div class="tab-page-description">
+                        {{ page_obj_two.content }}
+                      </div>
                     </div>
                   {% endif %}
                 </div>
@@ -126,42 +126,45 @@
 
 {% schema %}
 {
-  "name": "Product tabs",
+  "name": "t:sections.product_tabular.name",
+  "enabled_on": {
+    "templates": ["product"]
+  },
   "settings": [
     {
       "type": "color",
       "id": "section_bg_color",
-      "label": "Section Background Color",
+      "label": "t:sections.product_tabular.settings.section_bg_color.label",
       "default": "#ffffff"
     }
   ],
   "blocks": [
     {
       "type": "product_description",
-      "name": "Product description",
+      "name": "t:sections.product_tabular.blocks.product_description.name",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "Tab title",
+          "label": "t:sections.product_tabular.blocks.product_description.settings.tab_title.label",
           "default": "Description"
         }
       ]
     },
     {
       "type": "page_content",
-      "name": "Page content",
+      "name": "t:sections.product_tabular.blocks.page_content.name",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "Tab title",
+          "label": "t:sections.product_tabular.blocks.page_content.settings.tab_title.label",
           "default": "Page Content"
         },
         {
           "type": "range",
           "id": "page_spacing",
-          "label": "Spacing",
+          "label": "t:sections.product_tabular.blocks.page_content.settings.page_spacing.label",
           "min": 0,
           "max": 36,
           "default": 30
@@ -169,36 +172,36 @@
         {
           "type": "page",
           "id": "page_one",
-          "label": "Select page"
+          "label": "t:sections.product_tabular.blocks.page_content.settings.page_one.label"
         },
         {
           "type": "page",
           "id": "page_two",
-          "label": "Select page"
+          "label": "t:sections.product_tabular.blocks.page_content.settings.page_two.label"
         }
       ]
     },
     {
       "type": "rich_text",
-      "name": "Rich text",
+      "name": "t:sections.product_tabular.blocks.rich_text.name",
       "settings": [
         {
           "type": "text",
           "id": "tab_title",
-          "label": "Tab title",
+          "label": "t:sections.product_tabular.blocks.rich_text.settings.title.label",
           "default": "Rich Text"
         },
         {
           "type": "richtext",
           "id": "rich_text",
-          "label": "Rich text content"
+          "label": "t:sections.product_tabular.blocks.rich_text.settings.content.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product tabs"
+      "name": "t:sections.product_tabular.presets.name"
     }
   ]
 }

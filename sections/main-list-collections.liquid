@@ -108,56 +108,47 @@
 
 {% schema %}
 {
-  "name": "Collection list",
+  "name": "t:sections.main_list_collection.name",
   "tag": "section",
   "class": "section-collection-list",
   "settings": [
     {
       "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type":"range",
-      "id": "gap_spc",
-      "label":"Space between row",
-      "min": 5,
-      "max":100,
-      "step": 5,
-      "default":100
+      "content": "t:sections.main_list_collection.settings.layout.label"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "Enable full width",
+      "label": "t:sections.general.full_width",
       "default": false
     },
     {
       "type": "text",
       "id": "page_heading",
-      "label": "Heading",
+      "label": "t:sections.general.heading.label",
       "default": "Collections"
     },
     {
       "type": "richtext",
       "id": "page_description",
-      "label": "Description"
+      "label": "t:sections.main_list_collection.settings.page_description.label"
     },
     {
       "type": "select",
       "id": "text_alignment",
-      "label": "Header alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center"
@@ -165,7 +156,7 @@
     {
       "type": "range",
       "id": "collection_row",
-      "label": "Desktop collection in a row",
+      "label": "t:sections.main_list_collection.settings.collection_row.label",
       "min": 1,
       "max": 4,
       "step": 1,
@@ -174,7 +165,7 @@
     {
       "type": "range",
       "id": "show_per_page",
-      "label": "Collection per page",
+      "label": "t:sections.main_list_collection.settings.collection_per_page.label",
       "min": 3,
       "max": 12,
       "step": 1,
@@ -182,54 +173,54 @@
     },
     {
       "type": "header",
-      "content": "Background images"
+      "content": "t:sections.main_list_collection.settings.background_images.content"
     },
     {
       "type": "image_picker",
       "id": "bg_img_1",
-      "label": "Background image top right"
+      "label": "t:sections.main_list_collection.settings.background_images.top_right.label"
     },
     {
       "type": "image_picker",
       "id": "bg_img_2",
-      "label": "Background image top left"
+      "label": "t:sections.main_list_collection.settings.background_images.top_left.label"
     },
     {
       "type": "image_picker",
       "id": "bg_img_3",
-      "label": "Background image middle right"
+      "label": "t:sections.main_list_collection.settings.background_images.middle_right.label"
     },
     {
       "type": "image_picker",
       "id": "bg_img_4",
-      "label": "Background image middle left"
+      "label": "t:sections.main_list_collection.settings.background_images.middle_left.label"
     },
     {
       "type": "header",
-      "content": "Media",
-      "info": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)"
+      "content": "t:sections.product.settings.media.label",
+      "info": "t:sections.product.settings.media.info"
     },
     {
       "type": "checkbox",
       "id": "enable_overlay",
-      "label": "Enable overlay",
+      "label": "t:sections.main_list_collection.settings.enable_overlay.label",
       "default": false
     },
     {
       "type": "select",
       "id": "title_alignment",
-      "label": "Title alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
-          "label": "Left",
+          "label": "t:sections.general.alignment.alignment_left.label",
           "value": "left"
         },
         {
-          "label": "Center",
+          "label": "t:sections.general.alignment.alignment_center.label",
           "value": "center"
         },
         {
-          "label": "Right",
+          "label": "t:sections.general.alignment.alignment_right.label",
           "value": "right"
         }
       ],
@@ -238,31 +229,31 @@
     {
       "type": "select",
       "id": "media_ratio",
-      "label": "Shape",
+      "label": "t:sections.general.image_shape.content",
       "options": [
         {
           "value": "original",
-          "label": "Original"
+          "label": "t:sections.general.image_shape.original_shape.label"
         },
         {
           "value": "portrait",
-          "label": "Portrait (2:3)"
+          "label": "t:sections.general.image_shape.potrait_shape.label"
         },
         {
           "value": "square",
-          "label": "Square (1:1)"
+          "label": "t:sections.general.image_shape.square_shape.label"
         },
         {
           "value": "landscape",
-          "label": "Landscape (3:2)"
+          "label": "t:sections.general.image_shape.landscape_shape.label"
         },
         {
           "value": "full-screen",
-          "label": "Full screen (4:3)"
+          "label": "t:sections.general.image_shape.full_screen_shape.label"
         },
         {
           "value": "wide-screen",
-          "label": "Wide screen (16:9)"
+          "label": "t:sections.general.image_shape.wide_screen_shape.label"
         }
       ],
       "default": "original"
@@ -270,13 +261,13 @@
     {
       "type": "checkbox",
       "id": "fill_media_zooom",
-      "label": "Zoom image to fill space",
+      "label": "t:sections.product.settings.show_image_zoom.label",
       "default": true,
-      "info": "No effect when media shape set to 'Original'"
+      "info": "t:sections.product.settings.media_zoom.info"
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -285,7 +276,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 50
     },
     {
@@ -295,7 +286,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 50
     }
   ]

@@ -69,77 +69,80 @@
   
 {% schema %}
 {
-  "name": "Discount countdown",
+  "name": "t:sections.discount_countdown.name",
   "class": "section section-discount-countdown",
   "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
-        "type":"text",
-        "id"  :"main_title",
-        "label":"Main title"     
+      "type": "text",
+      "id": "main_title",
+      "label": "t:sections.discount_countdown.settings.content.main_title.label"
     },
     {
-        "type":"text",
-        "id"   :"sitewide_text",
-        "label":"Sub title"
+      "type": "text",
+      "id": "sitewide_text",
+      "label": "t:sections.discount_countdown.settings.content.sub_title.label"
     },
     {
-        "type":"text",
-        "id"   :"disc_code",
-        "label":"Discount Code"
+      "type": "text",
+      "id": "disc_code",
+      "label": "t:sections.discount_countdown.settings.content.discount_code.label"
     },
     {
-        "type": "text",
-        "id": "end_date",
-        "label": "End date",
-        "default": "2022-12-31"
+      "type": "text",
+      "id": "end_date",
+      "label": "t:sections.discount_countdown.settings.content.end_date.label",
+      "default": "2022-12-31"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background",
+      "label": "t:sections.general.color.background_color.label",
       "default": "#000"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text",
+      "label": "t:sections.general.color.text_color.label",
       "default": "#FFF"
     },
     {
       "type": "color",
       "id": "link_color",
-      "label": "Link",
+      "label": "t:sections.general.color.link_color.label",
       "default": "#FFF"
     },
     {
-    "type":"header",
-    "content": "Mobile layout"
+      "type": "header",
+      "content": "t:sections.discount_countdown.settings.mobile_layout.content"
     },
     {
       "type": "select",
       "id": "content-align",
       "options": [
         {
-          "value": "start",
+          "value": "left",
           "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
-        "value": "center",
-        "label": "Center"
+          "value": "center",
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
-          "value": "end",
+          "value": "right",
           "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
-      "label": "Content alignment",
+      "label": "t:sections.discount_countdown.settings.mobile_content_alignment.label",
       "default": "center"
     }
   ],
   "presets": [
     {
-      "name": "Discount countdown",
+      "name": "t:sections.discount_countdown.presets.name"
     }
   ]
 }

@@ -87,7 +87,7 @@
 
 {% schema %}
 {
-  "name": "Quotes",
+  "name": "t:sections.quotes.name",
   "class": "section-quotes",
   "tag": "section",
   "disabled_on": {
@@ -96,65 +96,41 @@
   "settings": [
     {
       "type": "header",
-      "content": "Section background images"
+      "content": "t:sections.quotes.settings.section_bg_images.content"
     },
     {
       "type": "image_picker",
       "id": "quote_bg_1",
-      "label": "Background image top left"
+      "label": "t:sections.quotes.settings.section_bg_images.bg_images.top_left.label"
     },
     {
       "type": "image_picker",
       "id": "quote_bg_2",
-      "label": "Background image bottom right"
+      "label": "t:sections.quotes.settings.section_bg_images.bg_images.bottom_right.label"
     },
     {
       "type": "header",
-      "content": "Content"
+      "content": "t:sections.quotes.settings.content.label"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Heading",
+      "label": "t:sections.general.heading.label",
       "default": "Quotes of the day"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.alignment.content"
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
-      ],
-      "default": "center"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color"
+      "label": "t:sections.general.color.heading_color.label"
     },
     {
       "type": "header",
-      "content": "Section vetical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -164,7 +140,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "max": 50,
       "min": 0,
       "step": 2,
@@ -175,30 +151,30 @@
   "blocks": [
     {
       "type": "quote",
-      "name": "Quote",
+      "name": "t:sections.quotes.blocks.name",
       "settings": [
         {
           "type": "image_picker",
           "id": "logo",
-          "label": "Image"
+          "label": "t:sections.quotes.blocks.settings.image.label"
         },
         {
           "type": "richtext",
           "id": "quote",
-          "label": "Quote",
+          "label": "t:sections.quotes.blocks.settings.quote.label",
           "default": "<p>I never worry about diets. The only carrots that interest me are the number you get in a diamond.</p>"
         },
         {
           "type": "color",
           "id": "quote_color",
-          "label": "Text color"
+          "label": "t:sections.general.color.text_color.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Quotes",
+      "name": "t:sections.quotes.presets.name",
       "blocks": [
         {
           "type": "quote"
