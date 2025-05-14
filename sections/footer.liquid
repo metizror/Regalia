@@ -50,7 +50,7 @@
                       <img
                         src="{{ block.settings.logo  | image_url: width: block.settings.logo.width }}"
                         alt="{{ block.settings.logo.alt | default: shop.name }}"
-                        width="{{ block.settings.logo_width }}"
+                        width="{{ block.settings.logo_width }}px"
                         height="{{ block.settings.logo.height }}"
                         style="--object-position: {{ block.settings.logo.presentation.focal_point }}"
                         loading="lazy"
