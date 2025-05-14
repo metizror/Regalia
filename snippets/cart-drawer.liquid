@@ -289,10 +289,10 @@
                                 >
                                   <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
 
-                                  <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% endif %}>
+                                  <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
                                     {% render 'icons', icon: 'minus' %}
                                   </span>
-                                  <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% endif %}>
+                                  <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
                                     {% render 'icons', icon: 'trash' %}
                                   </span>
   
