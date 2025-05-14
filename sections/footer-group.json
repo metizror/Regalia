@@ -131,7 +131,7 @@
         "logo_information_JhNENx": {
           "type": "logo-information",
           "settings": {
-            "logo": "shopify://shop_images/jewellery_1.png",
+            "logo": "shopify://shop_images/Regalia_logo_1.svg",
             "footer_newsletter": false,
             "text_data": "At Regalia, we create jewelry that combines elegance with timeless appeal. Our pieces are crafted to enhance your style and celebrate your individuality.",
             "info_logo_1": "location",
@@ -174,8 +174,8 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "bg_color": "#082a32",
-        "menu_color": "#b5bfc1",
-        "menu_color_opacity": 100,
+        "menu_color": "",
+        "menu_color_opacity": 50,
         "social_icons": true,
         "enable_follow_on_shop": true,
         "hr_line": "linear-gradient(130deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
