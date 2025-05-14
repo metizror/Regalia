@@ -142,6 +142,65 @@ if (quickviewClose) {
         });
       };
 
+        initializeSharepopup = () => {
+      document.querySelectorAll('.open-quick-popup').forEach(button => {
+    button.addEventListener('click', function () {
+      const gallery = this.closest('.main-image-slider'); // changed from .gallery
+      if (gallery) {
+        const popupOverlay = gallery.querySelector('.popup-overlay');
+        if (popupOverlay) {
+          popupOverlay.style.display = 'block';
+        } else {
+          console.warn('.popupOverlay not found inside .main-image-slider');
+        }
+      } else {
+        console.warn('.main-image-slider not found as a parent of .open-popup');
+      }
+    });
+  });
+
+  // Close popup
+  document.querySelectorAll('.close-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const popup = this.closest('.popup-overlay');
+      if (popup) popup.style.display = 'none';
+        document.body.classList.remove("popupOverlay-body");
+    });
+  });
+
+document.querySelectorAll('.btn-copy').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const container = this.closest('.share-product-url');
+    const inputContent  = container?.querySelector('.field__input');
+    if (!inputContent) return;
+
+    // 1) Select the URL text in the <input>
+    inputContent.select();
+    inputContent.setSelectionRange(0, 99999);
+
+    // 2) Copy to clipboard
+    navigator.clipboard.writeText(inputContent.value)
+      .then(() => {
+        // // SAFELY change the *button’s* text
+        // const button = this;
+        const origText = inputContent.value;
+
+        inputContent.value = "Link copied to clipboard!";
+
+        // 3) After 2s, restore
+        setTimeout(() => {
+         inputContent.value = origText;
+        }, 2000);
+      })
+      .catch(err => {
+        console.error("Copy failed:", err);
+      });
+  });
+});
+    
+    
+  }
+
        initializeDropdowns = () => {
   const dropdowns = document.querySelectorAll("#quickViewModal .dropdown-variant");
 
