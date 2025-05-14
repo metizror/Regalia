@@ -104,8 +104,8 @@ if (quickviewClose) {
       };
 
       initSwiper = () => {
-        const thumbsContainer = document.querySelector(".gallery-thumbs");
-        const mainContainer = document.querySelector(".gallery-main");
+         const thumbsContainer = document.querySelector(".quick-view-thumbs");
+        const mainContainer = document.querySelector(".quick-view-main");
 
         if (!thumbsContainer || !mainContainer) return;
 
