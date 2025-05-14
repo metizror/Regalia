@@ -252,13 +252,13 @@
 
 {% schema %}
 {
-  "name": "Collection",
+  "name": "t:sections.collection.name",
   "class": "section-main-collection",
   "tag": "section",
   "settings": [
     {
       "type": "header",
-      "content": "Banner content"
+      "content": "t:sections.collection.settings.banner_content.content"
     },
     {
       "type": "select",
@@ -266,44 +266,44 @@
       "options": [
         {
           "value": "top-left",
-          "label": "Top Left"
+          "label": "t:sections.general.alignment.alignment_top_left.label" 
         },
         {
           "value": "top-center",
-          "label": "Top Center"
+          "label": "t:sections.general.alignment.alignment_top_center.label"
         },
         {
           "value": "top-right",
-          "label": "Top Right"
+          "label": "t:sections.general.alignment.alignment_top_right.label"
         },
         {
           "value": "middle-left",
-          "label": "Middle Left"
+          "label": "t:sections.general.alignment.alignment_middle_left.label"
         },
         {
           "value": "middle-center",
-          "label": "Middle Center"
+          "label": "t:sections.general.alignment.alignment_middle_center.label"
         },
         {
           "value": "middle-right",
-          "label": "Middle Right"
+          "label": "t:sections.general.alignment.alignment_middle_right.label"
         },
         {
           "value": "bottom-left",
-          "label": "Bottom Left"
+         "label": "t:sections.general.alignment.alignment_bottom_left.label"
         },
         {
           "value": "bottom-center",
-          "label": "Bottom Center"
+          "label": "t:sections.general.alignment.alignment_bottom_center.label"
         },
         {
           "value": "bottom-right",
-          "label": "Bottom Right"
+          "label": "t:sections.general.alignment.alignment_bottom_right.label"
         }
       ],
       "default": "middle-center",
-      "label": "Content position",
-      "info": "The position is automatically optimized for mobile."
+      "label": "t:sections.collection.settings.banner_content.desk_content_position.label",
+      "info": "t:sections.collection.settings.banner_content.desk_content_position.info"
     },
     {
       "type": "select",
@@ -311,19 +311,19 @@
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center",
-      "label": "Desktop content alignment"
+      "label": "t:sections.collection.settings.banner_content.desk_content_align.label"
     },
     {
       "type": "select",
@@ -331,66 +331,59 @@
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center",
-      "label": "Mobile content alignment"
+      "label": "t:sections.collection.settings.banner_content.mobile_content_align.label"
     },
     {
       "type": "checkbox",
       "id": "enable_filtering",
-      "label": "Show filters",
+      "label": "t:sections.collection.settings.show_filters.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "enable_sorting",
-      "label": "Show sorting",
+      "label": "t:sections.collection.settings.show_sorting.label",
       "default": true
     },
     {
       "type": "link_list",
       "id": "filter_link",
-      "label": "Navigation Filter"
+      "label": "t:sections.collection.settings.navigation_filter.label"
     },
     {
       "type": "text",
       "id": "col_title",
-      "label": "Navigation Filter Title",
+      "label": "t:sections.collection.settings.navigation_filter_title.label",
       "default": "Collection"
     },
     {
       "type": "text",
       "id": "group_filter_prefix",
-      "label": "Filter Group Prefix (comma-separated)",
+      "label": "t:sections.collection.settings.group_filter_prefix.label",
       "default": "color,size,material"
-    },
-    {
-      "type": "number",
-      "id": "price_filter_index",
-      "default": 2,
-      "label": "t:sections.collection.settings.price_filter_index.label",
-      "info":"t:sections.collection.settings.price_filter_index.info"
     },
     {
       "type": "checkbox",
       "id": "default_open",
-      "label": "Filter open",
+      "label": "t:sections.collection.settings.filter_open.label",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "product_count",
-      "label": "Show product count",
+      "label": "t:sections.collection.settings.show_product_count.label",
       "default": true
     },
     {
@@ -400,7 +393,7 @@
       "max": 4,
       "step": 1,
       "default": 4,
-      "label": "Product per row"
+      "label": "t:sections.collection.settings.product_per_row.label"
     },
     {
       "type": "range",
@@ -409,12 +402,12 @@
       "max": 30,
       "step": 1,
       "default": 25,
-      "label": "Spacing"
+      "label": "t:sections.collection.settings.gap_between_products.label"
     },
     {
       "type": "range",
       "id": "pagination",
-      "label": "Show products in page",
+      "label": "t:sections.collection.settings.show_products_in_page.label",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -422,58 +415,58 @@
     },
     {
       "type": "header",
-      "content": "Banner"
+      "content": "t:sections.collection.settings.banner.content"
     },
     {
       "type": "paragraph",
-      "content": "The image size should be 1440x590px for proper display with the description on it."
+      "content": "t:sections.collection.settings.banner.info_1"
     },
     {
       "type": "paragraph",
-      "content": "If the collection image is empty, the image below will be displayed."
+      "content": "t:sections.collection.settings.banner.info_2"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Select image",
-      "info": "Primarily you can see this image only in collection all page's banner."
+      "label": "t:sections.collection.settings.banner.image.label",
+      "info": "t:sections.collection.settings.banner.image.info"
     },
     {
       "type": "checkbox",
       "id": "show_title",
       "default": true,
-      "label": "Show collection title"
+      "label": "t:sections.collection.settings.banner.image.show_title"
     },
     {
       "type": "checkbox",
       "id": "show_description",
       "default": true,
-      "label": "Show collection description"
+      "label": "t:sections.collection.settings.banner.image.show_description"
     },
     {
       "type": "paragraph",
-      "content": "Customization"
+      "content": "t:sections.collection.settings.customization.content"
     },
     {
       "type": "select",
       "id": "image_height",
-      "label": "Image height",
+      "label": "t:sections.collection.settings.customization.image_height.label",
       "options": [
         {
           "value": "small",
-          "label": "Small"
+          "label": "t:sections.collection.settings.customization.image_height.options.small_height"
         },
         {
           "value": "medium",
-          "label": "Medium"
+          "label": "t:sections.collection.settings.customization.image_height.options.medium_height"
         },
         {
           "value": "large",
-          "label": "Large"
+          "label": "t:sections.collection.settings.customization.image_height.options.large_height"
         },
         {
           "value": "original",
-          "label": "Original"
+          "label": "t:sections.collection.settings.customization.image_height.options.original_height"
         }
       ],
       "default": "medium"
@@ -481,31 +474,31 @@
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "Show full-width",
+      "label": "t:sections.general.full_width",
       "default": true
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color",
+      "label": "t:sections.general.color.heading_color.label",
       "default": "#FFF"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
+      "label": "t:sections.general.color.text_color.label",
       "default": "#FFF"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "Overlay color",
+      "label": "t:sections.general.color.overlay_color.label",
       "default": "#000"
     },
     {
       "type": "range",
       "id": "overlay_opacity",
-      "label": "Overlay opacity",
+      "label": "t:sections.collection.settings.customization.overlay_opacity.label",
       "min": 0,
       "max": 1,
       "step": 0.1,
@@ -514,7 +507,7 @@
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -523,7 +516,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 40
     },
     {
@@ -533,23 +526,23 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 40
     },
     {
       "type": "paragraph",
-      "content": "Image overlay"
+      "content": "t:sections.collection.settings.customization.image_overlay.content"
     },
     {
       "type": "color",
       "id": "gradient_color",
-      "label": "Gradient Color",
+      "label": "t:sections.collection.settings.customization.image_overlay.gradient_color.label",
       "default": "#FBF5F0"
     },
     {
       "type": "range",
       "id": "start_gradient_opacity",
-      "label": "Start Color opacity",
+      "label": "t:sections.collection.settings.customization.image_overlay.start_color_opacity.label",
       "default": 0,
       "min": 0,
       "max": 1,
@@ -558,7 +551,7 @@
     {
       "type": "range",
       "id": "end_gradient_opacity",
-      "label": "End Color opacity",
+      "label": "t:sections.collection.settings.customization.image_overlay.end_color_opacity.label",
       "default": 1,
       "min": 0,
       "max": 1,
@@ -566,29 +559,29 @@
     },
     {
       "type": "header",
-      "content": "Heading"
+      "content": "t:sections.general.heading.label"
     },
     {
       "type": "text",
       "id": "heading_text",
-      "label": "Heading"
+      "label": "t:sections.general.heading.label"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "Heading size",
+      "label": "t:sections.general.font_size.content",
       "options": [
         {
           "value": "h2",
-          "label": "Large"
+          "label": "t:sections.general.font_size.large_size.label"
         },
         {
           "value": "h3",
-          "label": "Medium"
+          "label": "t:sections.general.font_size.medium_size.label" 
         },
         {
           "value": "h4",
-          "label": "Small"
+          "label": "t:sections.general.font_size.small_size.label"
         }
       ],
       "default": "h2"
@@ -596,72 +589,66 @@
     {
       "type": "richtext",
       "id": "content_text",
-      "label": "Content"
+      "label": "t:sections.collection.settings.header.content"
     },
     {
       "type": "select",
       "id": "content_alignment",
-      "label": "Content alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center"
     },
     {
       "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "paragraph",
-      "content": "Primary"
+      "content": "t:sections.general.button.button_type.options.btn_primary.label"
     },
     {
       "type": "text",
       "id": "btn1",
-      "label": "Button",
-      "info": "Leave the label blank to hide the button."
+      "label": "t:sections.general.button.button_text.label"
     },
     {
       "type": "url",
       "id": "primary_url",
-      "label": "Button link"
+      "label": "t:sections.general.button.button_link.label"
     },
     {
       "type": "checkbox",
       "id": "new_tab_primary",
-      "label": "Open in new tab",
+      "label": "t:sections.general.button.open_in_new_tab.label",
       "default": false
     },
     {
-      "type": "paragraph",
-      "content": "Secondary"
+      "type": "header",
+      "content": "t:sections.general.button.button_type.options.btn_secondary.label"
     },
     {
       "type": "text",
       "id": "btn2",
-      "label": "Button",
-      "info": "Leave the label blank to hide the button."
+      "label": "t:sections.general.button.button_text.label"
     },
     {
       "type": "url",
       "id": "secondary_url",
-      "label": "Button link"
+      "label": "t:sections.general.button.button_link.label"
     },
     {
       "type": "checkbox",
       "id": "new_tab_secondary",
-      "label": "Open in new tab",
+      "label": "t:sections.general.button.open_in_new_tab.label",
       "default": false
     }
   ]

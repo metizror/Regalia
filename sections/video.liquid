@@ -93,104 +93,97 @@
 
 {% schema %}
 {
-  "name": "Video",
+  "name": "t:sections.video.name",
   "class": "section-video",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   },
   "settings": [
     {
       "type": "header",
-      "content": "Layout"
+      "content": "t:sections.video.settings.layout.label"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "Enable full width",
+      "label": "t:sections.general.full_width",
       "default": false
     },
     {
       "type": "header",
-      "content": "Thumbnail"
+      "content": "t:sections.video.settings.thumbnail.content"
     },
     {
       "type": "image_picker",
       "id": "thumbnail",
-      "label": "Choose image",
-      "info": "Thumbnail shows only when autoplay is disable"
+      "label": "t:sections.video.settings.thumbnail.thumbnail_image.label",
+      "info": "t:sections.video.settings.thumbnail.thumbnail_image.info"
     },
     {
       "type": "text",
       "id": "thumbnail_heading",
-      "label": "Heading",
+      "label": "t:sections.general.heading.label",
       "default": "Movement"
     },
     {
       "type": "text",
       "id": "thumbnail_subheading",
-      "label": "Subheading",
+      "label": "t:sections.general.subheading.label",
       "default": "Lorem ipsum"
     },
     {
       "type": "header",
-      "content": "Heading size"
+      "content": "t:sections.video.settings.thumbnail.heading_size.label"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "Size",
+      "label": "t:sections.general.font_size.content",
       "options": [
         {
           "value": "h1",
-          "label": "Extra large"
+          "label": "t:sections.general.font_size.extra_large.label"
         },
         {
           "value": "h2",
-          "label": "Large"
+          "label": "t:sections.general.font_size.large_size.label"
         },
         {
           "value": "h3",
-          "label": "Medium"
+          "label": "t:sections.general.font_size.medium_size.label"
         },
         {
           "value": "h4",
-          "label": "Small"
+          "label": "t:sections.general.font_size.small_size.label"
         },
         {
           "value": "h5",
-          "label": "Extra small"
+          "label": "t:sections.general.font_size.extra_small.label"
         },
         {
           "value": "h6",
-          "label": "Tiny"
+          "label": "t:sections.general.font_size.tiny.label"
         }
       ],
       "default": "h4"
     },
     {
-      "type": "header",
-      "content": "Alignment"
-    },
-    {
       "type": "select",
       "id": "heading_alignment",
-      "label": "Alignment",
+      "label": "t:sections.general.alignment.content",
       "options": [
         {
           "value": "left",
-          "label": "Left"
+          "label": "t:sections.general.alignment.alignment_left.label"
         },
         {
           "value": "center",
-          "label": "Center"
+          "label": "t:sections.general.alignment.alignment_center.label"
         },
         {
           "value": "right",
-          "label": "Right"
+          "label": "t:sections.general.alignment.alignment_right.label"
         }
       ],
       "default": "center"
@@ -198,19 +191,19 @@
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Font color",
+      "label": "t:sections.general.color.heading_color.label",
       "default": "#fff"
     },
     {
       "type": "color",
       "id": "overlay_color",
-      "label": "Overlay color",
+      "label": "t:sections.general.color.overlay_color.label",
       "default": "#000"
     },
     {
       "type": "range",
       "id": "overlay_opacity",
-      "label": "Overlay opacity",
+      "label": "t:sections.video.settings.overlay_opacity.label",
       "min": 0,
       "max": 1,
       "step": 0.1,
@@ -219,19 +212,19 @@
     },
     {
       "type": "header",
-      "content": "Video"
+      "content": "t:sections.video.settings.video.content"
     },
     {
       "type": "radio",
       "id": "video_type",
-      "label": "Video type",
+      "label": "t:sections.video.settings.video.video_type.label",
       "options": [
         {
-          "label": "Link",
+          "label": "t:sections.video.settings.video.video_type.options.link.label",
           "value": "link"
         },
         {
-          "label": "Video",
+          "label": "t:sections.video.settings.video.video_type.options.video.label",
           "value": "video"
         }
       ],
@@ -239,41 +232,39 @@
     },
     {
       "type": "video_url",
-      "accept": [
-        "vimeo",
-        "youtube"
-      ],
+      "accept": ["vimeo", "youtube"],
       "id": "video_url",
-      "label": "Video link",
-      "info": "Accepts Vimeo or YouTube links",
+      "label": "t:sections.video.settings.video.video_type.video_url.label",
+      "info": "t:sections.video.settings.video.video_type.video_url.info",
       "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
     },
     {
       "type": "video",
       "id": "video",
-      "label": "Choose video"
+      "label": "t:sections.video.settings.video.video_type.choose_video.label",
+      "info": "t:sections.video.settings.video.video_type.choose_video.info"
     },
     {
       "type": "checkbox",
       "id": "video_autoplay",
-      "label": "Autoplay",
-      "info": "Autoplay works only when video is mute",
+      "label": "t:sections.video.settings.video.video_type.video_autoplay.label",
+      "info": "t:sections.video.settings.video.video_type.video_autoplay.info",
       "default": false
     },
     {
       "type": "checkbox",
       "id": "video_mute",
-      "label": "Mute video",
+      "label": "t:sections.video.settings.video.video_type.video_mute.label",
       "default": true
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
       "id": "top_spacing",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "min": 0,
       "max": 50,
       "unit": "px",
@@ -283,7 +274,7 @@
     {
       "type": "range",
       "id": "bottom_spacing",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "min": 0,
       "max": 50,
       "unit": "px",
@@ -293,7 +284,7 @@
   ],
   "presets": [
     {
-      "name": "Video"
+      "name": "t:sections.video.presets.name"
     }
   ]
 }

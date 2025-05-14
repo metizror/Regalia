@@ -105,7 +105,7 @@ if (quickviewClose) {
       };
 
       initSwiper = () => {
-        const thumbsContainer = document.querySelector(".quick-view-thumbs");
+         const thumbsContainer = document.querySelector(".quick-view-thumbs");
         const mainContainer = document.querySelector(".quick-view-main");
 
         if (!thumbsContainer || !mainContainer) return;
@@ -143,8 +143,7 @@ if (quickviewClose) {
         });
       };
 
-
-  initializeSharepopup = () => {
+        initializeSharepopup = () => {
       document.querySelectorAll('.open-quick-popup').forEach(button => {
     button.addEventListener('click', function () {
       const gallery = this.closest('.main-image-slider'); // changed from .gallery
@@ -202,8 +201,6 @@ document.querySelectorAll('.btn-copy').forEach(btn => {
     
     
   }
-
-      
 
        initializeDropdowns = () => {
   const dropdowns = document.querySelectorAll("#quickViewModal .dropdown-variant");

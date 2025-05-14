@@ -54,50 +54,47 @@
 
 {% schema %}
 {
-  "name": "Video carousel",
+  "name": "t:sections.video_carousel.name",
   "class": "section section-video-carousel",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   },
   "settings": [
     {
       "type": "header",
-      "content": "Layout"
+      "content": "t:sections.video_carousel.settings.layout.label"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "Enable full width",
+      "label": "t:sections.general.full_width",
       "default": true
     },
     {
       "type": "header",
-      "content": "Slider settings"
+      "content": "t:sections.video_carousel.settings.slider_settings.content"
     },
     {
       "type": "select",
       "id": "slide_height",
-      "label": "Adapt height",
+      "label": "t:sections.video_carousel.settings.slider_settings.slide_height.label",
       "options": [
         {
           "value": "adapt",
-          "label": "Adapt image"
+          "label": "t:sections.video_carousel.settings.slider_settings.slide_height.options.adapt.label"
         },
         {
           "value": "small",
-          "label": "Small"
+          "label": "t:sections.general.font_size.small_size.label"
         },
         {
           "value": "medium",
-          "label": "Medium"
+          "label": "t:sections.general.font_size.medium_size.label"
         },
         {
           "value": "large",
-          "label": "Large"
+          "label": "t:sections.general.font_size.large_size.label"
         }
       ],
       "default": "adapt"
@@ -105,23 +102,23 @@
     {
       "type": "select",
       "id": "slide_transition",
-      "label": "Slide transition",
+      "label": "t:sections.video_carousel.settings.slider_settings.slide_transition.label",
       "options": [
         {
           "value": "fade",
-          "label": "Fade"
+          "label": "t:sections.video_carousel.settings.slider_settings.slide_transition.options.fade.label"
         },
         {
           "value": "flip",
-          "label": "Flip"
+          "label": "t:sections.video_carousel.settings.slider_settings.slide_transition.options.flip.label"
         },
         {
           "value": "coverflow",
-          "label": "Coverflow"
+          "label": "t:sections.video_carousel.settings.slider_settings.slide_transition.options.coverflow.label"
         },
         {
           "value": "cube",
-          "label": "Cube"
+          "label": "t:sections.video_carousel.settings.slider_settings.slide_transition.options.cube.label"
         }
       ],
       "default": "fade"
@@ -129,7 +126,7 @@
     {
       "type": "range",
       "id": "speed_delay",
-      "label": "Speed delay",
+      "label": "t:sections.video_carousel.settings.slider_settings.speed_delay.label",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -138,12 +135,12 @@
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
       "id": "padding_top",
-      "label": "Padding top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -153,7 +150,7 @@
     {
       "type": "range",
       "id": "padding_bottom",
-      "label": "Padding bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "min": 0,
       "max": 50,
       "step": 2,
@@ -163,35 +160,35 @@
     {
       "type": "checkbox",
       "id": "enable_arrow",
-      "label": "Enable Arrow",
-      "default":true
+      "label": "t:sections.video_carousel.settings.slider_settings.enable_arrow.label",
+      "default": true
     }
   ],
-  "blocks":[
+  "blocks": [
     {
       "type": "video",
-      "name": "Video",
+      "name": "t:sections.video_carousel.blocks.name",
       "settings": [
         {
           "type": "video",
           "id": "video",
-          "label": "Video"
+          "label": "t:sections.video_carousel.blocks.settings.video.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Video carousel",
+      "name": "t:sections.video_carousel.presets.name",
       "blocks": [
         {
-          "type": "video",
+          "type": "video"
         },
         {
-          "type": "video",
+          "type": "video"
         },
         {
-          "type": "video",
+          "type": "video"
         }
       ]
     }

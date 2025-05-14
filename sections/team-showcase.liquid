@@ -105,18 +105,22 @@
 
 {% schema %}
 {
-  "name": "Team showcase",
+  "name": "t:sections.team_showcase.name",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "Full width",
+      "label": "t:sections.general.full_width",
       "default": false
     },
     {
       "type": "range",
       "id": "max_width",
-      "label": "Custom max width (px)",
+      "label": "t:sections.general.container_max_width.label",
       "min": 600,
       "max": 1600,
       "step": 10,
@@ -125,13 +129,13 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background color",
+      "label": "t:sections.general.color.background_color.label",
       "default": "#F5F5F580"
     },
     {
       "type": "range",
       "id": "bg_opacity",
-      "label": "Background opacity (%)",
+      "label": "t:sections.team_showcase.settings.bg_opacity.label",
       "min": 0,
       "max": 100,
       "step": 5,
@@ -140,52 +144,52 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading text",
+      "label": "t:sections.general.heading.label",
       "default": "The People Behind Regalia"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "Heading color",
+      "label": "t:sections.general.color.heading_color.label",
       "default": "#082A32"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "Font size",
+      "label": "t:sections.general.font_size.content",
       "default": "h2",
       "options": [
-        { "value": "h4", "label": "Small" },
-        { "value": "h3", "label": "Medium" },
-        { "value": "h2", "label": "Large" }
+        { "value": "h4", "label": "t:sections.general.font_size.small_size.label" },
+        { "value": "h3", "label": "t:sections.general.font_size.medium_size.label" },
+        { "value": "h2", "label": "t:sections.general.font_size.large_size.label" }
       ]
     },
     {
       "type": "select",
       "id": "text_align_desk",
-      "label": "Text alignment (desktop)",
+      "label": "t:sections.team_showcase.settings.text_alignment.desktop.label",
       "default": "left",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
+        { "value": "left", "label": "t:sections.general.alignment.alignment_left.label" },
+        { "value": "center", "label": "t:sections.general.alignment.alignment_center.label" },
+        { "value": "right", "label": "t:sections.general.alignment.alignment_right.label" }
       ]
     },
     {
       "type": "select",
       "id": "text_align_mob",
-      "label": "Text alignment (mobile)",
+      "label": "t:sections.team_showcase.settings.text_alignment.mobile.label",
       "default": "left",
       "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
+        { "value": "left", "label": "t:sections.general.alignment.alignment_left.label" },
+        { "value": "center", "label": "t:sections.general.alignment.alignment_center.label" },
+        { "value": "right", "label": "t:sections.general.alignment.alignment_right.label" }
       ]
     },
     {
       "type": "range",
       "id": "columns_desktop",
-      "label": "Columns on desktop",
+      "label": "t:sections.team_showcase.settings.columns_desktop.label",
       "min": 1,
       "max": 6,
       "step": 1,
@@ -194,36 +198,24 @@
     {
       "type": "select",
       "id": "columns_mobile",
-      "label": "Columns on mobile",
+      "label": "t:sections.team_showcase.settings.columns_mobile.label",
       "default": "2",
       "options": [
-        { "value": "1", "label": "1 column" },
-        { "value": "2", "label": "2 columns" }
+        { "value": "1", "label": "t:sections.team_showcase.settings.columns_mobile.options.one_column" },
+        { "value": "2", "label": "t:sections.team_showcase.settings.columns_mobile.options.two_column" }
       ]
     },
     {
       "type": "text",
       "id": "footer_text",
-      "label": "Footer text",
+      "label": "t:sections.team_showcase.settings.footer.text.label",
       "default": "Our team is united by one goal: to bring you jewelry that inspires and empowers."
     },
     {
       "type": "color",
       "id": "footer_text_color",
-      "label": "Footer text color",
+      "label": "t:sections.team_showcase.settings.footer.color.label",
       "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "name_color",
-      "label": "Member name color",
-      "default": "#153D47"
-    },
-    {
-      "type": "color",
-      "id": "position_color",
-      "label": "Member position color",
-      "default": "#082A32"
     },
     {
       "type": "select",
@@ -231,29 +223,29 @@
       "options": [
         {
           "value": "adapt",
-          "label": "Adapt to image"
+          "label": "t:sections.team_showcase.settings.image_ratio.options.adapt"
         },
         {
           "value": "portrait",
-          "label": "Portrait"
+          "label": "t:sections.team_showcase.settings.image_ratio.options.potrait"
         },
         {
           "value": "square",
-          "label": "Square"
+          "label": "t:sections.team_showcase.settings.image_ratio.options.square"
         }
       ],
       "default": "portrait",
-      "label": "Image ratio"
+      "label": "t:sections.team_showcase.settings.image_ratio.label"
     },
     {
       "type": "checkbox",
       "id": "enable_slider_if_many",
-      "label": "Enable slider when more than 4 blocks",
+      "label": "t:sections.team_showcase.settings.enable_slider.label",
       "default": true
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -262,7 +254,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Top padding",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 36
     },
     {
@@ -272,30 +264,30 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Bottom padding",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 36
     }
   ],
   "blocks": [
     {
       "type": "member",
-      "name": "Team member",
+      "name": "t:sections.team_showcase.blocks.name",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Member image"
+          "label": "t:sections.team_showcase.blocks.settings.member.image"
         },
         {
           "type": "text",
           "id": "name",
-          "label": "Member name",
+          "label": "t:sections.team_showcase.blocks.settings.member.name",
           "default": "Member Name"
         },
         {
           "type": "text",
           "id": "position",
-          "label": "Member position",
+          "label": "t:sections.team_showcase.blocks.settings.member.position",
           "default": "Member Position"
         }
       ]
@@ -303,7 +295,7 @@
   ],
   "presets": [
     {
-      "name": "Team showcase",
+      "name": "t:sections.team_showcase.presets.name",
       "blocks": [
         {
           "type": "member",

@@ -83,7 +83,7 @@
 
 {% schema %}
 {
-  "name": "Countdown",
+  "name": "t:sections.countdown.name",
   "class": "section section-countdown",
   "tag": "section",
   "disabled_on": {
@@ -96,13 +96,13 @@
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "Enable full width",
+      "label": "t:sections.general.full_width",
       "default": false
     },
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Background image"
+      "label": "t:sections.countdown.settings.bg_image.label"
     },
       {
       "type": "color",
@@ -122,39 +122,39 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
+      "label": "t:sections.countdown.settings.bg_image.title",
       "default": "Deal of the week"
     },
     {
       "type": "richtext",
       "id": "description",
-      "label": "Description",
+      "label": "t:sections.countdown.settings.bg_image.description",
       "default": "<p>This week only they are all 20% off. While supplies last, planters not be restocked.</p>"
     },
     {
       "type": "text",
       "id": "end_date",
-      "label": "End date",
+      "label": "t:sections.countdown.settings.end_date.label",
       "default": "2022-12-31"
     },
     {
       "type": "header",
-      "content": "Button"
+      "content": "t:sections.general.button.content"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Text",
+      "label": "t:sections.general.button.button_text.label",
       "default": "Shop now"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Link"
+      "label": "t:sections.general.button.button_link.label"
     },
     {
       "type": "header",
-      "content": "Section vertical spacing"
+      "content": "t:sections.general.section_vertical_spacing.content"
     },
     {
       "type": "range",
@@ -163,7 +163,7 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Top",
+      "label": "t:sections.general.section_vertical_spacing.top_padding.label",
       "default": 20
     },
     {
@@ -173,13 +173,13 @@
       "max": 50,
       "step": 2,
       "unit": "px",
-      "label": "Bottom",
+      "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 20
     }
   ],
   "presets": [
     {
-      "name": "Countdown",
+      "name": "t:sections.countdown.presets.name",
     }
   ]
 }
