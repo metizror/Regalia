@@ -5,10 +5,10 @@
   }
   {%- for block in section.blocks -%}
     #shopify-section-{{ section.id }} .text-image-items.block-id-{{ block.id }} {
-      --bg-color: {{ block.settings.bg_color }}; 
-      --text-color: {{ block.settings.text_color }}; 
-      --description-color: {{ block.settings.description_color }}; 
-      --btn-text-color: {{ block.settings.btn_text_color }}; 
+      --bg-color: {{ block.settings.bg_color }};
+      --text-color: {{ block.settings.text_color }};
+      --description-color: {{ block.settings.description_color }};
+      --btn-text-color: {{ block.settings.btn_text_color }};
       --btn-bg-color: {{ block.settings.btn_bg_color }};
       --bg-blur: {{ block.settings.bg_blur }}px;
     }
@@ -35,41 +35,43 @@
     }
   }
 {%- endstyle -%}
-{{ 'component-textImage-slider.css' | asset_url |stylesheet_tag: preload: true }}
+{{ 'component-textImage-slider.css' | asset_url | stylesheet_tag: preload: true }}
 
 {% capture slider_enable %}
   {% if section.settings.slider_enable %}sliderenable{% else %}sliderdisable{% endif %}
 {% endcapture %}
 <section class="text-image-slider-section {{ slider_enable }}">
   <div class="{% if section.settings.enable_full_width %}full-width{% else %}container{% endif %}">
-    <div       
-      {% if section.settings.slider_enable %} 
-      class="text-image-wrapper swiper"
-      data-slider-options='{
-    "direction": "vertical",
-    "speed": 1000,
-    "slidesPerView": 1,
-    "breakpoints": {
-      "320": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
-      "768": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
-      "1280": { "direction": "vertical", "slidesPerView": 1 }
-    }
-    {% if section.blocks.size > 1 %},
-    "loop": true
-    {% endif %}
-    {% if section.settings.enable_autoscroll %},
-    "autoplay": {
-      "delay": {{ section.settings.autoscroll_speed }},
-      "disableOnInteraction": false
-    }
-    {% endif %},
-    "navigation": {
-      "nextEl": "#shopify-section-{{ section.id }} .swiper-button-next",
-      "prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev"
-    }
-  }'
+    <div
+      {% if section.settings.slider_enable %}
+        class="text-image-wrapper swiper"
+        data-slider-options='
+          {
+            "direction": "vertical",
+            "speed": 1000,
+            "slidesPerView": 1,
+            "breakpoints": {
+              "320": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
+              "768": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
+              "1280": { "direction": "vertical", "slidesPerView": 1 }
+            }
+            {% if section.blocks.size > 1 %},
+            "loop": true
+            {% endif %}
+            {% if section.settings.enable_autoscroll %},
+            "autoplay": {
+              "delay": {{ section.settings.autoscroll_speed }},
+              "disableOnInteraction": false
+            }
+            {% endif %},
+            "navigation": {
+              "nextEl": "#shopify-section-{{ section.id }} .swiper-button-next",
+              "prevEl": "#shopify-section-{{ section.id }} .swiper-button-prev"
+            }
+          }
+        '
       {% endif %}
-      >
+    >
       <div class="swiper-wrapper overlayslider">
         {%- for block in section.blocks -%}
           <div class="text-image-items {% if block.settings.bg_overlay_content %}overlay-slider-{{ block.id }}{% endif %} swiper-slide block-id-{{ block.id }}">
@@ -78,27 +80,29 @@
                 <div class="image-with-text flex-reverse">
                   <div class="image-wrapper">
                     {%- if block.settings.image -%}
-                      <img src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                      <img
+                        src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
                         alt="{{ block.settings.image.alt }}"
                         width="{{ block.settings.image.width }}"
                         height="{{ block.settings.image.height }}"
                         loading="lazy"
-                        style="--object-position:{{ block.settings.image.presentation.focal_point }}">
+                        style="--object-position:{{ block.settings.image.presentation.focal_point }}"
+                      >
                     {%- else -%}
                       {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
                   </div>
                   <div class="content-wrapper container-narrow">
                     {%- if block.settings.title -%}
-                      <{{block.settings.title_size}} class="iwt-title">
+                      <{{ block.settings.title_size }} class="iwt-title">
                         {{ block.settings.title }}
-                      </{{block.settings.title_size}}>
+                      </{{ block.settings.title_size }}>
                     {%- endif -%}
                     {%- if block.settings.description -%}
                       <span class="iwt-description">
-                          <{{block.settings.description_size}} class="iwt-description">
-                        {{ block.settings.description | strip_html }}
-                          </{{block.settings.description_size}}>   
+                        <{{ block.settings.description_size }} class="iwt-description">
+                          {{ block.settings.description | strip_html }}
+                        </{{ block.settings.description_size }}>
                       </span>
                     {%- endif -%}
                     {%- if block.settings.btn_text -%}
@@ -107,47 +111,53 @@
                       </a>
                     {%- endif -%}
                   </div>
-                 <div class="images-content">
+                  <div class="images-content">
                     <div class="image-left-side">
                       {% if section.settings.image_first %}
-                      <img src="{{ section.settings.image_first | image_url: width: section.settings.image_first.width }}"
-                alt="{{ section.settings.image_first.alt | default: 'collection-image' }}"
-                width="{{ section.settings.image_first.width }}"
-                height="{{ section.settings.image_first.height }}"
-                loading="lazy"
-                style="--object-position:{{ section.settings.image_first.presentation.focal_point }}">
+                        <img
+                          src="{{ section.settings.image_first | image_url: width: section.settings.image_first.width }}"
+                          alt="{{ section.settings.image_first.alt | default: 'collection-image' }}"
+                          width="{{ section.settings.image_first.width }}"
+                          height="{{ section.settings.image_first.height }}"
+                          loading="lazy"
+                          style="--object-position:{{ section.settings.image_first.presentation.focal_point }}"
+                        >
                       {% endif %}
                     </div>
                     <div class="image-right-side">
-                        {% if section.settings.image_sec %}
-                           <img src="{{ section.settings.image_sec | image_url: width: section.settings.image_sec.width }}"
-                alt="{{ section.settings.image_sec.alt | default: 'collection-image' }}"
-                width="{{ section.settings.image_sec.width }}"
-                height="{{ section.settings.image_sec.height }}"
-                loading="lazy"
-                style="--object-position:{{ section.settings.image_sec.presentation.focal_point }}">
+                      {% if section.settings.image_sec %}
+                        <img
+                          src="{{ section.settings.image_sec | image_url: width: section.settings.image_sec.width }}"
+                          alt="{{ section.settings.image_sec.alt | default: 'collection-image' }}"
+                          width="{{ section.settings.image_sec.width }}"
+                          height="{{ section.settings.image_sec.height }}"
+                          loading="lazy"
+                          style="--object-position:{{ section.settings.image_sec.presentation.focal_point }}"
+                        >
                       {% endif %}
                     </div>
                     <div class="image-btn-side">
                       {% if section.settings.image_third %}
-                           <img src="{{ section.settings.image_third | image_url: width: section.settings.image_third.width }}"
-                alt="{{ section.settings.image_third.alt | default: 'collection-image' }}"
-                width="{{ section.settings.image_third.width }}"
-                height="{{ section.settings.image_third.height }}"
-                loading="lazy"
-                style="--object-position:{{ section.settings.image_third.presentation.focal_point }}">
-                       
+                        <img
+                          src="{{ section.settings.image_third | image_url: width: section.settings.image_third.width }}"
+                          alt="{{ section.settings.image_third.alt | default: 'collection-image' }}"
+                          width="{{ section.settings.image_third.width }}"
+                          height="{{ section.settings.image_third.height }}"
+                          loading="lazy"
+                          style="--object-position:{{ section.settings.image_third.presentation.focal_point }}"
+                        >
                       {% endif %}
                     </div>
                     <div class="image-bottom-side">
                       {% if section.settings.image_four %}
-                           <img src="{{ section.settings.image_four | image_url: width: section.settings.image_four.width }}"
-                alt="{{ section.settings.image_four.alt | default: 'collection-image' }}"
-                width="{{ section.settings.image_four.width }}"
-                height="{{ section.settings.image_four.height }}"
-                loading="lazy"
-                style="--object-position:{{ section.settings.image_four.presentation.focal_point }}">
-                       
+                        <img
+                          src="{{ section.settings.image_four | image_url: width: section.settings.image_four.width }}"
+                          alt="{{ section.settings.image_four.alt | default: 'collection-image' }}"
+                          width="{{ section.settings.image_four.width }}"
+                          height="{{ section.settings.image_four.height }}"
+                          loading="lazy"
+                          style="--object-position:{{ section.settings.image_four.presentation.focal_point }}"
+                        >
                       {% endif %}
                     </div>
                   </div>
@@ -156,12 +166,14 @@
                 <div class="image-overlay-text">
                   <div class="bg-image-wrapper">
                     {%- if block.settings.bg_image -%}
-                      <img src="{{ block.settings.bg_image | image_url: width: block.settings.bg_image.width }}"
+                      <img
+                        src="{{ block.settings.bg_image | image_url: width: block.settings.bg_image.width }}"
                         alt="{{ block.settings.bg_image.alt }}"
                         width="{{ block.settings.bg_image.width }}"
                         height="{{ block.settings.bg_image.height }}"
                         loading="lazy"
-                        style="--object-position:{{ block.settings.bg_image.presentation.focal_point }}">
+                        style="--object-position:{{ block.settings.bg_image.presentation.focal_point }}"
+                      >
                     {%- else -%}
                       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
@@ -169,21 +181,23 @@
                   <div class="content-wrapper container-narrow image-{{ block.settings.layout }}">
                     <div class="image-wrapper">
                       {%- if block.settings.image -%}
-                        <img src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                        <img
+                          src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
                           alt="{{ block.settings.image.alt }}"
                           width="{{ block.settings.image.width }}"
                           height="{{ block.settings.image.height }}"
                           loading="lazy"
-                          style="--object-position:{{ block.settings.image.presentation.focal_point }}">
+                          style="--object-position:{{ block.settings.image.presentation.focal_point }}"
+                        >
                       {%- else -%}
                         {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
                       {%- endif -%}
                     </div>
                     <div class="inner-content-wrapper">
                       {%- if block.settings.title -%}
-                        <{{block.settings.title_size}} class="iot-title">
+                        <{{ block.settings.title_size }} class="iot-title">
                           {{ block.settings.title }}
-                        </{{block.settings.title_size}}>
+                        </{{ block.settings.title_size }}>
                       {%- endif -%}
                       {%- if block.settings.description -%}
                         <span class="iot-description">
@@ -202,11 +216,11 @@
           </div>
         {%- endfor -%}
       </div>
-        {% if section.settings.slider_enable %}          
-      <div class="swiper-navigation">
-        <button type="button" class="swiper-button-prev"></button>
-        <button type="button" class="swiper-button-next"></button>
-      </div>  
+      {% if section.settings.slider_enable %}
+        <div class="swiper-navigation">
+          <button type="button" class="swiper-button-prev"></button>
+          <button type="button" class="swiper-button-next"></button>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -220,10 +234,7 @@
   "class": "section-text-image-slider",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   },
   "settings": [
     {
@@ -245,7 +256,7 @@
     {
       "type": "range",
       "id": "speed_delay",
-      "label":"t:sections.text_image_slider.settings.speed_delay.label",
+      "label": "t:sections.text_image_slider.settings.speed_delay.label",
       "min": 1000,
       "max": 9000,
       "step": 1000,
@@ -510,20 +521,20 @@
           "default": "h2"
         },
         {
-          "type":"select",
+          "type": "select",
           "id": "layout",
-          "default":"image_first",
-          "label":"t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_placement.label",
+          "default": "image_first",
+          "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_placement.label",
           "options": [
-           {
-             "value": "image_first",
-             "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_first.label"
-           },
-           {
-             "value":"image_second",
-             "label":"t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_second.label"
-           }
-         ]
+            {
+              "value": "image_first",
+              "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_first.label"
+            },
+            {
+              "value": "image_second",
+              "label": "t:sections.text_image_slider.blocks.image_overlay_text.settings.meadia.image_second.label"
+            }
+          ]
         },
         {
           "type": "text",
