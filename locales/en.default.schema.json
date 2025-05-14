@@ -2125,6 +2125,9 @@
         "page_description": {
           "label": "Description"
         },
+        "collection_row_gap":{
+          "label":"Collection row gap"
+        },
         "collection_row": {
           "label": "Collection in row (desktop)"
         },
