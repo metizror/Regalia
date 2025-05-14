@@ -1779,6 +1779,9 @@
             "logo": {
               "label": "Store logo"
             },
+            "logo_width":{
+              "label":"Logo width"
+            },
             "info": {
               "label": "Store information"
             },
