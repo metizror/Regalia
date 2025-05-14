@@ -541,3 +541,13 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const element = document.querySelector(".img-overlay-icon .quickphotoswipe");
+  if (element) {
+      element.addEventListener("click", (event) => {
+          alert("demo");
+      });
+  } else {
+      console.warn("Element not found!");
+  }
+});

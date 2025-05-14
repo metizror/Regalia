@@ -18,8 +18,62 @@
             </div>
             <div class="product-slider slider__images {%- if settings.show_thumbs == false %} full-width{%- endif -%}">
               <div class="main-image-slider swiper gallery-main quick-view-main swiper-container">
-                  {%- render 'product-media', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom, image_zoom: section.settings.image_zoom -%}
+
+                <div class="product-media swiper-wrapper gallery swipercontentsliderdata" id="quickgallery">
+                  {% for media in product.media %}
+                    <div class="media-item swiper-slide {% if forloop.first %}active{% endif %}" data-media-id="{{ media.id }}">
+                      <div class="slider__image">
+                        {% case media.media_type %}
+                          {% when 'image' %}
+                            {% assign image_group = media.alt | split: 'group-' | last %}
+                            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                              <!-- Link to the big image, not mandatory, but usefull when there is no JS -->
+                              <a
+                                href="{{ media | image_url:width: media.width }}"
+                                data-caption="Sea side, south shore<br><em class='text-muted'>© Dominik Schröder</em>"
+                                data-width="{{ media.width }}"
+                                data-height="{{ media.height }}"
+                                itemprop="contentUrl"
+                              >
+                                <!-- Thumbnail -->
+                                <img
+                                  class="variant-image"
+                                  src="{{ media | image_url:width: media.width }}"
+                                  alt="{{ image_group | escape }}"
+                                  loading="lazy"
+                                  width="{{ media.width }}"
+                                  height="{{ media.height }}"
+                                  data-variant="{{ image_group | default: 'all' }}"
+                                >
+                              </a>
+                            </figure>
+                          {% when 'video' %}
+                            <div class="product-video">
+                              {{ media | video_tag: controls: true, loop: true, muted: true, aria-label: 'Product video'}}
+                            </div>
+                          {% when 'external_video' %}
+                            <div class="product-external-video">
+                              {{ media | external_video_tag }}
+                            </div>
+                          {% when 'model' %}
+                            <product-model class="product-3D-model swiper-no-swiping">
+                              {{ media | model_viewer_tag }}
+                            </product-model>
+                          {% else %}
+                            <div class="unsupported-media">
+                              {{ 'product.unsupported_media' | t }}
+                              {{ media.media_type }}
+                            </div>
+                        {% endcase %}
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
                 
+
+                {% comment %}
+                  {%- render 'product-media', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom, image_zoom: section.settings.image_zoom -%}
+                {% endcomment %}
                   {% render 'pswp-code' %}
     
                   <div class="swiper-pagination {%- if settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}" data-main-product ></div>
@@ -31,7 +85,7 @@
     
                 <div class="img-overlay-icon">
                   <div class="icon-content">
-                    <div class="icon-inner-content product-zoom-icon checkzoombutton">
+                    <div class="icon-inner-content product-zoom-icon quickphotoswipe">
                       {% render 'icons', icon:'zoom-icon' %}
                     </div>
                     <div class="icon-inner-content open-quick-popup">

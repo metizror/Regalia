@@ -43,6 +43,12 @@
       max-width:calc(50% - {{ section.settings.spacing }}px);
     }
   }
+  .lazy-autoplay-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
 {%- endstyle -%}
 
 {{ 'component-video-product.css' | asset_url | stylesheet_tag: preload: true }}
@@ -70,12 +76,25 @@
         <div class="vidproinner grid-item swiper-slide">
           {% if block.settings.video != blank %}
             <div class="videocontent">
+
+             
+
+
               <deferred-media
                 class="video-section__media deferred-media gradient global-media-settings"
                 style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
               >
-                {{ block.settings.video | video_tag: image_size: '1100x', autoplay: true, loop: true }}
+                {{
+                  block.settings.video
+                  | video_tag: image_size: '1100x', autoplay: true, loop: true
+                  | replace: '<img ', '<img loading="lazy" '
+                }}
               </deferred-media>
+              
+
+             
+              
+
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
