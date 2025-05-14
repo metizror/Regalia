@@ -165,7 +165,7 @@ if (!customElements.get("quantity-picker")) {
         this.handleNegativeInput.bind(this)
       );
     }
-    
+
     onIncrease() {
       this.inputField.value = parseInt(this.inputField.value) + 1;
       this.inputField.dispatchEvent(new Event("change"));
@@ -176,7 +176,7 @@ if (!customElements.get("quantity-picker")) {
         this.inputField.value = parseInt(this.inputField.value) - 1;
       }
       this.inputField.dispatchEvent(new Event("change"));
-    }    
+    }
 
     handleNegativeInput() {
       let parsedValue = parseFloat(this.inputField.value);
@@ -540,4 +540,6 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
 
