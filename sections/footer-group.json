@@ -131,7 +131,8 @@
         "logo_information_JhNENx": {
           "type": "logo-information",
           "settings": {
-            "logo": "shopify://shop_images/Regalia_logo_1.svg",
+            "logo": "shopify://shop_images/Regalia_logo_5.svg",
+            "logo_width": 160,
             "footer_newsletter": false,
             "text_data": "At Regalia, we create jewelry that combines elegance with timeless appeal. Our pieces are crafted to enhance your style and celebrate your individuality.",
             "info_logo_1": "location",
