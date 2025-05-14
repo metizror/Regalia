@@ -63,13 +63,13 @@
                   {% endif %}
                 </div>
                 {% if block.settings.footer_newsletter %}
-                  <div class="footer-newsletter newsletter-form-footer">
+                  <div class="footer-newsletter">
                     <h2>{{ 'newsletter.footer.title' | t }}</h2>
                     <form
                       method="post"
                       action="{{ routes.newsletter_subscribe_url }}"
                       accept-charset="UTF-8"
-                      class="newsletter-form"
+                      class="newsletter-form-footer"
                       onsubmit="return validateNewsletterForm()"
                     >
                       <input type="hidden" name="form_type" value="customer">
