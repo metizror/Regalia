@@ -400,6 +400,11 @@
   .section-main-cart .cart-items th {
     padding: 0.5rem;
   }
+
+  .section-main-cart .main-cart-wrapper .qnt-input-wrapper .btn svg {
+    width: .8rem;
+    height: .8rem;
+  }
 }
 
 @media (min-width: 425px) and (max-width: 767px) {
@@ -422,15 +427,10 @@
   }
 
   .section-main-cart .main-cart-wrapper .qnt-input-wrapper input {
-    padding: 0.5rem;
     max-width: 50px;
     margin: 0;
   }
 
-  .section-main-cart .main-cart-wrapper .qnt-input-wrapper .btn svg {
-    width: .8rem;
-    height: .8rem;
-  }
 }
 
 @media (max-width:425px) {

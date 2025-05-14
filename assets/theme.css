@@ -713,8 +713,8 @@ svg.placeholder-svg {
 	height: 1rem;
 }
 
-.qnt-input-wrapper input {
-	padding: 0.7rem 0rem;
+.qnt-input-wrapper input[type=number] {
+	padding: 0;
 	text-align: center;
 	max-width: 60px;
 	-moz-appearance: textfield;

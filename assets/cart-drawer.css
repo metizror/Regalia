@@ -598,6 +598,11 @@
   .cart-drawer-checkout {
     padding: 15px;
   }
+
+  .cart-drawer-content .qnt-input-wrapper .btn svg {
+    width: .8rem;
+    height: .8rem;
+  }
 }
 
 @media (max-width: 500px) {
