@@ -18,16 +18,13 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
             "content_alignment": "right",
-            "overlay_bg": true,
             "maintitle": "Timeless Elegance Redefined",
             "sub_title": "<p>Find timeless jewelry that defines sophistication and style.</p>",
-            "title_color": "",
             "button_label": "DISCOVER NOW",
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h1",
             "heading_alignment": "left",
-            "whole_overlay_bg": "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),\nlinear-gradient(0deg, rgba(255, 240, 245, 0.2), rgba(255, 240, 245, 0.2))",
             "new_tab": true,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -48,16 +45,13 @@
             "image": "shopify://shop_images/pexels-ari-roberts-101154701-9393224_1.png",
             "mobile_image": "shopify://shop_images/young-indian-woman-wearing-sari_1.png",
             "content_alignment": "center",
-            "overlay_bg": false,
             "maintitle": "Luxury in Every Detail",
             "sub_title": "<p>Handcrafted pieces designed to make every moment shine.</p>",
-            "title_color": "",
             "button_label": "EXPLORE COLLECTION",
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
-            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -78,16 +72,13 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/image_14.png",
             "content_alignment": "right",
-            "overlay_bg": false,
             "maintitle": "Beauty Meets Brilliance",
             "sub_title": "<p>Elevate your style with jewelry that tells your story.</p>",
-            "title_color": "",
             "button_label": "SHOP NOW",
             "btn_link": "shopify://collections/all",
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
-            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false,
             "cta_bg_color": "#ffffff",
             "cta_txt_color": "#000000",
@@ -300,8 +291,8 @@
         "text_WDAYPN"
       ],
       "settings": {
-        "speed": 5,
-        "reverse": false,
+        "speed": 20,
+        "reverse": true,
         "icon_img": "shopify://shop_images/Star_7.png",
         "padding_top": 20,
         "padding_bottom": 20
@@ -343,9 +334,7 @@
         "variants_aznaTy": {
           "type": "variants",
           "settings": {
-            "variant_type": "dropdown",
-            "hide_size": false,
-            "size_guide_page": ""
+            "variant_type": "dropdown"
           }
         },
         "buy_button_Qq43TH": {
@@ -370,7 +359,6 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
-        "block_space": 20,
         "heading_size": "h3",
         "heading_alignment": "center",
         "heading_color": "",
@@ -488,7 +476,6 @@
         "quote_bg_1": "shopify://shop_images/Graphic_Elemnts.png",
         "quote_bg_2": "shopify://shop_images/Graphic_Elements.png",
         "title": "QUOTE OF THE WEEK",
-        "heading_alignment": "center",
         "heading_color": "#797979",
         "padding_top": 20,
         "padding_bottom": 0
@@ -673,6 +660,7 @@
         "review_kFRpfw"
       ],
       "settings": {
+        "enable_full_width": true,
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
         "enable_autoplay": false,
         "bg_color": "#fff7ee",

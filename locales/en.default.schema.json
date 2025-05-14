@@ -1544,6 +1544,12 @@
             },
             "bottom_right": {
               "label": "Background image bottom right"
+            },
+            "mobile_bg_left":{
+              "label": "Mobile background left"
+            },
+            "mobile_bg_right":{
+              "label": "Mobile background right"
             }
           },
           "tab_color": {
@@ -2806,6 +2812,9 @@
         },
         "autoscroll_speed": {
           "label": "Autoscroll speed"
+        },
+        "slider_enable":{
+          "label": "Slider enable"
         }
       },
       "blocks": {
@@ -2839,6 +2848,15 @@
               },
               "image": {
                 "label": "Image"
+              },
+              "image_placement":{
+                "label": "Image placement"
+              },
+              "image_first":{
+                "label": "Image first"
+              },
+              "image_second":{
+                "label": "Image second"
               },
               "description_color": {
                 "label": "Description"
