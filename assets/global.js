@@ -541,13 +541,53 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const element = document.querySelector(".img-overlay-icon .quickphotoswipe");
-  if (element) {
-      element.addEventListener("click", (event) => {
-          alert("demo");
+  document.querySelectorAll(".open-quick-popup").forEach((button) => {
+        button.addEventListener("click", function () {
+          const gallery = this.closest(".featured-product-content"); // changed from .gallery
+          if (gallery) {
+            const popupOverlay = gallery.querySelector(".popup-overlay");
+            if (popupOverlay) {
+              popupOverlay.style.display = "block";
+            } else {
+              console.warn(".popupOverlay not found inside .main-image-slider");
+            }
+          } else {
+            console.warn(
+              ".main-image-slider not found as a parent of .open-popup"
+            );
+          }
+        });
       });
-  } else {
-      console.warn("Element not found!");
-  }
-});
+
+      // Close popup
+      document.querySelectorAll(".close-btn").forEach((button) => {
+        button.addEventListener("click", function () {
+          const popup = this.closest(".popup-overlay");
+          if (popup) popup.style.display = "none";
+          document.body.classList.remove("popupOverlay-body");
+        });
+      });
+
+      document.querySelectorAll(".btn-copy-quick").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const container = this.closest(".share-product-url");
+          const inputContent = container?.querySelector(".field__input");
+          if (!inputContent) return;
+
+          inputContent.select();
+          inputContent.setSelectionRange(0, 99999);
+          navigator.clipboard
+            .writeText(inputContent.value)
+            .then(() => {
+              const origText = inputContent.value;
+              inputContent.value = "Link copied to clipboard!";
+              setTimeout(() => {
+                inputContent.value = origText;
+              }, 2000);
+            })
+            .catch((err) => {
+              console.error("Copy failed:", err);
+            });
+        });
+      });
+

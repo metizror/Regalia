@@ -19,7 +19,7 @@
             <div class="product-slider slider__images {%- if settings.show_thumbs == false %} full-width{%- endif -%}">
               <div class="main-image-slider swiper gallery-main quick-view-main swiper-container">
 
-                <div class="product-media swiper-wrapper gallery swipercontentsliderdata" id="quickgallery">
+                <div class="product-media swiper-wrapper" id="product-gallery">
                   {% for media in product.media %}
                     <div class="media-item swiper-slide {% if forloop.first %}active{% endif %}" data-media-id="{{ media.id }}">
                       <div class="slider__image">
@@ -74,7 +74,7 @@
                 {% comment %}
                   {%- render 'product-media', classes: 'slide-item', product: product, media_ratio: settings.media_ratio, media_fill: settings.fill_media_zooom, image_zoom: section.settings.image_zoom -%}
                 {% endcomment %}
-                  {% render 'pswp-code' %}
+                 
     
                   <div class="swiper-pagination {%- if settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}" data-main-product ></div>
                 <div class="swipersliderbtn">     
@@ -104,7 +104,7 @@
                               <input id="to-link" type="text" class="field__input" id="url"  value="{{ shop.url | append: product.url }}" placeholder="{{ 'products.product.share_url' | t }}" data-url="{{ shop.url | append: product.url }}"  onclick="this.select();" readonly="">
                               <label class="field__label hidden" for="url">{{ 'products.product.link' | t }}</label>
                           </div>
-                          <div class="btn-copy" id="copylink" onClick="CopyTolink('to-link')"><svg class="icon icon-clipboard" width="11" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z" fill="currentColor"></path></svg>
+                          <div class="btn-copy-quick"><svg class="icon icon-clipboard" width="11" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z" fill="currentColor"></path></svg>
                           {{ 'products.product.copy_link' | t }}
                         </div>
                       </div>
