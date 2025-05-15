@@ -220,7 +220,7 @@
             "collection": "new-arrivals",
             "coll_name": "",
             "view_all_btn": "New arrivals",
-            "btn_url": "shopify://collections/best-seller"
+            "btn_url": "shopify://collections/new-arrivals"
           }
         }
       },
@@ -359,9 +359,9 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
+        "block_space": 20,
         "heading_size": "h3",
         "heading_alignment": "center",
-        "heading_color": "",
         "show_percentage": true
       }
     },
@@ -476,6 +476,7 @@
         "quote_bg_1": "shopify://shop_images/Graphic_Elemnts.png",
         "quote_bg_2": "shopify://shop_images/Graphic_Elements.png",
         "title": "QUOTE OF THE WEEK",
+        "heading_alignment": "center",
         "heading_color": "#797979",
         "padding_top": 20,
         "padding_bottom": 0
@@ -660,7 +661,6 @@
         "review_kFRpfw"
       ],
       "settings": {
-        "enable_full_width": true,
         "background_image": "shopify://shop_images/testimonial-bg.jpg",
         "enable_autoplay": false,
         "bg_color": "#fff7ee",
