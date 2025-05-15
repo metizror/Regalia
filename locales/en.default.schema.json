@@ -532,6 +532,9 @@
   "sections": {
     "general": {
       "full_width": "Enable full width",
+      "show_page_title": {
+        "label": "Show page title"
+      } ,
       "section_vertical_spacing": {
         "content": "Section vertical spacing",
         "top_padding": {
@@ -767,7 +770,7 @@
           "label": "Subheading font size"
         },
         "description_size": {
-          "label": "Description font size"
+          "label": "Title size"
         }
       },
       "presets": {
@@ -2124,9 +2127,6 @@
         },
         "page_description": {
           "label": "Description"
-        },
-        "collection_row_gap":{
-          "label":"Collection row gap"
         },
         "collection_row": {
           "label": "Collection in row (desktop)"
