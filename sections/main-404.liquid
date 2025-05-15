@@ -24,7 +24,7 @@
             alt="{{ section.settings.bg_image.alt | default: shop.name }}" 
             width="{{ section.settings.bg_image.width }}" 
             height="{{ section.settings.bg_image.height }}"
-            loading="lazy"
+            loading="eager"
           />
         </lazy-image>
       {%- endif -%}

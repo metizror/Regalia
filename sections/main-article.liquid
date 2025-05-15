@@ -132,7 +132,7 @@
                 width="{{ article.image.width }}"
                 height="{{ article.image.height }}"
                 alt="{{ article.image.alt | default: article.title | escape }}"
-                loading="lazy"
+                loading="eager"
                 style="width: 100%; max-height: 416px;"
               >
             </lazy-image>

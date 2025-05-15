@@ -409,8 +409,8 @@
 
 @media (min-width: 425px) and (max-width: 767px) {
   .section-main-cart .product-details .img-wrapepr {
-    width: 158px;
-    height: 158px;
+    width: 130px;
+    height: 130px;
   }
 
   .section-main-cart .product-details .title{
@@ -439,8 +439,8 @@
   }
 
   .section-main-cart .product-details .img-wrapepr {
-    width: 138px;
-    height: 138px;
+    width: 100px;
+    height: 100px;
   }
 
   .section-main-cart .product-details .title {
