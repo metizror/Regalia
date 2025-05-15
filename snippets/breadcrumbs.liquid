@@ -37,7 +37,7 @@
 
         {% elsif template == 'search' %}
           <li>
-            <span class="breadcrumb-heading">{{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms }}</span>
+            <span class="breadcrumb-heading">{{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | truncate: 50 }}</span>
           </li>
 
         {% elsif template == 'cart' %}

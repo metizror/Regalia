@@ -557,3 +557,15 @@ h5.align-centre.fully-spaced-row.no-result {
  }
 }
 
+@media (max-width: 425px) {
+    .search-page .mobile-search-count .prod-count-sortby {
+        flex-direction: column;
+    }
+    .search-outer .search-field {
+        width: 95%;
+    }
+    .search-outer .search-form .search__input{
+      padding: 10px;
+    }
+}
+

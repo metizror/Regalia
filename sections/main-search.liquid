@@ -132,13 +132,13 @@
                     <span class="toggle-btn__count">({{ filter_count }})</span>
                   {% endif %}
                 </button>
-              {% endif %}
+              {% endif %} 
             </div>
             <div class="utility-bar__right">
               <div class="prod-count-sortby d-flex mobile-hide">
                 {% if section.settings.product_count %}
                   <p class="search-count">
-                    {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" }}
+                    {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" | truncate: 50 }}
                   </p>
                 {% endif %}
                 <div class="showprod-column d-flex">
@@ -214,7 +214,7 @@
             <div class="prod-count-sortby d-flex">
               {% if section.settings.product_count %}
                 <p class="search-count">
-                  {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" }}
+                  {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" | truncate: 30 }}
                 </p>
               {% endif %}
               <div class="showprod-column d-flex">
