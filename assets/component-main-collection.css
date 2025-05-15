@@ -6,11 +6,6 @@
   display: flex;
 }
 
-.col-filter-side {
-  width: 20%;
-  max-width: 20%;
-}
-
 .collection-product {
   width: 80%;
   max-width: 80%;
