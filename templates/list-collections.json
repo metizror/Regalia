@@ -13,8 +13,9 @@
       "type": "main-list-collections",
       "settings": {
         "enable_full_width": false,
+        "gap_spc": 100,
         "page_heading": "Collections",
-        "page_description": "<p>Lorem Ipsum is simply dummy text <br/>of the printing and type setting</p>",
+        "page_description": "<p>Discover curated collections <br/>designed to inspire your style.</p>",
         "text_alignment": "center",
         "collection_row": 3,
         "show_per_page": 9,
