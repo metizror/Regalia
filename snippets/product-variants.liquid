@@ -160,7 +160,9 @@
                   -%}
                   <div
                     class="color-variant  {% if option.selected_value == value %}checked{% endif %}"
+                    value="{{ value | downcase }}"
                     data-variant-name="{{ value }}"
+                    data-color="{{ value | downcase }}"
                     data-variant-id="{{ variant.id }}"
                   >
                     <input type="radio" class="color-variant-radio" name="option[Color]" value="{{ value }}">

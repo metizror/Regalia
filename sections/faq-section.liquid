@@ -47,6 +47,7 @@
                       {%- if faq.settings.faq_icon -%}
                         <img src="{{ faq.settings.faq_icon | image_url: width: faq.settings.faq_icon.width }}" 
                           alt="FAQ Icon"
+                          loading="lazy"
                           width="{{ faq.settings.faq_icon.width }}"
                           height="{{ faq.settings.faq_icon.height }}"
                         >

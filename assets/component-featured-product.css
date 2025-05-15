@@ -282,6 +282,9 @@ a.checkout-button {
 .featured-product .swiper {
   z-index: unset;
 }
+.quick-view-popup .swipersliderbtn .swiper--prev{
+      transform: translate(3px, -5px);
+}
 
 /* quantity */
 .qtylabeltitle{

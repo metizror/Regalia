@@ -1,3 +1,24 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Initialize Swiper
+  const thumbsSwiper = new Swiper('.gallery-thumbs', {
+    spaceBetween: 26,
+    direction: 'vertical',
+    slidesPerView:2.3,
+    watchSlidesProgress: true,
+  });
+
+  window.mainSwiper = new Swiper('.gallery-main', {
+    spaceBetween: 0,
+    navigation: {
+      nextEl: '.swiper--next',
+      prevEl: '.swiper--prev',
+    },
+    thumbs: {
+      swiper: thumbsSwiper,
+    },
+  });
+}); 
 function calculateDeliveryDateRange(startOffset, endOffset) {
   const today = new Date();
   const startDate = new Date(today);
@@ -167,6 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setSkuContent = document.querySelector(".sku-content"),
       setStockCount = document.querySelector("#stock-count"),
       stockContent = document.querySelector(".stock-indicator"),
+      instockLabel = document.querySelector(".pro-status-message"),
       atcBtnContent = document.querySelector(".atcbtn-content .atcbtn-text"),
       atcButton = document.querySelector(".product-form__submit.atc-btn"),
       stockBarContainer = document.querySelector(".stock-bar-container"),
@@ -232,6 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
       matchingOption.setAttribute("selectedVariant", "true");
       if (atcBtnContent) {
         if (variantStock === 0) {
+          instockLabel.textContent = "OUT OF STOCK";
           atcBtnContent.textContent = "Sold Out";
           atcBtnContent.classList.remove("effect-text");
           atcButton.setAttribute("disabled", "disabled");
@@ -245,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
             stockContent.appendChild(outOfStockDiv);
           }
         } else {
+          instockLabel.textContent = "In stock";
           atcBtnContent.textContent = "Add to Cart";
           atcBtnContent.classList.add("effect-text");
           atcButton.removeAttribute("disabled");
@@ -657,6 +681,9 @@ document.querySelectorAll(".mainproduct .product-form__submit.atc-btn").forEach(
 
   getCombinedVariant();
 
+  const swiperSlides = document.querySelectorAll(".media-item");
+  const swiperInstance = window.mainSwiper;
+
 document.querySelectorAll(".color-variant, .multiple-option-variant")
   .forEach((element) => {
     const prodvariantHandle = (el) => {
@@ -665,7 +692,25 @@ document.querySelectorAll(".color-variant, .multiple-option-variant")
         parentFieldset
           .querySelectorAll(".checked")
           .forEach((el) => el.classList.remove("checked"));
-      }
+        }
+
+        const selectedValue = el.dataset.color?.toLowerCase();
+
+        let matchedSlideIndex = 0;
+      
+        swiperSlides.forEach((slide, index) => {
+          const img = slide.querySelector("img.variant-image");
+          if (img && img.dataset.variant.toLowerCase() === selectedValue) {
+            matchedSlideIndex = index;
+            console.log("matchedSlideIndex",matchedSlideIndex);
+            console.log("matchedIndex",index);
+          }
+        });
+ 
+        if (matchedSlideIndex !== -1 && swiperInstance) {
+          swiperInstance.slideTo(matchedSlideIndex);
+        }
+
       el.classList.add("checked");
       getCombinedVariant();
     };

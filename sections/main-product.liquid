@@ -32,29 +32,7 @@
 <script src="{{ 'component-main-product.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-model.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-zoom.js' | asset_url }}" type="text/javascript" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-      // Initialize Swiper
-      const thumbsSwiper = new Swiper('.gallery-thumbs', {
-        spaceBetween: 26,
-        direction: 'vertical',
-        slidesPerView:2.3,
-        watchSlidesProgress: true,
-      });
-    
-      const mainSwiper = new Swiper('.gallery-main', {
-        spaceBetween: 0,
-        navigation: {
-          nextEl: '.swiper--next',
-          prevEl: '.swiper--prev',
-        },
-        thumbs: {
-          swiper: thumbsSwiper,
-        },
-      });
-    }); 
-  </script>
+  
 
   {% schema %}
   {
