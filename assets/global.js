@@ -306,23 +306,29 @@ theme.languageAndCountry = () => {
       .forEach((el) => (el.style.display = "none"));
   };
 
-  const setupClickHandlers = (btns, dropdowns) => {
-    btns.forEach((btn, index) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-
-        const isActive = btn.classList.contains("countryactive");
-        hideAll();
-
-        if (!isActive) {
-          btn.classList.add("countryactive");
-          dropdowns[index].style.display = "block";
-        }
-      });
-
-      dropdowns[index].addEventListener("click", (e) => e.stopPropagation());
+const setupClickHandlers = (btns, dropdowns) => {
+  btns.forEach((btn, index) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown(btn, dropdowns[index]);
     });
-  };
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        toggleDropdown(btn, dropdowns[index]);
+      }
+    });
+  });
+};
+
+const toggleDropdown = (btn, dropdown) => {
+  const isActive = btn.classList.contains("countryactive");
+  hideAll();
+  if (!isActive) {
+    btn.classList.add("countryactive");
+    dropdown.style.display = "block";
+  }
+};
 
   setupClickHandlers(elements.lang, elements.langData);
   setupClickHandlers(elements.country, elements.countryData);
