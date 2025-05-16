@@ -3,6 +3,7 @@ theme.slideShow = () => {
   if (!collectionlistEle) return;
 
   const swiperOptions = JSON.parse(collectionlistEle.dataset.sliderOptions);
+
   swiperOptions.pagination.renderBullet = renderPaginationBullet;
 
   const swiper = new Swiper(collectionlistEle, swiperOptions);
@@ -29,6 +30,47 @@ theme.slideShow = () => {
       document.addEventListener(event, () => swiper.update());
     });
   }
+
+function calculateMaxImageHeight() {
+  const images = document.querySelectorAll('.slidercontent .sliderimg img');
+  let maxHeight = 0;
+
+  images.forEach((img) => {
+    maxHeight = Math.max(maxHeight, img.clientHeight);
+  });
+
+  document.querySelectorAll('.sliderimg').forEach((slide) => {
+    slide.style.height = `${maxHeight}px`;
+  });
+}
+
+function setSwiperMinHeight() {
+  const images = document.querySelectorAll('.slidercontent .sliderimg img');
+  let loadedCount = 0;
+
+  if (images.length === 0) return;
+
+  images.forEach((img) => {
+    if (img.complete) {
+      loadedCount++;
+    } else {
+      img.addEventListener('load', () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          calculateMaxImageHeight();
+        }
+      });
+    }
+  });
+
+  // If all images were already loaded
+  if (loadedCount === images.length) {
+    calculateMaxImageHeight();
+  }
+}
+
+setSwiperMinHeight();
+window.addEventListener('resize', calculateMaxImageHeight); 
 };
 
 window.addEventListener("DOMContentLoaded", () => {
