@@ -19,13 +19,9 @@
         "title_qd7xyi": {
           "type": "title",
           "settings": {
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#153d47"
           }
-        },
-        "judge_me_reviews_preview_badge_cWf8th": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
-          "settings": {}
         },
         "sku_DbQrjy": {
           "type": "sku",
@@ -53,7 +49,9 @@
         },
         "variants_jXmwyC": {
           "type": "variants",
-          "settings": {}
+          "settings": {
+            "variant_type": "dropdown"
+          }
         },
         "buy_button_z8Nrx9": {
           "type": "buy_button",
@@ -103,7 +101,6 @@
       "block_order": [
         "vendor_4TUQW4",
         "title_qd7xyi",
-        "judge_me_reviews_preview_badge_cWf8th",
         "sku_DbQrjy",
         "price_BMUnDc",
         "info_text_UDyDYQ",
@@ -145,13 +142,6 @@
             "page_two": "return-policy"
           }
         },
-        "rich_text_kxGhb7": {
-          "type": "rich_text",
-          "settings": {
-            "tab_title": "Shipping & return",
-            "rich_text": ""
-          }
-        },
         "rich_text_Dcxx4M": {
           "type": "rich_text",
           "settings": {
@@ -163,7 +153,6 @@
       "block_order": [
         "product_description_G483TL",
         "page_content_H4cbQh",
-        "rich_text_kxGhb7",
         "rich_text_Dcxx4M"
       ],
       "settings": {
@@ -187,22 +176,9 @@
         "video": "shopify://files/videos/regalia-video.mp4",
         "video_autoplay": true,
         "video_mute": true,
-        "top_spacing": 20,
-        "bottom_spacing": 20
+        "top_spacing": 50,
+        "bottom_spacing": 50
       }
-    },
-    "1741176902861a4668": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_YrpxLj": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_YrpxLj"
-      ],
-      "settings": {}
     },
     "related_products_gfMwi7": {
       "type": "related-products",
@@ -214,7 +190,7 @@
         "products_limit": 4,
         "product_per_row": 4,
         "spacing": 26,
-        "padding_top": 20,
+        "padding_top": 50,
         "padding_bottom": 20
       }
     }
@@ -223,7 +199,6 @@
     "main",
     "product_tabular_JQCrT3",
     "video_48YL7K",
-    "1741176902861a4668",
     "related_products_gfMwi7"
   ]
 }

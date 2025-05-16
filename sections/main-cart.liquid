@@ -52,8 +52,8 @@
                               {%- if item.image -%}
                                 <img
                                   src="{{ item.image | image_url: width: 80 }}"
-                                  width="{{ item.image.width }}"
-                                  height="{{ item.image.height }}"
+                                  width="120"
+                                  height="120"
                                   alt="{{ item.image.alt | default: item.product.title | escape }}"
                                   loading="lazy"
                                 >
