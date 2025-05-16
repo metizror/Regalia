@@ -318,7 +318,7 @@
         </div>
         <div class="language-location-content mobile-hide">
           <div class="localization-country">
-            <div class="language-content-data" tabindex='0'>
+            <div class="language-content-data">
               {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
                 <div>
                   {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
@@ -326,7 +326,7 @@
               {%- endif -%}
             </div>
              {% if section.settings.enable_country_selector %}
-            <div class="desktop-localization-wrapper" tabindex='0'>
+            <div class="desktop-localization-wrapper">
               <localization-form class="small-hide medium-hide" data-prevent-hide>
                 {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                   <div>

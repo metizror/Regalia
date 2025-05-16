@@ -35,7 +35,7 @@
           {%- liquid
             assign desk_text = block.settings.text
             assign mobile_text = block.settings.text_mobile
-            assign annouce_link = block.settings.link
+            assign announce_link = block.settings.link
             if desk_text == blank and mobile_text != blank
               assign desk_text = mobile_text
             endif
@@ -49,11 +49,10 @@
               {{ block.shopify_attributes }}
               role="group"
             >
-           {%- if annouce_link != blank -%}
-               <div class="dekstop-annouce"> 
+           {%- if announce_link != blank -%}
+               <div class="desktop-announce"> 
                 <a
-                  href="{{ annouce_link }}"
-                  class="dekstop-annouce"
+                  href="{{ announce_link }}"            
                   {% if block.settings.new_tab %}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -62,10 +61,9 @@
                   {{- desk_text | replace: '<p>', '<span>' | replace: '</p>', '</span>' -}}
                 </a>
                </div>
-              <div class="mobile-annouce">
+              <div class="mobile-announce">
                 <a
-                  href="{{ annouce_link }}"
-                  class="mobile-annouce"
+                  href="{{ announce_link }}"
                   {% if block.settings.new_tab %}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -76,8 +74,8 @@
                 </a>
               </div>
               {% else %}
-                <div class="dekstop-annouce">{{ desk_text }}</div>
-                <div class="mobile-annouce">{{ mobile_text }}</div>
+                <div class="desktop-announce">{{ desk_text }}</div>
+                <div class="mobile-announce">{{ mobile_text }}</div>
               {%- endif -%}
             </div>
           {%- endif -%}

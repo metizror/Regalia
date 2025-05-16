@@ -1398,6 +1398,9 @@
         "show_products_in_page": {
           "label": "Afficher les produits sur la page"
         },
+        "show_items_in_page": {
+          "label": "Afficher les éléments sur la page"
+        },
         "banner": {
           "content": "Bannière",
           "info_1": "La taille de l'image doit être de 1440x590px pour un affichage correct avec la description dessus.",

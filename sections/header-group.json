@@ -17,8 +17,8 @@
         "announcement_k6878x": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
-            "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <a href=\"/collections\" title=\"All collections\"><strong>Shop Now</strong></a></p>",
+            "text": "<p>Mid-Season Sale Up to 70% OFF. <strong>Shop Now</strong></p>",
+            "text_mobile": "<p>Mid-Season Sale Up to 70% OFF. <strong>Shop Now</strong></p>",
             "link": "shopify://collections",
             "new_tab": true
           }
@@ -40,7 +40,6 @@
       "settings": {
         "only_homepage": false,
         "enable_container": true,
-        "enable_navigation": false,
         "enable_autoscroll": true,
         "speed_delay": 1000,
         "autoscroll_speed": 3000,
