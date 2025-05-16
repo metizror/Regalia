@@ -71,7 +71,7 @@
           <lazy-image class="instagram-item">
             {%- if block.settings.image -%}
               <img
-                src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                src="{{ block.settings.image | image_url: width: block.settings.image.width, format: 'webp' }}"
                 alt="{{ block.settings.image.alt }}"
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}"

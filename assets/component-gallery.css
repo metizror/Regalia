@@ -77,22 +77,6 @@
   margin-top: 20px;
 }
 
-/* @media (max-width: 1200px) {
-  .gallery-section .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-}
-@media (max-width: 992px) {
-  .gallery-section .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-} */
 @media (max-width: 768px) {
   .gallery-section .gallery-items {
     height: 200px;

@@ -21,6 +21,7 @@
 {%- endstyle -%}
 
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag:preload: true }}
+
 <div class="newsletter {% if section.settings.full_width %}full-width{% else %}container{% endif %}">
   <div class="newsletter-inner {% if section.settings.full_width %}container{% endif %}">
     <div class="newsletter-content section-{{ section.id }}-padding">

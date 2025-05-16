@@ -2,22 +2,17 @@ theme.slideShow = () => {
   const collectionlistEle = document.querySelector(".slidercontent");
   if (!collectionlistEle) return;
 
-  // Parse the slider options from the data attribute
   const swiperOptions = JSON.parse(collectionlistEle.dataset.sliderOptions);
-
-  // Define the renderBullet function separately
   swiperOptions.pagination.renderBullet = renderPaginationBullet;
 
-  // Initialize the Swiper instance with the options
   const swiper = new Swiper(collectionlistEle, swiperOptions);
 
-  // Handle Shopify block select and other customization events in design mode
   if (Shopify.designMode) {
     document.addEventListener("shopify:block:select", (e) => {
       let targetEle = e.target;
       let sliderIndex = 1 + parseInt(targetEle.dataset.swiperSlideIndex);
       swiper.slideTo(sliderIndex);
-      swiper.autoplay.stop(); // Assuming autoplay might be used and pausing it
+      swiper.autoplay.stop(); 
     });
 
     const customizationEvents = [
@@ -36,7 +31,6 @@ theme.slideShow = () => {
   }
 };
 
-// Wait for the DOM content to load before initializing the slider
 window.addEventListener("DOMContentLoaded", () => {
   theme.slideShow();
 });

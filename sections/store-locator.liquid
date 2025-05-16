@@ -70,7 +70,7 @@
               {%- elsif block.settings.background_image != blank -%}
                 <lazy-image class="img-wrapper">
                   <img
-                    src="{{ block.settings.background_image | image_url: width: block.settings.background_image.width }}"
+                    src="{{ block.settings.background_image | image_url: width: block.settings.background_image.width, format: 'webp' }}"
                     alt="{{ block.settings.background_image.alt }}"
                     style="--object-position:{{ block.settings.background_image.presentation.focal_point }};"
                     width="{{ block.settings.background_image.width }}"
