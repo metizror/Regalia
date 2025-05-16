@@ -5,7 +5,7 @@ theme.textImageSlider = () => {
 
   textImageSliderEle.forEach((current) => {
     let swiperOptions = JSON.parse(current.dataset.sliderOptions);
-    swiper = new Swiper(current, swiperOptions);
+    let swiper = new Swiper(current, swiperOptions); // Use `let` to prevent accidental global assignment
 
     current.addEventListener("mouseover", () => {
       swiper.autoplay.stop();
@@ -23,6 +23,8 @@ theme.textImageSlider = () => {
         swiper.slideTo(sliderIndex);
         swiper.autoplay.stop();
       });
+
+      // Deduplicated customization events
       const customizationEvents = [
         "shopify:inspector:activate",
         "shopify:inspector:deactivate",
@@ -31,8 +33,6 @@ theme.textImageSlider = () => {
         "shopify:section:reorder",
         "shopify:section:select",
         "shopify:section:deselect",
-        "shopify:inspector:activate",
-        "shopify:inspector:deactivate",
       ];
 
       customizationEvents.forEach((event) => {

@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   let swiperInstance;
+  let isMobile = window.innerWidth <= 767;
 
   function initializeSwiper() {
-    if (window.innerWidth <= 767 && !swiperInstance) {
+    if (isMobile && !swiperInstance) {
       swiperInstance = new Swiper(".vidpro-swiper", {
         slidesPerView: 2,
         spaceBetween: 10,
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function destroySwiper() {
-    if (window.innerWidth > 767 && swiperInstance) {
+    if (!isMobile && swiperInstance) {
       swiperInstance.destroy(true, true);
       swiperInstance = null;
     }
@@ -35,15 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeSwiper();
 
   window.addEventListener("resize", function () {
-    initializeSwiper();
-    destroySwiper();
+    const newIsMobile = window.innerWidth <= 767;
+
+    if (newIsMobile !== isMobile) {
+      isMobile = newIsMobile;
+      initializeSwiper();
+      destroySwiper();
+    }
   });
 });
-
-
-
-
-
-
-
-
