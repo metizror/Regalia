@@ -555,6 +555,9 @@ h5.align-centre.fully-spaced-row.no-result {
   .search-page .article-card img.img-loaded {
     max-width: 100% !important;
  }
+ .utility-bar.mobile-hide {
+    display: none;
+ }
 }
 
 @media (max-width: 425px) {
@@ -566,6 +569,9 @@ h5.align-centre.fully-spaced-row.no-result {
     }
     .search-outer .search-form .search__input{
       padding: 10px;
+    }
+    .search-page .utility-bar__left .utility-bar__item {
+       margin-right: 0;
     }
 }
 
