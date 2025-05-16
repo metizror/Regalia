@@ -1981,6 +1981,9 @@
         "page_description": {
           "label": "Description"
         },
+        "collection_row_gap":{
+          "label": "Espacement entre les lignes de collection"
+        },
         "collection_row": {
           "label": "Collection en ligne (bureau)"
         },

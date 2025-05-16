@@ -9,6 +9,20 @@
 .quick-view-content .product-form__buttons {
   width: 100%;
 }
+.quick-view-content .btn-copy-quick{
+    width: 46px;
+    margin: 0 0 0 10px;
+    padding: 13px 15px;
+    min-width: auto;
+    align-items: flex-start;
+    font-size: 0;
+    background-color: var(--black);
+    color: var(--white);
+    cursor: pointer;
+}
+.quick-view-content .btn-copy-quick:hover{
+    opacity: .5;
+}
 
 @media (min-width:769px) and (max-width: 1440px) {
   .quick-view-content .product-gallery {

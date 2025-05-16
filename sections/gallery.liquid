@@ -58,7 +58,7 @@
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}"
                 style="--object-position:{{ block.settings.image.presentation.focal_point }}"
-                loading="lazy"
+                loading="eager"
               >
             {%- else -%}
               <lazy-image>

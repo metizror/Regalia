@@ -1283,7 +1283,12 @@ summary::-webkit-details-marker {
 	transform: translate(-50%, -50%);
 	left: 50%;
 }
-
+.pswp-popup-body{
+	overflow: hidden;
+}
+.pswp-popup-body .quick-view-box{
+	display:none;
+}
 .main-image-slider .pswp__img {
 	background-color: #fff;
 }
@@ -1315,6 +1320,21 @@ summary::-webkit-details-marker {
 .atc-cart-drawer {
 	display: none;
 }
+.featured-product .btn-copy-quick{
+    width: 46px;
+    margin: 0 0 0 10px;
+    padding: 13px 15px;
+    min-width: auto;
+    align-items: flex-start;
+    font-size: 0;
+    background-color: var(--black);
+    color: var(--white);
+    cursor: pointer;
+}
+.featured-product .btn-copy-quick:hover{
+    opacity: .5;
+}
+
 
 @keyframes move-up-alternate {
 	from {

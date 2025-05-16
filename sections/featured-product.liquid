@@ -69,7 +69,7 @@
               <div class="icon-inner-content product-zoom-icon">
                 {% render 'icons', icon: 'zoom-icon' %}
               </div>
-              <div class="icon-inner-content open-popup" onclick="openPopup()">
+              <div class="icon-inner-content open-quick-popup">
                 {% render 'icons', icon: 'message-icon' %}
               </div>
             </div>
@@ -78,7 +78,7 @@
 
         <div class="popup-overlay" id="popupOverlay">
           <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <span class="close-btn">&times;</span>
             <div class="product-share">
               <p>{{ 'products.product.copy_link' | t }}</p>
               <div class="share-product-url">
@@ -96,7 +96,7 @@
                   >
                   <label class="field__label hidden" for="url">{{ 'products.featured_product.link' | t }}</label>
                 </div>
-                <div class="btn-copy" id="copylink" onClick="CopyTolink('to-link')">
+                <div class="btn-copy-quick">
                   <svg
                     class="icon icon-clipboard"
                     width="11"
@@ -407,15 +407,6 @@
         }
       ],
       "default": "center"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.color.content"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
     },
     {
       "type": "checkbox",

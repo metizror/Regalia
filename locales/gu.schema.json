@@ -1982,6 +1982,9 @@
         "page_description": {
           "label": "વર્ણન"
         },
+        "collection_row_gap":{
+          "label": "કોલેક્શન રો ગેપ"
+        },
         "collection_row": {
           "label": "કોલેક્શન રો (ડેસ્કટોપ)"
         },

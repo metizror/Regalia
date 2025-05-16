@@ -4,6 +4,7 @@
       <div class="slider__image">
         {% case media.media_type %}
           {% when 'image' %}
+            {% assign image_group = media.alt | split: 'group-' | last %}
             <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
               <!-- Link to the big image, not mandatory, but usefull when there is no JS -->
               <a
@@ -15,11 +16,13 @@
               >
                 <!-- Thumbnail -->
                 <img
+                  class="variant-image"
                   src="{{ media | image_url:width: media.width }}"
-                  alt="{{ media.alt | default:'product-image' }}"
+                  alt="{{ image_group | escape }}"
                   loading="lazy"
                   width="{{ media.width }}"
                   height="{{ media.height }}"
+                  data-variant="{{ image_group | default: 'all' }}"
                 >
               </a>
             </figure>
