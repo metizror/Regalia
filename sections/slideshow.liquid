@@ -43,12 +43,11 @@
 {% assign slide_effect = section.settings.slide_transition %}
 
 <div
-  class="slidercontent swiper"
+  class="slidercontent slide-data swiper"
   data-slider-options='
     {
       "slidesPerView": "1",
       "grabCursor": true,
-      "autoHeight": true,
       "speed": {{ slide_speed }},
       "effect": "{{ slide_effect }}",
       {% if section.settings.enable_autoplay %}
