@@ -4,8 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   countdownTimers.forEach((timer) => {
     const endTime = new Date(timer.getAttribute("data-count-time")).getTime();
 
+    // Cache querySelectorAll results once to avoid redundant DOM queries
+    const dayEls = timer.querySelectorAll("#card-days");
+    const hourEls = timer.querySelectorAll("#card-hours");
+    const minuteEls = timer.querySelectorAll("#card-minutes");
+    const secondEls = timer.querySelectorAll("#card-seconds");
+
     function updateCountdown() {
-      const now = new Date().getTime();
+      const now = Date.now(); // Slightly faster than new Date().getTime()
       const timeLeft = endTime - now;
 
       if (timeLeft < 0) {
@@ -20,21 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      timer
-        .querySelectorAll("#card-days")
-        .forEach((el) => (el.textContent = days));
-      timer
-        .querySelectorAll("#card-hours")
-        .forEach((el) => (el.textContent = hours));
-      timer
-        .querySelectorAll("#card-minutes")
-        .forEach((el) => (el.textContent = minutes));
-      timer
-        .querySelectorAll("#card-seconds")
-        .forEach((el) => (el.textContent = seconds));
+      // Use cached node lists to avoid querying the DOM repeatedly
+      dayEls.forEach((el) => (el.textContent = days));
+      hourEls.forEach((el) => (el.textContent = hours));
+      minuteEls.forEach((el) => (el.textContent = minutes));
+      secondEls.forEach((el) => (el.textContent = seconds));
     }
 
-    // Update countdown every second
     setInterval(updateCountdown, 1000);
   });
 });

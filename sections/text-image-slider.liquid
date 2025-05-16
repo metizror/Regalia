@@ -81,7 +81,7 @@
                   <div class="image-wrapper">
                     {%- if block.settings.image -%}
                       <img
-                        src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                        src="{{ block.settings.image | image_url: width: 1440,  format: 'webp' }}"
                         alt="{{ block.settings.image.alt }}"
                         width="{{ block.settings.image.width }}"
                         height="{{ block.settings.image.height }}"
@@ -115,7 +115,7 @@
                     <div class="image-left-side">
                       {% if section.settings.image_first %}
                         <img
-                          src="{{ section.settings.image_first | image_url: width: section.settings.image_first.width }}"
+                          src="{{ section.settings.image_first | image_url: width: section.settings.image_first.width,  format: 'webp' }}"
                           alt="{{ section.settings.image_first.alt | default: 'collection-image' }}"
                           width="{{ section.settings.image_first.width }}"
                           height="{{ section.settings.image_first.height }}"
@@ -127,7 +127,7 @@
                     <div class="image-right-side">
                       {% if section.settings.image_sec %}
                         <img
-                          src="{{ section.settings.image_sec | image_url: width: section.settings.image_sec.width }}"
+                          src="{{ section.settings.image_sec | image_url: width: section.settings.image_sec.width,  format: 'webp' }}"
                           alt="{{ section.settings.image_sec.alt | default: 'collection-image' }}"
                           width="{{ section.settings.image_sec.width }}"
                           height="{{ section.settings.image_sec.height }}"
@@ -139,7 +139,7 @@
                     <div class="image-btn-side">
                       {% if section.settings.image_third %}
                         <img
-                          src="{{ section.settings.image_third | image_url: width: section.settings.image_third.width }}"
+                          src="{{ section.settings.image_third | image_url: width: section.settings.image_third.width, format: 'webp' }}"
                           alt="{{ section.settings.image_third.alt | default: 'collection-image' }}"
                           width="{{ section.settings.image_third.width }}"
                           height="{{ section.settings.image_third.height }}"
@@ -151,7 +151,7 @@
                     <div class="image-bottom-side">
                       {% if section.settings.image_four %}
                         <img
-                          src="{{ section.settings.image_four | image_url: width: section.settings.image_four.width }}"
+                          src="{{ section.settings.image_four | image_url: width: section.settings.image_four.width,  format: 'webp' }}"
                           alt="{{ section.settings.image_four.alt | default: 'collection-image' }}"
                           width="{{ section.settings.image_four.width }}"
                           height="{{ section.settings.image_four.height }}"
@@ -167,7 +167,7 @@
                   <div class="bg-image-wrapper">
                     {%- if block.settings.bg_image -%}
                       <img
-                        src="{{ block.settings.bg_image | image_url: width: block.settings.bg_image.width }}"
+                        src="{{ block.settings.bg_image | image_url: width: block.settings.bg_image.width,  format: 'webp' }}"
                         alt="{{ block.settings.bg_image.alt }}"
                         width="{{ block.settings.bg_image.width }}"
                         height="{{ block.settings.bg_image.height }}"
@@ -182,7 +182,7 @@
                     <div class="image-wrapper">
                       {%- if block.settings.image -%}
                         <img
-                          src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                          src="{{ block.settings.image | image_url: width: block.settings.image.width,  format: 'webp' }}"
                           alt="{{ block.settings.image.alt }}"
                           width="{{ block.settings.image.width }}"
                           height="{{ block.settings.image.height }}"

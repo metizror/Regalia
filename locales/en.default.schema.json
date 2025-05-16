@@ -1477,6 +1477,9 @@
         "show_products_in_page": {
           "label": "Show products in page"
         },
+        "show_items_in_page": {
+          "label": "Show items in page"
+        },
         "banner": {
           "content": "Banner",
           "info_1": "The image size should be 1440x590px for proper display with the description on it.",

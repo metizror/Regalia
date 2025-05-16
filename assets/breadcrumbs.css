@@ -48,6 +48,7 @@
 .breadcrumb-list li {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .breadcrumb-list li a {

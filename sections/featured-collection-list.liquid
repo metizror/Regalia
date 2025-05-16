@@ -51,7 +51,7 @@
             {%- if block.settings.collection_image -%}
               <a href="{{ collection.url }}" tabindex="0">
                 <lazy-image class="collection-images">
-                  <img src="{{ block.settings.collection_image | image_url: width: block.settings.collection_image.width }}"
+                  <img src="{{ block.settings.collection_image | image_url: width: block.settings.collection_image.width, format: 'webp' }}"
                     alt="{{ block.settings.collection_image.alt | default: 'collection-image' }}"
                     width="{{ block.settings.collection_image.width }}"
                     height="{{ block.settings.collection_image.height }}"
@@ -62,7 +62,7 @@
             {%- elsif collection.featured_image -%}
               <a href="{{ collection.url }}">
                 <lazy-image>
-                  <img src="{{ collection.featured_image | image_url: width: collection.featured_image.width }}"
+                  <img src="{{ collection.featured_image | image_url: width: collection.featured_image.width,  format: 'webp' }}"
                     alt="{{ collection.featured_image.alt | default: 'collection-image' }}"
                     width="{{ collection.featured_image.width }}"
                     height="{{ collection.featured_image.height }}"

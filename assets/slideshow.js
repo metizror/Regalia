@@ -73,7 +73,6 @@ setSwiperMinHeight();
 window.addEventListener('resize', calculateMaxImageHeight); 
 };
 
-// Wait for the DOM content to load before initializing the slider
 window.addEventListener("DOMContentLoaded", () => {
   theme.slideShow();
 });
