@@ -422,27 +422,27 @@ h5.align-centre.fully-spaced-row.no-result {
 .shopify-section.search-page {
   position: relative;
 }
+.list-bg-image{
+  position: absolute;
+  z-index: -1;
+}
 
 .list-bg-image.top-left {
-  position: absolute;
   top: 130px;
   left: 10%;
 }
 
 .list-bg-image.top-right {
-  position: absolute;
   right: 70px;
   top: 10px;
 }
 
 .list-bg-image.middle-left {
-  position: absolute;
   bottom: 42%;
   left: 0;
 }
 
 .list-bg-image.middle-right {
-  position: absolute;
   right: 0;
   top: 30%;
 }
