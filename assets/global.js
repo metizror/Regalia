@@ -165,7 +165,7 @@ if (!customElements.get("quantity-picker")) {
         this.handleNegativeInput.bind(this)
       );
     }
-    
+
     onIncrease() {
       this.inputField.value = parseInt(this.inputField.value) + 1;
       this.inputField.dispatchEvent(new Event("change"));
@@ -176,7 +176,7 @@ if (!customElements.get("quantity-picker")) {
         this.inputField.value = parseInt(this.inputField.value) - 1;
       }
       this.inputField.dispatchEvent(new Event("change"));
-    }    
+    }
 
     handleNegativeInput() {
       let parsedValue = parseFloat(this.inputField.value);
@@ -306,29 +306,29 @@ theme.languageAndCountry = () => {
       .forEach((el) => (el.style.display = "none"));
   };
 
-const setupClickHandlers = (btns, dropdowns) => {
-  btns.forEach((btn, index) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      toggleDropdown(btn, dropdowns[index]);
-    });
-
-    btn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
+  const setupClickHandlers = (btns, dropdowns) => {
+    btns.forEach((btn, index) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
         toggleDropdown(btn, dropdowns[index]);
-      }
-    });
-  });
-};
+      });
 
-const toggleDropdown = (btn, dropdown) => {
-  const isActive = btn.classList.contains("countryactive");
-  hideAll();
-  if (!isActive) {
-    btn.classList.add("countryactive");
-    dropdown.style.display = "block";
-  }
-};
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          toggleDropdown(btn, dropdowns[index]);
+        }
+      });
+    });
+  };
+
+  const toggleDropdown = (btn, dropdown) => {
+    const isActive = btn.classList.contains("countryactive");
+    hideAll();
+    if (!isActive) {
+      btn.classList.add("countryactive");
+      dropdown.style.display = "block";
+    }
+  };
 
   setupClickHandlers(elements.lang, elements.langData);
   setupClickHandlers(elements.country, elements.countryData);
@@ -360,7 +360,6 @@ theme.languageOnHeader = () => {
   });
 };
 
-
 theme.productCollectionGrid = () => {
   document.querySelectorAll(".prod-column-change").forEach((btn) => {
     const handleGridChange = () => {
@@ -383,7 +382,6 @@ theme.productCollectionGrid = () => {
     });
   });
 };
-
 
 // Animation.js
 theme.onScrollAnimation = () => {
@@ -547,53 +545,50 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-  document.querySelectorAll(".open-quick-popup").forEach((button) => {
-        button.addEventListener("click", function () {
-          const gallery = this.closest(".featured-product-content"); // changed from .gallery
-          if (gallery) {
-            const popupOverlay = gallery.querySelector(".popup-overlay");
-            if (popupOverlay) {
-              popupOverlay.style.display = "block";
-            } else {
-              console.warn(".popupOverlay not found inside .main-image-slider");
-            }
-          } else {
-            console.warn(
-              ".main-image-slider not found as a parent of .open-popup"
-            );
-          }
-        });
+document.querySelectorAll(".open-quick-popup").forEach((button) => {
+  button.addEventListener("click", function () {
+    const gallery = this.closest(".featured-product-content"); // changed from .gallery
+    if (gallery) {
+      const popupOverlay = gallery.querySelector(".popup-overlay");
+      if (popupOverlay) {
+        popupOverlay.style.display = "block";
+      } else {
+        console.warn(".popupOverlay not found inside .main-image-slider");
+      }
+    } else {
+      console.warn(".main-image-slider not found as a parent of .open-popup");
+    }
+  });
+});
+
+// Close popup
+document.querySelectorAll(".close-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    const popup = this.closest(".popup-overlay");
+    if (popup) popup.style.display = "none";
+    document.body.classList.remove("popupOverlay-body");
+  });
+});
+
+document.querySelectorAll(".btn-copy-quick").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const container = this.closest(".share-product-url");
+    const inputContent = container?.querySelector(".field__input");
+    if (!inputContent) return;
+
+    inputContent.select();
+    inputContent.setSelectionRange(0, 99999);
+    navigator.clipboard
+      .writeText(inputContent.value)
+      .then(() => {
+        const origText = inputContent.value;
+        inputContent.value = "Link copied to clipboard!";
+        setTimeout(() => {
+          inputContent.value = origText;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Copy failed:", err);
       });
-
-      // Close popup
-      document.querySelectorAll(".close-btn").forEach((button) => {
-        button.addEventListener("click", function () {
-          const popup = this.closest(".popup-overlay");
-          if (popup) popup.style.display = "none";
-          document.body.classList.remove("popupOverlay-body");
-        });
-      });
-
-      document.querySelectorAll(".btn-copy-quick").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const container = this.closest(".share-product-url");
-          const inputContent = container?.querySelector(".field__input");
-          if (!inputContent) return;
-
-          inputContent.select();
-          inputContent.setSelectionRange(0, 99999);
-          navigator.clipboard
-            .writeText(inputContent.value)
-            .then(() => {
-              const origText = inputContent.value;
-              inputContent.value = "Link copied to clipboard!";
-              setTimeout(() => {
-                inputContent.value = origText;
-              }, 2000);
-            })
-            .catch((err) => {
-              console.error("Copy failed:", err);
-            });
-        });
-      });
-
+  });
+});

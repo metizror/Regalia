@@ -34,7 +34,7 @@
   {% if first_slide.settings.image %}
     {{
       first_slide.settings.image
-      | image_url: width: first_slide.settings.image.width
+      | image_url: width: 1440, format: 'webp'
       | image_tag:
         preload: true,
         class: 'hidden',
@@ -45,7 +45,7 @@
   {% if first_slide.settings.mobile_image %}
     {{
       first_slide.settings.mobile_image
-      | image_url: width: first_slide.settings.mobile_image.width
+      | image_url: width: 767, format: 'webp'
       | image_tag:
         preload: true,
         class: 'hidden',

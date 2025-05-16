@@ -3,12 +3,17 @@ window.addEventListener("DOMContentLoaded", function () {
   const menuItem = document.querySelector(".header__menu-item.list-menu__item");
   const detailsItems = inlineMenu.querySelectorAll("details");
   const predictiveSearch = document.querySelector("#predictive-search");
-  const body = document.querySelector('body'); 
+  const body = document.body;
 
   detailsItems.forEach((item) => {
     const summaryElement = item.querySelector("summary");
     const ulElement = item.querySelector("ul");
     let closeTimeout;
+
+    const closeItem = () => {
+      item.removeAttribute("open");
+      summaryElement.classList.remove("countryactive");
+    };
 
     item.addEventListener("mouseover", () => {
       clearTimeout(closeTimeout);
@@ -16,19 +21,12 @@ window.addEventListener("DOMContentLoaded", function () {
       summaryElement.classList.add("countryactive");
     });
 
-    ulElement.addEventListener("mouseleave", () => {
-      closeTimeout = setTimeout(() => {
-        item.removeAttribute("open");
-        summaryElement.classList.remove("countryactive");
-      }, 90);
-    });
+    const leaveHandler = () => {
+      closeTimeout = setTimeout(closeItem, 90);
+    };
 
-    item.addEventListener("mouseleave", () => {
-      closeTimeout = setTimeout(() => {
-        item.removeAttribute("open");
-        summaryElement.classList.remove("countryactive");
-      }, 90);
-    });
+    ulElement.addEventListener("mouseleave", leaveHandler);
+    item.addEventListener("mouseleave", leaveHandler);
   });
 
   // init predictive search
@@ -63,38 +61,34 @@ window.addEventListener("DOMContentLoaded", function () {
     document.body.classList.toggle("search-warpper-open");
   });
 
-    let inlineSearchClose = document.querySelector('.inline-close');
+  let inlineSearchClose = document.querySelector(".inline-close");
   if (inlineSearchClose && predictiveSearch) {
-  inlineSearchClose.addEventListener('click', () => {
-    document.querySelector('#predictive-search').value = '';
-    predictiveSearch.style.display = 'none';
-    body.classList.remove("inline-search-open");
-  });
+    inlineSearchClose.addEventListener("click", () => {
+      document.querySelector("#predictive-search").value = "";
+      predictiveSearch.style.display = "none";
+      body.classList.remove("inline-search-open");
+    });
   }
-  
 });
 
 // header sticky
 let lastScrollTop = 0;
 const header = document.querySelector(".section-main-header");
-const headerHeight = header.offsetHeight; // Get header height
+const headerHeight = header.offsetHeight;
 
 window.addEventListener("scroll", function () {
   let currentScroll = window.scrollY;
   if (currentScroll > lastScrollTop) {
-    // Scrolling down
     header.classList.add("headerhidden");
-    header.style.top = `-${headerHeight}px`; // Apply dynamic height
+    header.style.top = `-${headerHeight}px`;
   } else {
-    // Scrolling up
     header.classList.remove("headerhidden");
-    header.style.top = "0px"; // Reset to default position
+    header.style.top = "0px";
   }
-  lastScrollTop = currentScroll;
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
 // Menu-drawer
-
 document.addEventListener("DOMContentLoaded", function () {
   const menuBtn = document.getElementById("drawer-menu-btn");
   const menuList = document.getElementById("drawer-menu-list");
@@ -105,16 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateMenuHeight() {
     const announcementBar = document.querySelector(".section-announcement-bar");
-    const headerHeight =
-      document.querySelector(".section-main-header")?.offsetHeight || 0;
-
+    const headerHeight = document.querySelector(".section-main-header")?.offsetHeight || 0;
     let announcementBarHeight = 0;
 
-    if (
-      announcementBar &&
-      announcementBar.offsetHeight > 0 &&
-      isElementVisible(announcementBar)
-    ) {
+    if (announcementBar && announcementBar.offsetHeight > 0 && isElementVisible(announcementBar)) {
       announcementBarHeight = announcementBar.offsetHeight;
     }
 
@@ -133,45 +121,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const drawerFooter = document.querySelector(".drawer-footer-items");
 
     if (drawerFooter) {
-      // Make the element temporarily visible to get its height
-      drawerFooter.style.display = "block"; // Ensures visibility to get correct height
+      drawerFooter.style.display = "block";
       const drawerFooterHeight = drawerFooter.offsetHeight || 0;
 
       if (drawerMenu) {
         // drawerMenu.style.height = `calc(100vh - ${drawerFooterHeight}px - 30px)`;
       }
 
-      // Hide it back if necessary (optional, only if it was initially hidden)
       drawerFooter.style.display = "";
     }
   }
 
   menuBtn.addEventListener("click", function () {
-    // Open menu before measuring `.drawer-footer-items`
     menuList.classList.toggle("active");
 
-    // Small delay to ensure visibility before calculating height
     setTimeout(() => {
       updateMenuHeight();
       updateDrawerMenuHeight();
     }, 10);
 
-    // Toggle icon visibility
     const isMenuOpen = menuList.classList.contains("active");
     hamburgerIcon.style.display = isMenuOpen ? "none" : "inline-block";
     closeIcon.style.display = isMenuOpen ? "inline-block" : "none";
 
-    if (isMenuOpen) {
-      body.classList.add("no-scroll");
-    } else {
-      body.classList.remove("no-scroll");
-    }
+    body.classList.toggle("no-scroll", isMenuOpen);
   });
 
-  // Initial height update
   updateMenuHeight();
 
-  // Update on resize
   window.addEventListener("resize", updateMenuHeight);
   window.addEventListener("scroll", updateMenuHeight);
 });
