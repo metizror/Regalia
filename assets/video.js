@@ -9,25 +9,20 @@ window.addEventListener("DOMContentLoaded", () => {
         this.circlePlayButton = this.querySelector(".custom-video-btn");
 
         // init functions
-        if (this.video) {
-          this.togglePlay();
-        }
-        if (this.YoutubeVideo) {
-          this.YTVideo();
-        }
-        if (this.VimeoVideo) {
-          this.vimeoVideos();
-        }
+        if (this.video) this.togglePlay();
+        if (this.YoutubeVideo) this.YTVideo();
+        if (this.VimeoVideo) this.vimeoVideos();
       }
 
       // HTML5 video toggle
       togglePlay = () => {
-        let circlePlaying = this.querySelector(".thumbnail-wrapper-id"),
-          SecondplayBtn = this.querySelector(".second_play-btn"),
-          video = this.querySelector(".custom-video"),
-          videoAutoplay = video.dataset.autoplay,
-          videomuted = video.getAttribute("muted");
-        if (videoAutoplay == "true" && videomuted == "muted") {
+        const circlePlaying = this.querySelector(".thumbnail-wrapper-id");
+        const SecondplayBtn = this.querySelector(".second_play-btn");
+        const video = this.video;
+        const videoAutoplay = video.dataset.autoplay;
+        const videomuted = video.getAttribute("muted");
+
+        if (videoAutoplay === "true" && videomuted === "muted") {
           SecondplayBtn.style.opacity = "0";
           SecondplayBtn.classList.add("show_btn");
         } else {
@@ -40,7 +35,8 @@ window.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
-        SecondplayBtn.addEventListener("click", function () {
+
+        SecondplayBtn.addEventListener("click", () => {
           if (video.paused || video.ended) {
             video.play();
             SecondplayBtn.style.opacity = "0";
@@ -52,24 +48,30 @@ window.addEventListener("DOMContentLoaded", () => {
       };
 
       YTVideo = () => {
-        let player = null,
-          getYoutubeId = this.YoutubeVideo.dataset.youtubeid,
-          youtubeAutoplay = this.YoutubeVideo.dataset.youtubeautoplay,
-          youtubeMuted = this.YoutubeVideo.dataset.youtubemuted,
-          circlePlaying = this.querySelector(".thumbnail-wrapper-id"),
-          SecondplayBtn = this.querySelector(".second_play-btn");
+        let player = null;
+        const {
+          youtubeid: getYoutubeId,
+          youtubeautoplay: youtubeAutoplay,
+          youtubemuted: youtubeMuted,
+        } = this.YoutubeVideo.dataset;
+
+        const circlePlaying = this.querySelector(".thumbnail-wrapper-id");
+        const SecondplayBtn = this.querySelector(".second_play-btn");
 
         const handleVideoPlayer = () => {
-          youtubeMuted == "1" ? player.mute() : player.unMute();
-          if (youtubeAutoplay == "1" && youtubeMuted == "1") {
+          if (youtubeMuted === "1") player.mute();
+          else player.unMute();
+
+          if (youtubeAutoplay === "1" && youtubeMuted === "1") {
             player.playVideo();
             SecondplayBtn.style.opacity = "0";
             SecondplayBtn.classList.add("show_btn");
           } else {
-            this.circlePlayButton.addEventListener("click", function () {
+            this.circlePlayButton.addEventListener("click", () => {
               if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
                 player.playVideo();
-                youtubeMuted == "1" ? player.mute() : player.unMute();
+                if (youtubeMuted === "1") player.mute();
+                else player.unMute();
 
                 circlePlaying.style.display = "none";
                 SecondplayBtn.style.opacity = "0";
@@ -78,7 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
             });
           }
 
-          SecondplayBtn.addEventListener("click", function () {
+          SecondplayBtn.addEventListener("click", () => {
             if (player.getPlayerState() === YT.PlayerState.PLAYING) {
               player.pauseVideo();
               SecondplayBtn.style.opacity = "1";
@@ -88,14 +90,15 @@ window.addEventListener("DOMContentLoaded", () => {
             }
           });
         };
+
         const onPlayerStateChange = (event) => {
-          var videoStatuses = Object.entries(window.YT.PlayerState);
+          const videoStatuses = Object.entries(window.YT.PlayerState);
           console.log(
-            videoStatuses.find((status) => status[1] === event.data)[0]
+            videoStatuses.find((status) => status[1] === event.data)?.[0]
           );
         };
 
-        window.YT.ready(function () {
+        window.YT.ready(() => {
           player = new YT.Player("player", {
             videoId: getYoutubeId,
             playerVars: {
@@ -106,39 +109,42 @@ window.addEventListener("DOMContentLoaded", () => {
             },
             events: {
               onReady: handleVideoPlayer,
-              onStateChane: onPlayerStateChange,
+              onStateChange: onPlayerStateChange, // fixed typo: was "onStateChane"
             },
           });
         });
       };
 
       vimeoVideos = () => {
-        let playerContainer = this.querySelector(".player-container"),
-          getVimeoId = this.VimeoVideo.dataset.vimeoid,
-          vimeoAutoplay = this.VimeoVideo.dataset.vimeoautoplay,
-          vimeoMuted = this.VimeoVideo.dataset.vimeomuted,
-          circlePlaying = this.querySelector(".thumbnail-wrapper-id"),
-          SecondplayBtn = this.querySelector(".second_play-btn");
+        const playerContainer = this.querySelector(".player-container");
+        const {
+          vimeoid: getVimeoId,
+          vimeoautoplay: vimeoAutoplay,
+          vimeomuted: vimeoMuted,
+        } = this.VimeoVideo.dataset;
 
-        let options = {
+        const circlePlaying = this.querySelector(".thumbnail-wrapper-id");
+        const SecondplayBtn = this.querySelector(".second_play-btn");
+
+        const options = {
           url: `https://vimeo.com/${getVimeoId}`,
           autoplay: false,
           controls: false,
-          muted: vimeoMuted,
+          muted: vimeoMuted === "true",
         };
-        let player = new Vimeo.Player(playerContainer, options);
-        function isVideoPlaying() {
-          return player.getPaused().then(function (paused) {
-            return !paused;
-          });
-        }
-        if (vimeoAutoplay == "true" && vimeoMuted == "true") {
+
+        const player = new Vimeo.Player(playerContainer, options);
+
+        const isVideoPlaying = () =>
+          player.getPaused().then((paused) => !paused);
+
+        if (vimeoAutoplay === "true" && vimeoMuted === "true") {
           player.play();
           SecondplayBtn.style.opacity = "0";
           SecondplayBtn.classList.add("show_btn");
         } else {
-          this.circlePlayButton.addEventListener("click", function () {
-            isVideoPlaying().then(function (playing) {
+          this.circlePlayButton.addEventListener("click", () => {
+            isVideoPlaying().then((playing) => {
               if (!playing) {
                 player.play();
                 circlePlaying.style.display = "none";
@@ -149,8 +155,8 @@ window.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        SecondplayBtn.addEventListener("click", function () {
-          isVideoPlaying().then(function (playing) {
+        SecondplayBtn.addEventListener("click", () => {
+          isVideoPlaying().then((playing) => {
             if (playing) {
               player.pause();
               SecondplayBtn.style.opacity = "1";
@@ -162,6 +168,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
       };
     }
+
     customElements.define("video-hero", videoHero);
   }
 });
