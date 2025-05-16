@@ -200,7 +200,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (optionVariant) {
               // let variantKey = "";
-              console.log(selectedVariants.length);
               if (selectedVariants.length === 2) {
                 variantKey = `${selectedVariants[0]} / ${optionVariant}`;
               } else if (selectedVariants.length === 3) {

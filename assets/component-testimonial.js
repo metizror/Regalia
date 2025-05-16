@@ -24,6 +24,7 @@ theme.testimonialSlider = () => {
     current.addEventListener("mouseover", () => {
       swiper.autoplay?.stop();
     });
+
     current.addEventListener("mouseleave", () => {
       swiper.autoplay?.start();
     });
@@ -60,7 +61,9 @@ theme.testimonialSlider = () => {
     swiper.slides.forEach((slide) => {
       slide.style.height = "auto";
       const slideHeight = slide.offsetHeight;
-      if (slideHeight > maxHeight) maxHeight = slideHeight;
+      if (slideHeight > maxHeight) {
+        maxHeight = slideHeight;
+      }
     });
     swiper.slides.forEach((slide) => {
       slide.style.height = `${maxHeight}px`;
