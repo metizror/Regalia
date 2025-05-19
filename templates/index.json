@@ -249,7 +249,7 @@
         "view_all": true,
         "btn_bg_color": "",
         "btn_type": "primary",
-        "show_swatches": true,
+        "show_swatches": false,
         "show_countdown": true,
         "countdown_timer": "2025-05-27",
         "padding_top": 20,
