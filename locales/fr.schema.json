@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "section_group": {
     "header_group": {
       "name": "Groupe d'en-tête"
@@ -290,6 +290,22 @@
         }
       }
     },
+    "variant_type": {
+      "name": "Type de variante",
+      "settings": {
+        "variant_style": {
+          "label": "Type de variante"
+        },
+        "options": {
+          "dropdown": {
+            "label": "Liste déroulante"
+          },
+          "buttons": {
+            "label": "Boutons"
+          }
+        }
+      }
+    },
     "product_tiles": {
       "name": "Vignettes de produit",
       "settings": {
@@ -516,6 +532,9 @@
   "sections": {
     "general": {
       "full_width": "Activer la pleine largeur",
+      "show_page_title": {
+        "label": "Afficher le titre de la page"
+      },
       "section_vertical_spacing": {
         "content": "Espacement vertical de la section",
         "top_padding": {
@@ -624,6 +643,9 @@
         },
         "subheading_color": {
           "label": "Couleur du sous-titre"
+        },
+        "title_color": {
+          "label": "Couleur du titre"
         },
         "text_color": {
           "label": "Couleur du texte"
@@ -749,6 +771,9 @@
         "description_size": {
           "label": "Taille de la police de la description"
         }
+      },
+      "presets": {
+        "name": "Bannière À propos de nous"
       }
     },
     "about_us_text": {
@@ -810,6 +835,9 @@
             }
           }
         }
+      },
+      "presets": {
+        "name": "Texte à propos de nous"
       }
     },
     "announcement_bar": {
@@ -823,7 +851,10 @@
           "enable_container": {
             "label": "Activer le conteneur"
           },
-          "enbale_auto_scroll": {
+          "enable_navigation": {
+            "label": "Bouton de navigation du curseur désactivé"
+          },
+          "enable_auto_scroll": {
             "label": "Activer le défilement automatique"
           },
           "speed_delay": {
@@ -971,6 +1002,43 @@
         "presets": {
           "name": "Détails de contact"
         }
+      },
+      "form": {
+        "name": "Formulaire de contact",
+        "settings": {
+          "layout": {
+            "label": "Disposition bureau",
+            "options": {
+              "container": "1440px",
+              "narrow_container": "910px"
+            }
+          },
+          "form_content": {
+            "content": "Contenu du formulaire"
+          },
+          "form_image": {
+            "label": "Sélectionner l'image du formulaire"
+          },
+          "card_customizations": {
+            "content": "Sélectionner les personnalisations de la carte",
+            "main_image": {
+              "label": "Image du conteneur en bas à gauche"
+            },
+            "vector_images": {
+              "top_right": {
+                "label": "Vecteur en haut à droite",
+                "info": "Veuillez utiliser une image transparente."
+              },
+              "bottom_left": {
+                "label": "Vecteur en bas à gauche",
+                "info": "Veuillez utiliser une image transparente."
+              }
+            }
+          }
+        },
+        "presets": {
+          "name": "Formulaire de contact"
+        }
       }
     },
     "countdown": {
@@ -1030,6 +1098,9 @@
         "name": "Compte à rebours de réduction"
       }
     },
+    "featured_collection": {
+      "name": "Collection en vedette"
+    },
     "duo_image": {
       "name": "Image Duo",
       "settings": {
@@ -1065,6 +1136,9 @@
             "label": "Hauteur de l'image (px)"
           }
         }
+      },
+      "presets": {
+        "name": "Image Duo"
       }
     },
     "faq": {
@@ -1383,6 +1457,10 @@
         "group_filter_prefix": {
           "label": "Préfixe du groupe de filtres (séparé par des virgules)"
         },
+        "price_filter_index": {
+          "label": "Index du filtre de prix",
+          "info": "Le filtre de prix est le premier dans l'ordre de priorité"
+        },
         "filter_open": {
           "label": "Filtre par défaut ouvert"
         },
@@ -1407,10 +1485,10 @@
           "info_2": "Si l'image de la collection est vide, l'image ci-dessous sera affichée.",
           "image": {
             "label": "Sélectionner une image",
-            "info": "Principalement, vous ne verrez cette image que dans la bannière de la page de collection."
-          },
-          "show_title": "Afficher le titre de la collection",
-          "show_description": "Afficher la description de la collection"
+            "info": "Principalement, vous ne verrez cette image que dans la bannière de la page de collection.",
+            "show_title": "Afficher le titre de la collection",
+            "show_description": "Afficher la description de la collection"
+          }
         },
         "customization": {
           "content": "Personnalisation",
@@ -1442,6 +1520,9 @@
         "header": {
           "content": "Contenu"
         },
+        "heading_show": {
+          "label": "Afficher le titre"
+        },
         "heading": {
           "label": "Titre"
         },
@@ -1451,6 +1532,12 @@
         "heading_opacity": {
           "label": "Opacité du titre"
         },
+        "card_color": {
+          "label": "Couleur de la carte"
+        },
+        "text_alignment": {
+          "label": "Alignement du texte"
+        },
         "card_customization": {
           "content": "Personnalisation de la carte de section",
           "background_image": {
@@ -1459,6 +1546,12 @@
             },
             "bottom_right": {
               "label": "Image d'arrière-plan en bas à droite"
+            },
+            "mobile_bg_left": {
+              "label": "Fond mobile gauche"
+            },
+            "mobile_bg_right": {
+              "label": "Fond mobile droit"
             }
           },
           "tab_color": {
@@ -1469,6 +1562,15 @@
           },
           "products_to_show": {
             "label": "Nombre maximum de produits à afficher"
+          },
+          "products_column_show": {
+            "label": "Afficher les colonnes de produits"
+          },
+          "view_all": {
+            "label": "Afficher tout"
+          },
+          "btn_bg_color": {
+            "label": "Couleur de fond du bouton"
           },
           "countdown_timer": {
             "content": "Minuteur de compte à rebours",
@@ -1489,6 +1591,12 @@
         "coll_title": {
           "label": "Titre de la collection",
           "info": "Lorsque ce champ est vide, le nom d'origine de la collection sera affiché."
+        },
+        "view_all_btn": {
+          "label": "Afficher tout"
+        },
+        "btn_url": {
+          "label": "URL du bouton"
         }
       }
     },
@@ -1621,6 +1729,18 @@
     "footer": {
       "name": "Pied de page",
       "settings": {
+        "footer_lefttop": {
+          "label": "Image en haut à gauche"
+        },
+        "footer_rightbottom": {
+          "label": "Image en bas à droite"
+        },
+        "menu_color": {
+          "label": "Couleur du menu"
+        },
+        "menu_color_opacity": {
+          "label": "Opacité du menu"
+        },
         "social_icons": {
           "label": "Icônes sociales"
         },
@@ -1688,6 +1808,23 @@
               "label": "Menu rapide"
             }
           }
+        },
+        "social_details": {
+          "name": "Icône sociale",
+          "settings": {
+            "social_logo_1": {
+              "label": "Icône sociale une"
+            },
+            "social_logo_2": {
+              "label": "Icône sociale deux"
+            },
+            "social_data_1": {
+              "label": "Texte social un"
+            },
+            "social_data_2": {
+              "label": "Texte social deux"
+            }
+          }
         }
       }
     },
@@ -1724,6 +1861,12 @@
         },
         "sticky_header": {
           "label": "En-tête fixe"
+        },
+        "inline_search": {
+          "label": "Recherche en ligne"
+        },
+        "inline_search_bg_color": {
+          "label": "Couleur de fond de la recherche en ligne"
         },
         "spacing": {
           "content": "Espacement",
@@ -1981,7 +2124,7 @@
         "page_description": {
           "label": "Description"
         },
-        "collection_row_gap":{
+        "collection_row_gap": {
           "label": "Espacement entre les lignes de collection"
         },
         "collection_row": {
@@ -2054,6 +2197,9 @@
         },
         "reverse_direction": {
           "label": "Inverser la direction"
+        },
+        "icon_img": {
+          "label": "Image ou icône"
         }
       },
       "blocks": {
@@ -2326,9 +2472,6 @@
         },
         "product_per_row": {
           "label": "Produits par ligne"
-        },
-        "spacing": {
-          "label": "Espacement"
         }
       },
       "presets": {
@@ -2377,6 +2520,13 @@
             "fade": "Fondu",
             "flip": "Retournement"
           }
+        },
+        "enable_overlay_bg": {
+          "label": "Activer la superposition de l'arrière-plan",
+          "info": "Activez cette option pour appliquer une superposition sur l'arrière-plan de la diapositive"
+        },
+        "whole_overlay_bg": {
+          "label": "Superposition de l'arrière-plan entier"
         },
         "enable_autoplay": {
           "label": "Activer la lecture automatique"
@@ -2664,6 +2814,9 @@
         },
         "autoscroll_speed": {
           "label": "Vitesse de défilement automatique"
+        },
+        "slider_enable": {
+          "label": "Activer le curseur"
         }
       },
       "blocks": {
@@ -2678,6 +2831,9 @@
             },
             "title": {
               "label": "Titre"
+            },
+            "description_size": {
+              "label": "Taille de la description"
             }
           }
         },
@@ -2694,6 +2850,15 @@
               },
               "image": {
                 "label": "Image"
+              },
+              "image_placement": {
+                "label": "Placement de l'image"
+              },
+              "image_first": {
+                "label": "Image première"
+              },
+              "image_second": {
+                "label": "Image seconde"
               },
               "description_color": {
                 "label": "Description"

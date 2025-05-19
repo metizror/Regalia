@@ -411,6 +411,7 @@
         "image_with_text_eYY7Tc",
         "image_overlay_text_EydJDC"
       ],
+      "disabled": true,
       "settings": {
         "enable_full_width": true,
         "enable_autoscroll": false,
