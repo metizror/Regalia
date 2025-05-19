@@ -714,7 +714,7 @@ svg.placeholder-svg {
 }
 
 .qnt-input-wrapper input[type=number] {
-	padding: 0;
+	padding: 10px 0px;
 	text-align: center;
 	max-width: 60px;
 	-moz-appearance: textfield;
@@ -855,7 +855,9 @@ body.quick-view-popup {
 	padding-left: 0px;
 	cursor: pointer;
 }
-
+#quickViewModal .product-form__submit{
+  width:100%;
+}
 /* Modal Container */
 .pickup-availabilities-modal.modal {
 	display: flex;

@@ -18,7 +18,7 @@
   endcase
 -%}
 
-<div class="product-item flex-items grid-item">
+<div class="product-item flex-items grid-item {% if show_swatches %} show_swatches {% endif %}">
   <div class="product-image">
     <div
       class="img-wrapper{% if settings.tiles_fill_media_zooom %} media-fill{% endif %} "
