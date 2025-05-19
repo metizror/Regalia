@@ -86,7 +86,7 @@
         "megamenu_DMdzBV"
       ],
       "settings": {
-        "logo_position": "top-left",
+        "logo_position": "top-center",
         "menu": "main-menu",
         "enable_country_selector": true,
         "enable_language_selector": true,
