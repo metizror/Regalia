@@ -216,6 +216,9 @@
       "columns_desktop": {
         "label": "ડેસ્કટોપ પર બતાવવાના ઉત્પાદનોની સંખ્યા"
       },
+      "view_all": {
+        "label": "બધું જુઓ"
+      },
       "show_view_all": {
         "label": "\"બધું જુઓ\" સક્રિય કરો જો સંકલનમાં બતાવેલા ઉત્પાદનો કરતાં વધુ હોય"
       },
@@ -252,7 +255,12 @@
     "success_msg": "સબ્સ્ક્રાઇબ કરવા માટે આભાર",
     "email_placeholder": "તમારું મેલ દાખલ કરો",
     "email": "તમારો ઈમેલ દાખલ કરો",
-    "submit_btn": "સબ્સ્ક્રાઇબ કરો"
+    "submit_btn": "સબ્સ્ક્રાઇબ કરો",
+    "footer": {
+      "title": "અમારા ન્યૂઝલેટર માટે જોડાઓ",
+      "email": "તમારું ઈમેલ સરનામું દાખલ કરો",
+      "privacy_policy_html": "<span class=\"agree-text\">હું સંમત છું</span> <a href=\"/policies/privacy-policy\" target=\"_blank\" class=\"privacy-link\">ગોપનીયતા નીતિ</a>"
+    }
   },
   "collection": {
     "general": {
