@@ -56,40 +56,6 @@ if (!customElements.get("cart-drawer")) {
             });
           });
         }
-
-        document
-          .querySelectorAll(".product-form__submit.atc-btn")
-          .forEach((button) => {
-            button.addEventListener("click", function (event) {
-              event.preventDefault();
-
-              console.log("hey clicked");
-              let form = this.closest("form");
-              let formData = new FormData(form);
-
-              const quantityPicker = document.querySelector(
-                "quantity-picker input[name='quantity']"
-              );
-              if (quantityPicker) {
-                let quantity = quantityPicker.value;
-                formData.set("quantity", quantity);
-              }
-
-              fetch("/cart/add.js", {
-                method: "POST",
-                body: formData,
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  console.log("Product Added:", data);
-                  updateCartDrawer();
-                })
-                .catch((error) =>
-                  console.error("Error adding product:", error)
-                );
-            });
-          });
-
         // Function to open cart drawer
         function openCartDrawer() {
           document.documentElement.classList.add("js-drawer-open");

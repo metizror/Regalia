@@ -1,10 +1,11 @@
 window.addEventListener("DOMContentLoaded", function () {
   const inlineMenu = document.querySelector(".header__inline-menu");
   const menuItem = document.querySelector(".header__menu-item.list-menu__item");
-  const detailsItems = inlineMenu.querySelectorAll("details");
+  const detailsItems = inlineMenu?.querySelectorAll("details") || [];
   const predictiveSearch = document.querySelector("#predictive-search");
-  const body = document.querySelector('body'); 
+  const body = document.body;
 
+  // Menu hover logic
   detailsItems.forEach((item) => {
     const summaryElement = item.querySelector("summary");
     const ulElement = item.querySelector("ul");
@@ -16,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
       summaryElement.classList.add("countryactive");
     });
 
-    ulElement.addEventListener("mouseleave", () => {
+    ulElement?.addEventListener("mouseleave", () => {
       closeTimeout = setTimeout(() => {
         item.removeAttribute("open");
         summaryElement.classList.remove("countryactive");
@@ -31,48 +32,53 @@ window.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // init predictive search
+  // Predictive search logic
   let searchTriggers = document.querySelectorAll(".action-search");
   let searchPopEle = document.querySelector("#predictiveSearchModal");
+  let lastSearchTrigger = null; // new variable
 
   if (searchTriggers.length > 0) {
     searchTriggers.forEach((searchTrigger) => {
       searchTrigger.addEventListener("click", (e) => {
-        console.log("click");
         e.preventDefault();
-        searchPopEle.classList.add("active");
+        lastSearchTrigger = searchTrigger; // store the clicked trigger
+        searchPopEle?.classList.add("active");
 
         setTimeout(() => {
-          document.querySelector("#predictive-search").focus();
+          predictiveSearch?.focus();
         }, 250);
 
-        document.body.classList.toggle("search-wrapper-open");
+        body.classList.add("search-wrapper-open");
       });
     });
   }
 
-  // close predictive search
   let searchCloseTrigger = document.querySelector("#closeSearchModal");
-  searchCloseTrigger.addEventListener("click", () => {
-    searchPopEle.classList.remove("active");
-    searchTrigger.focus();
-    document.querySelector("#predictive-search").value = "";
-    document
-      .querySelector("#predictive-search")
-      .dispatchEvent(new Event("input"));
-    document.body.classList.toggle("search-warpper-open");
-  });
+  if (searchCloseTrigger) {
+    searchCloseTrigger.addEventListener("click", () => {
+      searchPopEle?.classList.remove("active");
 
-    let inlineSearchClose = document.querySelector('.inline-close');
-  if (inlineSearchClose && predictiveSearch) {
-  inlineSearchClose.addEventListener('click', () => {
-    document.querySelector('#predictive-search').value = '';
-    predictiveSearch.style.display = 'none';
-    body.classList.remove("inline-search-open");
-  });
+      if (lastSearchTrigger) lastSearchTrigger.focus();
+
+      if (predictiveSearch) {
+        predictiveSearch.value = "";
+        predictiveSearch.dispatchEvent(new Event("input"));
+      }
+
+      body.classList.remove("search-wrapper-open");
+    });
   }
-  
+
+  let inlineSearchClose = document.querySelector(".inline-close");
+  if (inlineSearchClose && predictiveSearch) {
+    inlineSearchClose.addEventListener("click", () => {
+      predictiveSearch.value = "";
+      predictiveSearch.style.display = "none";
+      body.classList.remove("inline-search-open");
+    });
+  }
 });
+
 
 // header sticky
 let lastScrollTop = 0;
