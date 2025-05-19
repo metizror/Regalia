@@ -46,7 +46,10 @@
 	transform: translate(0px, 85px);
 	z-index: 9;
 }
-
+.header--top-center .language-content-width{
+	width:25%;
+	max-width: 25%;
+}
 /* Disclosure Menus */
 .list-menu--disclosure {
 	position: absolute;
@@ -111,7 +114,6 @@ summary.list-menu__item {
 }
 .inline-search-header .inline-search{
   padding:0px;
-  padding-left:40px;
 }
 .predictive-search-content{
   position:relative;
@@ -142,6 +144,7 @@ summary.list-menu__item {
   max-width:25%;
   width:25%;
   justify-content: end;
+  padding-right:0px;
 }
 @media screen and (min-width: 750px) {
 	.list-menu__item--link {

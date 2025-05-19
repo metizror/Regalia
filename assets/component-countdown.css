@@ -89,19 +89,20 @@
 
 @media(max-width: 768px) {
   .countdown-section .countdown-label {
-   font-size: calc(var(--bs-size) + 1px);
-  max-width: 80px;
+    font-size: calc(var(--bs-size) + 1px);
+    max-width: 80px;
   }
-
   .countdown-section .countdown-number,
   .countdown-section .countdown-colon {
     font-size: 24px;
   }
-
   .countdown-section .countdown-timer {
     padding: 10px;
     gap: 10px;
     margin-bottom: 25px;
+  }
+  .countdown-section .countdown-number{
+    width:50px;
   }
 }
 
