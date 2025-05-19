@@ -27,8 +27,8 @@
 }
 
 .countdown-section .countdown-description p {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: var(--bs-size);
+  font-weight: var(--bs-font-weight);
   line-height: 21px;
   margin-bottom: 40px;
 }
@@ -58,17 +58,18 @@
 
 .countdown-section .countdown-number {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
   line-height: 46px;
   color: #fff;
   position: relative;
   height: 46px;
   overflow: hidden;
+  width:100px;
 }
 
 .countdown-section .countdown-label {
   font-size: 24px;
-  font-weight: 400;
+  font-weight: var(--bs-font-weight);
   line-height: 29px;
   color: #E9CFB4;
 }
@@ -81,25 +82,27 @@
 
 .countdown-section .countdown-button {
   font-weight: 500;
-  font-size: 16px;
+  font-size: calc(var(--bs-size) + 2px);
   line-height: 24px;   
   border: none;
 }
 
 @media(max-width: 768px) {
   .countdown-section .countdown-label {
-    font-size: 15px;
+    font-size: calc(var(--bs-size) + 1px);
+    max-width: 80px;
   }
-
   .countdown-section .countdown-number,
   .countdown-section .countdown-colon {
     font-size: 24px;
   }
-
   .countdown-section .countdown-timer {
     padding: 10px;
     gap: 10px;
     margin-bottom: 25px;
+  }
+  .countdown-section .countdown-number{
+    width:50px;
   }
 }
 
@@ -111,7 +114,7 @@
 
   .countdown-section .countdown-number,
   .countdown-section .countdown-colon {
-    font-size: 15px;
+    font-size: calc(var(--bs-size) + 1px);
+    height: 30px;
   }
-
 }
