@@ -77,6 +77,16 @@
   color: var(--text-color);
 }
 
+.article-date svg path,
+.article-comments svg path{
+  fill: var(--icon-color);
+}
+
+.article-author svg path,
+.article-author svg circle {
+  stroke: var(--icon-color);
+}
+
 .article-date,
 .article-comments,
 .article-author {
@@ -166,7 +176,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  color: var(--heading-color);
+  color: var(--sidebar-heading-color);
   margin-bottom: 15px;
   display: block;
 }

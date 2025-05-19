@@ -20,6 +20,9 @@
   #section-{{ section.id }} .text-column.description p{
     color: {{ section.settings.description_color }};
   }
+  #section-{{ section.id }} .text-column.heading h3{
+    color: {{ section.settings.heading_color }};
+  }
   @media screen and (min-width: 768px) {
     #section-{{ section.id }} {
       padding-top: {{ section.settings.padding_top }}px;
@@ -34,7 +37,6 @@
       text-align: {{ section.settings.desc_align_desk }};
     }
     #section-{{ section.id }} .text-column.heading h3{
-      color: {{ section.settings.heading_color }};
       font-size: {{ section.settings.heading_font_size }}px;
     }
     #section-{{ section.id }} .text-column.description p{

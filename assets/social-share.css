@@ -19,7 +19,7 @@
 }
 
 .social-share span.social-icon svg path {
-    fill: var(--text-color);
+    fill: var(--icon-color);
 }
 
 .social-share span.social-icon svg circle,

@@ -6,7 +6,7 @@
   .newsletter {
     background-color: {{ section.settings.bg_color }};
   }
-  .newsletter h2{
+  .newsletter .newsletter-heading{
     color:{{ section.settings.text_color }};
   }
   .newsletter .newsletter__subheading{
@@ -32,7 +32,7 @@
           {%- when 'heading' -%}
             {%- if block.settings.heading != blank -%}
               <span
-                class="{{ block.settings.heading_size }}"
+                class="{{ block.settings.heading_size }} newsletter-heading"
                 {{ block.shopify_attributes }}
                 ms-aos
                 data-ms-delay="{{ forloop.index | times: 150 }}"

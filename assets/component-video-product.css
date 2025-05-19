@@ -24,7 +24,7 @@
 .video-product-section .vidprocontent.grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   column-gap: var(--column-gap);
 }
 
@@ -84,12 +84,11 @@
 
   .video-product-section .vidpro-heading {
     padding-bottom: 0;
+    margin-bottom: 10px;
+    line-height: 100%;
   }
   .video-product-section .vidproinner video{
     max-height: 420px;
-  }
-  .video-product-section .vidpro-heading{
-    line-height: 20px;
   }
   .vidpro-content .vidpro-heading{
     text-align: left;

@@ -18,7 +18,7 @@
         "popup_mode": "testing",
         "time_to_interact": 10,
         "pop_image": "shopify://shop_images/277d2eb8cc623ee62d12e877463e1821.png",
-        "tiles_fill_media_zooom": true,
+        "tiles_fill_media_zoom": true,
         "heading": "SUBSCRIBE TO OUR NEWSLETTER",
         "heading_size": "h3",
         "heading_uppercase": true,
