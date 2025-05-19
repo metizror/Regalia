@@ -2,22 +2,18 @@ theme.slideShow = () => {
   const collectionlistEle = document.querySelector(".slidercontent");
   if (!collectionlistEle) return;
 
-  // Parse the slider options from the data attribute
   const swiperOptions = JSON.parse(collectionlistEle.dataset.sliderOptions);
 
-  // Define the renderBullet function separately
   swiperOptions.pagination.renderBullet = renderPaginationBullet;
 
-  // Initialize the Swiper instance with the options
   const swiper = new Swiper(collectionlistEle, swiperOptions);
 
-  // Handle Shopify block select and other customization events in design mode
   if (Shopify.designMode) {
     document.addEventListener("shopify:block:select", (e) => {
       let targetEle = e.target;
       let sliderIndex = 1 + parseInt(targetEle.dataset.swiperSlideIndex);
       swiper.slideTo(sliderIndex);
-      swiper.autoplay.stop(); // Assuming autoplay might be used and pausing it
+      swiper.autoplay.stop(); 
     });
 
     const customizationEvents = [
@@ -34,9 +30,49 @@ theme.slideShow = () => {
       document.addEventListener(event, () => swiper.update());
     });
   }
+
+function calculateMaxImageHeight() {
+  const images = document.querySelectorAll('.slidercontent .sliderimg img');
+  let maxHeight = 0;
+
+  images.forEach((img) => {
+    maxHeight = Math.max(maxHeight, img.clientHeight);
+  });
+
+  document.querySelectorAll('.sliderimg').forEach((slide) => {
+    slide.style.height = `${maxHeight}px`;
+  });
+}
+
+function setSwiperMinHeight() {
+  const images = document.querySelectorAll('.slidercontent .sliderimg img');
+  let loadedCount = 0;
+
+  if (images.length === 0) return;
+
+  images.forEach((img) => {
+    if (img.complete) {
+      loadedCount++;
+    } else {
+      img.addEventListener('load', () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          calculateMaxImageHeight();
+        }
+      });
+    }
+  });
+
+  // If all images were already loaded
+  if (loadedCount === images.length) {
+    calculateMaxImageHeight();
+  }
+}
+
+setSwiperMinHeight();
+window.addEventListener('resize', calculateMaxImageHeight); 
 };
 
-// Wait for the DOM content to load before initializing the slider
 window.addEventListener("DOMContentLoaded", () => {
   theme.slideShow();
 });

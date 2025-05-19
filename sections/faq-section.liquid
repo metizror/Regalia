@@ -21,8 +21,8 @@
     <div class="faq-container {% if section.settings.image_position == 'right' %} reverse{% endif %}">
       <lazy-image class="faq-image" ms-aos data-ms-delay="100">
         {%- if section.settings.image -%}
-          <img src="{{ section.settings.image | image_url: width: section.settings.image.width }}" 
-            alt="FAQ Image"
+          <img src="{{ section.settings.image | image_url: width: section.settings.image.width, format: 'webp' }}"
+            alt="{{ section.settings.image.alt | default: 'FAQ Image' }}" 
             width="{{ section.settings.image.width }}"
             height="{{ section.settings.image.height }}"
             style="--object-position: {{ section.settings.image.presentation.focal_point }}"

@@ -34,7 +34,7 @@
   {% if first_slide.settings.image %}
     {{
       first_slide.settings.image
-      | image_url: width: first_slide.settings.image.width
+      | image_url: width: 1440, format: 'webp'
       | image_tag:
         preload: true,
         class: 'hidden',
@@ -45,7 +45,7 @@
   {% if first_slide.settings.mobile_image %}
     {{
       first_slide.settings.mobile_image
-      | image_url: width: first_slide.settings.mobile_image.width
+      | image_url: width: 767, format: 'webp'
       | image_tag:
         preload: true,
         class: 'hidden',
@@ -59,12 +59,11 @@
 {% assign slide_effect = section.settings.slide_transition %}
 
 <div
-  class="slidercontent swiper"
+  class="slidercontent slide-data swiper"
   data-slider-options='
     {
       "slidesPerView": "1",
       "grabCursor": true,
-      "autoHeight": true,
       "speed": {{ slide_speed }},
       "effect": "{{ slide_effect }}",
       {% if section.settings.enable_autoplay %}

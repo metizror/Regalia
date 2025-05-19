@@ -52,7 +52,7 @@
           {%- if thumbnail -%}
             <lazy-image class="img-wrapper">
               <img
-                src="{{ thumbnail | image_url: width: section.settings.thumbnail.width }}"
+                src="{{ thumbnail | image_url: width: section.settings.thumbnail.width, format: 'webp' }}"
                 alt="{{ thumbnail.alt | default: shop.name }}"
                 style="--object-position: {{ thumbnail.presentation.focal_point }};"
                 loading="lazy"

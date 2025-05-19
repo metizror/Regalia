@@ -55,7 +55,7 @@
           <lazy-image>
             <picture>
               <source
-                srcset="{{ section.settings.coll_bg_1_mobile | image_url: width: section.settings.coll_bg_1_mobile.width }}"
+                srcset="{{ section.settings.coll_bg_1_mobile | image_url: width: section.settings.coll_bg_1_mobile.width,  format: 'webp' }}"
                 width="{{ section.settings.coll_bg_1_mobile.width }}"
                 height="{{ section.settings.coll_bg_1_mobile.height | default: 'auto' }}"
                 loading="lazy"
@@ -63,7 +63,7 @@
                 media="(max-width: 767px)"
               >
               <img
-                src="{{ section.settings.coll_bg_1 | image_url: width: section.settings.coll_bg_1.width }}"
+                src="{{ section.settings.coll_bg_1 | image_url: width: section.settings.coll_bg_1.width,  format: 'webp' }}"
                 alt="{{ section.settings.coll_bg_1.alt }}"
                 width="{{ section.settings.coll_bg_1.width }}"
                 height="{{ section.settings.coll_bg_1.height | default: 'auto' }}"
@@ -79,7 +79,7 @@
           <lazy-image>
             <picture>
               <source
-                srcset="{{ section.settings.coll_bg_2_mobile | image_url: width: section.settings.coll_bg_2_mobile.width }}"
+                srcset="{{ section.settings.coll_bg_2_mobile | image_url: width: section.settings.coll_bg_2_mobile.width,  format: 'webp' }}"
                 width="{{ section.settings.coll_bg_2_mobile.width }}"
                 height="{{ section.settings.coll_bg_2_mobile.height | default: 'auto' }}"
                 loading="lazy"
@@ -87,7 +87,7 @@
                 media="(max-width: 767px)"
               >
               <img
-                src="{{ section.settings.coll_bg_2 | image_url: width: section.settings.coll_bg_1.width }}"
+                src="{{ section.settings.coll_bg_2 | image_url: width: section.settings.coll_bg_2.width,  format: 'webp' }}"
                 alt="{{ section.settings.coll_bg_2.alt }}"
                 width="{{ section.settings.coll_bg_2.width }}"
                 height="{{ section.settings.coll_bg_2.height | default: 'auto' }}"
@@ -336,7 +336,7 @@
     {
       "type": "checkbox",
       "id": "show_swatches",
-      "label": "t:sections.collection.settings.card_customization.show_swatches.label",
+      "label": "t:settings_schema.product_tiles.settings.tiles_show_swatches.label",
       "default": true
     },
     {
