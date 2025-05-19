@@ -33,7 +33,7 @@
 {%- endstyle -%}
 
 {{ 'component-featured-collection.css' | asset_url | stylesheet_tag: preload: true }}
-
+{% assign show_swatches = section.settings.show_swatches %}
 <section class="featured-collection-section">
   <div class="full-width">
     {%- if section.settings.heading and section.settings.heading_show -%}
@@ -151,6 +151,7 @@
                 {%- for product in collection.products limit: products_to_display -%}
                   {% render 'product-card',
                     product: product,
+                    show_swatches: show_swatches,
                     show_img_onhover: true,
                     show_percentage: settings.show_percentage,
                     show_countdown: section.settings.show_countdown,

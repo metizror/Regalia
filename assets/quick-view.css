@@ -23,7 +23,9 @@
 .quick-view-content .btn-copy-quick:hover{
     opacity: .5;
 }
-
+body #quickViewModal .product-card-swatches{
+  display:block;
+}
 @media (min-width:769px) and (max-width: 1440px) {
   .quick-view-content .product-gallery {
     width: calc(50% - 32px);

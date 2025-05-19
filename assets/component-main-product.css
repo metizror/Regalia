@@ -171,8 +171,9 @@ p.discount-percentage {
   background-color: #fff;
 }
 
-.product-form__submit {
+.mainproduct .product-form__submit {
   padding: 12px 15px;
+  width:100%;
 }
 
 .checkout-btn .qua-atc-btn {

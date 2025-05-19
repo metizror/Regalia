@@ -408,12 +408,6 @@
     "settings": [
       {
         "type": "checkbox",
-        "id": "color_swatches",
-        "label": "t:settings_schema.product.settings.color_swatches.label",
-        "default": true
-      },
-      {
-        "type": "checkbox",
         "id": "show_vendor",
         "label": "t:settings_schema.product.settings.show_vendor.label",
         "default": true

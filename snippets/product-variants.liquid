@@ -159,7 +159,7 @@
                     assign color_count = color_count | plus: 1
                   -%}
                   <div
-                    class="color-variant  {% if option.selected_value == value %}checked{% endif %}"
+                    class="color-variant variant-option {% if option.selected_value == value %}checked{% endif %}"
                     value="{{ value | downcase }}"
                     data-variant-name="{{ value }}"
                     data-color="{{ value | downcase }}"
@@ -168,7 +168,7 @@
                     <input type="radio" class="color-variant-radio" name="option[Color]" value="{{ value }}">
                     <label
                       tabindex="0"
-                      class="color-swatch variant-option color-swatch--gold {% if variant.inventory_quantity <= 0 %}soldout{% endif %}"
+                      class="color-swatch  color-swatch--gold {% if variant.inventory_quantity <= 0 %}soldout{% endif %}"
                       aria-label="{{ product.title }} - {{ value }}"
                       style="background-image: url({{ color_image }}); border: 1px solid {{ color_swatch_fallback }};"
                     >
