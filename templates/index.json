@@ -500,8 +500,8 @@
         "video": "shopify://files/videos/regalia-video.mp4",
         "video_autoplay": false,
         "video_mute": false,
-        "top_spacing": 20,
-        "bottom_spacing": 20
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "instagram_aBkRYt": {
@@ -907,6 +907,7 @@
       "blocks": {
         "location_PJTBqy": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "Blacktown NSW",
             "address": "<p>15/12 Clifton Street, Blacktown NSW, 2148</p>",
@@ -917,6 +918,7 @@
         },
         "location_yVPkAx": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "Circular Quay",
             "address": "<p>30 Pitt Street, Sydney Harbour Marriott, 2000</p>",
@@ -927,6 +929,7 @@
         },
         "location_hHgkPJ": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "North Sydney",
             "address": "<p>Level 7 Northpoint Tower, 100 Miller St, 2060</p>",
@@ -934,12 +937,22 @@
             "btn_text": "View details",
             "btn_link": "https://maps.app.goo.gl/q6K63qzQXBqzFDDr8"
           }
+        },
+        "location_83JdAL": {
+          "type": "location",
+          "settings": {
+            "address_title": "USA",
+            "address": "<p>1309 Coffeen Ave, Sheridan, WY 82801, USA</p>",
+            "btn_text": "View details",
+            "btn_link": "https://maps.app.goo.gl/HYuLUf4TFj17hS5UA"
+          }
         }
       },
       "block_order": [
         "location_PJTBqy",
         "location_yVPkAx",
-        "location_hHgkPJ"
+        "location_hHgkPJ",
+        "location_83JdAL"
       ],
       "settings": {
         "enable_full_width": false,
