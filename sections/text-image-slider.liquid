@@ -19,11 +19,11 @@
       padding-left:{{ block.settings.text_padding }}%;
     }
     .overlay-slider-{{ block.id }} .bg-image-wrapper{
-          right:0;
+      right:0;
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
-        position: absolute;
-        inset: 0;
+      position: absolute;
+      inset: 0;
       background: {{ block.settings.overlay_bg }};
       z-index: 1;
     }
@@ -99,11 +99,9 @@
                       </{{ block.settings.title_size }}>
                     {%- endif -%}
                     {%- if block.settings.description -%}
-                      <span class="iwt-description">
                         <{{ block.settings.description_size }} class="iwt-description">
                           {{ block.settings.description | strip_html }}
                         </{{ block.settings.description_size }}>
-                      </span>
                     {%- endif -%}
                     {%- if block.settings.btn_text -%}
                       <a href="{{ block.settings.btn_link }}" class="iwt-btn btn btn-{{ block.settings.btn_type }}">
@@ -579,11 +577,6 @@
         {
           "type": "header",
           "content": "t:sections.general.color.content"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "t:sections.general.color.background_color.label"
         },
         {
           "type": "color",

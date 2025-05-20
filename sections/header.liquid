@@ -137,7 +137,7 @@
     {% unless section.settings.logo_position == 'top-center' %}
       <div class="language-location-content cart-hide-tablet">
         <div class="localization-country">
-          <div tabindex="0" class="language-content-data mobile-hide">
+          <div class="language-content-data mobile-hide">
            {% if section.settings.enable_country_selector %} 
             {%- if localization.available_languages.size > 1 -%}
               <div>
@@ -146,7 +146,7 @@
             {%- endif -%}
           {% endif %}
           </div>
-          <div tabindex="0" class="desktop-localization-wrapper mobile-tablet-hide">
+          <div class="desktop-localization-wrapper mobile-tablet-hide">
            {%- if section.settings.enable_language_selector  %} 
             <localization-form data-prevent-hide>
               {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}

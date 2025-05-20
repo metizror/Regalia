@@ -19,6 +19,18 @@
     color: {{ section.settings.btn_hover_color }};
     background-color: {{ section.settings.bg_hover_color }};
   }
+  .section-popup .content-wrapper .popup-heading::after {
+    {% if section.settings.content_alignment == 'center' %}
+      left: 40%;
+      right: 40%;
+    {% elsif section.settings.content_alignment == 'left' %}
+      left: 22%;
+      right: 58%;
+    {% elsif section.settings.content_alignment == 'right' %}
+      left: 57%;
+      right: 23%;
+    {% endif %}
+  }
   {%- endstyle -%}
 
   {{ 'component-popup.css' | asset_url | stylesheet_tag: preload: true }}
@@ -26,7 +38,7 @@
   <static-popup class="popup-index" data-mode="{{ section.settings.popup_mode }}" data-time-to-interact="{{ section.settings.time_to_interact | times: 1000 }}">
     <div class="popup-body">
       <button type="button" id="sectionPopClose" aria-label="Close popup" class="popup-close">{%- render 'icons', icon: 'close' -%}</button>
-      <div class="content-wrapepr">
+      <div class="content-wrapper">
         {% form 'customer' %}
           {%- if form.posted_successfully? -%}
             <p class="submit_success h5" ms-aos data-ms-delay="100">

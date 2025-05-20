@@ -150,8 +150,7 @@
 
   .faq-container.reverse .faq-content {
     order: 2;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 0 15px;
   }
 
   .faq-container lazy-image.faq-image img {
