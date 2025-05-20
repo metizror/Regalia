@@ -9,6 +9,11 @@
   .product-info-content .product-block{
     margin-top:{{ section.settings.block_space }}px;
   }
+  {% for block in section.blocks %}
+    .product-title a {
+      color: {{ block.settings.heading_color }}
+    }
+  {%  endfor %}
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -25,7 +30,6 @@
 
 {% assign product = section.settings.product %}
 {% assign current_variant = product.selected_or_first_available_variant %}
-{% assign show_percentage = section.settings.show_percentage %}
 {% assign quick_variant_type = settings.variant_type %}
 
 <section class="featured-product {{ quick_variant_type }}">
@@ -347,72 +351,6 @@
       "unit":"px",
       "label":"t:sections.product.settings.block_space.label",
       "default":20
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.font_size.content",
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
-      "options": [
-        {
-          "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
-        },
-        {
-          "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
-        },
-        {
-          "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label"
-        },
-        {
-          "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
-        },
-        {
-          "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
-        },
-        {
-          "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
-        }
-      ],
-      "default": "h3"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.alignment.content",
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_percentage",
-      "label": "t:sections.product.settings.show_percentage.label",
-      "default": true
     }
   ],
   "blocks": [
@@ -431,6 +369,12 @@
             { "value": "h2", "label": "t:sections.general.font_size.large_size.label" }
           ],
           "default": "h2"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "t:sections.general.color.heading_color.label",
+          "default": "#153D47"
         }
       ]
     },
@@ -454,28 +398,6 @@
           "id": "description_label",
           "label": "t:sections.product.blocks.description.title",
           "default": "Description"
-        }
-      ]
-    },
-    {
-      "type": "variants",
-      "name": "t:sections.product.blocks.variants.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "variant_type",
-          "label": "t:sections.product.blocks.variants.variant_type.content",
-          "options": [
-            {
-              "value": "dropdown",
-              "label": "t:sections.product.blocks.variants.variant_type.dropdown"
-            },
-            {
-              "value": "buttons",
-              "label": "t:sections.product.blocks.variants.variant_type.radio"
-            }
-          ]
         }
       ]
     },
@@ -591,12 +513,6 @@
       "name": "t:sections.product.blocks.buy_button.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_qnt_picker",
-          "label": "t:sections.product.blocks.buy_button.show_quantity_picker.label",
-          "default": true
-        },
         {
           "type": "checkbox",
           "id": "show_gift_card_recipient",

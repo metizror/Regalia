@@ -43,8 +43,8 @@
       class="featured-percentage {{ discount_percentage }}"
       data-sale-percent
     >
-      {% if discount_percentage >= 1 %}
-        <p class="discount-percentage">
+      {% if show_percentage and discount_percentage >= 1 %}
+        <p class="discount-percentage test">
           {{ 'product.save' | t }}
           {{ discount_percentage | round }}%
         </p>

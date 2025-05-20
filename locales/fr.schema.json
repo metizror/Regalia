@@ -734,6 +734,7 @@
           "label": "Couleur du titre principal"
         },
         "background_image": {
+          "label": "Image de fond",
           "desktop": {
             "label": "Image de fond (bureau)"
           },
@@ -994,10 +995,10 @@
             "multicolumn_icons": {
               "label": "Icône SVG"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "Titre"
             },
-            "multicolumne_text": {
+            "multicolumn_text": {
               "label": "Texte"
             }
           }
@@ -1790,8 +1791,14 @@
             "logo": {
               "label": "Logo du magasin"
             },
+            "logo_width": {
+              "label": "Largeur du logo"
+            },
             "info": {
               "label": "Informations sur le magasin"
+            },
+            "footer_newsletter": {
+              "label": "Lettre d'information"
             },
             "data": {
               "icon": {
@@ -2190,7 +2197,7 @@
             "retro_style": "Rétro",
             "dark_style": "Sombre",
             "night_style": "Nuit",
-            "aubergine": "Aubergine"
+            "aubergine_style": "Aubergine"
           }
         }
       },
