@@ -540,7 +540,8 @@
       "label": "Enter store using password:",
       "placeholder": "Enter password",
       "button": "Enter",
-      "admin_link_html": "Are you the store owner? <a href=\"/admin\">Log in here</a>"
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\">Log in here</a> <br> Store password : Regalia",
+      "store_password":"Store password : Regalia"
     },
     "signup": {
       "success": "Thanks for your interest! We'll be sure to keep you up to date."

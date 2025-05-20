@@ -124,14 +124,6 @@
   display: inline;
 }
 
-.featured-collection-section .product-price.compare--price-grt .price__sale {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .product-price.compare--price-grt .price__sale {
   display: flex;
   align-items: center;
