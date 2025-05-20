@@ -638,6 +638,9 @@
         "background_color": {
           "label": "Arrière-plan"
         },
+        "multicolumn_bg_color": {
+          "label": "Arrière-plan multicolonne"
+        },
         "heading_color": {
           "label": "Couleur du titre"
         },
@@ -940,7 +943,7 @@
               "retro_style": "Rétro",
               "dark_style": "Sombre",
               "night_style": "Nuit",
-              "aubergine": "Aubergine"
+              "aubergine_style": "Aubergine"
             }
           },
           "contact_form": {
@@ -1380,8 +1383,14 @@
           "article_heading_color": {
             "label": "Titre de l'article"
           },
+          "article_sidebar_heading_color": {
+            "label": "En-tête de la barre latérale"
+          },
           "article_text_color": {
-            "label": "Contenu de l'article et icônes"
+            "label": "Contenu de l'article"
+          },
+          "article_icon_color": {
+            "label": "Icône d'article"
           },
           "field_background": {
             "label": "Fond de champ"
@@ -2806,7 +2815,7 @@
         "layout": {
           "label": "Mise en page"
         },
-        "enbale_auto_scroll": {
+        "enable_auto_scroll": {
           "label": "Activer le défilement automatique"
         },
         "speed_delay": {
@@ -2840,7 +2849,7 @@
         "image_overlay_text": {
           "name": "Texte superposé à l'image",
           "settings": {
-            "meadia": {
+            "media": {
               "content": "Média",
               "bg_image": {
                 "label": "Image d’arrière-plan"

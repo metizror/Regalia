@@ -119,7 +119,7 @@
         "block_spc": 20,
         "media_width": "medium",
         "media_ratio": "original",
-        "fill_media_zooom": true,
+        "fill_media_zoom": true,
         "show_thumbs": true,
         "image_zoom": true
       }

@@ -1,6 +1,6 @@
 {{ 'map.css' | asset_url | stylesheet_tag: preload: true }}
 
-<section class="map section-{{ section.id }}-padding">
+<div class="map">
   <div class="map-wrapper" style="background-color: {{ section.settings.section_bg_color }};">
     <div class="{% if section.settings.enable_full_width %}full-width{% else %}container{% endif %}">
       {%- if section.settings.heading != blank -%}

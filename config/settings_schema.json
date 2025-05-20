@@ -468,7 +468,7 @@
       },
       {
         "type": "checkbox",
-        "id": "fill_media_zooom",
+        "id": "fill_media_zoom",
         "label": "t:settings_schema.quickview.settings.media_zoom.label",
         "default": true,
         "info": "t:settings_schema.quickview.settings.media_zoom.info"
@@ -550,7 +550,7 @@
       },
       {
         "type": "checkbox",
-        "id": "tiles_fill_media_zooom",
+        "id": "tiles_fill_media_zoom",
         "label": "t:settings_schema.product_tiles.settings.tiles_media_zoom.label",
         "default": true,
         "info": "t:settings_schema.product_tiles.settings.tiles_media_zoom.info"

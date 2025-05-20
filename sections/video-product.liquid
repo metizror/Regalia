@@ -5,7 +5,7 @@
     --bg-color: {{ section.settings.bg_color }};
     --column-gap: {{ section.settings.spacing }}px;
   }
-  .vidpro-content .videpro-heading{
+  .vidpro-content .vidpro-heading{
     color: {{ section.settings.heading_color }};
   }
   .grid-2-column-desk .grid-item{
@@ -35,8 +35,8 @@
   }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
-      padding-top: {{ section.settings.padding_top | times: 0 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.25 | round: 0 }}px;
     }
     .grid-2-column-tablet .grid-item{
       width:calc(50% - {{ section.settings.spacing }}px);

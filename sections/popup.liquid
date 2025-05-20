@@ -65,7 +65,7 @@
         {% endform %}
       </div>
       {%- if section.settings.pop_image -%}
-        <div class="img-wrapper{%- if section.settings.tiles_fill_media_zooom %} media-fill{%- endif %}" style="--media-ratio: {{ 1 | divided_by: section.settings.pop_image.aspect_ratio | times: 100 | append: '%' }}">
+        <div class="img-wrapper{%- if section.settings.tiles_fill_media_zoom %} media-fill{%- endif %}" style="--media-ratio: {{ 1 | divided_by: section.settings.pop_image.aspect_ratio | times: 100 | append: '%' }}">
           <lazy-image>
             <img 
               src="{{ section.settings.pop_image | image_url: width: 1 }}" 
@@ -129,7 +129,7 @@
     },
     {
       "type": "checkbox",
-      "id": "tiles_fill_media_zooom",
+      "id": "tiles_fill_media_zoom",
       "label": "t:sections.popup.settings.zoom_image_fill_space.label",
       "default": true
     },
