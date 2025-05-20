@@ -734,6 +734,7 @@
           "label": "મુખ્ય હેડિંગનો રંગ"
         },
         "background_image": {
+          "label": "બેકગ્રાઉન્ડ છબી",
           "desktop": {
             "label": "બેકગ્રાઉન્ડ છબી (ડેસ્કટોપ)"
           },
@@ -943,7 +944,7 @@
               "retro_style": "રેત્રો",
               "dark_style": "ડાર્ક",
               "night_style": "રાત્રિ",
-              "aubergine": "ઑબર્જિન"
+              "aubergine_style": "ઑબર્જિન"
             }
           },
           "contact_form": {
@@ -994,10 +995,10 @@
             "multicolumn_icons": {
               "label": "એસવીજી આઈકોન"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "શીર્ષક"
             },
-            "multicolumne_text": {
+            "multicolumn_text": {
               "label": "ટેક્સ્ટ"
             }
           }
@@ -1790,8 +1791,14 @@
             "logo": {
               "label": "સ્ટોર લોગો"
             },
+            "logo_width": {
+              "label": "લોગોની પહોળાઈ"
+            },
             "info": {
               "label": "સ્ટોર માહિતી"
+            },
+            "footer_newsletter": {
+              "label": "સમાચાર પત્ર"
             },
             "data": {
               "icon": {
