@@ -907,7 +907,6 @@
       "blocks": {
         "location_PJTBqy": {
           "type": "location",
-          "disabled": true,
           "settings": {
             "address_title": "Blacktown NSW",
             "address": "<p>15/12 Clifton Street, Blacktown NSW, 2148</p>",
