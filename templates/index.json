@@ -907,6 +907,7 @@
       "blocks": {
         "location_PJTBqy": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "Blacktown NSW",
             "address": "<p>15/12 Clifton Street, Blacktown NSW, 2148</p>",
@@ -917,6 +918,7 @@
         },
         "location_yVPkAx": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "Circular Quay",
             "address": "<p>30 Pitt Street, Sydney Harbour Marriott, 2000</p>",
@@ -927,6 +929,7 @@
         },
         "location_hHgkPJ": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "address_title": "North Sydney",
             "address": "<p>Level 7 Northpoint Tower, 100 Miller St, 2060</p>",
