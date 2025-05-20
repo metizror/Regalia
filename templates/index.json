@@ -304,7 +304,8 @@
         "title_3rKcTt": {
           "type": "title",
           "settings": {
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#153d47"
           }
         },
         "sku_gGNwHT": {
@@ -332,16 +333,9 @@
           "type": "product_stock",
           "settings": {}
         },
-        "variants_aznaTy": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "dropdown"
-          }
-        },
         "buy_button_Qq43TH": {
           "type": "buy_button",
           "settings": {
-            "show_qnt_picker": true,
             "show_gift_card_recipient": true
           }
         }
@@ -353,17 +347,14 @@
         "info_text_GLxAKd",
         "product_sold_6xXnH4",
         "product_stock_8bMKTC",
-        "variants_aznaTy",
         "buy_button_Qq43TH"
       ],
+      "disabled": true,
       "settings": {
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
-        "block_space": 20,
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "show_percentage": true
+        "block_space": 20
       }
     },
     "text_image_slider_AfGwGD": {
@@ -400,7 +391,6 @@
             "btn_text": "EXPLORE NOW",
             "btn_link": "shopify://collections",
             "btn_type": "primary",
-            "bg_color": "",
             "text_color": "#ffffff",
             "description_color": "#ffffff",
             "btn_text_color": "#ffffff",
