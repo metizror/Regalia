@@ -476,7 +476,7 @@ textarea::placeholder {
 .btn,
 .shopify-payment-button__button--unbranded.shopify-payment-button__button {
 	text-align: center;
-	padding: 0.6rem 1.1rem;
+	padding: 0.8rem 1.1rem;
 	border: 1px solid var(--white);
 	color: var(--white);
 	font-family: var(--button-font-family);

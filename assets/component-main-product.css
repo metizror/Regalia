@@ -403,12 +403,24 @@ p.discount-percentage {
 .multiple-option-variant {
   position: relative;
 }
-
-.color-swatch.soldout {
+.color-variant.soldout label:before{
+  content: "";
+  top: 50%;
+  left: 0px;
+  height: 1px;
+  opacity: 1;
+  border: none;
+  position: absolute;
+  visibility: visible;
+  width: 100%;
+  background-color: var(--color-base);
+  transform: translateY(-50%) rotate(-25deg);
   opacity: 0.5;
 }
-
-.color-swatch.soldout::before {
+.color-variant.soldout label{
+  opacity: 0.5;
+}
+.color-swatch.soldout:before {
   content: "";
   top: 50%;
   left: 0px;

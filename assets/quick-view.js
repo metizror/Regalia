@@ -482,6 +482,22 @@ openPhotoSwipeAtIndex = (index) => {
         updateStockBar(variantStock);
       } else {
         console.error(`No below side match found for: "${combinedVariant}"`);
+        atcButton.classList.add("unavailable");
+        atcBtnContent.textContent = "Unavailable";
+        atcBtnContent.classList.remove("effect-text");
+        atcButton.setAttribute("disabled", "disabled");
+        stockText.style.display = "none";
+        checkoutBtn.style.display = "none";
+        stockBarContainer.style.display = "none";
+        if(instockLabel){
+              instockLabel.textContent = "unavailable";
+        }
+        if (!document.querySelector(".out-of-stock-message")) {
+        const outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "out-of-stock-message";
+        outOfStockDiv.textContent = "This combination is unavailable";
+        stockContent.appendChild(outOfStockDiv);
+        }
       }
       // Apply .soldout class to unavailable options
       document
