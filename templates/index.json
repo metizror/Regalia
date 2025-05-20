@@ -319,6 +319,7 @@
         },
         "info_text_GLxAKd": {
           "type": "info_text",
+          "disabled": true,
           "settings": {
             "info_text": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque..."
           }
