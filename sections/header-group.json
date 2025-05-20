@@ -51,21 +51,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "megamenu_8j39A6": {
-          "type": "megamenu",
-          "disabled": true,
-          "settings": {
-            "menu_title": "",
-            "image_1": "shopify://shop_images/57e4c4367ad505fd3021dbdb3ba9e430.png",
-            "image_1_heading": "Cushion Cut Ring",
-            "image_1_text": "Shop Now",
-            "image_1_link": "#",
-            "image_2": "shopify://shop_images/image_11.png",
-            "image_2_heading": "Cushion Cut Ring 2",
-            "image_2_text": "Shop now",
-            "image_2_link": "#"
-          }
-        },
         "megamenu_DMdzBV": {
           "type": "megamenu",
           "settings": {
@@ -82,7 +67,6 @@
         }
       },
       "block_order": [
-        "megamenu_8j39A6",
         "megamenu_DMdzBV"
       ],
       "settings": {
