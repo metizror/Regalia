@@ -117,7 +117,12 @@
   align-items: center;
   justify-content: center;
 }
-
+.featured-collection-section .product-card-swatches{
+  display:none;
+}
+.featured-collection-section .show_swatches .product-card-swatches{
+  display:block;
+}
 @keyframes typewriter {
   from {
     width: 0%;

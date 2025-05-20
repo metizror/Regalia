@@ -216,6 +216,9 @@
       "columns_desktop": {
         "label": "Nombre de produits affichés sur le bureau"
       },
+      "view_all": {
+        "label": "Voir tout"
+      },
       "show_view_all": {
         "label": "Activer \"Voir tout\" si la collection contient plus de produits que ceux affichés"
       },
@@ -252,7 +255,12 @@
     "success_msg": "Merci pour votre abonnement",
     "email_placeholder": "Entrez votre adresse e-mail",
     "email": "Entrez votre adresse e-mail",
-    "submit_btn": "S'abonner"
+    "submit_btn": "S'abonner",
+    "footer": {
+      "title": "Rejoignez notre newsletter",
+      "email": "Entrez votre adresse e-mail",
+      "privacy_policy_html": "<span class=\"agree-text\">J'accepte la</span> <a href=\"/policies/privacy-policy\" target=\"_blank\" class=\"privacy-link\">politique de confidentialité</a>"
+    }
   },
   "collection": {
     "general": {

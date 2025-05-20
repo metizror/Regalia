@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-
   // Initialize Swiper
   const thumbsSwiper = new Swiper('.gallery-thumbs', {
     spaceBetween: 26,
     direction: 'vertical',
-    slidesPerView:2.3,
+    slidesPerView: 2.3,
     watchSlidesProgress: true,
   });
 
@@ -18,26 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
       swiper: thumbsSwiper,
     },
   });
-}); 
-function calculateDeliveryDateRange(startOffset, endOffset) {
-  const today = new Date();
-  const startDate = new Date(today);
-  const endDate = new Date(today);
 
-  // Get values dynamically from the data attributes
-  startDate.setDate(today.getDate() + startOffset);
-  endDate.setDate(today.getDate() + endOffset);
-
-  const options = { month: "short", day: "numeric" };
-  const formattedStartDate = startDate.toLocaleDateString("en-US", options);
-  const formattedEndDate = endDate.toLocaleDateString("en-US", options);
-
-  return `${formattedStartDate} - ${formattedEndDate}`;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+  // Delivery date range display
   const deliveryElement = document.getElementById("estimated-delivery");
-
   if (deliveryElement) {
     const startOffset =
       parseInt(deliveryElement.getAttribute("data-start")) || 2;
@@ -48,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     const estimatedText =
-      document.querySelector(".delivery-text").getAttribute("data-text") || "";
+      document.querySelector(".delivery-text")?.getAttribute("data-text") || "";
 
     // Create a span for estimatedText with a class
     const estimatedTextSpan = document.createElement("span");
@@ -65,124 +47,93 @@ document.addEventListener("DOMContentLoaded", function () {
     deliveryElement.appendChild(estimatedTextSpan);
     deliveryElement.appendChild(deliveryDateSpan);
   }
-});
 
-function openPopup() {
-  document.getElementById("popupOverlay").style.display = "block";
-  document.addEventListener("keydown", handleKeyPress);
-  document.body.classList.add("popupOverlay-body");
-}
+  // Social share copy
+  window.CopyTolink = function(inputId) {
+    var inputField = document.getElementById(inputId);
+    var urlToCopy = inputField.getAttribute("data-url");
+    navigator.clipboard
+      .writeText(urlToCopy)
+      .then(function () {
+        inputField.value = "Link copied to clipboard!";
+        setTimeout(() => {
+          inputField.value = urlToCopy;
+        }, 2000);
+      })
+      .catch(function (err) {
+        console.error("Failed to copy: ", err);
+      });
+  };
 
-function closePopup() {
-  document.getElementById("popupOverlay").style.display = "none";
-  document.removeEventListener("keydown", handleKeyPress);
-  document.body.classList.remove("popupOverlay-body");
-}
+  // Pickup content
+  window.pickupcontent = function() {
+    const variantIdElement = document.querySelector(
+      ".product-block.block-buy_button .product-variant-id"
+    );
+    if (!variantIdElement) {
+      console.error("Variant ID element not found.");
+      return;
+    }
+    const variantId = variantIdElement.value;
 
-function handleKeyPress(e) {
-  if (e.key === "Escape") {
-    closePopup();
-  }
-}
-// Close popup when clicking outside the content
-window.onclick = function (event) {
-  const overlay = document.getElementById("popupOverlay");
-  if (event.target === overlay) {
-    closePopup();
-  }
-};
+    const baseUrlElement = document.querySelector(
+      ".product-single__store-availability-container"
+    );
+    const baseUrl = baseUrlElement?.getAttribute("data-base-url");
+    if (!baseUrl) {
+      console.error("Base URL not found.");
+      return;
+    }
 
-//  Product page social-share
-function CopyTolink(inputId) {
-  var inputField = document.getElementById(inputId);
-  var urlToCopy = inputField.getAttribute("data-url"); // Get the data-url attribute value
+    const variantSectionUrl = `${baseUrl}/variants/${variantId}/?section_id=pickup-availability`;
+    fetch(variantSectionUrl)
+      .then((response) => response.text())
+      .then((text) => {
+        const container = document.querySelector(
+          "[data-store-availability-container]"
+        );
+        if (!container) {
+          console.error("Store availability container not found.");
+          return;
+        }
+        const pickupAvailabilityHTML = new DOMParser()
+          .parseFromString(text, "text/html")
+          .querySelector(".shopify-section");
+        if (!pickupAvailabilityHTML) {
+          console.error("Pickup availability section not found in the response.");
+          return;
+        }
+        container.innerHTML = "";
+        container.appendChild(pickupAvailabilityHTML);
 
-  navigator.clipboard
-    .writeText(urlToCopy)
-    .then(function () {
-      inputField.value = "Link copied to clipboard!"; // Update input field text
-      setTimeout(() => {
-        inputField.value = urlToCopy; // Reset back to original URL after 2 seconds
-      }, 2000);
-    })
-    .catch(function (err) {
-      console.error("Failed to copy: ", err);
-    });
-}
+        const checkElement = document.querySelector(
+          ".js-modal-open-pickup-availability-modal"
+        );
+        const popUpcontent = document.querySelector(
+          ".pickup-availabilities-modal"
+        );
+        const closePopup = document.querySelector(
+          ".pickup-availabilities-modal__close"
+        );
+        if (checkElement && popUpcontent && closePopup) {
+          checkElement.addEventListener("click", function () {
+            popUpcontent.classList.add("open");
+          });
+          closePopup.addEventListener("click", function () {
+            popUpcontent.classList.remove("open");
+          });
+        }
+      })
+      .catch((e) => {
+        console.error("Error fetching variant section:", e);
+      });
+  };
 
-// Pickupcontent
-function pickupcontent() {
-  const variantIdElement = document.querySelector(
-    ".product-block.block-buy_button .product-variant-id"
-  );
-  if (!variantIdElement) {
-    console.error("Variant ID element not found.");
-    return;
-  }
-  const variantId = variantIdElement.value;
-
-  const baseUrlElement = document.querySelector(
-    ".product-single__store-availability-container"
-  );
-  const baseUrl = baseUrlElement.getAttribute("data-base-url");
-  if (!baseUrl) {
-    console.error("Base URL not found.");
-    return;
-  }
-
-  const variantSectionUrl = `${baseUrl}/variants/${variantId}/?section_id=pickup-availability`;
-  fetch(variantSectionUrl)
-    .then((response) => response.text())
-    .then((text) => {
-      const container = document.querySelector(
-        "[data-store-availability-container]"
-      );
-      if (!container) {
-        console.error("Store availability container not found.");
-        return;
-      }
-      const pickupAvailabilityHTML = new DOMParser()
-        .parseFromString(text, "text/html")
-        .querySelector(".shopify-section");
-      if (!pickupAvailabilityHTML) {
-        console.error("Pickup availability section not found in the response.");
-        return;
-      }
-      container.innerHTML = "";
-      container.appendChild(pickupAvailabilityHTML);
-
-      const checkElement = document.querySelector(
-        ".js-modal-open-pickup-availability-modal"
-      );
-      const popUpcontent = document.querySelector(
-        ".pickup-availabilities-modal"
-      );
-      const closePopup = document.querySelector(
-        ".pickup-availabilities-modal__close"
-      );
-      if (checkElement && popUpcontent && closePopup) {
-        console.log("Both elements found. Adding event listener...");
-        checkElement.addEventListener("click", function () {
-          popUpcontent.classList.add("open");
-        });
-        closePopup.addEventListener("click", function () {
-          popUpcontent.classList.remove("open");
-        });
-      } else {
-        console.log("One or both elements not found!");
-      }
-    })
-    .catch((e) => {
-      console.error("Error fetching variant section:", e);
-    });
-}
-
-// product option variant base change price,swatch color
-document.addEventListener("DOMContentLoaded", function () {
+  // Product option variant base change price, swatch color
   function getCombinedVariant() {
     const checkedColor =
-        document.querySelector(".color-variant.checked") ||
-        document.querySelector(".multiple-option-variant.checked"),
+      document.querySelector(".color-variant.checked") ||
+      document.querySelector(".multiple-option-variant.checked"),
       productVariant = document.querySelector(".product-variant-id"),
       setPricedetails = document.querySelector(".price__sale"),
       setSkuContent = document.querySelector(".sku-content"),
@@ -229,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectVariantElement) {
               selectVariantElement.textContent = variantName;
             }
-            if(selectDropdownElement){
+            if (selectDropdownElement) {
               selectDropdownElement.textContent = variantName;
             }
           }
@@ -238,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (selectedVariants.length === 0) return;
     const combinedVariant = selectedVariants.join(" / ");
+    console.log("Looking for:", combinedVariant);
     const matchingOption = document.querySelector(
       `.combination_id option[data-variant-name="${combinedVariant}"]`
     );
@@ -246,14 +198,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (matchingOption) {
       const variantId = matchingOption.value;
-      productVariant.value = variantId;
-      stickyVariant.value = variantId;
+      if (productVariant) productVariant.value = variantId;
+      if (stickyVariant) stickyVariant.value = variantId;
       pickupcontent();
 
       const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
       matchingOption.setAttribute("selectedVariant", "true");
-      if (atcBtnContent) {
+      if (variantStock === 0) {
+         atcBtnContent.textContent = "Sold Out";
+      }
+      else{
+         atcBtnContent.textContent = "Add to Cart";
+      }
+    
+      if (atcBtnContent && atcButton && instockLabel && stockText && checkoutBtn && stockBarContainer && stockContent) {
         if (variantStock === 0) {
+            console.log(variantStock);
           instockLabel.textContent = "OUT OF STOCK";
           atcBtnContent.textContent = "Sold Out";
           atcBtnContent.classList.remove("effect-text");
@@ -279,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (outOfStockDiv) outOfStockDiv.remove();
         }
       }
-      if (stickyBtnContent) {
+      if (stickyBtnContent && stickyButton) {
         if (variantStock === 0) {
           stickyBtnContent.textContent = "Sold Out";
           stickyBtnContent.classList.remove("effect-text");
@@ -326,48 +286,54 @@ document.addEventListener("DOMContentLoaded", function () {
       soldMessage.innerHTML = `<span class="prosold-text">${randomSold} products sold</span><span class="lasthours-text"> in the last ${hours} hours.</span>`;
     }
 
+    // Apply .soldout class to unavailable options
+// Replace ONLY this block in your getCombinedVariant() function:
+// "Apply .soldout class to unavailable options" section
 
-     // Apply .soldout class to unavailable options
-    document
-      .querySelectorAll(".mainproduct .product-options-content fieldset")
-      .forEach((fieldset) => {
-        fieldset
-          .querySelectorAll(".mainproduct .variant-option")
-          .forEach((option) => {
-            const optionVariant =
-              option.getAttribute("data-variant-name") ||
-              option.getAttribute("data-multiple-variant");
+document
+  .querySelectorAll(".mainproduct .product-options-content fieldset")
+  .forEach((fieldset, fieldsetIndex) => {
+    fieldset
+      .querySelectorAll(".variant-option, .color-variant")
+      .forEach((option) => {
+        const optionVariant =
+          option.getAttribute("data-variant-name") ||
+          option.getAttribute("data-multiple-variant");
 
-            if (optionVariant) {
-              // let variantKey = "";
-              console.log(selectedVariants.length);
-              if (selectedVariants.length === 2) {
-                variantKey = `${selectedVariants[0]} / ${optionVariant}`;
-              } else if (selectedVariants.length === 3) {
-                variantKey = [
-                  selectedVariants[0],
-                  selectedVariants[1],
-                  selectedVariants[2],
-                ]
-                  .filter(Boolean)
-                  .join(" / ");
-              }
-              const stockOption = document.querySelector(
-                `.mainproduct .combination_id option[data-variant-name="${variantKey}"]`
-              );
-              if (
-                stockOption &&
-                parseInt(stockOption.getAttribute("data-variant-left")) === 0
-              ) {
-                option.classList.add("soldout");
-              } else {
-                option.classList.remove("soldout");
-              }
-            }
-          });
+        if (!optionVariant) return;
+
+        // If more than one variant, never mark the first fieldset's options as soldout
+        if (selectedVariants.length > 1 && fieldsetIndex === 0) {
+          option.classList.remove("soldout");
+          return;
+        }
+
+        let variantKey = "";
+        if (selectedVariants.length === 1) {
+          variantKey = optionVariant;
+        } else if (selectedVariants.length === 2) {
+          const temp = [...selectedVariants];
+          temp[fieldsetIndex] = optionVariant;
+          variantKey = temp.join(" / ");
+        } else if (selectedVariants.length === 3) {
+          const temp = [...selectedVariants];
+          temp[fieldsetIndex] = optionVariant;
+          variantKey = temp.join(" / ");
+        }
+
+        const stockOption = document.querySelector(
+          `.mainproduct .combination_id option[data-variant-name="${variantKey}"]`
+        );
+        if (
+          stockOption &&
+          parseInt(stockOption.getAttribute("data-variant-left")) === 0
+        ) {
+          option.classList.add("soldout");
+        } else {
+          option.classList.remove("soldout");
+        }
       });
-    
-    
+  });
   }
 
   function updateStockBar(currentStock) {
@@ -394,386 +360,373 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-   const sideCart = document.querySelector(".side-cartdrawer");
-        if (sideCart) {
-          sideCart.addEventListener("click", function (event) {
-            event.preventDefault();
-            updateCartDrawer();
-          });
-        }
-document.querySelectorAll(".mainproduct .product-form__submit.atc-btn").forEach((button) => {
-  const handleAddToCart = function (event) {
-    // Prevent default for both click and keydown
-    event.preventDefault();
+  // Side cart drawer
+  const sideCart = document.querySelector(".side-cartdrawer");
+  if (sideCart) {
+    sideCart.addEventListener("click", function (event) {
+      event.preventDefault();
+      updateCartDrawer();
+    });
+  }
 
-    // Only proceed if it's a click or Enter key
-    if (event.type === "click" || (event.type === "keydown" && (event.key === "Enter" || event.keyCode === 13))) {
-      console.log("hey clicked");
-      let form = this.closest("form");
-      let formData = new FormData(form);
+  // Add to cart button
+  document.querySelectorAll(".mainproduct .product-form__submit.atc-btn").forEach((button) => {
+    const handleAddToCart = function (event) {
+      event.preventDefault();
+      if (event.type === "click" || (event.type === "keydown" && (event.key === "Enter" || event.keyCode === 13))) {
+        let form = this.closest("form");
+        let formData = new FormData(form);
 
-      const quantityPicker = document.querySelector(
-        ".mainproduct quantity-picker input[name='quantity']"
-      );
-      if (quantityPicker) {
-        let quantity = quantityPicker.value;
-        formData.set("quantity", quantity);
-      }
-
-      fetch("/cart/add.js", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Product Added:", data);
-          updateCartDrawer();
-        })
-        .catch((error) =>
-          console.error("Error adding product:", error)
+        const quantityPicker = document.querySelector(
+          ".mainproduct quantity-picker input[name='quantity']"
         );
-    }
-  };
-
-  button.addEventListener("click", handleAddToCart);
-  button.addEventListener("keydown", handleAddToCart);
-});
-
-
-
-           // Function to open cart drawer
-          function openCartDrawer() {
-            const cartDrawer = document.getElementById("cart-drawer");
-            document.documentElement.classList.add("js-drawer-open");
-            cartDrawer.classList.add("open");
-
-            attachCartDrawerOutsideClickListener();
-          }
-
-          function closeCartDrawer() {
-            const cartDrawer = document.getElementById("cart-drawer");
-            document.documentElement.classList.remove("js-drawer-open");
-            cartDrawer.classList.remove("open");
-          }
-
-
-          function removeCartDrawer() {
-            const cartDrawerIcon = document.querySelector(".cartdrawer-icon");
-            if (cartDrawerIcon) {
-                cartDrawerIcon.addEventListener("click", function () {
-                    closeCartDrawer();
-                });
-            }
+        if (quantityPicker) {
+          let quantity = quantityPicker.value;
+          formData.set("quantity", quantity);
         }
 
-          function attachCartDrawerOutsideClickListener() {
-            document.addEventListener("click", function (event) {
-              const cartDrawer = document.getElementById("cart-drawer");
-              const isClickInside = cartDrawer.contains(event.target);
-          
-              // Close only if click is outside cart drawer
-              if (!isClickInside && cartDrawer.classList.contains("open")) {
-                document.documentElement.classList.remove("js-drawer-open");
-                cartDrawer.classList.remove("open");
-              }
-            });
-          }
-
-          // Function to update the cart drawer dynamically
-          function updateCartDrawer() {
-            fetch("/?sections=cart-drawer")
-              .then((response) => response.json())
-              .then((data) => {
-                let parser = new DOMParser();
-                let doc = parser.parseFromString(
-                  data["cart-drawer"],
-                  "text/html"
-                );
-
-                // Update cart drawer content
-                let updatedCartDrawer = doc.querySelector("#cart-drawer");
-                let cartDrawer = document.querySelector("#cart-drawer");
-                if (updatedCartDrawer && cartDrawer) {
-                  cartDrawer.innerHTML = updatedCartDrawer.innerHTML;
-                }
-
-                // Update total price
-                let updatedTotalPrice = doc.querySelector(".totals__total-value");
-                if (updatedTotalPrice) {
-                  document.querySelector(".totals__total-value").innerHTML =
-                    updatedTotalPrice.innerHTML;
-                }
-
-                fetch("/cart.js")
-                  .then((res) => res.json())
-                  .then((cart) => {
-                    let cartItemCount = cart.item_count; 
-                    let headerCartCount =
-                      document.querySelector("[data-cart-count]");
-                    let drawerCartCount = document.querySelector(
-                      "[data-cartdrawer-count]"
-                    );
-
-                    if (headerCartCount) {
-                      headerCartCount.textContent = `${cartItemCount}`;
-                    }
-                    if (drawerCartCount) {
-                      drawerCartCount.textContent = `(${cartItemCount})`;
-                    }
-                    if (cartItemCount > 0 && !document.getElementById("cart-drawer").classList.contains("open")) {
-                      openCartDrawer();
-                    }
-                  })
-                  .catch((error) =>
-                    console.error("Error fetching cart count:", error)
-                  );
-                  
-                attachRemoveItemEvents();
-                attachQuantityUpdateEvents();
-                addTocart();
-                removeCartDrawer();
-                // openCartDrawer(); 
-              })
-              .catch((error) => console.error("Error updating cart:", error));
-          }
-
-
-          function attachRemoveItemEvents() {
-            document.querySelectorAll(".cart-remove-link").forEach((button) => {
-              button.addEventListener("click", function (event) {
-                event.preventDefault();
-      
-                let lineIndex = this.getAttribute("data-line");
-                console.log("line", lineIndex);
-                if (!lineIndex) {
-                  console.error("Error: Line index not found!");
-                  return;
-                }
-      
-                // Remove item using AJAX
-                fetch("/cart/change.js", {
-                  method: "POST",
-                  headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    line: parseInt(lineIndex),
-                    quantity: 0,
-                  }),
-                })
-                  .then((response) => response.json())
-                  .then((data) => {
-                    console.log("Item removed:", data);
-                    if (data.item_count === 0) {
-                      document.querySelector(".cart-items").innerHTML = `
-                        <div class="empty-cart">
-                          <h1 class="h3">Hmm... looks like your bag is empty.</h1>
-                          <a href="/collections/all" class="btn btn-secondary">
-                            Continue shopping
-                          </a>
-                        </div>
-                      `;
-                    } else {
-                      updateCartDrawer();
-                    }
-                  })
-                  .catch((error) => console.error("Error removing item:", error));
-              });
-            });
-          }
-      
-          function attachQuantityUpdateEvents() {
-            document.querySelectorAll("#cart-drawer .qnt-input").forEach((button) => {
-              button.addEventListener("click", function () {
-                let quantityPicker = this.closest(".qnt-input-wrapper");
-                if (!quantityPicker) {
-                  console.error("Error: .quantity-picker not found!");
-                  return;
-                }
-                let quantityInput = quantityPicker.querySelector(
-                  "input[name='quantity']"
-                );
-                if (!quantityInput) {
-                  console.error("Error: Quantity input not found!");
-                  return;
-                }
-      
-                let quantity = parseInt(quantityInput.value);
-                let maxQuantity =
-                  parseInt(quantityInput.getAttribute("data-max")) || Infinity;
-                let lineIndex = parseInt(
-                  quantityInput.closest("tr")?.getAttribute("data-index")
-                );
-      
-                if (isNaN(lineIndex)) {
-                  console.error("Error: Line index not found!");
-                  return;
-                }
-      
-                if (
-                  this.classList.contains("qnt-inc") &&
-                  quantity < maxQuantity
-                ) {
-                  quantity++;
-                } else if (this.classList.contains("qnt-dec") && quantity > 1) {
-                  quantity--;
-                }
-      
-                updateCartItem(lineIndex, quantity);
-              });
-            });
-          }
-        
-      
-        function addTocart(){
-            document.querySelectorAll(".productadd-drawer").forEach((button) => {
-            button.addEventListener("click", function (event) {
-              event.preventDefault();
-      
-              console.log("hey clicked");
-              let form = this.closest("form");
-              let formData = new FormData(form);
-      
-              const quantityPicker = document.querySelector(
-                "input[name='quantity'].cart-drawer-col"
-              );
-              if (quantityPicker) {
-                let quantity = quantityPicker.value;
-                formData.set("quantity", quantity);
-              }
-      
-              fetch("/cart/add.js", {
-                method: "POST",
-                body: formData,
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  console.log("Product Added:", data);
-                  updateCartDrawer();
-                })
-                .catch((error) =>
-                  console.error("Error adding product:", error)
-                );
-            });
-          });
-          }
-
-           // Function to update cart item quantity
-        function updateCartItem(lineIndex, quantity) {
-          fetch("/cart/change.js", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ line: lineIndex, quantity: quantity }),
+        fetch("/cart/add.js", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            updateCartDrawer();
           })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Cart Updated:", data);
-              updateCartDrawer();
-            })
-            .catch((error) => console.error("Error updating cart:", error));
+          .catch((error) =>
+            console.error("Error adding product:", error)
+          );
+      }
+    };
+
+    button.addEventListener("click", handleAddToCart);
+    button.addEventListener("keydown", handleAddToCart);
+  });
+
+  // Cart drawer functions
+  function openCartDrawer() {
+    const cartDrawer = document.getElementById("cart-drawer");
+    if(cartDrawer) {
+      document.documentElement.classList.add("js-drawer-open");
+      cartDrawer.classList.add("open");
+      attachCartDrawerOutsideClickListener();
+    }
+  }
+
+  function closeCartDrawer() {
+    const cartDrawer = document.getElementById("cart-drawer");
+    if(cartDrawer) {
+      document.documentElement.classList.remove("js-drawer-open");
+      cartDrawer.classList.remove("open");
+    }
+  }
+
+  function removeCartDrawer() {
+    const cartDrawerIcon = document.querySelector(".cartdrawer-icon");
+    if (cartDrawerIcon) {
+      cartDrawerIcon.addEventListener("click", function () {
+        closeCartDrawer();
+      });
+    }
+  }
+
+  function attachCartDrawerOutsideClickListener() {
+    document.addEventListener("click", function (event) {
+      const cartDrawer = document.getElementById("cart-drawer");
+      if (!cartDrawer) return;
+      const isClickInside = cartDrawer.contains(event.target);
+
+      if (!isClickInside && cartDrawer.classList.contains("open")) {
+        document.documentElement.classList.remove("js-drawer-open");
+        cartDrawer.classList.remove("open");
+      }
+    });
+  }
+
+  function updateCartDrawer() {
+    fetch("/?sections=cart-drawer")
+      .then((response) => response.json())
+      .then((data) => {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(
+          data["cart-drawer"],
+          "text/html"
+        );
+
+        // Update cart drawer content
+        let updatedCartDrawer = doc.querySelector("#cart-drawer");
+        let cartDrawer = document.querySelector("#cart-drawer");
+        if (updatedCartDrawer && cartDrawer) {
+          cartDrawer.innerHTML = updatedCartDrawer.innerHTML;
         }
 
-  
+        // Update total price
+        let updatedTotalPrice = doc.querySelector(".totals__total-value");
+        if (updatedTotalPrice) {
+          document.querySelector(".totals__total-value").innerHTML =
+            updatedTotalPrice.innerHTML;
+        }
 
+        fetch("/cart.js")
+          .then((res) => res.json())
+          .then((cart) => {
+            let cartItemCount = cart.item_count;
+            let headerCartCount =
+              document.querySelector("[data-cart-count]");
+            let drawerCartCount = document.querySelector(
+              "[data-cartdrawer-count]"
+            );
+
+            if (headerCartCount) {
+              headerCartCount.textContent = `${cartItemCount}`;
+            }
+            if (drawerCartCount) {
+              drawerCartCount.textContent = `(${cartItemCount})`;
+            }
+            if (
+              cartItemCount > 0 &&
+              !document.getElementById("cart-drawer").classList.contains("open")
+            ) {
+              openCartDrawer();
+            }
+          })
+          .catch((error) =>
+            console.error("Error fetching cart count:", error)
+          );
+
+        attachRemoveItemEvents();
+        attachQuantityUpdateEvents();
+        addTocart();
+        removeCartDrawer();
+      })
+      .catch((error) => console.error("Error updating cart:", error));
+  }
+
+  function attachRemoveItemEvents() {
+    document.querySelectorAll(".cart-remove-link").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        let lineIndex = this.getAttribute("data-line");
+        if (!lineIndex) {
+          console.error("Error: Line index not found!");
+          return;
+        }
+
+        fetch("/cart/change.js", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            line: parseInt(lineIndex),
+            quantity: 0,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.item_count === 0) {
+              document.querySelector(".cart-items").innerHTML = `
+                <div class="empty-cart">
+                  <h1 class="h3">Hmm... looks like your bag is empty.</h1>
+                  <a href="/collections/all" class="btn btn-secondary">
+                    Continue shopping
+                  </a>
+                </div>
+              `;
+            } else {
+              updateCartDrawer();
+            }
+          })
+          .catch((error) => console.error("Error removing item:", error));
+      });
+    });
+  }
+
+  function attachQuantityUpdateEvents() {
+    document.querySelectorAll("#cart-drawer .qnt-input").forEach((button) => {
+      button.addEventListener("click", function () {
+        let quantityPicker = this.closest(".qnt-input-wrapper");
+        if (!quantityPicker) {
+          console.error("Error: .quantity-picker not found!");
+          return;
+        }
+        let quantityInput = quantityPicker.querySelector(
+          "input[name='quantity']"
+        );
+        if (!quantityInput) {
+          console.error("Error: Quantity input not found!");
+          return;
+        }
+
+        let quantity = parseInt(quantityInput.value);
+        let maxQuantity =
+          parseInt(quantityInput.getAttribute("data-max")) || Infinity;
+        let lineIndex = parseInt(
+          quantityInput.closest("tr")?.getAttribute("data-index")
+        );
+
+        if (isNaN(lineIndex)) {
+          console.error("Error: Line index not found!");
+          return;
+        }
+
+        if (
+          this.classList.contains("qnt-inc") &&
+          quantity < maxQuantity
+        ) {
+          quantity++;
+        } else if (this.classList.contains("qnt-dec") && quantity > 1) {
+          quantity--;
+        }
+
+        updateCartItem(lineIndex, quantity);
+      });
+    });
+  }
+
+  function addTocart() {
+    document.querySelectorAll(".productadd-drawer").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        let form = this.closest("form");
+        let formData = new FormData(form);
+
+        const quantityPicker = document.querySelector(
+          "input[name='quantity'].cart-drawer-col"
+        );
+        if (quantityPicker) {
+          let quantity = quantityPicker.value;
+          formData.set("quantity", quantity);
+        }
+
+        fetch("/cart/add.js", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            updateCartDrawer();
+          })
+          .catch((error) =>
+            console.error("Error adding product:", error)
+          );
+      });
+    });
+  }
+
+  // Update cart item quantity
+  function updateCartItem(lineIndex, quantity) {
+    fetch("/cart/change.js", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ line: lineIndex, quantity: quantity }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        updateCartDrawer();
+      })
+      .catch((error) => console.error("Error updating cart:", error));
+  }
+
+  // Variant change handlers
   getCombinedVariant();
 
   const swiperSlides = document.querySelectorAll(".media-item");
   const swiperInstance = window.mainSwiper;
 
-document.querySelectorAll(".color-variant, .multiple-option-variant")
-  .forEach((element) => {
-    const prodvariantHandle = (el) => {
-      const parentFieldset = el.closest("fieldset");
-      if (parentFieldset) {
-        parentFieldset
-          .querySelectorAll(".checked")
-          .forEach((el) => el.classList.remove("checked"));
+  document.querySelectorAll(".color-variant, .multiple-option-variant")
+    .forEach((element) => {
+      const prodvariantHandle = (el) => {
+        const parentFieldset = el.closest("fieldset");
+        if (parentFieldset) {
+          parentFieldset
+            .querySelectorAll(".checked")
+            .forEach((el) => el.classList.remove("checked"));
         }
 
         const selectedValue = el.dataset.color?.toLowerCase();
 
-        let matchedSlideIndex = 0;
-      
+        let matchedSlideIndex = -1;
+
         swiperSlides.forEach((slide, index) => {
           const img = slide.querySelector("img.variant-image");
           if (img && img.dataset.variant.toLowerCase() === selectedValue) {
             matchedSlideIndex = index;
-            console.log("matchedSlideIndex",matchedSlideIndex);
-            console.log("matchedIndex",index);
           }
         });
- 
+
         if (matchedSlideIndex !== -1 && swiperInstance) {
           swiperInstance.slideTo(matchedSlideIndex);
         }
 
-      el.classList.add("checked");
-      getCombinedVariant();
-    };
+        el.classList.add("checked");
+        getCombinedVariant();
+      };
 
-    element.addEventListener("click", () => {
-      prodvariantHandle(element);
-    });
-
-    element.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+      element.addEventListener("click", () => {
         prodvariantHandle(element);
-      }
+      });
+
+      element.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          prodvariantHandle(element);
+        }
+      });
     });
 
-  });
-  
-});
-// 04/03/25 sticky-cart js
-document.addEventListener("DOMContentLoaded", function () {
+  // Sticky cart js
   const target = document.querySelector(".product-block.block-buy_button"),
     stickyCart = document.querySelector(".sticky-content"),
-    stickyContent = document.querySelector("sticky-cart"),
+    stickyContent = document.querySelector(".sticky-cart"),
     footerPrivacy = document.querySelector(".privacy-policy-text");
-  if (target && stickyCart && footerPrivacy) {
+  if (target && stickyCart && stickyContent && footerPrivacy) {
     const observer = new IntersectionObserver(
       (entries) => {
-        let isStickyHidden = !1;
+        let isStickyHidden = false;
         entries.forEach((entry) => {
-          (entry.target === target || entry.target === footerPrivacy) &&
-            entry.isIntersecting &&
-            (isStickyHidden = !0);
-        }),
-          isStickyHidden? stickyCart.classList.remove("active"): stickyCart.classList.add("active");
-          isStickyHidden? stickyContent.setAttribute('aria-hidden', 'false'): stickyContent.setAttribute('aria-hidden', 'true');
+          if ((entry.target === target || entry.target === footerPrivacy) && entry.isIntersecting) {
+            isStickyHidden = true;
+          }
+        });
+        if (isStickyHidden) {
+          stickyCart.classList.remove("active");
+          stickyContent.setAttribute('aria-hidden', 'false');
+        } else {
+          stickyCart.classList.add("active");
+          stickyContent.setAttribute('aria-hidden', 'true');
+        }
       },
       { threshold: 0.1 }
     );
-    observer.observe(target), observer.observe(footerPrivacy);
+    observer.observe(target);
+    observer.observe(footerPrivacy);
   }
-});
 
-// add class when open pwsp popup
+  // pswp popup body class
+  const pswpElement = document.querySelector(".pswp");
+  if (pswpElement) {
+    const observer = new MutationObserver(() => {
+      if (pswpElement.classList.contains("pswp--open")) {
+        document.body.classList.add("pswp-popup-body");
+      } else {
+        document.body.classList.remove("pswp-popup-body");
+      }
+    });
 
-const pswpElement = document.querySelector(".pswp");
+    observer.observe(pswpElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
 
-if (pswpElement) {
-  const observer = new MutationObserver(() => {
-    if (pswpElement.classList.contains("pswp--open")) {
-      document.body.classList.add("pswp-popup-body");
-    } else {
-      document.body.classList.remove("pswp-popup-body");
-    }
-  });
-
-  observer.observe(pswpElement, {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+  // Variant dropdown
   const dropdowns = document.querySelectorAll(".dropdown-variant");
-
   dropdowns.forEach((dropdown) => {
     const selectedOption = dropdown.querySelector(".dropdownList");
     const optionsList = dropdown;
@@ -786,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Toggle dropdown on click
     selectedOption.addEventListener("click", (e) => {
-      e.stopPropagation(); // Prevent event bubbling to document
+      e.stopPropagation();
       optionsList.classList.toggle("open");
     });
 
@@ -806,8 +759,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});    
-document.querySelectorAll(".product-block")
-  .forEach((element) => {
-    element.setAttribute("tabindex", "0");
+
+  // Add tabindex for accessibility
+  document.querySelectorAll(".product-block")
+    .forEach((element) => {
+      element.setAttribute("tabindex", "0");
+    });
 });
+
+// Delivery date range calculation
+function calculateDeliveryDateRange(startOffset, endOffset) {
+  const today = new Date();
+  const startDate = new Date(today);
+  const endDate = new Date(today);
+
+  startDate.setDate(today.getDate() + startOffset);
+  endDate.setDate(today.getDate() + endOffset);
+
+  const options = { month: "short", day: "numeric" };
+  const formattedStartDate = startDate.toLocaleDateString("en-US", options);
+  const formattedEndDate = endDate.toLocaleDateString("en-US", options);
+
+  return `${formattedStartDate} - ${formattedEndDate}`;
+}
+
+// Popup functions
+function openPopup() {
+  document.getElementById("popupOverlay").style.display = "block";
+  document.addEventListener("keydown", handleKeyPress);
+  document.body.classList.add("popupOverlay-body");
+}
+
+function closePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+  document.removeEventListener("keydown", handleKeyPress);
+  document.body.classList.remove("popupOverlay-body");
+}
+
+function handleKeyPress(e) {
+  if (e.key === "Escape") {
+    closePopup();
+  }
+}
+
+// Close popup when clicking outside the content
+window.onclick = function (event) {
+  const overlay = document.getElementById("popupOverlay");
+  if (overlay && event.target === overlay) {
+    closePopup();
+  }
+};

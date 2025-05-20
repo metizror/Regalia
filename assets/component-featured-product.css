@@ -527,6 +527,9 @@ input.featured-pro-btn{
   font-weight: var(--weight-semibold);
   margin-bottom: 1.8rem;
 }
+.featured-product .product-form__submit {
+  width:100%;
+}
 
 @media (max-width: 768px) {
   .featured-product-content {

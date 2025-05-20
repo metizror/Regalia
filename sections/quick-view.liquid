@@ -163,13 +163,18 @@
                 {{ 'cart.taxes_and_shipping_at_checkout' | t }}
               {%- endif -%}
             </small>
-          </div>
+          </div>  
+
+                {% unless product.has_only_default_variant %}
+                  {% if product.variants.first.inventory_quantity >= 1 %}
           <div class="products-sold-mess">
             <span>{% render 'icons', icon:'fire-icon'  %}</span>
             <div id="sold-message" data-min-sold="30" data-max-sold="50" data-hours="21">
                 Loading...
             </div>
           </div> 
+               {% endif %}
+                   {% endunless %} 
           {% comment %} // stock-indicator {% endcomment %}
           {% if product.variants.first.inventory_quantity == 0 %} 
             <div class="stock-indicator product-block block-{{ block.type }}">  
