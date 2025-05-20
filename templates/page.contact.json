@@ -17,7 +17,7 @@
           "settings": {
             "multicolumn_svg_icon": "shopify://shop_images/fi_11057324.svg",
             "multicolumn_title": "Office location",
-            "multicolumn_text": "<p>401 Broadway, 24th floor, <br/>Orchard view, London</p>"
+            "multicolumn_text": "<p>1309 Coffeen Ave, Sheridan, WY 82801, USA</p>"
           }
         },
         "column_znhwCB": {
@@ -49,9 +49,6 @@
         "heading_color": "#082a32",
         "text": "<p>We will take care of any problem and help you.</p>",
         "text_color": "#5d4848",
-        "api_key": "AIzaSyDUmjLxl_qEb35uInhGq4ncy_a5pz2YYxA",
-        "address": "<p>401 Broadway, 24th floor,<br/>Orchard view, London</p>",
-        "map_style": "default",
         "form_layout": "container",
         "form_bg_color": "",
         "form_image": "shopify://shop_images/61b08b5161062e9ae47300a1dd9a341d.png",
@@ -64,8 +61,11 @@
         "vector_top_right": "shopify://shop_images/Group_563.svg",
         "vector_bottom_left": "shopify://shop_images/Star_9.svg",
         "multicolumn_layout": "container",
-        "multicolumn_bg_color": "",
         "multicolumn_heading": "We’re here to help you!",
+        "api_key": "AIzaSyDUmjLxl_qEb35uInhGq4ncy_a5pz2YYxA",
+        "address": "<p>401 Broadway, 24th floor,<br/>Orchard view, London</p>",
+        "map_style": "default",
+        "multicolumn_bg_color": "",
         "multicolumn_heading_color": "#082a32",
         "col_title_color": "#082a32",
         "col_text_color": "#797979",
