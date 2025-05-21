@@ -18,6 +18,7 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
             "content_alignment": "right",
+            "overlay_bg": true,
             "maintitle": "Timeless Elegance Redefined",
             "sub_title": "<p>Find timeless jewelry that defines sophistication and style.</p>",
             "button_label": "DISCOVER NOW",
@@ -25,6 +26,7 @@
             "btn_alignment": "center",
             "heading_size": "h1",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),\nlinear-gradient(0deg, rgba(255, 240, 245, 0.2), rgba(255, 240, 245, 0.2))",
             "new_tab": true
           }
         },
@@ -35,6 +37,7 @@
             "image": "shopify://shop_images/pexels-ari-roberts-101154701-9393224_1.png",
             "mobile_image": "shopify://shop_images/young-indian-woman-wearing-sari_1.png",
             "content_alignment": "center",
+            "overlay_bg": false,
             "maintitle": "Luxury in Every Detail",
             "sub_title": "<p>Handcrafted pieces designed to make every moment shine.</p>",
             "button_label": "EXPLORE COLLECTION",
@@ -42,6 +45,7 @@
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
             "new_tab": false
           }
         },
@@ -52,6 +56,7 @@
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/image_14.png",
             "content_alignment": "right",
+            "overlay_bg": false,
             "maintitle": "Beauty Meets Brilliance",
             "sub_title": "<p>Elevate your style with jewelry that tells your story.</p>",
             "button_label": "SHOP NOW",
@@ -59,6 +64,7 @@
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
+            "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
             "new_tab": false
           }
         }
