@@ -296,6 +296,10 @@
           "type": "product_sold",
           "settings": {}
         },
+        "variants_pNgBwz": {
+          "type": "variants",
+          "settings": {}
+        },
         "product_stock_8bMKTC": {
           "type": "product_stock",
           "settings": {}
@@ -306,10 +310,6 @@
             "show_gift_card_recipient": true,
             "buy_btn_hide": true
           }
-        },
-        "variants_pNgBwz": {
-          "type": "variants",
-          "settings": {}
         }
       },
       "block_order": [
@@ -318,9 +318,9 @@
         "price_VUnqBt",
         "info_text_GLxAKd",
         "product_sold_6xXnH4",
+        "variants_pNgBwz",
         "product_stock_8bMKTC",
-        "buy_button_Qq43TH",
-        "variants_pNgBwz"
+        "buy_button_Qq43TH"
       ],
       "settings": {
         "product": "sansa-oval-bangle",
