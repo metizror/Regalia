@@ -70,7 +70,7 @@
         "megamenu_DMdzBV"
       ],
       "settings": {
-        "logo_position": "middle-center",
+        "logo_position": "middle-left",
         "menu": "main-menu",
         "enable_country_selector": true,
         "enable_language_selector": true,
