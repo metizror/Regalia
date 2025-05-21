@@ -204,18 +204,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const variantStock = parseInt(matchingOption.getAttribute("data-variant-left")) || 0;
       matchingOption.setAttribute("selectedVariant", "true");
-      if (variantStock === 0) {
-         atcBtnContent.textContent = "Sold Out";
-      }
-      else{
-         atcBtnContent.textContent = "Add to Cart";
-      }
-    
-      if (atcBtnContent && atcButton && instockLabel && stockText && checkoutBtn && stockBarContainer && stockContent) {
+
+
+      if (atcBtnContent && atcButton && stockText && checkoutBtn && stockBarContainer && stockContent) {
         if (variantStock === 0) {
-            console.log(variantStock);
-          instockLabel.textContent = "OUT OF STOCK";
-          atcBtnContent.textContent = "Sold Out";
+           if(instockLabel){
+              instockLabel.textContent = "OUT OF STOCK";
+            }
+          atcBtnContent.textContent = "Sold Out";  
           atcBtnContent.classList.remove("effect-text");
           atcButton.setAttribute("disabled", "disabled");
           stockText.style.display = "none";
@@ -228,8 +224,10 @@ document.addEventListener('DOMContentLoaded', function() {
             stockContent.appendChild(outOfStockDiv);
           }
         } else {
-          instockLabel.textContent = "In stock";
-          atcBtnContent.textContent = "Add to Cart";
+            if(instockLabel){
+              instockLabel.textContent = "In stock";
+            }
+          atcBtnContent.textContent = "Add to Cart";  
           atcBtnContent.classList.add("effect-text");
           atcButton.removeAttribute("disabled");
           stockText.style.display = "block";
@@ -269,6 +267,25 @@ document.addEventListener('DOMContentLoaded', function() {
       updateStockBar(variantStock);
     } else {
       console.error(`No match found for: "${combinedVariant}"`);
+        if(instockLabel){
+              instockLabel.textContent = "unavailable";
+        }
+      atcButton.classList.add("unavailable");
+      atcBtnContent.textContent = "Unavailable";
+      atcBtnContent.classList.remove("effect-text");
+      atcButton.setAttribute("disabled", "disabled");
+      stockText.style.display = "none";
+      checkoutBtn.style.display = "none";
+      stockBarContainer.style.display = "none";
+      stickyBtnContent.textContent = "Unavailable";
+      stickyBtnContent.classList.remove("effect-text");
+      stickyButton.setAttribute("disabled", "disabled");
+      if (!document.querySelector(".out-of-stock-message")) {
+        const outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "out-of-stock-message";
+        outOfStockDiv.textContent = "This combination is unavailable";
+        stockContent.appendChild(outOfStockDiv);
+      }
     }
     // Update sold message
     const soldMessage = document.getElementById("sold-message");
@@ -683,7 +700,7 @@ document
   // Sticky cart js
   const target = document.querySelector(".product-block.block-buy_button"),
     stickyCart = document.querySelector(".sticky-content"),
-    stickyContent = document.querySelector(".sticky-cart"),
+    stickyContent = document.querySelector("sticky-cart"),
     footerPrivacy = document.querySelector(".privacy-policy-text");
   if (target && stickyCart && stickyContent && footerPrivacy) {
     const observer = new IntersectionObserver(

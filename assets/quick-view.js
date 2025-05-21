@@ -360,6 +360,7 @@ openPhotoSwipeAtIndex = (index) => {
         productVariant = document.querySelector(
           "#quickViewModal .product-variant-id"
         ),
+        instockLabel = document.querySelector("#quickViewModal .pro-status-message"),
         atcBtnContent = document.querySelector(
           "#quickViewModal .atcbtn-content .atcbtn-text"
         ),
@@ -444,6 +445,9 @@ openPhotoSwipeAtIndex = (index) => {
         }
         if (atcBtnContent) {
           if (variantStock === 0) {
+               if(instockLabel){
+              instockLabel.textContent = "OUT OF STOCK";
+            }
             atcBtnContent.textContent = "Sold Out";
             atcBtnContent.classList.remove("effect-text");
             atcButton.setAttribute("disabled", "disabled");
@@ -459,6 +463,9 @@ openPhotoSwipeAtIndex = (index) => {
             }
             // Update stock bar dynamically
           } else {
+                 if(instockLabel){
+              instockLabel.textContent = "In stock";
+            }
             atcBtnContent.textContent = "Add to Cart";
             atcBtnContent.classList.add("effect-text");
             atcButton.removeAttribute("disabled");
@@ -482,6 +489,22 @@ openPhotoSwipeAtIndex = (index) => {
         updateStockBar(variantStock);
       } else {
         console.error(`No below side match found for: "${combinedVariant}"`);
+        atcButton.classList.add("unavailable");
+        atcBtnContent.textContent = "Unavailable";
+        atcBtnContent.classList.remove("effect-text");
+        atcButton.setAttribute("disabled", "disabled");
+        stockText.style.display = "none";
+        checkoutBtn.style.display = "none";
+        stockBarContainer.style.display = "none";
+        if(instockLabel){
+              instockLabel.textContent = "unavailable";
+        }
+        if (!document.querySelector(".out-of-stock-message")) {
+        const outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "out-of-stock-message";
+        outOfStockDiv.textContent = "This combination is unavailable";
+        stockContent.appendChild(outOfStockDiv);
+        }
       }
       // Apply .soldout class to unavailable options
       document

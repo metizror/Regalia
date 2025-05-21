@@ -123,6 +123,31 @@
 .featured-collection-section .show_swatches .product-card-swatches{
   display:block;
 }
+.featured-collection-section .product-inner-content{
+  text-align: var( --product-card-alignment);
+}
+.featured-collection-section .center .product-price.compare--price-grt .price__sale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.featured-collection-section .left .product-price.compare--price-grt .price__sale {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.featured-collection-section .right .product-price.compare--price-grt .price__sale {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 @keyframes typewriter {
   from {
     width: 0%;

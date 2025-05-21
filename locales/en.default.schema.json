@@ -1715,7 +1715,11 @@
             "label": "Show quanity picker"
           },
           "show_gift_card_recipient": {
-            "label": "Show gift card receipient"
+            "label": "Show gift card receipient",
+            "info":"This settings only work in gift card product"
+          },
+          "buy_btn_hide":{
+            "label":"Buy now button show"
           }
         },
         "local_pickup": {
