@@ -199,7 +199,7 @@
         "collection_6BCaeb"
       ],
       "settings": {
-        "heading_show": true,
+        "heading_show": false,
         "heading": "Collections",
         "enable_animation": true,
         "heading_color": "#082a32",
