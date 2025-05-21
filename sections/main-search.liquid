@@ -7,6 +7,11 @@
       background: {{ section.settings.article_color }};
       border-color: {{ section.settings.border_color }};
     }
+    
+    .search-page .article-card .meta-wrapper {
+      color: {{ section.settings.text_color }};
+    }
+
     {% if search.results.size < 1 %}
       .utility-bar__right {
         width: 100%;
