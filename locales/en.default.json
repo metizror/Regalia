@@ -536,7 +536,7 @@
   },
   "storefront_password": {
     "login": {
-      "link": "Enter using password : 123",
+      "link": "Enter using password",
       "label": "Enter store using password:",
       "placeholder": "Enter password",
       "button": "Enter",
