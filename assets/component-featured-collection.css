@@ -2,7 +2,6 @@
   background-color: var(--bg-color);
   border-radius: 6px;
   position: relative;
-  margin-top: -100px;
   z-index: 1;
   overflow: hidden;
 }
