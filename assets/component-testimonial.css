@@ -326,7 +326,7 @@
   }
 
   .testimonial-section .swiper-button-next {
-    right: -40px;
+    right: -60px;
     top: 35px;
     backdrop-filter: blur(4.0740742683410645px);
     background: rgba(8, 42, 50, 0.1);
@@ -335,7 +335,7 @@
 
   .testimonial-section .swiper-button-prev {
     top: 35px;
-    left: -40px;
+    left: -35px;
     backdrop-filter: blur(4.07px);
     background: rgba(8, 42, 50, 0.1);
     box-shadow: none;
