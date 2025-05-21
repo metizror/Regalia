@@ -30,7 +30,12 @@
       padding-bottom: {{ section.settings.padding_bottom | times:0.75 | round: 0 }}px;
     }
   }
+  :root{
+  --product-card-alignment:{{ section.settings.alignment }}
+}
 {%- endstyle -%}
+
+
 
 {{ 'component-featured-collection.css' | asset_url | stylesheet_tag: preload: true }}
 {% assign show_swatches = section.settings.show_swatches %}
