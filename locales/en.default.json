@@ -216,8 +216,8 @@
       "columns_desktop": {
         "label": "Number of Product show on desktop"
       },
-      "view_all":{
-        "label":"View all"
+      "view_all": {
+        "label": "View all"
       },
       "show_view_all": {
         "label": "Enable \"View all\" if collection has more products than shown"
@@ -256,9 +256,9 @@
     "email_placeholder": "Enter your mail",
     "email": "Enter your email",
     "submit_btn": "Subscribe",
-    "footer":{
-      "title":"Join Our Newsletter",
-      "email":"Enter Your Email Address",
+    "footer": {
+      "title": "Join Our Newsletter",
+      "email": "Enter Your Email Address",
       "privacy_policy_html": "<span class=\"agree-text\">I agree to the</span> <a href=\"/policies/privacy-policy\" target=\"_blank\" class=\"privacy-link\">Privacy Policy</a>"
     }
   },
@@ -536,12 +536,12 @@
   },
   "storefront_password": {
     "login": {
-      "link": "Enter using password",
+      "link": "Enter using password : 123",
       "label": "Enter store using password:",
       "placeholder": "Enter password",
       "button": "Enter",
       "admin_link_html": "Are you the store owner? <a href=\"/admin\">Log in here</a> <br> Store password : Regalia",
-      "store_password":"Store password : Regalia"
+      "store_password": "Store password : Regalia"
     },
     "signup": {
       "success": "Thanks for your interest! We'll be sure to keep you up to date."
