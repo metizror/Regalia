@@ -13,6 +13,11 @@
       "type": "main-page",
       "settings": {
         "full_width": false,
+        "default_bg_img_1": "shopify://shop_images/Vector_2.svg",
+        "default_bg_img_2": "shopify://shop_images/Vector_1.svg",
+        "show_title": false,
+        "heading_color": "#153d47",
+        "content_color": "#797979",
         "padding_top": 0,
         "padding_bottom": 0
       }
