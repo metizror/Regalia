@@ -61,6 +61,9 @@
         {% endif %}
 
         <form method="post" action="/contact" class="contact-us-form">
+          <input type="hidden" name="form_type" value="contact" />
+          <input type="hidden" name="utf8" value="✓" />
+          
           <div class="form-group">
             <input type="text" id="name" name="contact[name]" placeholder="What’s your good name" required>
             {% render 'icons', icon: 'user' %}
