@@ -62,9 +62,9 @@
 
         {% form 'contact', class: 'contact-us-form' %}
           {% if form.posted_successfully? %}
-            <div class="form-success-message">Thanks for contacting us! We’ll get back to you soon.</div>
+            <div class="form-success-message success">Thanks for contacting us! We’ll get back to you soon.</div>
           {% elsif form.errors %}
-            <div class="form-error-message">
+            <div class="form-error-message fail">
               <ul>
                 {% for field in form.errors %}
                   <li>{{ form.errors.messages[field] }}</li>
