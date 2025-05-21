@@ -315,6 +315,9 @@ summary.list-menu__item {
 	body .inline-search-header.header--top-left .cart-count{
 	top:-5px;
 	}
+    body .inline-search-header.header--middle-left .cart-count{
+    top:-5px;
+    }
 	body .inline-search-header .cart-count{
 	 top:-5px;
 	}
