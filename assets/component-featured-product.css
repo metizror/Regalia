@@ -1,7 +1,7 @@
 .featured-product-content {
   display: flex;
 }
-.product-title h2 a{
+.product-title a{
   text-decoration: none;
 }
 .product-img-content {

@@ -26,7 +26,7 @@
         "enable_overlay": false,
         "title_alignment": "center",
         "media_ratio": "square",
-        "fill_media_zooom": true,
+        "fill_media_zoom": true,
         "padding_top": 50,
         "padding_bottom": 50
       }

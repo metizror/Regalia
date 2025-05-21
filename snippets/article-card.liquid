@@ -74,6 +74,12 @@
               <span class="comments">{{ 'blogs.article.comments' | t: count: article.comments_count -}}</span>
             </span>
           {%- endif -%}
+          {%- if show_author -%}
+            <span class="article-author">
+              {% render 'icons', icon: 'avatar' %}
+              <span class="author">{{ article.author }}</span>
+            </span>
+          {%- endif -%}
         </div>
       {%- endif -%}
       <span class="article-title h4">
@@ -82,10 +88,8 @@
       <div class="article-excerpt">
         {%- if show_excerpt and article.excerpt.size > 0 -%}
           {{ article.excerpt | strip_html | truncate: 200, '...' }}
-        {%- else -%}
-          {%- if article.content.size > 0 -%}
-            {{ article.content | strip_html | truncate: 200, '...' }}
-          {%- endif -%}
+        {%- elsif show_excerpt and article.content.size > 0 -%}
+            {{ article.content | strip_html | truncate: 200, '...' }}         
         {%- endif -%}
       </div>
       {%- if show_tags -%}

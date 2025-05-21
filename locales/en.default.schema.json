@@ -638,6 +638,9 @@
         "background_color": {
           "label": "Background"
         },
+        "multicolumn_bg_color": {
+          "label": "Multicolumn background"
+        },
         "heading_color": {
           "label": "Heading color"
         },
@@ -941,7 +944,7 @@
               "retro_style": "Retro",
               "dark_style": "Dark",
               "night_style": "Night",
-              "aubergine": "Aubergine"
+              "aubergine_style": "Aubergine"
             }
           },
           "contact_form": {
@@ -1381,8 +1384,14 @@
           "article_heading_color": {
             "label": "Article heading"
           },
+          "article_sidebar_heading_color": {
+            "label": "Sidebar heading"
+          },
           "article_text_color": {
-            "label": "Article content & icons"
+            "label": "Article content"
+          },
+          "article_icon_color": {
+            "label": "Article icon"
           },
           "field_background": {
             "label": "Field background"
@@ -1753,7 +1762,7 @@
           "label": "Enable follow on shop"
         },
         "background_hr_line": {
-          "label": "Baclground"
+          "label": "Background"
         },
         "policy_text": {
           "label": "Policy text"
@@ -2192,7 +2201,7 @@
             "retro_style": "Retro",
             "dark_style": "Dark",
             "night_style": "Night",
-            "aubergine": "Aubergine"
+            "aubergine_style": "Aubergine"
           }
         }
       },
@@ -2817,7 +2826,7 @@
         "layout": {
           "label": "Layout"
         },
-        "enbale_auto_scroll": {
+        "enable_auto_scroll": {
           "label": "Enable auto scroll"
         },
         "speed_delay": {
@@ -2851,7 +2860,7 @@
         "image_overlay_text": {
           "name": "Image overlay text",
           "settings": {
-            "meadia": {
+            "media": {
               "content": "Media",
               "bg_image": {
                 "label": "Background image"

@@ -67,11 +67,7 @@
   line-height: 39px;
 }
 
-.image-with-text .iwt-description p {
-  font-size: calc(var(--bs-size) + 2px);
-  line-height: 24px;
-  font-weight: var(--weight-regular);
-  margin-bottom: 2rem;
+.image-with-text .iwt-description {
   color: var(--description-color);
 }
 
@@ -289,11 +285,6 @@
   .image-with-text .iwt-title {
     font-size: 1.5rem;
   }
-
-  .image-with-text .iwt-description p {
-    font-size: 15px;
-    line-height: 22px;
-  }
 }
 
 /* Mobile Devices (max-width: 768px) */
@@ -317,11 +308,6 @@
     font-size: 1.2rem;
     line-height: 1.4;
     margin-bottom: 1rem;
-  }
-
-  .image-with-text .iwt-description p {
-    font-size: 14px;
-    line-height: 20px;
   }
 
   .image-with-text .iwt-btn {
@@ -428,10 +414,6 @@
 
   .image-with-text .iwt-title {
     font-size: 32px;
-  }
-
-  .image-with-text .iwt-description p {
-    font-size: 13px;
   }
 
   .image-with-text .iwt-btn {

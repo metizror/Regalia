@@ -46,7 +46,7 @@
     "show_qnt_picker": true,
     "variant_type": "buttons",
     "tiles_media_ratio": "portrait",
-    "tiles_fill_media_zooom": true,
+    "tiles_fill_media_zoom": true,
     "show_percentage": false,
     "tiles_swatches": true,
     "enable_infinite_scroll": true,

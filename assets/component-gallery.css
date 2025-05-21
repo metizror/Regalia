@@ -18,8 +18,9 @@
 
 .section-gallery .gallery-title {
   position: absolute;
-  top: 43%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   align-content: center;
   text-align: center;
@@ -89,8 +90,6 @@
     padding: 0px 18px;
     font-size: var(--bs-size);
     margin-bottom: 0px;
-    top: 0;
-    left: 0;
   }
 
   .gallery-section .gallery-grid {

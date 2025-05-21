@@ -638,6 +638,9 @@
         "background_color": {
           "label": "પૃષ્ઠભૂમિ"
         },
+        "multicolumn_bg_color": {
+          "label": "બહુસ્તંભ પૃષ્ઠભૂમિ"
+        },
         "heading_color": {
           "label": "હેડિંગ રંગ"
         },
@@ -731,6 +734,7 @@
           "label": "મુખ્ય હેડિંગનો રંગ"
         },
         "background_image": {
+          "label": "બેકગ્રાઉન્ડ છબી",
           "desktop": {
             "label": "બેકગ્રાઉન્ડ છબી (ડેસ્કટોપ)"
           },
@@ -940,7 +944,7 @@
               "retro_style": "રેત્રો",
               "dark_style": "ડાર્ક",
               "night_style": "રાત્રિ",
-              "aubergine": "ઑબર્જિન"
+              "aubergine_style": "ઑબર્જિન"
             }
           },
           "contact_form": {
@@ -991,10 +995,10 @@
             "multicolumn_icons": {
               "label": "એસવીજી આઈકોન"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "શીર્ષક"
             },
-            "multicolumne_text": {
+            "multicolumn_text": {
               "label": "ટેક્સ્ટ"
             }
           }
@@ -1380,8 +1384,14 @@
           "article_heading_color": {
             "label": "લેખનું શીર્ષક"
           },
+          "article_sidebar_heading_color": {
+            "label": "વિભાગ શીર્ષક"
+          },
           "article_text_color": {
-            "label": "લેખ સામગ્રી અને આઇકૉન્સ"
+            "label": "લેખ સામગ્રી"
+          },
+          "article_icon_color": {
+            "label": "લેખ ચિહ્ન"
           },
           "field_background": {
             "label": "ફીલ્ડ બેકગ્રાઉન્ડ"
@@ -1781,8 +1791,14 @@
             "logo": {
               "label": "સ્ટોર લોગો"
             },
+            "logo_width": {
+              "label": "લોગોની પહોળાઈ"
+            },
             "info": {
               "label": "સ્ટોર માહિતી"
+            },
+            "footer_newsletter": {
+              "label": "સમાચાર પત્ર"
             },
             "data": {
               "icon": {
@@ -2182,7 +2198,7 @@
             "retro_style": "રેત્રો",
             "dark_style": "ડાર્ક",
             "night_style": "રાત્રિ",
-            "aubergine": "ઑબરજીન"
+            "aubergine_style": "ઑબરજીન"
           }
         }
       },
@@ -2807,7 +2823,7 @@
         "layout": {
           "label": "લેઆઉટ"
         },
-        "enbale_auto_scroll": {
+        "enable_auto_scroll": {
           "label": "ઓટો સ્ક્રોલ સક્રિય કરો"
         },
         "speed_delay": {
@@ -2841,7 +2857,7 @@
         "image_overlay_text": {
           "name": "છબી ઓવરલે ટેક્સ્ટ",
           "settings": {
-            "meadia": {
+            "media": {
               "content": "મિડિયા",
               "bg_image": {
                 "label": "પૃષ્ઠભૂમિ છબી"
