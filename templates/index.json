@@ -258,8 +258,8 @@
         "text_WDAYPN"
       ],
       "settings": {
-        "speed": 20,
-        "reverse": true,
+        "speed": 30,
+        "reverse": false,
         "icon_img": "shopify://shop_images/Star_7.png",
         "padding_top": 20,
         "padding_bottom": 20
@@ -307,6 +307,7 @@
         "buy_button_Qq43TH": {
           "type": "buy_button",
           "settings": {
+            "show_qnt_picker": true,
             "show_gift_card_recipient": true,
             "buy_btn_hide": true
           }
