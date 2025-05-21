@@ -243,19 +243,12 @@
           "settings": {
             "content": "20%  OFF  EVERYTHING  FOR  WOMEN"
           }
-        },
-        "text_WDAYPN": {
-          "type": "text",
-          "settings": {
-            "content": "Your marquee text here"
-          }
         }
       },
       "block_order": [
         "text_edEXHM",
         "text_9rKcAL",
-        "text_fDPBNr",
-        "text_WDAYPN"
+        "text_fDPBNr"
       ],
       "settings": {
         "speed": 30,
