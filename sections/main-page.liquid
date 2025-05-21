@@ -13,10 +13,15 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
-  .default-page h3{
+  .default-page h1,
+  .default-page h2,
+  .default-page h3,
+  .default-page h4,
+  .default-page h5,
+  .default-page h6 {
     color: {{ section.settings.heading_color }};
   }
-  .default-page {
+  .default-page{
     color: {{ section.settings.content_color }};
   }
 {%- endstyle -%}
