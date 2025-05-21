@@ -12,7 +12,7 @@
     "cart-items": {
       "type": "main-cart",
       "settings": {
-        "enable_full_width": true,
+        "enable_full_width": false,
         "title": "People are also searched for",
         "collection": "best-offer",
         "padding_top": 50,

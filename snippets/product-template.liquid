@@ -61,9 +61,11 @@
 
                 <div class="img-overlay-icon">
                   <div class="icon-content">
+                   {%  if section.settings.image_zoom %} 
                     <div class="icon-inner-content product-zoom-icon">
                       {% render 'icons', icon: 'zoom-icon' %}
                     </div>
+                  {% endif %}
                     <div class="icon-inner-content open-popup" onclick="openPopup()">
                       {% render 'icons', icon: 'message-icon' %}
                     </div>

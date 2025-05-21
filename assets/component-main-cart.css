@@ -330,7 +330,10 @@
 .section-main-cart .sub-total-wrapepr .totals__subtotal-value {
   font-weight: var(--weight-semibold);
 }
-
+.section-main-cart .container-narrow .main-cart-wrapper form .cart-summery{
+   width:100%;
+    margin-top:20px;
+}
 @media (max-width:1299px){
   .section-main-cart .main-cart-wrapper form .cart-summery{
     width:100%;

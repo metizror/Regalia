@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
         summaryElement.classList.remove("countryactive");
       }, 90);
     });
+
   });
 
   // Predictive search logic

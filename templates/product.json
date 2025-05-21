@@ -50,9 +50,7 @@
         },
         "variants_jXmwyC": {
           "type": "variants",
-          "settings": {
-            "variant_type": "dropdown"
-          }
+          "settings": {}
         },
         "buy_button_z8Nrx9": {
           "type": "buy_button",
