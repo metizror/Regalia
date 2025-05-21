@@ -861,39 +861,6 @@
     "store_locator_LdRbdL": {
       "type": "store-locator",
       "blocks": {
-        "location_PJTBqy": {
-          "type": "location",
-          "disabled": true,
-          "settings": {
-            "address_title": "Blacktown NSW",
-            "address": "<p>15/12 Clifton Street, Blacktown NSW, 2148</p>",
-            "background_image": "shopify://shop_images/fcl-6.png",
-            "btn_text": "View details",
-            "btn_link": "https://maps.app.goo.gl/mGm37BKPQoyFSDpK8"
-          }
-        },
-        "location_yVPkAx": {
-          "type": "location",
-          "disabled": true,
-          "settings": {
-            "address_title": "Circular Quay",
-            "address": "<p>30 Pitt Street, Sydney Harbour Marriott, 2000</p>",
-            "background_image": "shopify://shop_images/fcl-6.png",
-            "btn_text": "View details",
-            "btn_link": "https://maps.app.goo.gl/erJaQojNc4eCjAuo8"
-          }
-        },
-        "location_hHgkPJ": {
-          "type": "location",
-          "disabled": true,
-          "settings": {
-            "address_title": "North Sydney",
-            "address": "<p>Level 7 Northpoint Tower, 100 Miller St, 2060</p>",
-            "background_image": "shopify://shop_images/fcl-6.png",
-            "btn_text": "View details",
-            "btn_link": "https://maps.app.goo.gl/q6K63qzQXBqzFDDr8"
-          }
-        },
         "location_83JdAL": {
           "type": "location",
           "settings": {
@@ -905,9 +872,6 @@
         }
       },
       "block_order": [
-        "location_PJTBqy",
-        "location_yVPkAx",
-        "location_hHgkPJ",
         "location_83JdAL"
       ],
       "settings": {
