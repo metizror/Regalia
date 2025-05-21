@@ -277,7 +277,7 @@
         "price_VUnqBt": {
           "type": "price",
           "settings": {
-            "show_percentage": false
+            "show_percentage": true
           }
         },
         "info_text_GLxAKd": {
