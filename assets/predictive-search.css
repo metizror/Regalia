@@ -274,6 +274,9 @@ predictive-search .product-item .product-price .price-badge {
     position: absolute;
     right: 10px;
 }
+.inline-search .inline-submit{
+  top:-1px;
+}
 @media (max-width:767px) {
 
   .predictive-search-wrapper .suggestions-wrapper,

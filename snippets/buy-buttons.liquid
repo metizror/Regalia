@@ -45,8 +45,11 @@
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
+          {%  if block.settings.show_qnt_picker %} 
         <label for="pdpQnt" class="qtylabeltitle">{{ 'product.quantity_picker' | t }}</label>
+         {% endif %}
         <div class="qua-atc-btn">
+          {%  if block.settings.show_qnt_picker %} 
           <div class="quantity-picker-wrapper cart-qnt">
             <div class="error" style="display:none;">
               {%- render 'icons', icon: 'cross' -%}
@@ -81,7 +84,7 @@
               </button>
             </quantity-picker>
           </div>
-          
+        {% endif %}
           <div tabindex="-1" class="product-form__buttons">
             <button
                tabindex="0"
@@ -111,11 +114,13 @@
           </div>
         </div>
         {% unless product.variants.first.inventory_quantity == 0 %}
+          {% if block.settings.buy_btn_hide %}
           <div class="checkoutbtn-text">
             <div class="buy-now-btn checkout-button" data-buynow>
               {{ form | payment_button }}
             </div>
           </div>
+        {% endif %}
         {% endunless %}
       {%- endform -%}
     </div>

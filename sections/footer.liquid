@@ -6,7 +6,7 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
   .footer-content{
-    background:{{ section.settings.hr_line }};
+    background:{{ section.settings.bg_color }};
     position:relative;
   }
    .navigation-content nav ul li a{
@@ -426,6 +426,12 @@
       "default": 20
     },
     {
+      "type": "color",
+      "id": "bg_color",
+      "label": "t:sections.general.color.background_color.label",
+      "default": "#082A32"
+    },
+    {
       "type": "image_picker",
       "id": "footer_lefttop",
       "label": "t:sections.footer.settings.footer_lefttop.label"
@@ -461,12 +467,6 @@
       "id": "enable_follow_on_shop",
       "label": "t:sections.footer.settings.enable_follow_on_shop.label",
       "default": true
-    },
-    {
-      "type": "color_background",
-      "id": "hr_line",
-      "label": "t:sections.footer.settings.background_hr_line.label",
-      "default": "linear-gradient(130deg, #082A32, #082A32)"
     },
     {
       "type": "inline_richtext",

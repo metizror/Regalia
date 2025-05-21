@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setPricedetails = document.querySelector(
         ".featured-product .price__sale"
       ),
+      instockLabel = document.querySelector(".featured-product .pro-status-message"),
       setSkuContent = document.querySelector(".featured-product .sku-content"),
       setStockCount = document.querySelector(".featured-product #stock-count"),
       stockContent = document.querySelector(
@@ -141,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update ATC button based on stock count
       if (atcBtnContent) {
         if (variantStock === 0) {
+            if(instockLabel){
+              instockLabel.textContent = "OUT OF STOCK";
+            }
           atcBtnContent.textContent = "Sold Out";
           atcBtnContent.classList.remove("effect-text");
           atcButton.setAttribute("disabled", "disabled");
@@ -154,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
             stockContent.appendChild(outOfStockDiv);
           }
         } else {
+          if(instockLabel){
+              instockLabel.textContent = "In stock";
+            }
           atcBtnContent.textContent = "Add to Cart";
           atcBtnContent.classList.add("effect-text");
           atcButton.removeAttribute("disabled");
@@ -185,6 +192,22 @@ document.addEventListener("DOMContentLoaded", function () {
       updateStockBar(variantStock);
     } else {
       console.error(`No match found for: "${combinedVariant}"`);
+      atcButton.classList.add("unavailable");
+      atcBtnContent.textContent = "Unavailable";
+      atcBtnContent.classList.remove("effect-text");
+      atcButton.setAttribute("disabled", "disabled");
+      stockText.style.display = "none";
+      checkoutBtn.style.display = "none";
+      stockBarContainer.style.display = "none";
+       if(instockLabel){
+              instockLabel.textContent = "unavailable";
+      }
+      if (!document.querySelector(".out-of-stock-message")) {
+        const outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "out-of-stock-message";
+        outOfStockDiv.textContent = "This combination is unavailable";
+        stockContent.appendChild(outOfStockDiv);
+      }
     }
 
     // Apply .soldout class to unavailable options

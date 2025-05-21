@@ -187,7 +187,19 @@ details[open].menu-opening>.menu-drawer__submenu {
   .header--has-localizations:where(:not(.header--has-social)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }
-
+  body .header--middle-left .megamenu-content{
+        transform: translateY(0px);
+  }
+body .header--middle-left .single-menu {
+  padding-bottom: 20px;
+}
+body .header--middle-left .header__submenu.list-menu{
+  top:auto;
+}
+body .headercontent-flex.header--middle-left .localization-country{
+  align-items: flex-start;
+  justify-content:left;
+}
   .language-location-content.mobile-hide {
     display: none;
   }
@@ -464,4 +476,9 @@ menu-drawer .header__submenu.list-menu {
     align-content: space-between;
     overflow-y: auto;
     height: 100%;
+}
+@media screen and (max-width:420px){
+  .menuimgdata .textcontent a{
+    bottom:-20px;
+  }
 }
