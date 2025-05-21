@@ -296,12 +296,12 @@
           "type": "product_sold",
           "settings": {}
         },
-        "variants_pNgBwz": {
-          "type": "variants",
-          "settings": {}
-        },
         "product_stock_8bMKTC": {
           "type": "product_stock",
+          "settings": {}
+        },
+        "variants_pNgBwz": {
+          "type": "variants",
           "settings": {}
         },
         "buy_button_Qq43TH": {
@@ -318,8 +318,8 @@
         "price_VUnqBt",
         "info_text_GLxAKd",
         "product_sold_6xXnH4",
-        "variants_pNgBwz",
         "product_stock_8bMKTC",
+        "variants_pNgBwz",
         "buy_button_Qq43TH"
       ],
       "settings": {
