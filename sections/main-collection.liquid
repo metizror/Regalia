@@ -12,7 +12,11 @@
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
   }
-  
+  :root{
+    --collection_heading_color:{{ section.settings.heading_color }};
+    --collection_text_color:{{ section.settings.text_color }};
+    --collection_overlay_color:{{ section.settings.overlay_color }};
+  }
 {% endstyle %}
 
 {% assign filters_order = section.settings.group_filter_prefix %}
@@ -490,22 +494,6 @@
       "default": "#FFF"
     },
     {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "t:sections.general.color.overlay_color.label",
-      "default": "#000"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "t:sections.collection.settings.customization.overlay_opacity.label",
-      "min": 0,
-      "max": 1,
-      "step": 0.1,
-      "unit": "%",
-      "default": 0.4
-    },
-    {
       "type": "header",
       "content": "t:sections.general.section_vertical_spacing.content"
     },
@@ -556,60 +544,6 @@
       "min": 0,
       "max": 1,
       "step": 0.1
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.heading.label"
-    },
-    {
-      "type": "text",
-      "id": "heading_text",
-      "label": "t:sections.general.heading.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
-        },
-        {
-          "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label" 
-        },
-        {
-          "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
-        }
-      ],
-      "default": "h2"
-    },
-    {
-      "type": "richtext",
-      "id": "content_text",
-      "label": "t:sections.collection.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "t:sections.general.alignment.content",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
-      ],
-      "default": "center"
     }
   ]
 }

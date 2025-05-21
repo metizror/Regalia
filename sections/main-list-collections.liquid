@@ -22,6 +22,11 @@
     padding-bottom: {{ section.settings.gap_spc | times: 0.33 | round: 0 | append: 'px' }};
   }
 }
+
+:root {
+  --collection_heading_position : {{ section.settings.text_alignment }};
+}
+
 {%- endstyle -%}
 
 {{ 'component-collection-list.css' | asset_url | stylesheet_tag: preload: true }}

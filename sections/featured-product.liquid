@@ -70,9 +70,11 @@
 
           <div class="img-overlay-icon">
             <div class="icon-content">
+              {%  if section.settings.image_zoom %} 
               <div class="icon-inner-content product-zoom-icon">
                 {% render 'icons', icon: 'zoom-icon' %}
               </div>
+            {% endif %}
               <div class="icon-inner-content open-quick-popup">
                 {% render 'icons', icon: 'message-icon' %}
               </div>
@@ -341,6 +343,12 @@
       "unit": "px",
       "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
       "default": 20
+    },
+    {
+        "type": "checkbox",
+        "id": "image_zoom",
+        "label": "t:sections.product.settings.show_image_zoom.label",
+        "default": true
     },
     {
       "type":"range",

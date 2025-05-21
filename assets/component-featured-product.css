@@ -632,5 +632,10 @@ input.featured-pro-btn{
     top: 20%;
     font-size: calc(var(--bs-size) - 2px);
   }
-
+}
+@media (min-width:768px) and (max-width:1024px){
+  .atcbtn-content{
+    width:135px;
+    padding: 5px 10px;
+  }
 }
