@@ -50,7 +50,7 @@
 /* Updated Keyframes for Right-to-Left Scrolling */
 @keyframes scroll-right {
   0% {
-    transform: translateX(-50%); /* Start off-screen to the right */
+    transform: translateX(-100%); /* Start off-screen to the right */
   }
   100% {
     transform: translateX(0%); /* End off-screen to the left */
@@ -61,7 +61,7 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 @media (max-width: 767px) {
