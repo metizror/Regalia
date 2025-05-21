@@ -32,7 +32,6 @@
         },
         "slide_AHEUTH": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/pexels-ari-roberts-101154701-9393224_1.png",
             "mobile_image": "shopify://shop_images/young-indian-woman-wearing-sari_1.png",
