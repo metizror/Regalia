@@ -12,8 +12,8 @@
       <div class="product-wrapper media-width-{{ section.settings.media_width }}">
         <div class="product-gallery" mag-animation data-mag-delay="100">
           <div class="product-slider-content">
-            <div class="product-thumnails {%- if section.settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
-              <div class="swiper-container product-thumnails-slide">
+            <div class="product-thumbnail {%- if section.settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
+              <div class="swiper-container product-thumbnail-slide">
                 <div class="swiper gallery-thumbs product__slider-main">
                   {%- render 'product-thumbs',
                     classes: 'slide-item',

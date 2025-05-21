@@ -8,7 +8,7 @@
   width: calc(60% - 32px);
 }
 
-.product-thumnails {
+.product-thumbnail {
   width: 20%;
 }
 
@@ -240,7 +240,7 @@ p.discount-percentage {
   gap: 24px;
 }
 
-.product-thumnails-slide {
+.product-thumbnail-slide {
   height: 526px;
 }
 
@@ -983,7 +983,7 @@ p.discount-percentage {
   margin-bottom: 1.8rem;
 }
 @media (max-width:991px) {
-  .product-thumnails {
+  .product-thumbnail {
     display: none;
   }
 

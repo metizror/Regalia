@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update ATC button based on stock count
       if (atcBtnContent) {
         if (variantStock === 0) {
+            if(instockLabel){
+              instockLabel.textContent = "OUT OF STOCK";
+            }
           atcBtnContent.textContent = "Sold Out";
           atcBtnContent.classList.remove("effect-text");
           atcButton.setAttribute("disabled", "disabled");
@@ -155,6 +158,9 @@ document.addEventListener("DOMContentLoaded", function () {
             stockContent.appendChild(outOfStockDiv);
           }
         } else {
+          if(instockLabel){
+              instockLabel.textContent = "In stock";
+            }
           atcBtnContent.textContent = "Add to Cart";
           atcBtnContent.classList.add("effect-text");
           atcButton.removeAttribute("disabled");
