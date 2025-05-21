@@ -178,7 +178,6 @@
         "menu_color_opacity": 50,
         "social_icons": true,
         "enable_follow_on_shop": true,
-        "hr_line": "linear-gradient(130deg, rgba(8, 42, 50, 1), rgba(0, 0, 0, 1) 100%)",
         "policy_text": "© 2025, Lorem Ipsum is simply dummy text",
         "enable_country_selector": true,
         "enable_language_selector": true,

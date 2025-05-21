@@ -29,6 +29,9 @@ body .inline-search-header.header--middle-center .cart-count{
 body .inline-search-header.header--top-left .cart-count{
 	top:5px;
 }
+body .inline-search-header.header--middle-left .cart-count{
+	top:5px;
+}
 .header--middle-left .header__submenu.list-menu {
 	top: 180px;
 }
