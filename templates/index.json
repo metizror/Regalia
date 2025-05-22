@@ -320,6 +320,7 @@
         "product": "sansa-oval-bangle",
         "padding_top": 20,
         "padding_bottom": 20,
+        "image_zoom": true,
         "block_space": 20
       }
     },
@@ -370,7 +371,7 @@
       ],
       "settings": {
         "enable_full_width": true,
-        "enable_autoscroll": false,
+        "enable_autoscroll": true,
         "speed_delay": 3000,
         "autoscroll_speed": 3000,
         "slider_enable": true,
