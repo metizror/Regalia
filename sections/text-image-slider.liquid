@@ -55,13 +55,11 @@
               "768": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
               "1280": { "direction": "vertical", "slidesPerView": 1 }
             }
-            {% if section.blocks.size > 1 %},
-            "loop": true
-            {% endif %}
-            {% if section.settings.enable_autoscroll %},
-            "autoplay": {
-              "delay": {{ section.settings.autoscroll_speed }},
-              "disableOnInteraction": false
+            {% if section.settings.enable_autoscroll and section.blocks.size > 1 %},
+                  "loop": true,
+                  "autoplay": {
+                  "delay": {{ section.settings.autoscroll_speed }},
+                  "disableOnInteraction": false
             }
             {% endif %},
             "navigation": {
