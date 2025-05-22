@@ -59,7 +59,7 @@
             "btn_link": "shopify://collections/all",
             "btn_alignment": "center",
             "heading_size": "h2",
-            "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
+            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false
           }
         }
