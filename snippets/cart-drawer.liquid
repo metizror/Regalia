@@ -1,9 +1,11 @@
+{{ 'cart-drawer.css' | asset_url | stylesheet_tag: preload:true }}
 <cart-drawer>
-  <div id="cart-drawer" class="cart-drawer">
+  <div class="cart-drawer-details">
+    <div tabindex='0' role="dialog" aria-modal="true" aria-label="Your cart" class="cart-drawer" id="cart-drawer">
     <div class="cart-drawer-title">
       <span>
         {{ 'cart.title' | t }}
-        <span>({{ cart.item_count }})</span>
+        <span class="cartcountnum">({{ cart.item_count }})</span>
       </span>
       <span class="cartdrawer-icon">{% render 'icons', icon: 'close' %}</span>
     </div>
@@ -39,7 +41,7 @@
                       <tr data-index="{{ forloop.index }}">
                         <td>
                           <div class="product-details">
-                            <a href="{{ item.url }}" class="img-wrapepr" aria-label="Item Link">
+                            <a href="{{ item.url }}" class="img-wrapepr" aria-label="Product link">
                               <lazy-image
                                 class="cart-drawer-img"
                                 {% if item.image -%}
@@ -65,7 +67,7 @@
                                 {%- if settings.show_vendor -%}
                                   <p class="vendor">{{ item.product.vendor }}</p>
                                 {%- endif -%}
-                                <a href="{{ item.url }}" class="title" aria-label="Item Link">{{ item.product.title | escape }}</a>
+                                <a href="{{ item.url }}" class="title" aria-label="{{ item.product.title }} Link">{{ item.product.title | escape }}</a>
                                 {%- if item.product.has_only_default_variant == false
                                   or item.properties.size != 0
                                   or item.selling_plan_allocation != null
@@ -214,7 +216,7 @@
                                 </div>
 
                                 <div class="mobile-remove-icon desk-hide">
-                                  <a href="{{ item.url_to_remove }}" class="cart-remove-link" aria-label="Remove item">
+                                  <a href="{{ item.url_to_remove }}" class="cart-remove-link" data-line="{{ forloop.index }}" aria-label="Remove item">
                                     {%- render 'icons', icon: 'trash' -%}
 
                                     <span class="visually-hidden">{{- 'cart.remove_title' | t -}}</span>
@@ -238,7 +240,14 @@
                                     {%- endif -%}
                                   >
                                     <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                                    {%- render 'icons', icon: 'minus' -%}
+
+                                    <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                      {% render 'icons', icon: 'minus' %}
+                                    </span>
+                                    <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                      {% render 'icons', icon: 'trash' %}
+                                    </span>
+    
                                   </button>
                                   <input
                                     type="number"
@@ -279,7 +288,14 @@
                                   {%- endif -%}
                                 >
                                   <span class="visually-hidden">{{ 'products.product.quantity_decrease' | t }}</span>
-                                  {%- render 'icons', icon: 'minus' -%}
+
+                                  <span class="icon-minus" {% if item.quantity == 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                    {% render 'icons', icon: 'minus' %}
+                                  </span>
+                                  <span class="icon-trash" {% if item.quantity != 1 %}style="display: none;"{% else %}style="display: flex;"{% endif %}>
+                                    {% render 'icons', icon: 'trash' %}
+                                  </span>
+  
                                 </button>
                                 <input
                                   type="number"
@@ -429,15 +445,15 @@
               {%- endif -%}
             </div>
           </div>
-          <div class="viewcart-content btn btn-secondary">
-            <a href="/cart" class="view-cart" aria-label="View cart">{{ 'cart.view_cart' | t }}</a>
+          <div class="viewcart-content">
+            <a href="/cart" class="view-cart btn btn-secondary">{{ 'cart.view_cart' | t }}</a>
           </div>
         </div>
       </div>
       <div class="right-side-drawer col-drawer-content drawer-tab-content" id="tab-2">
         <div class="cart-drawer-product">
           {% if section.settings.title %}
-        <span class="cart-recommend-title h4">{{ section.settings.title }}</span>            
+        <h4 class="cart-recommend-title ">{{ section.settings.title }}</h4>            
           {% endif %}
           <div class="drawer-collection">
             <div class="product-items">
@@ -458,4 +474,5 @@
       </div>
     </div>
   </div>
+</div>   
 </cart-drawer>

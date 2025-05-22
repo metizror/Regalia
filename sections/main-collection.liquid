@@ -12,8 +12,15 @@
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
   }
-  
+  :root{
+    --collection_heading_color:{{ section.settings.heading_color }};
+    --collection_text_color:{{ section.settings.text_color }};
+    --collection_overlay_color:{{ section.settings.overlay_color }};
+  }
 {% endstyle %}
+
+{% assign filters_order = section.settings.group_filter_prefix %}
+{% assign pricerange_order = section.settings.price_filter_index %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
   {% paginate collection.products by section.settings.pagination %}
@@ -63,7 +70,7 @@
           <div class="utility-bar__right">
             <div class="prod-count-sortby d-flex">
               {% if section.settings.product_count %}
-                <p class="product-count  mobile-hide" data-initial-count="{{ collection.all_products_count }}">
+             <p tabindex='0' aria-label="{{ 'collection.facets.product_counts' | t: product_count: collection.products_counts, count: collection.all_products_count }}" class="product-count  mobile-hide" data-initial-count="{{ collection.all_products_count }}">
                   {{
                     'collection.facets.product_counts'
                     | t: product_count: collection.products_counts, count: collection.all_products_count
@@ -72,24 +79,32 @@
               {% endif %}
               <div class="showprod-column d-flex mobile-hide">
                 <div
+                  tabindex="0"
+                  aria-label="listview"
                   grid-layout="listview"
                   class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'list-view' %}
                 </div>
                 <div
+                    tabindex="0"
+                  aria-label="grid view 2"
                   grid-layout="2"
                   class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'two-cloumn' %}
                 </div>
                 <div
+                   tabindex="0"
+                  aria-label="grid view 3"
                   grid-layout="3"
                   class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}" tabindex="0"
                 >
                   {% render 'icons', icon: 'three-cloumn' %}
                 </div>
                 <div
+                   tabindex="0"
+                  aria-label="grid view 4"
                   grid-layout="4"
                   class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}" tabindex="0"
                 >
@@ -111,10 +126,10 @@
                               {%- break -%}
                             {%- endif -%}
                           {% endfor %}
-                          <div class="sortby-header">
-                            <span class="sortby-header-title">
-                              {{- 'collection.facets.sort_by_label' | t }}<span class="mobile-hide">:</span>
-                              <span class="sortby-page mobile-hide">{{ collection_sort_by_name }} </span>
+                           <div tabindex="0" aria-label="{{- 'collection.facets.sort_by_label' | t -}}" class="sortby-header">
+                              <span class="sortby-header-title">
+                              {{- 'collection.facets.sort_by_label' | t -}}<span class="mobile-hide">:</span>
+                              <span tabindex="0" aria-label="{{ collection_sort_by_name }}" class="sortby-page mobile-hide">{{ collection_sort_by_name }} </span>
                             </span>
                             {% render 'icons', icon: 'chevron-down' %}
                           </div>
@@ -146,7 +161,7 @@
       </div>
       <div class="collection-wrapper filter-container--side">
         {%- if collection.products.size > 0 -%}
-          {% render 'facet-filters', results: collection, enable_filtering: section.settings.enable_filtering %}
+          {% render 'facet-filters', results: collection, enable_filtering: section.settings.enable_filtering,filter_order:filters_order,pricerange_order:pricerange_order %}
         {%- endif -%}
         <div class="collection-grid-wrapper" id="ProductCardContainer">
           {% capture active_filters_html %}
@@ -479,22 +494,6 @@
       "default": "#FFF"
     },
     {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "t:sections.general.color.overlay_color.label",
-      "default": "#000"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "t:sections.collection.settings.customization.overlay_opacity.label",
-      "min": 0,
-      "max": 1,
-      "step": 0.1,
-      "unit": "%",
-      "default": 0.4
-    },
-    {
       "type": "header",
       "content": "t:sections.general.section_vertical_spacing.content"
     },
@@ -545,100 +544,6 @@
       "min": 0,
       "max": 1,
       "step": 0.1
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.heading.label"
-    },
-    {
-      "type": "text",
-      "id": "heading_text",
-      "label": "t:sections.general.heading.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
-      "options": [
-        {
-          "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
-        },
-        {
-          "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label" 
-        },
-        {
-          "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
-        }
-      ],
-      "default": "h2"
-    },
-    {
-      "type": "richtext",
-      "id": "content_text",
-      "label": "t:sections.collection.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "label": "t:sections.general.alignment.content",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.button.button_type.options.btn_primary.label"
-    },
-    {
-      "type": "text",
-      "id": "btn1",
-      "label": "t:sections.general.button.button_text.label"
-    },
-    {
-      "type": "url",
-      "id": "primary_url",
-      "label": "t:sections.general.button.button_link.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "new_tab_primary",
-      "label": "t:sections.general.button.open_in_new_tab.label",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.button.button_type.options.btn_secondary.label"
-    },
-    {
-      "type": "text",
-      "id": "btn2",
-      "label": "t:sections.general.button.button_text.label"
-    },
-    {
-      "type": "url",
-      "id": "secondary_url",
-      "label": "t:sections.general.button.button_link.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "new_tab_secondary",
-      "label": "t:sections.general.button.open_in_new_tab.label",
-      "default": false
     }
   ]
 }

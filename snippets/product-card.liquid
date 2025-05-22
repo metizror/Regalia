@@ -18,10 +18,10 @@
   endcase
 -%}
 
-<div class="product-item flex-items grid-item">
+<div class="product-item flex-items grid-item {% if show_swatches %} show_swatches {% endif %}">
   <div class="product-image">
     <div
-      class="img-wrapper{% if settings.tiles_fill_media_zooom %} media-fill{% endif %} "
+      class="img-wrapper{% if settings.tiles_fill_media_zoom %} media-fill{% endif %} "
       tabindex="-1"
       style="--media-ratio: {%- if ratio != blank -%}{{ ratio }}{%- else -%}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 | append: '%' }}{%- endif -%}"
     >
@@ -126,7 +126,7 @@
   </div>
   <div class="product-content">
     <div class="product-inner-content">
-      <div class="product-container">
+      <div class="product-container {{ section.settings.alignment }}">
         <a href="{{ product.url }}" class="h6 btn-link-effect">{{ product.title | escape }}</a>
         {% comment %}
           <div class="cart-drawer-details">
@@ -237,7 +237,7 @@
       <div class="atc-cart-drawer">
         <form method="post" action="/cart/add">
           <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-          <input class="visuallyhidden" min="1" type="number" id="quantity" name="quantity" value="1" aria-label="Quantity">
+          <input class="visuallyhidden cart-drawer-col" min="1" type="number" id="quantity" name="quantity" value="1" aria-label="Quantity">
 
           {% assign selected_variant = product.selected_or_first_available_variant %}
 

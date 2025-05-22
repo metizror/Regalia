@@ -290,6 +290,22 @@
         }
       }
     },
+    "variant_type": {
+      "name": "Variant type",
+      "settings": {
+        "variant_style": {
+          "label": "Variant type"
+        },
+        "options": {
+          "dropdown": {
+            "label": "Dropdown"
+          },
+          "buttons": {
+            "label": "buttons"
+          }
+        }
+      }
+    },
     "product_tiles": {
       "name": "Product tiles",
       "settings": {
@@ -516,6 +532,9 @@
   "sections": {
     "general": {
       "full_width": "Enable full width",
+      "show_page_title": {
+        "label": "Show page title"
+      },
       "section_vertical_spacing": {
         "content": "Section vertical spacing",
         "top_padding": {
@@ -619,11 +638,17 @@
         "background_color": {
           "label": "Background"
         },
+        "multicolumn_bg_color": {
+          "label": "Multicolumn background"
+        },
         "heading_color": {
           "label": "Heading color"
         },
         "subheading_color": {
           "label": "Subheading color"
+        },
+        "title_color": {
+          "label": "Title color"
         },
         "text_color": {
           "label": "Text color"
@@ -710,7 +735,7 @@
         },
         "background_image": {
           "label": "Background image",
-          "desktop":{
+          "desktop": {
             "label": "Background image (desktop)"
           },
           "mobile": {
@@ -748,7 +773,7 @@
           "label": "Subheading font size"
         },
         "description_size": {
-          "label": "Description font size"
+          "label": "Title size"
         }
       },
       "presets": {
@@ -830,7 +855,10 @@
           "enable_container": {
             "label": "Enable container"
           },
-          "enbale_auto_scroll": {
+          "enable_navigation": {
+            "label": "Slider navigation button disable"
+          },
+          "enable_auto_scroll": {
             "label": "Enable auto scroll"
           },
           "speed_delay": {
@@ -916,7 +944,7 @@
               "retro_style": "Retro",
               "dark_style": "Dark",
               "night_style": "Night",
-              "aubergine": "Aubergine"
+              "aubergine_style": "Aubergine"
             }
           },
           "contact_form": {
@@ -1073,6 +1101,9 @@
       "presets": {
         "name": "Discount countdown"
       }
+    },
+    "featured_collection": {
+      "name": "Featured collection"
     },
     "duo_image": {
       "name": "Duo image",
@@ -1353,8 +1384,14 @@
           "article_heading_color": {
             "label": "Article heading"
           },
+          "article_sidebar_heading_color": {
+            "label": "Sidebar heading"
+          },
           "article_text_color": {
-            "label": "Article content & icons"
+            "label": "Article content"
+          },
+          "article_icon_color": {
+            "label": "Article icon"
           },
           "field_background": {
             "label": "Field background"
@@ -1430,6 +1467,10 @@
         "group_filter_prefix": {
           "label": "Filter Group Prefix (comma-separated)"
         },
+        "price_filter_index": {
+          "label": "Price filter index",
+          "info": "The price filter comes first in the priority order"
+        },
         "filter_open": {
           "label": "Default filter open"
         },
@@ -1444,6 +1485,9 @@
         },
         "show_products_in_page": {
           "label": "Show products in page"
+        },
+        "show_items_in_page": {
+          "label": "Show items in page"
         },
         "banner": {
           "content": "Banner",
@@ -1486,6 +1530,9 @@
         "header": {
           "content": "Content"
         },
+        "heading_show": {
+          "label": "Heading show"
+        },
         "heading": {
           "label": "Heading"
         },
@@ -1495,6 +1542,12 @@
         "heading_opacity": {
           "label": "Heading opacity"
         },
+        "card_color": {
+          "label": "Product card color"
+        },
+        "text_alignment": {
+          "label": "Text alignment"
+        },
         "card_customization": {
           "content": "Section card customization",
           "background_image": {
@@ -1503,6 +1556,12 @@
             },
             "bottom_right": {
               "label": "Background image bottom right"
+            },
+            "mobile_bg_left": {
+              "label": "Mobile background left"
+            },
+            "mobile_bg_right": {
+              "label": "Mobile background right"
             }
           },
           "tab_color": {
@@ -1513,6 +1572,15 @@
           },
           "products_to_show": {
             "label": "Maximum products to show"
+          },
+          "products_column_show": {
+            "label": "Products column show"
+          },
+          "view_all": {
+            "label": "View All"
+          },
+          "btn_bg_color": {
+            "label": "Button background"
           },
           "countdown_timer": {
             "content": "Countdown timer",
@@ -1533,6 +1601,12 @@
         "coll_title": {
           "label": "Collection title",
           "info": "When this field is empty, the original collection name will be displayed."
+        },
+        "view_all_btn": {
+          "label": "Button text"
+        },
+        "btn_url": {
+          "label": "Button url"
         }
       }
     },
@@ -1641,7 +1715,11 @@
             "label": "Show quanity picker"
           },
           "show_gift_card_recipient": {
-            "label": "Show gift card receipient"
+            "label": "Show gift card receipient",
+            "info":"This settings only work in gift card product"
+          },
+          "buy_btn_hide":{
+            "label":"Buy now button show"
           }
         },
         "local_pickup": {
@@ -1665,6 +1743,18 @@
     "footer": {
       "name": "Footer",
       "settings": {
+        "footer_lefttop": {
+          "label": "Left top image"
+        },
+        "footer_rightbottom": {
+          "label": "Right bottom image"
+        },
+        "menu_color": {
+          "label": "Menu color"
+        },
+        "menu_color_opacity": {
+          "label": "Menu opacity"
+        },
         "social_icons": {
           "label": "Social icons"
         },
@@ -1672,7 +1762,7 @@
           "label": "Enable follow on shop"
         },
         "background_hr_line": {
-          "label": "Baclground"
+          "label": "Background"
         },
         "policy_text": {
           "label": "Policy text"
@@ -1705,8 +1795,14 @@
             "logo": {
               "label": "Store logo"
             },
+            "logo_width": {
+              "label": "Logo width"
+            },
             "info": {
               "label": "Store information"
+            },
+            "footer_newsletter": {
+              "label": "News letter"
             },
             "data": {
               "icon": {
@@ -1730,6 +1826,23 @@
             },
             "quick_menu": {
               "label": "Quick menu"
+            }
+          }
+        },
+        "social_details": {
+          "name": "Social icon",
+          "settings": {
+            "social_logo_1": {
+              "label": "Social icon one"
+            },
+            "social_logo_2": {
+              "label": "Social icon two"
+            },
+            "social_data_1": {
+              "label": "Social text one"
+            },
+            "social_data_2": {
+              "label": "Social text two"
             }
           }
         }
@@ -1768,6 +1881,12 @@
         },
         "sticky_header": {
           "label": "Sticky header"
+        },
+        "inline_search": {
+          "label": "Inline search"
+        },
+        "inline_search_bg_color": {
+          "label": "Inline search border color"
         },
         "spacing": {
           "content": "Spacing",
@@ -2025,6 +2144,9 @@
         "page_description": {
           "label": "Description"
         },
+        "collection_row_gap": {
+          "label": "Collection row gap"
+        },
         "collection_row": {
           "label": "Collection in row (desktop)"
         },
@@ -2079,7 +2201,7 @@
             "retro_style": "Retro",
             "dark_style": "Dark",
             "night_style": "Night",
-            "aubergine": "Aubergine"
+            "aubergine_style": "Aubergine"
           }
         }
       },
@@ -2095,6 +2217,9 @@
         },
         "reverse_direction": {
           "label": "Reverse direction"
+        },
+        "icon_img": {
+          "label": "Icon name"
         }
       },
       "blocks": {
@@ -2416,6 +2541,13 @@
             "flip": "Flip"
           }
         },
+        "enable_overlay_bg": {
+          "label": "Enable overlay bg",
+          "info": "Enable this option to apply an overlay across the entire slide"
+        },
+        "whole_overlay_bg": {
+          "label": "Whole overlay bg"
+        },
         "enable_autoplay": {
           "label": "Enable autoplay"
         },
@@ -2436,7 +2568,8 @@
             }
           },
           "overlay_content_alignment": {
-            "label": "Overlay content alignment"
+            "label": "Overlay content alignment",
+            "info":"These settings are not working on the entire overlay slide."
           },
           "button_alignment": {
             "label": "Button alignment"
@@ -2694,7 +2827,7 @@
         "layout": {
           "label": "Layout"
         },
-        "enbale_auto_scroll": {
+        "enable_auto_scroll": {
           "label": "Enable auto scroll"
         },
         "speed_delay": {
@@ -2702,6 +2835,9 @@
         },
         "autoscroll_speed": {
           "label": "Autoscroll speed"
+        },
+        "slider_enable": {
+          "label": "Slider enable"
         }
       },
       "blocks": {
@@ -2716,13 +2852,16 @@
             },
             "title": {
               "label": "Title"
+            },
+            "description_size": {
+              "label": "Description size"
             }
           }
         },
         "image_overlay_text": {
           "name": "Image overlay text",
           "settings": {
-            "meadia": {
+            "media": {
               "content": "Media",
               "bg_image": {
                 "label": "Background image"
@@ -2732,6 +2871,15 @@
               },
               "image": {
                 "label": "Image"
+              },
+              "image_placement": {
+                "label": "Image placement"
+              },
+              "image_first": {
+                "label": "Image first"
+              },
+              "image_second": {
+                "label": "Image second"
               },
               "description_color": {
                 "label": "Description"

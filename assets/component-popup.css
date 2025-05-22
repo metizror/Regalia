@@ -90,35 +90,33 @@ body.popup-active .section-popup .popup-body {
   object-fit: cover;
 }
 
-.section-popup .content-wrapepr {
+.section-popup .content-wrapper {
   padding: 60px;
   text-align: var(--content_alignment);
   padding-bottom: 25%;
 }
 
-.section-popup .content-wrapepr .popup-heading {
+.section-popup .content-wrapper .popup-heading {
   font-family: var(--bs-font-family);
   font-weight: var(--weight-medium);
   line-height: 21px;
   position: relative;
-  padding-bottom: 22px;
+  padding: 0 50px 22px 50px;
   letter-spacing: 1px;
 }
 
-.section-popup .content-wrapepr .popup-heading::after {
+.section-popup .content-wrapper .popup-heading::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 40%;
-  right: 40%;
   border-bottom: 1px dashed #D86F6F;
 }
 
-.section-popup .content-wrapepr .popup-heading.upcase {
+.section-popup .content-wrapper .popup-heading.upcase {
   text-transform: uppercase;
 }
 
-.section-popup .content-wrapepr .content {
+.section-popup .content-wrapper .content {
   margin-bottom: 2.5rem;
   padding: 0px 50px;
 }
@@ -173,14 +171,14 @@ body.popup-active .section-popup .popup-body {
 @media (max-width:767px) {
 
   .section-popup .img-wrapper,
-  .section-popup .content-wrapepr {
+  .section-popup .content-wrapper {
     min-width: 0;
     flex: 0 0 100%;
   }
 }
 
 @media (max-width:500px) {
-  .section-popup .content-wrapepr {
+  .section-popup .content-wrapper {
     padding: 60px 15px 25%;
   }
 
@@ -201,12 +199,16 @@ body.popup-active .section-popup .popup-body {
     border-radius: 25px;
   }
 
-  .section-popup .content-wrapepr .content {
+  .section-popup .content-wrapper .content {
     padding: 0 15px;
     margin-bottom: 1.786rem;
   }
 
-  .section-popup .content-wrapepr .popup-heading {
+  .section-popup .content-wrapper .popup-heading{
+    padding: 0 15px 22px 15px;
+  }
+
+  .section-popup .content-wrapper .popup-heading {
     font-size: calc(var(--bs-size) + 4px);
   }
 
@@ -218,5 +220,3 @@ body.popup-active .section-popup .popup-body {
     padding: 10px 12px;
   }
 }
-
-/* ================================================================= */

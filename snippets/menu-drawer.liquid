@@ -4,6 +4,8 @@
     <span class="close-icon" id="close-icon" aria-hidden="true">{% render 'icons',icon:'close' %}</span> 
   </button>
   <div id="drawer-menu-list" class="drawer-menu-list">
+    <div class="drawer-content-relative">
+    <div class="drawer-innercontent">
     <div class="menu-drawer-container">
       <div class="menu-drawer-inner">
         <div class="menu-drawer-navigation">
@@ -128,6 +130,7 @@
             {%- endif -%}
           </div>
           <div class="desktop-localization-wrapper">
+             {%- if section.settings.enable_country_selector  %} 
             <localization-form class="small-hide medium-hide" data-prevent-hide>
               {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
                 <div>
@@ -135,9 +138,12 @@
                 </div>
               {%- endform -%}
             </localization-form>
+          {%  endif %}
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   </div>
 </menu-drawer>

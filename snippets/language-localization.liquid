@@ -1,10 +1,11 @@
 {{ 'component-language-localization.css' | asset_url | stylesheet_tag: preload: true }}
 
 <div class="languagecontent">
-  <div class="defaultlanguage">
+  <div class="defaultlanguage" tabindex="0">
     <span>{{ localization.language.iso_code | upcase }}</span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </div>
+  
   <div class="language-selector">
     <ul id="{{ localPosition }}List" role="list" class="mainlangcontent list-unstyled">
       {%- for language in localization.available_languages -%}

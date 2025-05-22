@@ -24,6 +24,23 @@ window.theme.cartQntHandle = () => {
       }
 
       that.value = quantity;
+
+      // 🧠 ICON TOGGLE LOGIC (moved from separate script)
+      const wrapper = that.closest('quantity-picker');
+      if (wrapper) {
+        const iconMinus = wrapper.querySelector('.icon-minus');
+        const iconTrash = wrapper.querySelector('.icon-trash');
+        if (iconMinus && iconTrash) {
+          if (quantity <= 1) {
+            iconMinus.style.display = 'none';
+            iconTrash.style.display = 'flex';
+          } else {
+            iconMinus.style.display = 'flex';
+            iconTrash.style.display = 'none';
+          }
+        }
+      }
+
       inputBtns.forEach((btn) => (btn.disabled = true));
 
       // update cart
@@ -120,6 +137,102 @@ window.theme.cartQntHandle = () => {
   });
 };
 
+
+function attachRemoveButtonListeners() {
+    document.querySelectorAll(".maincart-remove").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const line = this.dataset.line;
+        // const itemElement = document.querySelector(`.cart-item[data-line="${line}"]`);
+        const itemElement = document.querySelector(`.maincart-remove[data-line="${line}"]`)?.closest(`tr[data-index="${line}"]`);
+
+
+        fetch('/cart/change.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            line: parseInt(line),
+            quantity: 0
+          })
+        })
+        .then(response => response.json())
+        .then(cart => {
+             if (itemElement) {
+            itemElement.remove(); // Remove item visually
+          }
+               if (cart.item_count === 0) {
+                    document.querySelector("#main-cart").innerHTML = `
+                      <div class="empty-cart">
+                        <h1 class="h3">Hmm... looks like your bag is empty.</h1>
+                        <a href="/collections/all" class="btn btn-secondary">
+                          Continue shopping
+                        </a>
+                      </div>
+                    `;
+                 document.querySelector('.cart-count').textContent = cart.item_count;
+          }
+        else{
+            // // 🧮 Update cart count
+          document.querySelector('.cart-count').textContent = cart.item_count;
+          fetch("/?sections=main-cart")
+            .then((response) => response.json())
+            .then((cart) => {
+              let cartParser = new DOMParser();
+              let doc = cartParser.parseFromString(cart["main-cart"],"text/html");
+
+              // Update total price
+              let cartTotalPrice = doc.querySelector("#main-cart .totals__total-value");
+              // console.log(cartTotalPrice);
+              if (cartTotalPrice) {
+                document.querySelector("#main-cart .totals__total-value").innerHTML =
+                  cartTotalPrice.innerHTML;
+              }
+              let cartFinalprice = doc.querySelector("#main-cart .totals__subtotal-value");
+              // let priceData = cartFinalprice.getAttribute('data-total-cart-price');
+              console.log(cartFinalprice);
+              if(cartFinalprice){
+                document.querySelector("#main-cart .totals__subtotal-value").innerHTML =
+                  cartFinalprice.innerHTML;
+              }
+              let cartDiscount = doc.querySelector("#main-cart .discount-value"); 
+                console.log(cartDiscount);
+              if(cartDiscount){
+                document.querySelector("#main-cart .discount-value").innerHTML = cartDiscount.innerHTML;
+              }
+
+              fetch("/cart.js")
+                .then((res) => res.json())
+                .then((cart) => {
+                  let cartItemCount = cart.item_count;
+                  let headerCartCount =
+                    document.querySelector("[data-cart-count]");
+                  let drawerCartCount = document.querySelector(
+                    "[data-cartdrawer-count]"
+                  );
+                  updateDiscounts(cart)
+                })
+                .catch((error) =>
+                  console.error("Error fetching cart count:", error)
+                );
+         
+              // Ensure tabs are initialized after content is updated
+            })
+            .catch((error) => console.error("Error updating cart:", error));
+          
+        }
+        
+        })
+        .catch(error => {
+          console.error("Error removing item from cart:", error);
+        });
+      });
+    });
+}
+
 function updateDiscounts(cart) {
   let discountHtml = "";
 
@@ -147,6 +260,8 @@ function updateDiscounts(cart) {
   document.querySelector(".additional-disconts").innerHTML = discountHtml;
 }
 
+
 window.addEventListener("DOMContentLoaded", () => {
   window.theme.cartQntHandle();
+  attachRemoveButtonListeners(); // Ensure remove button listeners are attached
 });

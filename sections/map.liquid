@@ -23,8 +23,7 @@
             {{ section.settings.heading }}
           </{{ section.settings.heading_size }}>
         {%- endif -%}
-            
-      
+                  
         <div class="map-container"> 
           {%- if section.settings.address != blank and section.settings.api_key != blank -%}
             <div class="store-map">
@@ -50,60 +49,60 @@
 
 {% schema %}
 {
-  "name": "t:sections.map.name",
+  "name": "Map",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [     
     {
       "type": "header",
-      "content": "t:sections.map.settings.layout.label"
+      "content": "Layout"
     },
     {
       "type": "checkbox",
       "id": "enable_full_width",
-      "label": "t:sections.general.full_width",
+      "label": "Enable full width",
       "default": true
     },
     {
       "type": "color",
       "id": "section_bg_color",
-      "label": "t:sections.general.color.background_color.label"
+      "label": "Background"
     },
     {
       "type": "header",
-      "content": "t:sections.general.heading.label"
+      "content": "Heading"
     },
     {
       "type": "text",
       "id": "heading",
-      "label": "t:sections.general.text.label",
+      "label": "Text",
       "default": "Goggle Map"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "t:sections.general.color.text_color.label"
+      "label": "Text color"
     }, 
     {
       "type": "select",
       "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
+      "label": "Size",
       "options": [
         {
-          "label": "t:sections.general.font_size.extra_large.label",
+          "label": "Extra large",
           "value": "h1"
         },
         {
-          "label": "t:sections.general.font_size.large_size.label",
+          "label": "Large",
           "value": "h2"
         },
         {
-          "label": "t:sections.general.font_size.medium_size.label",
+          "label": "Medium",
           "value": "h3"
         },
         {
-          "label": "t:sections.general.font_size.small_size.label",
+          "label": "Small",
           "value": "h4"
         }
       ],
@@ -112,18 +111,18 @@
     {
       "type": "select",
       "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
+      "label": "Alignment",
       "options": [
         {
-          "label": "t:sections.general.alignment.alignment_left.label",
+          "label": "Left",
           "value": "left"
         },
         {
-          "label": "t:sections.general.alignment.alignment_center.label",
+          "label": "Center",
           "value": "center"
         },
         {
-          "label": "t:sections.general.alignment.alignment_right.label",
+          "label": "Right",
           "value": "right"
         }
       ],
@@ -131,56 +130,56 @@
     },
     {
       "type": "header",
-      "content": "t:sections.map.settings.map.content"
+      "content": "Map"
     },
     {
       "type": "text",
       "id": "api_key",
-      "label":"t:sections.map.settings.map_api.label",
-      "info": "t:sections.map.settings.map_api.info"
+      "label": "Google maps api key",
+      "info": "You’ll need to [register a Google Maps API Key](https://help.shopify.com/manual/using-themes/troubleshooting/map-section-api-key) to display the map"
     },
     {
       "type": "richtext",
       "id": "address",
-      "label": "t:sections.map.settings.map_address.label",
-      "info": "t:sections.map.settings.map_address.info",
+      "label": "Address",
+      "info": "Google Maps will find the exact location",
       "default": "<p>75 9th Ave, New York, NY 10011-7006</p>"
     },
     {
       "type": "select",
       "id": "map_style",
-      "label": "t:sections.map.settings.map_style.label",
+      "label": "Style",
       "default": "default",
       "options": [
         {
-          "label": "t:sections.map.settings.map_style.options.default_style",
+          "label": "Default",
           "value": "default"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.silver_style",
+          "label": "Silver",
           "value": "silver"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.retro_style",
+          "label": "Retro",
           "value": "retro"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.dark_style",
+          "label": "Dark",
           "value": "dark"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.night_style",
+          "label": "Night",
           "value": "night"
         },
         {
-          "label": "t:sections.map.settings.map_style.options.aubergine",
+          "label": "Aubergine",
           "value": "aubergine"
         }
       ]
     },
     {
       "type": "header",
-      "content": "t:sections.general.section_vertical_spacing.content"
+      "content": "Section vertical spacing"
     },
     {
         "type": "range",
@@ -189,7 +188,7 @@
         "max": 100,
         "step": 4,
         "unit": "px",
-        "label": "t:sections.general.section_vertical_spacing.top_padding.label",
+        "label": "Top padding",
         "default": 36
       },
       {
@@ -199,13 +198,13 @@
         "max": 100,
         "step": 4,
         "unit": "px",
-        "label": "t:sections.general.section_vertical_spacing.bottom_padding.label",
+        "label": "Bottom padding",
         "default": 36
       }
   ],
   "presets": [
     {
-      "name": "t:sections.map.presets.name"
+      "name": "Map"
     }
   ]
 }

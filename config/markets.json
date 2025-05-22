@@ -8,19 +8,5 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "cart-items": {
-      "type": "main-cart",
-      "settings": {
-        "enable_full_width": false,
-        "title": "People are also searched for",
-        "collection": "best-offer",
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    }
-  },
-  "order": [
-    "cart-items"
-  ]
+  "markets": {}
 }

@@ -17,13 +17,11 @@
     width: 100%;
     max-width: {{ section.settings.inner_max_width }}px;
   }
-  #section-{{ section.id }} .text-column.heading h2{
-    color: {{ section.settings.heading_color }};
-    font-size: {{ section.settings.heading_font_size }}px;
-  }
   #section-{{ section.id }} .text-column.description p{
     color: {{ section.settings.description_color }};
-    font-size: {{ section.settings.description_size }}px;
+  }
+  #section-{{ section.id }} .text-column.heading h3{
+    color: {{ section.settings.heading_color }};
   }
   @media screen and (min-width: 768px) {
     #section-{{ section.id }} {
@@ -38,6 +36,12 @@
       max-width: {{ section.settings.description_column_width }}%;
       text-align: {{ section.settings.desc_align_desk }};
     }
+    #section-{{ section.id }} .text-column.heading h3{
+      font-size: {{ section.settings.heading_font_size }}px;
+    }
+    #section-{{ section.id }} .text-column.description p{
+      font-size: {{ section.settings.description_size }}px;
+    } 
   }
   @media screen and (max-width: 767px) {
     #section-{{ section.id }} .text-column.heading{
@@ -46,6 +50,9 @@
     #section-{{ section.id }} .text-column.description{
       text-align: {{ section.settings.desc_align_mob }};
     }
+    #section-{{ section.id }} .text-column.description p{
+     font-size: calc({{ section.settings.description_size }}px - 2px);
+    }
   }
 {%- endstyle -%}
 
@@ -53,7 +60,7 @@
   <div class="text-container {% if section.settings.full_width %}full-width{% else %}custom-width{% endif %}">
     <div class="text-columns {% if section.settings.heading_first == true %}heading-first{% else %}heading-last{% endif %}">
       <div class="text-column heading">
-        <h2>{{ section.settings.heading }}</h2>
+        <h3>{{ section.settings.heading }}</h3>
       </div>
       {% if section.settings.show_separator_mob == true %}
         <div class="separator-mob" style="width: 100%;">
@@ -269,4 +276,3 @@
   ]
 }
 {% endschema %}
-

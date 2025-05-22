@@ -33,7 +33,7 @@
           {%- if block.settings.video -%}
             <div class="video-carousel swiper-slide" {{ block.shopify_attributes }} id="shopify-block-{{ block.id }}">
               <div class="video-carousel__video video-carousel__video--{{ section.settings.slide_height }}">
-                {{ block.settings.video | media_tag: muted: true, controls: false, autoplay: true, loop: true, class: 'video-carousel__video__element' | replace: '<img src', '<img alt="video-img" src' }}
+                {{ block.settings.video | media_tag: muted: true, controls: false, autoplay: true, loop: true, class: 'video-carousel__video__element' | replace: '<img src', '<img loading="lazy" alt="video-img" src' }}
               </div>
             </div>
           {%- endif -%}

@@ -6,7 +6,7 @@
   .newsletter {
     background-color: {{ section.settings.bg_color }};
   }
-  .newsletter h2{
+  .newsletter .newsletter-heading{
     color:{{ section.settings.text_color }};
   }
   .newsletter .newsletter__subheading{
@@ -21,6 +21,7 @@
 {%- endstyle -%}
 
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag:preload: true }}
+
 <div class="newsletter {% if section.settings.full_width %}full-width{% else %}container{% endif %}">
   <div class="newsletter-inner {% if section.settings.full_width %}container{% endif %}">
     <div class="newsletter-content section-{{ section.id }}-padding">
@@ -31,7 +32,7 @@
           {%- when 'heading' -%}
             {%- if block.settings.heading != blank -%}
               <span
-                class="{{ block.settings.heading_size }}"
+                class="{{ block.settings.heading_size }} newsletter-heading"
                 {{ block.shopify_attributes }}
                 ms-aos
                 data-ms-delay="{{ forloop.index | times: 150 }}"

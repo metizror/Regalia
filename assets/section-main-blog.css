@@ -30,8 +30,6 @@
 }
 
 .content-overlap {
-  /* border: 2px solid;
-  border-radius: 6px; */
   padding: 3rem 6rem;
   width: -webkit-fill-available;
   height: 100%;
@@ -167,7 +165,7 @@ a.image-wrapper {
 
 .article-card .article-button-wrapper .article-button {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
   text-align: center;
   border-radius: 4px;
@@ -280,7 +278,7 @@ lazy-image.article-zoom {
   }
 
   .article-card .article-title {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.3rem;
   }
 

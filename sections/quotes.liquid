@@ -4,7 +4,11 @@
     padding-bottom: {{ section.settings.padding_bottom }}px;
     --heading_color: {{ section.settings.heading_color }};
   }
-
+  {% for block in section.blocks %}
+    .quote-content-{{ block.id }} h2 p{
+      color: {{ block.settings.quote_color }};
+    }
+  {% endfor %}
   @media(max-width:768px){
     #shopify-section-{{section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -42,7 +46,7 @@
     </div>
   {%- endif -%}
   <div class="quote-container">
-    <div class="container">
+    <div class="container text-{{ section.settings.heading_alignment }}">
       {%- if section.settings.title -%}
         <span class="quotes-title h6">
           {{- section.settings.title -}}
@@ -52,7 +56,7 @@
         <div class="quote-content-wrapper">
           {%- for block in section.blocks -%}
             {%- if block.settings.quote -%}
-              <div class="quote-content {% if forloop.first %}active{% endif %}">
+              <div class="quote-content quote-content-{{ block.id }} {% if forloop.first %}active{% endif %}">
                 <h2>{{ block.settings.quote }}</h2>
               </div>
             {%- endif -%}
@@ -113,6 +117,30 @@
       "id": "title",
       "label": "t:sections.general.heading.label",
       "default": "Quotes of the day"
+    },
+        {
+      "type": "header",
+      "content": "t:sections.general.alignment.content"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "t:sections.general.alignment.content",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.general.alignment.alignment_left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.general.alignment.alignment_center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.general.alignment.alignment_right.label"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "color",

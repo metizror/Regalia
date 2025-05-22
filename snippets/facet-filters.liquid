@@ -24,19 +24,33 @@
       <span class="button-icon">{% render 'close-small' %}</span>
     </div>
 
+     {% assign filter_order_list = filter_order | downcase | strip | replace: ', ', ','  | split:',' %}
     <facet-filters class="facets">
       <form class="collection-filter-form">
         {%- if results.terms -%}
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
           <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
-        <div class="active-filters-wrapper">
+        <div class="active-filters-wrapper filter-list-content">
           <script src="{{ 'component-show-more.js' | asset_url }}" defer="defer"></script>
           {%- for filter in results.filters -%}
+              {% assign filter_name = filter.label| downcase %}
+
+          {% assign getfilterindex = forloop.index %}
+            
+              {% if filter_order_list contains filter_name %}
+                {% for filter_order_name in filter_order_list %}
+                    {%  if filter_name == filter_order_name %}
+                      {% assign getfilterindex = forloop.index %}
+                      {% break %}
+                    {% endif %}  
+                {% endfor %}
+              {% endif %}
             {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
             {%- case filter.type -%}
               {%- when 'boolean', 'list' -%}
-                <details
+               <details
+                  {% if filter_order_list.size > 0 %}{% if pricerange_order == 1 %}{% assign order_value = getfilterindex | plus:1 %}style="order:{{ order_value }}"{% else %}style="order:{{ getfilterindex }}"{% endif %}{% endif %}
                   id="Details-{{ forloop.index }}-{{ section.id }}"
                   class="facets__disclosure-vertical js-filter"
                   data-index="{{ forloop.index }}"
@@ -120,7 +134,7 @@
                   </div>
                 </details>
               {%- when 'price_range' -%}
-                {% render 'price-range', filter: filter %}
+                {% render 'price-range', filter: filter,pricerange_order:pricerange_order %}
             {%- endcase -%}
           {%- endfor -%}
           <noscript>

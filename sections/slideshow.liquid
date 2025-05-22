@@ -4,7 +4,23 @@
   #shopify-section-{{ section.id }} {
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
-  }  
+  }
+    {% for block in section.blocks %}
+    .overlaywhole-{{ block.id }} .imgundercontent{
+      right:0;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+        position: absolute;
+        inset: 0;
+      background: {{ block.settings.whole_overlay_bg }};
+      z-index: 1;
+      transform: translate(0%);
+    }
+    .overlacontent h2{
+      color:{{ block.settings.title_color }};
+    }
+
+  {% endfor %}
 
   @media (max-width:768px){
     #shopify-section-{{ section.id }} {
@@ -17,10 +33,26 @@
 {% if section.blocks.size > 0 %}
   {% assign first_slide = section.blocks[0] %}
   {% if first_slide.settings.image %}
-    {{ first_slide.settings.image | image_url: width: first_slide.settings.image.width | image_tag: preload: true, class: "hidden", width: first_slide.settings.image.width, height: first_slide.settings.image.height }}
+    {{
+      first_slide.settings.image
+      | image_url: width: 1440, format: 'webp'
+      | image_tag:
+        preload: true,
+        class: 'hidden',
+        width: first_slide.settings.image.width,
+        height: first_slide.settings.image.height
+    }}
   {% endif %}
   {% if first_slide.settings.mobile_image %}
-    {{ first_slide.settings.mobile_image | image_url: width: first_slide.settings.mobile_image.width | image_tag: preload: true, class: "hidden", width: first_slide.settings.mobile_image.width, height: first_slide.settings.mobile_image.height }}
+    {{
+      first_slide.settings.mobile_image
+      | image_url: width: 767, format: 'webp'
+      | image_tag:
+        preload: true,
+        class: 'hidden',
+        width: first_slide.settings.mobile_image.width,
+        height: first_slide.settings.mobile_image.height
+    }}
   {% endif %}
 {% endif %}
 
@@ -28,7 +60,7 @@
 {% assign slide_effect = section.settings.slide_transition %}
 
 <div
-  class="slidercontent swiper"
+  class="slidercontent slide-data swiper"
   data-slider-options='
     {
       "slidesPerView": "1",
@@ -52,38 +84,62 @@
   <div class="swiper-wrapper">
     {% for block in section.blocks %}
       <div
-        class="swiper-slide sliderimg"
+        class="swiper-slide sliderimg {% if block.settings.overlay_bg %}overlaywhole-{{ block.id }}{% endif %}"
         data-image="{{ block.settings.image  | image_url: width: block.settings.image.width }}"
       >
         {% if block.settings.image %}
-          <lazy-image>
+          {% assign is_first = forloop.first %}
+          {% unless is_first %}
+            <lazy-image>
+          {% endunless %}
           <picture>
             {% if block.settings.mobile_image %}
-              <source srcset="{{ block.settings.mobile_image | image_url: width: block.settings.mobile_image.width }}" media="(max-width: 767px)">
+              <source
+                srcset="{{ block.settings.mobile_image | image_url: width: 768, format: 'webp' }}"
+                media="(max-width: 767px)"
+              >
             {% endif %}
             <img
-              src="{{ block.settings.image  | image_url: width: block.settings.image.width }}"
-              alt="{{ block.settings.image.alt }}"
+              src="{{ block.settings.image  | image_url: width: 1440, format: 'webp' }}"
+              alt="{{ block.settings.image.alt | escape }}"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}"
               style="--object-position: {{ block.settings.image.presentation.focal_point }}"
-              {% unless forloop.first %}loading="lazy"{% endunless %}
+              {% if is_first %}
+                fetchpriority="high"
+                loading="eager"
+              {% else %}
+                loading="lazy"
+              {% endif %}
+              decoding="async"
             >
           </picture>
-        </lazy-image>
+          {% unless is_first %}
+          </lazy-image>
+          {% endunless %}
         {% else %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
         <div class="imgundercontent content-{{ block.settings.content_alignment }}">
-          <div class="overlacontent text-{{ block.settings.heading_alignment }} align-{{ block.settings.btn_alignment }}" ms-aos data-ms-delay="100">
+          <div
+            class="overlacontent {% if block.settings.overlay_bg %}container{% endif %} text-{{ block.settings.heading_alignment }} align-{{ block.settings.btn_alignment }}"
+            ms-aos
+            data-ms-delay="100"
+          >
             {% if block.settings.maintitle %}
-              <h2>{{ block.settings.maintitle }}</h2>
+              <{{ block.settings.heading_size }}>{{ block.settings.maintitle }}</{{ block.settings.heading_size }}>
             {% endif %}
             {% if block.settings.sub_title %}
               <p>{{ block.settings.sub_title }}</p>
             {% endif %}
             {% if block.settings.btn_link %}
-              <a href="{{ block.settings.btn_link }}" class="btn btn-effect">
+              <a
+                href="{{ block.settings.btn_link }}"
+                {% if block.settings.new_tab %}
+                  target="_blank"
+                {% endif %}
+                class="btn btn-effect"
+              >
                 <span class="text-container">
                   <p class="slidebtn">{{ block.settings.button_label }}</p>
                 </span>
@@ -93,7 +149,7 @@
         </div>
       </div>
     {% endfor %}
-     <div class="swiper-pagination custom-pagination"></div>
+    <div class="swiper-pagination custom-pagination"></div>
   </div>
 
   <!-- Add Navigation -->
@@ -204,6 +260,7 @@
           "type": "select",
           "id": "content_alignment",
           "label": "t:sections.slideshow.blocks.settings.overlay_content_alignment.label",
+          "info":"t:sections.slideshow.blocks.settings.overlay_content_alignment.info",
           "options": [
             {
               "value": "left",
@@ -219,6 +276,12 @@
             }
           ],
           "default": "left"
+        },
+       {
+          "type":"checkbox",
+            "id":"overlay_bg",
+          "label":"t:sections.slideshow.settings.enable_overlay_bg.label",
+          "info":"t:sections.slideshow.settings.enable_overlay_bg.info",
         },
         {
           "type": "text",
@@ -259,7 +322,7 @@
               "label": "t:sections.general.alignment.alignment_center.label"
             },
             {
-              "value": "right",
+              "value": "end",
               "label": "t:sections.general.alignment.alignment_right.label"
             }
           ],
@@ -286,117 +349,16 @@
           "default": "h2"
         },
         {
-          "type": "select",
-          "id": "heading_alignment",
-          "label": "t:sections.slideshow.blocks.settings.text_alignment.label",
-          "options": [
-            {
-              "value": "left",
-              "label": "t:sections.general.alignment.alignment_left.label"
-            },
-            {
-              "value": "center",
-              "label": "t:sections.general.alignment.alignment_center.label"
-            },
-            {
-              "value": "right",
-              "label": "t:sections.general.alignment.alignment_right.label"
-            }
-          ],
-          "default": "right",
-          "info": "t:sections.slideshow.blocks.settings.text_alignment.info"
+        "type": "color_background",
+          "id": "whole_overlay_bg",
+          "label": "t:sections.slideshow.settings.whole_overlay_bg.label",
+          "default": "linear-gradient(#ffffff, #000000)"
         },
         {
           "type": "checkbox",
           "id": "new_tab",
           "label": "t:sections.general.button.open_in_new_tab.label",
           "info": "t:sections.general.button.open_in_new_tab.info"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.general.customization.label"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.slideshow.blocks.settings.btn_desktop_style.label"
-        },
-        {
-          "type": "color",
-          "id": "cta_bg_color",
-          "label": "t:sections.general.color.background_color.label",
-          "default": "#FFFFFF"
-        },
-        {
-          "type": "color",
-          "id": "cta_txt_color",
-          "label": "t:sections.general.color.text_color.label",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "cta_border_color",
-          "label": "t:sections.general.button.button_border_color.label",
-          "default": "#FFFFFF"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.slideshow.blocks.settings.btn_mobile_style.label"
-        },
-        {
-          "type": "color",
-          "id": "cta_bg_color_mobile",
-          "label": "t:sections.general.color.background_color.label",
-          "default": "#FFFFFF"
-        },
-        {
-          "type": "color",
-          "id": "cta_txt_color_mobile",
-          "label": "t:sections.general.color.text_color.label",
-          "default": "#000000"
-        },
-        {
-          "type": "color",
-          "id": "cta_border_color_mobile",
-          "label": "t:sections.general.button.button_border_color.label",
-          "default": "#000000"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.slideshow.blocks.settings.slide.content"
-        },
-        {
-          "type": "color",
-          "id": "slide_bg_color",
-          "label": "t:sections.general.color.background_color.label",
-          "default": "#FFFFFF"
-        },
-        {
-          "type": "color",
-          "id": "image_overlay_color",
-          "label": "t:sections.slideshow.blocks.settings.slide.image_overlay.overlay_color.label",
-          "default": "#000"
-        },
-        {
-          "type": "range",
-          "id": "image_overlay_opacity",
-          "min": 0,
-          "max": 1,
-          "step": 0.1,
-          "unit": "%",
-          "label": "t:sections.slideshow.blocks.settings.slide.image_overlay.overlay_opacity.label",
-          "default": 0.3
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "t:sections.slideshow.blocks.settings.text_color.desktop.label",
-          "default": "#FFF"
-        },
-        {
-          "type": "color",
-          "id": "mobile_text_color",
-          "label": "t:sections.slideshow.blocks.settings.text_color.mobile.label",
-          "default": "#000"
         }
       ]
     }

@@ -6,11 +6,11 @@
 .video-product-section .vidpro-heading {
   line-height: 39.23px;
   font-weight: var(--weight-regular);
-  padding-bottom: 12px;
+  padding-bottom: 25px;
 }
 
 .video-product-section .vidproinner video {
-  width: 100%;
+  width: 100%;   
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
@@ -24,7 +24,7 @@
 .video-product-section .vidprocontent.grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   column-gap: var(--column-gap);
 }
 
@@ -84,6 +84,14 @@
 
   .video-product-section .vidpro-heading {
     padding-bottom: 0;
+    margin-bottom: 10px;
+    line-height: 100%;
+  }
+  .video-product-section .vidproinner video{
+    max-height: 420px;
+  }
+  .vidpro-content .vidpro-heading{
+    text-align: left;
   }
 }
 
@@ -108,13 +116,5 @@
     height: 330px;
     object-fit: cover;
   }
-  
-}
 
-@media (min-width:768px) and (max-width:1024px) {
-  
-  .procontent-wrapper .pricecontent{
-     flex-direction: column;
-  }
-  
 }

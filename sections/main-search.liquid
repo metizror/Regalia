@@ -2,6 +2,28 @@
 {{ 'component-filters.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-main-collection.css' | asset_url | stylesheet_tag: preload:true }}
 
+  {%- style -%}
+    .search-page .content-overlap {
+      background: {{ section.settings.article_color }};
+      border-color: {{ section.settings.border_color }};
+    }
+    
+    .search-page .article-card .meta-wrapper {
+      color: {{ section.settings.text_color }};
+    }
+
+    {% if search.results.size < 1 %}
+      .utility-bar__right {
+        width: 100%;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .utility-bar {
+        justify-content: center; 
+      }
+    {% endif %}
+{%- endstyle -%}
 
 {% paginate search.results by section.settings.product_per_coll %}
   {%- liquid
@@ -10,6 +32,56 @@
   -%}
 
   <div class="container">
+
+    {%- if settings.bg_img_1 -%}
+      <div class="list-bg-image top-right">
+        <lazy-image>
+          <img src="{{ settings.bg_img_1 | image_url: width: settings.bg_img_1.width }}"
+            alt="{{ settings.bg_img_1.alt }}"
+            width="{{ settings.bg_img_1.width }}"
+            height="{{ settings.bg_img_1.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_1.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_2 -%}
+      <div class="list-bg-image top-left">
+        <lazy-image>
+          <img src="{{ settings.bg_img_2 | image_url: width: settings.bg_img_2.width }}"
+            alt="{{ settings.bg_img_2.alt }}"
+            width="{{ settings.bg_img_2.width }}"
+            height="{{ settings.bg_img_2.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_2.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_3 -%}
+      <div class="list-bg-image middle-right">
+        <lazy-image>
+          <img src="{{ settings.bg_img_3 | image_url: width: settings.bg_img_3.width }}"
+            alt="{{ settings.bg_img_3.alt }}"
+            width="{{ settings.bg_img_3.width }}"
+            height="{{ settings.bg_img_3.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_3.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    {%- if settings.bg_img_4 -%}
+      <div class="list-bg-image middle-left">
+        <lazy-image>
+          <img src="{{ settings.bg_img_4 | image_url: width: settings.bg_img_4.width }}"
+            alt="{{ settings.bg_img_4.alt }}"
+            width="{{ settings.bg_img_4.width }}"
+            height="{{ settings.bg_img_4.height }}"
+            loading="lazy"
+            style="--object-postion:{{ settings.bg_img_4.presentation.focal_point }}">
+        </lazy-image>
+      </div>
+    {%- endif -%}
+    
     <div data-section-id="{{ section.id }}" data-section-type="search-template">
       {%- render 'breadcrumbs' -%}
       <h2 class="h2 text-center">{{ 'general.search.search' | t }}</h2>
@@ -49,68 +121,72 @@
         -%}
         
         <div class="search-container filter-container">
-          <div class="utility-bar">
-            <div class="utility-bar__left">
-              {% if show_filters %}
-                <button
-                  class="toggle-btn utility-bar__item {% if section.settings.default_open == false %}active{% endif %} {% if show_filters == false %} desk-hide-flex{% endif %}"
-                  data-toggle-filters
-                  id="filterTrigger"
-                >
-                  <span class="button-icon">
-                    {% render 'icons', icon: 'filter' %}
-                  </span>
-                  <span>{{ 'collection.facets.filter_by_label' | t }}</span>
-                  {% liquid
-                    assign filter_count = 0
-                    for filter in collection.filters
-                      assign filter_count = filter_count | plus: filter.active_values.size
-                      if filter.type == 'price_range'
-                        if filter.min_value.value != null or filter.max_value.value != null
-                          assign filter_count = filter_count | plus: 1
+          <div class="utility-bar{% if search.results.size < 1 %} mobile-hide{% endif %}">
+             {% if search.results.size > 1 %}
+              <div class="utility-bar__left">
+                {% if show_filters %}
+                  <button
+                    class="toggle-btn utility-bar__item {% if section.settings.default_open == false %}active{% endif %} {% if show_filters == false %} desk-hide-flex{% endif %}"
+                    data-toggle-filters
+                    id="filterTrigger"
+                  >
+                    <span class="button-icon">
+                      {% render 'icons', icon: 'filter' %}
+                    </span>
+                    <span>{{ 'collection.facets.filter_by_label' | t }}</span>
+                    {% liquid
+                      assign filter_count = 0
+                      for filter in collection.filters
+                        assign filter_count = filter_count | plus: filter.active_values.size
+                        if filter.type == 'price_range'
+                          if filter.min_value.value != null or filter.max_value.value != null
+                            assign filter_count = filter_count | plus: 1
+                          endif
                         endif
-                      endif
-                    endfor
-                  %}
-                  {% if filter_count > 0 %}
-                    <span class="toggle-btn__count">({{ filter_count }})</span>
-                  {% endif %}
-                </button>
-              {% endif %}
-            </div>
+                      endfor
+                    %}
+                    {% if filter_count > 0 %}
+                      <span class="toggle-btn__count">({{ filter_count }})</span>
+                    {% endif %}
+                  </button>
+                {% endif %} 
+              </div>
+            {% endif %}
             <div class="utility-bar__right">
               <div class="prod-count-sortby d-flex mobile-hide">
                 {% if section.settings.product_count %}
                   <p class="search-count">
-                    {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" }}
+                    {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" | truncate: 50 }}
                   </p>
                 {% endif %}
-                <div class="showprod-column d-flex">
-                  <div
-                    grid-layout="listview"
-                    class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}"
-                  >
-                    {% render 'icons', icon: 'list-view' %}
+                {% if search.results.size > 1 %}
+                  <div class="showprod-column d-flex">
+                    <div
+                      grid-layout="listview"
+                      class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}"
+                    >
+                      {% render 'icons', icon: 'list-view' %}
+                    </div>
+                    <div
+                      grid-layout="2"
+                      class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}"
+                    >
+                      {% render 'icons', icon: 'two-cloumn' %}
+                    </div>
+                    <div
+                      grid-layout="3"
+                      class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}"
+                    >
+                      {% render 'icons', icon: 'three-cloumn' %}
+                    </div>
+                    <div
+                      grid-layout="4"
+                      class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}"
+                    >
+                      {% render 'icons', icon: 'four-column' %}
+                    </div>
                   </div>
-                  <div
-                    grid-layout="2"
-                    class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}"
-                  >
-                    {% render 'icons', icon: 'two-cloumn' %}
-                  </div>
-                  <div
-                    grid-layout="3"
-                    class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}"
-                  >
-                    {% render 'icons', icon: 'three-cloumn' %}
-                  </div>
-                  <div
-                    grid-layout="4"
-                    class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}"
-                  >
-                    {% render 'icons', icon: 'four-column' %}
-                  </div>
-                </div>
+                {% endif %}
               </div>
               {%- if show_sorting and search.results.size > 1 -%}
                 <form class="facets-vertical-form" id="FacetSortForm">
@@ -154,79 +230,43 @@
               {%- endif -%}
             </div>
           </div>
-
                    <div class="mobile-search-count desk-hide">
-
             <div class="prod-count-sortby d-flex">
-
               {% if section.settings.product_count %}
-
                 <p class="search-count">
-
-                  {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" }}
-
+                  {{ 'general.search.results_for' | t: count: search.results.size, terms: search.terms | remove: "Search:" | truncate: 30 }}
                 </p>
-
               {% endif %}
-
+              {% if search.results.size > 1 %}
               <div class="showprod-column d-flex">
-
                 <div
-
                   grid-layout="listview"
-
                   class="list-view prod-column-change {% if section.settings.product_per_row == 1 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'list-view' %}
-
                 </div>
-
                 <div
-
                   grid-layout="2"
-
                   class="twoproduct-view prod-column-change {% if section.settings.product_per_row == 2 %}activeGrid{% endif %}"
-
                 >
-
                   {% render 'icons', icon: 'two-cloumn' %}
-
                 </div>
-
                 <div
-
                   grid-layout="3"
-
-                  class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %}"
-
+                  class="threeproduct-view prod-column-change {% if section.settings.product_per_row == 3 %}activeGrid{% endif %} mobile-hide"
                 >
-
                   {% render 'icons', icon: 'three-cloumn' %}
-
                 </div>
-
                 <div
-
                   grid-layout="4"
-
-                  class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %}"
-
+                  class="fourproduct-view prod-column-change {% if section.settings.product_per_row == 4 %}activeGrid{% endif %} mobile-hide"
                 >
-
                   {% render 'icons', icon: 'four-column' %}
-
                 </div>
-
               </div>
-
+            {% endif %}
             </div>
-
-          </div>
-
-
-          
+          </div>          
         </div>
         <div class="filter__container">
           {% liquid
@@ -427,8 +467,8 @@
     },
     {
       "type": "range",
-      "id": "pagination",
-      "label": "t:sections.collection.settings.show_products_in_page.label",
+      "id": "product_per_coll",
+      "label": "t:sections.collection.settings.show_items_in_page.label",
       "min": 8,
       "max": 40,
       "step": 1,
@@ -481,15 +521,6 @@
       "id": "show_excerpt",
       "label": "t:sections.blog.settings.select_blog.customization.show_excerpt.label",
       "default": true
-    },
-    {
-      "type": "range",
-      "id": "product_per_coll",
-      "label": "t:sections.collection.settings.show_products_in_page.label",
-      "min": 8,
-      "max": 40,
-      "step": 1,
-      "default": 12
     },
     {
       "type": "header",

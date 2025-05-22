@@ -45,7 +45,11 @@
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
+          {%  if block.settings.show_qnt_picker %} 
+        <label for="pdpQnt" class="qtylabeltitle">{{ 'product.quantity_picker' | t }}</label>
+         {% endif %}
         <div class="qua-atc-btn">
+          {%  if block.settings.show_qnt_picker %} 
           <div class="quantity-picker-wrapper cart-qnt">
             <div class="error" style="display:none;">
               {%- render 'icons', icon: 'cross' -%}
@@ -65,6 +69,7 @@
               </button>
               <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
                 <input
+                  class="featured-pro-btn"
                   id="quantity-{{ product.id }}"
                   type="number"
                   name="quantity"
@@ -79,9 +84,10 @@
               </button>
             </quantity-picker>
           </div>
-          
-          <div class="product-form__buttons">
+        {% endif %}
+          <div tabindex="-1" class="product-form__buttons">
             <button
+               tabindex="0"
               id="ProductSubmitButton-{{ section_id }}"
               type="submit"
               name="add"
@@ -108,11 +114,13 @@
           </div>
         </div>
         {% unless product.variants.first.inventory_quantity == 0 %}
+          {% if block.settings.buy_btn_hide %}
           <div class="checkoutbtn-text">
             <div class="buy-now-btn checkout-button" data-buynow>
               {{ form | payment_button }}
             </div>
           </div>
+        {% endif %}
         {% endunless %}
       {%- endform -%}
     </div>

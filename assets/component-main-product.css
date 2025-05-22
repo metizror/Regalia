@@ -8,7 +8,7 @@
   width: calc(60% - 32px);
 }
 
-.product-thumnails {
+.product-thumbnail {
   width: 20%;
 }
 
@@ -124,14 +124,6 @@
   display: inline;
 }
 
-.featured-collection-section .product-price.compare--price-grt .price__sale {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .product-price.compare--price-grt .price__sale {
   display: flex;
   align-items: center;
@@ -171,9 +163,9 @@ p.discount-percentage {
   background-color: #fff;
 }
 
-.product-form__submit {
+.mainproduct .product-form__submit {
   padding: 12px 15px;
-  width: 100%;
+  width:100%;
 }
 
 .checkout-btn .qua-atc-btn {
@@ -248,7 +240,7 @@ p.discount-percentage {
   gap: 24px;
 }
 
-.product-thumnails-slide {
+.product-thumbnail-slide {
   height: 526px;
 }
 
@@ -320,7 +312,7 @@ p.discount-percentage {
 
 .sticky-content {
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   right: 0;
   display: block;
@@ -403,12 +395,24 @@ p.discount-percentage {
 .multiple-option-variant {
   position: relative;
 }
-
-.color-swatch.soldout {
+.color-variant.soldout label:before{
+  content: "";
+  top: 50%;
+  left: 0px;
+  height: 1px;
+  opacity: 1;
+  border: none;
+  position: absolute;
+  visibility: visible;
+  width: 100%;
+  background-color: var(--color-base);
+  transform: translateY(-50%) rotate(-25deg);
   opacity: 0.5;
 }
-
-.color-swatch.soldout::before {
+.color-variant.soldout label{
+  opacity: 0.5;
+}
+.color-swatch.soldout:before {
   content: "";
   top: 50%;
   left: 0px;
@@ -616,6 +620,113 @@ p.discount-percentage {
 
 .sticky-content .checkoutbtn-text {
   display: none;
+}
+
+.sticky-content .qtylabeltitle{
+  display: none;
+}
+
+/* Dropdown variant */
+/* Main dropdown container styling */
+.dropdown-variant {
+  margin: 10px;
+}
+.dropdown-variant label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.dropdown-container {
+  position: relative;
+  width: 200px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+
+/* Individual swatches styling */
+.dropdown-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.dropdown-color-swatch{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.dropdownlistcontent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: none;
+  z-index: 10;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background-color: #ebf4ff;
+}
+.open.dropdown-variant .dropdownlistcontent{
+  display: block;
+}
+.dropdown-variant{
+  border: 1px solid var(--black);
+  height: 45px;
+  padding: 10px;
+  margin-left: 0px;
+  position: relative;
+}
+.dropdownIcon svg{
+  width:10px;
+}
+.dropdownIcon{
+  position: absolute;
+  right: 10px;
+  top:10px;
+}
+.dropdownlistcontent .variant-option.dropdown-swatch.soldout label:before{
+  content:'';
+  background-color: unset;
+  transform: none;
+}
+.open.dropdown-variant .dropdownIcon{
+   transform: rotate(180deg);
+    top: 0px;
+}
+.dropdownlistcontent .dropdown-swatch.checked{
+  font-weight:var(--weight-bold);
+}
+.dropdownlistcontent .multiple-option-variant{
+  font-family:var(--bs-font-family);
+}
+.dropdownlistcontent .multiple-option-variant.checked label{
+  font-weight:var(--weight-bold);
+  font-family:var(--bs-font-family);
+  box-shadow:unset;
+}
+.variant-options,.dropdownList{
+  width:100%;
+  display:block;
+  cursor: pointer;
 }
 
 @keyframes popupFade {
@@ -855,6 +966,15 @@ p.discount-percentage {
   justify-content: center;
 }
 
+.product-recommendations .price__sale .main-price{
+  font-size: var(--bs-size);
+  font-weight: var(--weight-medium); 
+}
+
+.product-recommendations .product-price{
+  color: var(--color-base);
+}
+
 .title-wrapper span.h5{
   display: block;
   font-family: var(--heading-font-family);
@@ -863,7 +983,7 @@ p.discount-percentage {
   margin-bottom: 1.8rem;
 }
 @media (max-width:991px) {
-  .product-thumnails {
+  .product-thumbnail {
     display: none;
   }
 
@@ -895,7 +1015,13 @@ p.discount-percentage {
     padding-top: 30px;
   }
 }
-
+@media (max-width:1024px){
+  .main-image-slider:hover .swipersliderbtn,
+.main-image-slider:hover .shopify-model-viewer-ui__controls-overlay,
+.main-image-slider:hover .img-overlay-icon {
+  display: none;
+}
+}
 @media (max-width:768px) {
 
   .product-slider,

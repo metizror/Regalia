@@ -290,6 +290,22 @@
         }
       }
     },
+    "variant_type": {
+      "name": "વેરિઅન્ટ પ્રકાર",
+      "settings": {
+        "variant_style": {
+          "label": "વેરિઅન્ટ પ્રકાર"
+        },
+        "options": {
+          "dropdown": {
+            "label": "ડ્રોપડાઉન"
+          },
+          "buttons": {
+            "label": "બટન"
+          }
+        }
+      }
+    },
     "product_tiles": {
       "name": "પ્રોડક્ટ ટાઇલ્સ",
       "settings": {
@@ -516,6 +532,9 @@
   "sections": {
     "general": {
       "full_width": "સંપૂર્ણ પહોળાઈ સક્ષમ કરો",
+      "show_page_title": {
+        "label": "પૃષ્ઠ શીર્ષક બતાવો"
+      },
       "section_vertical_spacing": {
         "content": "વિભાગની ઊભી જગ્યા",
         "top_padding": {
@@ -619,11 +638,17 @@
         "background_color": {
           "label": "પૃષ્ઠભૂમિ"
         },
+        "multicolumn_bg_color": {
+          "label": "બહુસ્તંભ પૃષ્ઠભૂમિ"
+        },
         "heading_color": {
           "label": "હેડિંગ રંગ"
         },
         "subheading_color": {
           "label": "ઉપહેડિંગ રંગ"
+        },
+        "title_color": {
+          "label": "શીર્ષક રંગ"
         },
         "text_color": {
           "label": "ટેક્સ્ટ રંગ"
@@ -709,6 +734,7 @@
           "label": "મુખ્ય હેડિંગનો રંગ"
         },
         "background_image": {
+          "label": "બેકગ્રાઉન્ડ છબી",
           "desktop": {
             "label": "બેકગ્રાઉન્ડ છબી (ડેસ્કટોપ)"
           },
@@ -749,6 +775,9 @@
         "description_size": {
           "label": "વર્ણન ફૉન્ટ કદ"
         }
+      },
+      "presets": {
+        "name": "અમારા વિશે બેનર"
       }
     },
     "about_us_text": {
@@ -810,6 +839,9 @@
             }
           }
         }
+      },
+      "presets": {
+        "name": "અમારા વિશે લખાણ"
       }
     },
     "announcement_bar": {
@@ -823,7 +855,10 @@
           "enable_container": {
             "label": "કન્ટેનર સક્રિય કરો"
           },
-          "enbale_auto_scroll": {
+          "enable_navigation": {
+            "label": "સ્લાઇડર નેવિગેશન બટન નિષ્ક્રિય કરો"
+          },
+          "enable_auto_scroll": {
             "label": "આટોમેટિક સ્ક્રોલ સક્રિય કરો"
           },
           "speed_delay": {
@@ -909,7 +944,7 @@
               "retro_style": "રેત્રો",
               "dark_style": "ડાર્ક",
               "night_style": "રાત્રિ",
-              "aubergine": "ઑબર્જિન"
+              "aubergine_style": "ઑબર્જિન"
             }
           },
           "contact_form": {
@@ -960,16 +995,53 @@
             "multicolumn_icons": {
               "label": "એસવીજી આઈકોન"
             },
-            "multiolumn_title": {
+            "multicolumn_title": {
               "label": "શીર્ષક"
             },
-            "multicolumne_text": {
+            "multicolumn_text": {
               "label": "ટેક્સ્ટ"
             }
           }
         },
         "presets": {
           "name": "સંપર્ક વિગતો"
+        }
+      },
+      "form": {
+        "name": "સંપર્ક ફોર્મ",
+        "settings": {
+          "layout": {
+            "label": "ડેસ્કટોપ રચના",
+            "options": {
+              "container": "1440px",
+              "narrow_container": "910px"
+            }
+          },
+          "form_content": {
+            "content": "ફોર્મ સામગ્રી"
+          },
+          "form_image": {
+            "label": "ફોર્મ છબી પસંદ કરો"
+          },
+          "card_customizations": {
+            "content": "ફોર્મ કસ્ટમાઇઝેશન",
+            "main_image": {
+              "label": "ફોર્મ મુખ્ય છબી"
+            },
+            "vector_images": {
+              "top_right": {
+                "label": "વેક્ટેર ટોચે જમણું",
+                "info": "કૃપા કરીને પારદર્શક છબીનો ઉપયોગ કરો."
+              },
+              "bottom_left": {
+                "label": "વેક્ટેર નીચે ડાબું",
+                "info": "કૃપા કરીને પારદર્શક છબીનો ઉપયોગ કરો."
+              }
+            }
+          }
+        },
+        "presets": {
+          "name": "સંપર્ક ફોર્મ"
         }
       }
     },
@@ -1030,6 +1102,9 @@
         "name": "ડિસ્કાઉન્ટ કાઉન્ટડાઉન"
       }
     },
+    "featured_collection": {
+      "name": "ફીચર્ડ કલેક્શન"
+    },
     "duo_image": {
       "name": "ડ્યુઓ ઈમેજ",
       "settings": {
@@ -1065,6 +1140,9 @@
             "label": "ઈમેજ ઊંચાઈ (px)"
           }
         }
+      },
+      "presets": {
+        "name": "ડ્યુઓ ઈમેજ"
       }
     },
     "faq": {
@@ -1306,8 +1384,14 @@
           "article_heading_color": {
             "label": "લેખનું શીર્ષક"
           },
+          "article_sidebar_heading_color": {
+            "label": "વિભાગ શીર્ષક"
+          },
           "article_text_color": {
-            "label": "લેખ સામગ્રી અને આઇકૉન્સ"
+            "label": "લેખ સામગ્રી"
+          },
+          "article_icon_color": {
+            "label": "લેખ ચિહ્ન"
           },
           "field_background": {
             "label": "ફીલ્ડ બેકગ્રાઉન્ડ"
@@ -1383,6 +1467,10 @@
         "group_filter_prefix": {
           "label": "ફિલ્ટર ગ્રુપ પરિચય (કોમાથી વિભાજિત)"
         },
+        "price_filter_index": {
+          "label": "કિંમત ફિલ્ટર ક્રમ",
+          "info": "ફિલ્ટર ગ્રુપ પરિચય પછી આ ફિલ્ટર દેખાશે."
+        },
         "filter_open": {
           "label": "ડિફોલ્ટ ફિલ્ટર ખોલો"
         },
@@ -1397,6 +1485,9 @@
         },
         "show_products_in_page": {
           "label": "પૃષ્ઠમાં ઉત્પાદનો બતાવો"
+        },
+        "show_items_in_page": {
+          "label": "પૃષ્ઠ પર વસ્તુઓ બતાવો"
         },
         "banner": {
           "content": "બેનર",
@@ -1439,6 +1530,9 @@
         "header": {
           "content": "સામગ્રી"
         },
+        "heading_show": {
+          "label": "શીર્ષક બતાવો"
+        },
         "heading": {
           "label": "શીર્ષક"
         },
@@ -1448,6 +1542,12 @@
         "heading_opacity": {
           "label": "શીર્ષક ઓપેસિટી"
         },
+        "card_color": {
+          "label": "કાર્ડ રંગ"
+        },
+        "text_alignment": {
+          "label": "ટેક્સ્ટ સંલગ્નતા"
+        },
         "card_customization": {
           "content": "વિભાગ કાર્ડ કસ્ટમાઇઝેશન",
           "background_image": {
@@ -1456,6 +1556,12 @@
             },
             "bottom_right": {
               "label": "પૃષ્ઠભૂમિ છબી નીચી જમણી"
+            },
+            "mobile_bg_left": {
+              "label": "મોબાઇલ પૃષ્ઠભૂમિ ડાબી"
+            },
+            "mobile_bg_right": {
+              "label": "મોબાઇલ પૃષ્ઠભૂમિ જમણી"
             }
           },
           "tab_color": {
@@ -1466,6 +1572,15 @@
           },
           "products_to_show": {
             "label": "હળવીના ઉત્પાદન સુધી બતાવો"
+          },
+          "products_column_show": {
+            "label": "કૉલમમાં ઉત્પાદનો બતાવો"
+          },
+          "view_all": {
+            "label": "બધા જુઓ"
+          },
+          "btn_bg_color": {
+            "label": "બટન બેકગ્રાઉન્ડ રંગ"
           },
           "countdown_timer": {
             "content": "કાઉન્ટડાઉન ટાઈમર",
@@ -1486,6 +1601,12 @@
         "coll_title": {
           "label": "કલેક્શન શીર્ષક",
           "info": "જ્યારે આ ક્ષેત્ર ખાલી હોય, ત્યારે મૂળ કલેક્શન નામ દર્શાવાશે."
+        },
+        "view_all_btn": {
+          "label": "બધા જુઓ બટન"
+        },
+        "btn_url": {
+          "label": "બટન URL"
         }
       }
     },
@@ -1618,6 +1739,18 @@
     "footer": {
       "name": "ફુટર",
       "settings": {
+        "footer_lefttop": {
+          "label": "ડાબી ઉપરની છબી"
+        },
+        "footer_rightbottom": {
+          "label": "જમણી નીચેની છબી"
+        },
+        "menu_color": {
+          "label": "મેનૂનો રંગ"
+        },
+        "menu_color_opacity": {
+          "label": "મેનૂની અર્ધપારદર્શિતા"
+        },
         "social_icons": {
           "label": "સોશિયલ આઇકોન"
         },
@@ -1658,8 +1791,14 @@
             "logo": {
               "label": "સ્ટોર લોગો"
             },
+            "logo_width": {
+              "label": "લોગોની પહોળાઈ"
+            },
             "info": {
               "label": "સ્ટોર માહિતી"
+            },
+            "footer_newsletter": {
+              "label": "સમાચાર પત્ર"
             },
             "data": {
               "icon": {
@@ -1683,6 +1822,23 @@
             },
             "quick_menu": {
               "label": "ઝડપી મેનુ"
+            }
+          }
+        },
+        "social_details": {
+          "name": "સોશિયલ વિગતો",
+          "settings": {
+            "social_logo_1": {
+              "label": "સોશિયલ આઇકોન એક"
+            },
+            "social_logo_2": {
+              "label": "સોશિયલ આઇકોન બે"
+            },
+            "social_data_1": {
+              "label": "સોશિયલ લખાણ એક"
+            },
+            "social_data_2": {
+              "label": "સોશિયલ લખાણ બે"
             }
           }
         }
@@ -1721,6 +1877,12 @@
         },
         "sticky_header": {
           "label": "સ્ટિicky હેડર"
+        },
+        "inline_search": {
+          "label": "ઇનલાઇન શોધ"
+        },
+        "inline_search_bg_color": {
+          "label": "ઇનલાઇન શોધ બેકગ્રાઉન્ડ રંગ"
         },
         "spacing": {
           "content": "સ્પેસિંગ",
@@ -1979,6 +2141,9 @@
         "page_description": {
           "label": "વર્ણન"
         },
+        "collection_row_gap": {
+          "label": "કોલેક્શન રો ગેપ"
+        },
         "collection_row": {
           "label": "કોલેક્શન રો (ડેસ્કટોપ)"
         },
@@ -2033,7 +2198,7 @@
             "retro_style": "રેત્રો",
             "dark_style": "ડાર્ક",
             "night_style": "રાત્રિ",
-            "aubergine": "ઑબરજીન"
+            "aubergine_style": "ઑબરજીન"
           }
         }
       },
@@ -2049,6 +2214,9 @@
         },
         "reverse_direction": {
           "label": "વિપરીત દિશા"
+        },
+        "icon_img": {
+          "label": "આઇકોન છબી"
         }
       },
       "blocks": {
@@ -2321,9 +2489,6 @@
         },
         "product_per_row": {
           "label": "દરેક પંક્તિમાં ઉત્પાદનો"
-        },
-        "spacing": {
-          "label": "વિશ્વ"
         }
       },
       "presets": {
@@ -2372,6 +2537,13 @@
             "fade": "ફેડ",
             "flip": "ફ્લિપ"
           }
+        },
+        "enable_overlay_bg": {
+          "label": "ઓવરલે પૃષ્ઠભૂમિ સક્રિય કરો",
+          "info": "ઓવરલે પૃષ્ઠભૂમિ સક્રિય કરો જો તમે છબીની પૃષ્ઠભૂમિ સાથે ઓવરલે ઇફેક્ટને સક્રિય કરવા માંગો છો."
+        },
+        "whole_overlay_bg": {
+          "label": "ઓવરલે પૃષ્ઠભૂમિ"
         },
         "enable_autoplay": {
           "label": "આટોમેટિક પ્લે સક્રિય કરો"
@@ -2651,7 +2823,7 @@
         "layout": {
           "label": "લેઆઉટ"
         },
-        "enbale_auto_scroll": {
+        "enable_auto_scroll": {
           "label": "ઓટો સ્ક્રોલ સક્રિય કરો"
         },
         "speed_delay": {
@@ -2659,6 +2831,9 @@
         },
         "autoscroll_speed": {
           "label": "ઑટોસ્ક્રોલ સ્પીડ"
+        },
+        "slider_enable": {
+          "label": "સ્લાઇડર સક્રિય કરો"
         }
       },
       "blocks": {
@@ -2673,13 +2848,16 @@
             },
             "title": {
               "label": "શીર્ષક"
+            },
+            "description_size": {
+              "label": "વર્ણન ફૉન્ટ સાઇઝ (px)"
             }
           }
         },
         "image_overlay_text": {
           "name": "છબી ઓવરલે ટેક્સ્ટ",
           "settings": {
-            "meadia": {
+            "media": {
               "content": "મિડિયા",
               "bg_image": {
                 "label": "પૃષ્ઠભૂમિ છબી"
@@ -2689,6 +2867,15 @@
               },
               "image": {
                 "label": "છબી"
+              },
+              "image_placement": {
+                "label": "છબી સ્થાન"
+              },
+              "image_first": {
+                "label": "પ્રથમ છબી"
+              },
+              "image_second": {
+                "label": "બીજી છબી"
               },
               "description_color": {
                 "label": "વર્ણન"

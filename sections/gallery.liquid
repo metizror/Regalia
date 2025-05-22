@@ -43,7 +43,7 @@
     <div class="gallery-wrapper">
       <div class="gallery-grid" ms-aos data-ms-delay="100">
         {%- if section.settings.title -%}
-          <{{ section.settings.heading_size }} class="gallery-title" ms-aos data-ms-delay="200">
+          <{{ section.settings.heading_size }} class="gallery-title">
             {{- section.settings.title -}}
           </{{ section.settings.heading_size }}>
         {%- endif -%}
@@ -53,12 +53,12 @@
           >
             {%- if block.settings.image -%}
               <img
-                src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                src="{{ block.settings.image | image_url: width: block.settings.image.width,  format: 'webp' }}"
                 alt="{{ block.settings.image.alt }}"
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}"
                 style="--object-position:{{ block.settings.image.presentation.focal_point }}"
-                loading="lazy"
+                loading="eager"
               >
             {%- else -%}
               <lazy-image>

@@ -1,43 +1,67 @@
 theme.logoList = () => {
-  let logoListEle = document.querySelectorAll(".logo-list-slider.swiper");
+  const logoListEle = document.querySelectorAll(".logo-list-slider.swiper");
+
+  const customizationEvents = [
+    "shopify:inspector:activate",
+    "shopify:inspector:deactivate",
+    "shopify:section:load",
+    "shopify:block:deselect",
+    "shopify:section:reorder",
+    "shopify:section:select",
+    "shopify:section:deselect"
+  ];
+
+  const swipers = [];
 
   logoListEle.forEach((current) => {
-    let swiperOptions = JSON.parse(current.dataset.sliderOptions);
-    swiper = new Swiper(current, swiperOptions);
+    const swiperOptions = JSON.parse(current.dataset.sliderOptions);
+    const swiper = new Swiper(current, swiperOptions);
+    swipers.push({ swiper, swiperOptions, current });
 
     current.addEventListener("mouseover", () => {
       swiper.autoplay.stop();
     });
+
     current.addEventListener("mouseleave", () => {
       swiper.autoplay.start();
     });
+  });
 
-    // pause annoucement bar on block select
-    if (Shopify.designMode) {
-      document.addEventListener("shopify:block:select", (e) => {
-        let shopifyData = JSON.parse(e.target.dataset.shopifyEditorBlock),
-          targetEle = e.target,
-          sliderIndex = 1 + parseInt(targetEle.dataset.swiperSlideIndex);
+  if (Shopify.designMode) {
+    // Block select: handle only when relevant
+    document.addEventListener("shopify:block:select", (e) => {
+      const targetEle = e.target;
+      const swiperSlideIndex = parseInt(targetEle.dataset.swiperSlideIndex);
+      const sliderIndex = 1 + (isNaN(swiperSlideIndex) ? 0 : swiperSlideIndex);
+
+      swipers.forEach(({ swiper }) => {
         swiper.slideTo(sliderIndex);
         swiper.autoplay.stop();
       });
-      const customizationEvents = [
-        "shopify:inspector:activate",
-        "shopify:inspector:deactivate",
-        "shopify:section:load",
-        "shopify:block:deselect",
-        "shopify:section:reorder",
-        "shopify:section:select",
-        "shopify:section:deselect",
-        "shopify:inspector:activate",
-        "shopify:inspector:deactivate",
-      ];
+    });
 
-      customizationEvents.forEach((event) => {
-        document.addEventListener(event, () => swiper.init(swiperOptions));
-      });
-    }
-  });
+    // Shopify customization events
+    const throttledInit = throttle(() => {
+      swipers.forEach(({ swiper, swiperOptions }) => swiper.init(swiperOptions));
+    }, 100);
+
+    customizationEvents.forEach((event) => {
+      document.addEventListener(event, throttledInit);
+    });
+  }
+
+  // Simple throttle utility
+  function throttle(fn, delay) {
+    let timer = null;
+    return function (...args) {
+      if (!timer) {
+        timer = setTimeout(() => {
+          fn.apply(this, args);
+          timer = null;
+        }, delay);
+      }
+    };
+  }
 };
 
 window.addEventListener("DOMContentLoaded", () => {

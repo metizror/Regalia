@@ -19,13 +19,9 @@
         "title_qd7xyi": {
           "type": "title",
           "settings": {
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "heading_color": "#153d47"
           }
-        },
-        "judge_me_reviews_preview_badge_cWf8th": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
-          "settings": {}
         },
         "sku_DbQrjy": {
           "type": "sku",
@@ -39,6 +35,7 @@
         },
         "info_text_UDyDYQ": {
           "type": "info_text",
+          "disabled": true,
           "settings": {
             "info_text": "At vero eos et accusamus et iusto dignissimos ducimus blanditiis praesentium voluptatum deleniti atque Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }
@@ -53,9 +50,7 @@
         },
         "variants_jXmwyC": {
           "type": "variants",
-          "settings": {
-            "variant_type": "buttons"
-          }
+          "settings": {}
         },
         "buy_button_z8Nrx9": {
           "type": "buy_button",
@@ -105,7 +100,6 @@
       "block_order": [
         "vendor_4TUQW4",
         "title_qd7xyi",
-        "judge_me_reviews_preview_badge_cWf8th",
         "sku_DbQrjy",
         "price_BMUnDc",
         "info_text_UDyDYQ",
@@ -122,9 +116,7 @@
       ],
       "settings": {
         "block_spc": 20,
-        "media_width": "medium",
         "media_ratio": "original",
-        "fill_media_zooom": true,
         "show_thumbs": true,
         "image_zoom": true
       }
@@ -146,17 +138,25 @@
             "page_one": "shipping-policy",
             "page_two": "return-policy"
           }
+        },
+        "rich_text_Dcxx4M": {
+          "type": "rich_text",
+          "settings": {
+            "tab_title": "Product reviews",
+            "rich_text": ""
+          }
         }
       },
       "block_order": [
         "product_description_G483TL",
-        "page_content_H4cbQh"
+        "page_content_H4cbQh",
+        "rich_text_Dcxx4M"
       ],
       "settings": {
         "section_bg_color": "#ffffff"
       }
     },
-    "video_wXjLYP": {
+    "video_48YL7K": {
       "type": "video",
       "name": "t:sections.video.presets.name",
       "settings": {
@@ -165,31 +165,16 @@
         "thumbnail_subheading": "",
         "heading_size": "h4",
         "heading_alignment": "center",
-        "heading_color": "#fff",
-        "overlay_color": "#000",
+        "heading_color": "#ffffff",
+        "overlay_color": "#000000",
         "overlay_opacity": 0.4,
         "video_type": "video",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "video": "shopify://files/videos/regalia-video.mp4",
         "video_autoplay": true,
         "video_mute": true,
-        "top_spacing": 20,
-        "bottom_spacing": 20
-      }
-    },
-    "1741176902861a4668": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_YrpxLj": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_YrpxLj"
-      ],
-      "settings": {
-        "full_width": false
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "related_products_gfMwi7": {
@@ -202,7 +187,7 @@
         "products_limit": 4,
         "product_per_row": 4,
         "spacing": 26,
-        "padding_top": 20,
+        "padding_top": 50,
         "padding_bottom": 20
       }
     }
@@ -210,8 +195,7 @@
   "order": [
     "main",
     "product_tabular_JQCrT3",
-    "video_wXjLYP",
-    "1741176902861a4668",
+    "video_48YL7K",
     "related_products_gfMwi7"
   ]
 }

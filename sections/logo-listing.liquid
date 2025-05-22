@@ -54,7 +54,7 @@
                   src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
                   alt="{{ block.settings.image.alt | default: shop.name }}"
                   style="--object-position:{{ block.settings.image.presentation.focal_point }};"
-                  loading="lazy"
+                  loading="eager"
                   width="{{ block.settings.image.width }}"
                   height="{{ block.settings.image.height }}"
                 >

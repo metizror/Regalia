@@ -6,28 +6,42 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+  .product-info-content .product-block{
+    margin-top:{{ section.settings.block_space }}px;
+  }
+  {% for block in section.blocks %}
+    .product-title a {
+      color: {{ block.settings.heading_color }}
+    }
+  {%  endfor %}
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
-  }
+    }
 {%- endstyle -%}
+
+ {% for block in section.blocks %}
+ {% if block.settings.show_percentage %}
+      {% assign show_percentage = true %}
+    {% endif %}
+{% endfor %}
 
 {% assign product = section.settings.product %}
 {% assign current_variant = product.selected_or_first_available_variant %}
-{% assign show_percentage = section.settings.show_percentage %}
+{% assign quick_variant_type = settings.variant_type %}
 
-<section class="featured-product">
+<section class="featured-product {{ quick_variant_type }}">
   <div class="container">
     <div class="featured-product-content  {%- if product.available == false %} product-sold-out{% endif -%} {%- if product.compare_at_price > product.price and product.quantity_price_breaks_configured? != true %} product-sale{% endif -%}">
-      <div class="product-img-content featureProduct">
+      <div class="product-img-content featureProduct" data-slider-data='{"loop":true}'>
         <div class="main-image-slider swiper gallery-main swiper-container">
           {% render 'product-media',
             classes: 'slide-item',
             product: product,
             media_ratio: section.settings.media_ratio,
-            media_fill: section.settings.fill_media_zooom,
+            media_fill: section.settings.fill_media_zoom,
             image_zoom: section.settings.image_zoom
           %}
           {% render 'pswp-code' %}
@@ -56,10 +70,12 @@
 
           <div class="img-overlay-icon">
             <div class="icon-content">
+              {%  if section.settings.image_zoom %} 
               <div class="icon-inner-content product-zoom-icon">
                 {% render 'icons', icon: 'zoom-icon' %}
               </div>
-              <div class="icon-inner-content open-popup" onclick="openPopup()">
+            {% endif %}
+              <div class="icon-inner-content open-quick-popup">
                 {% render 'icons', icon: 'message-icon' %}
               </div>
             </div>
@@ -68,7 +84,7 @@
 
         <div class="popup-overlay" id="popupOverlay">
           <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <span class="close-btn">&times;</span>
             <div class="product-share">
               <p>{{ 'products.product.copy_link' | t }}</p>
               <div class="share-product-url">
@@ -86,7 +102,7 @@
                   >
                   <label class="field__label hidden" for="url">{{ 'products.featured_product.link' | t }}</label>
                 </div>
-                <div class="btn-copy" id="copylink" onClick="CopyTolink('to-link')">
+                <div class="btn-copy-quick">
                   <svg
                     class="icon icon-clipboard"
                     width="11"
@@ -135,7 +151,7 @@
 
             {%- when 'title' -%}
               <div
-                class="product-block block-{{ block.type }}"
+                class="product-title block-{{ block.type }}"
                 mag-animation
                 data-mag-delay="{{ forloop.index | times: 100 }}"
               >
@@ -193,7 +209,7 @@
             {%- when 'info_text' -%}
               {% if block.settings.info_text %}
                 <div
-                  class="info_text block-{{ block.type }}"
+                  class="info_text product-block block-{{ block.type }}"
                   mag-animation
                   data-mag-delay="{{ forloop.index | times: 100 }}"
                 >
@@ -201,12 +217,12 @@
                 </div>
               {% endif %}
             {% when 'product_sold' %}
-              <div class="products-sold-mess">
+              <div class="products-sold-mess product-block">
                 <span>{% render 'icons', icon: 'fire-icon' %}</span>
                 <div id="sold-message" data-min-sold="30" data-max-sold="50" data-hours="21">{{ 'products.featured_product.loading' | t }}</div>
               </div>
             {% when 'product_stock' %}
-              <div class="stock-indicator">
+              <div class="stock-indicator product-block">
                 <p>
                   Hurry! Only <span id="stock-count"></span><span class="variant-after-text">items</span> left in stock.
                 </p>
@@ -216,7 +232,7 @@
               </div>
             {%- when 'variants' -%}
               <div class="product-block block-{{ block.type }}" id="{{ form_id }}">
-                {%- render 'product-variants', product: product -%}
+                {%- render 'product-variants', product: product, quick_variant_type: quick_variant_type, show_percentage: show_percentage, block:block  -%}
               </div>
 
             {%- when 'price', product: product -%}
@@ -278,7 +294,6 @@
 </section>
 
 <script src="{{ 'component-featured-product.js' | asset_url }}" type="text/javascript" defer></script>
-<script src="{{ 'component-main-product.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-model.js' | asset_url }}" type="text/javascript" defer></script>
 <script src="{{ 'component-product-zoom.js' | asset_url }}" type="text/javascript" defer></script>
 
@@ -330,79 +345,20 @@
       "default": 20
     },
     {
-      "type": "header",
-      "content": "t:sections.general.font_size.content",
+        "type": "checkbox",
+        "id": "image_zoom",
+        "label": "t:sections.product.settings.show_image_zoom.label",
+        "default": true
     },
     {
-      "type": "select",
-      "id": "heading_size",
-      "label": "t:sections.general.font_size.content",
-      "options": [
-        {
-          "value": "h1",
-          "label": "t:sections.general.font_size.extra_large.label"
-        },
-        {
-          "value": "h2",
-          "label": "t:sections.general.font_size.large_size.label"
-        },
-        {
-          "value": "h3",
-          "label": "t:sections.general.font_size.medium_size.label"
-        },
-        {
-          "value": "h4",
-          "label": "t:sections.general.font_size.small_size.label"
-        },
-        {
-          "value": "h5",
-          "label": "t:sections.general.font_size.extra_small.label"
-        },
-        {
-          "value": "h6",
-          "label": "t:sections.general.font_size.tiny.label"
-        }
-      ],
-      "default": "h3"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.alignment.content",
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "t:sections.general.alignment.content",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.general.alignment.alignment_left.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.general.alignment.alignment_center.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.general.alignment.alignment_right.label"
-        }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.general.color.content"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "t:sections.general.color.heading_color.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_percentage",
-      "label": "t:sections.product.settings.show_percentage.label",
-      "default": true
+      "type":"range",
+      "id":"block_space",
+      "min":0,
+      "max":50,
+      "step":5,
+      "unit":"px",
+      "label":"t:sections.product.settings.block_space.label",
+      "default":20
     }
   ],
   "blocks": [
@@ -421,6 +377,12 @@
             { "value": "h2", "label": "t:sections.general.font_size.large_size.label" }
           ],
           "default": "h2"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "t:sections.general.color.heading_color.label",
+          "default": "#153D47"
         }
       ]
     },
@@ -452,21 +414,7 @@
       "name": "t:sections.product.blocks.variants.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "select",
-          "id": "variant_type",
-          "label": "t:sections.product.blocks.variants.variant_type.content",
-          "options": [
-            {
-              "value": "dropdown",
-              "label": "t:sections.product.blocks.variants.variant_type.dropdown"
-            },
-            {
-              "value": "buttons",
-              "label": "t:sections.product.blocks.variants.variant_type.radio"
-            }
-          ]
-        }
+
       ]
     },
     {
@@ -591,7 +539,14 @@
           "type": "checkbox",
           "id": "show_gift_card_recipient",
           "default": true,
-          "label": "t:sections.product.blocks.buy_button.show_gift_card_recipient.label"
+          "label": "t:sections.product.blocks.buy_button.show_gift_card_recipient.label",
+          "info":"t:sections.product.blocks.buy_button.show_gift_card_recipient.info"
+        },
+        {
+            "type":"checkbox",
+            "id": "buy_btn_hide",
+            "label":"t:sections.product.blocks.buy_button.buy_btn_hide.label",
+            "default": true,
         }
       ]
     },

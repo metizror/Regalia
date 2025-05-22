@@ -6,10 +6,16 @@
 .section-collection-list .collection-list-wrapper {
   display: grid;
   grid-template-columns: repeat(var(--collection_row), 1fr);
-  grid-gap: var(--gutter-width);
+  row-gap: var(--collection-grid-spc);
+  column-gap: 15px;
   padding-top: 50px;
 }
-
+.collection-list-wrapper{
+  padding-bottom: var(--collection-grid-spc);
+}
+.section-collection-list .pagination{
+ margin-top:0px;
+}
 .list-bg-image.top-left {
   position: absolute;
   top: 130px;
@@ -67,7 +73,9 @@
 
 .collection-button .btn {
   box-shadow: 0px 0px 6px 0px #0003;
-  margin-top: 15px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: calc(var(--bs-size) + 2px);
 }
 
 .section-collection-list .collection-list-wrapper .collection-card-action {
@@ -75,14 +83,6 @@
   color: var(--text--color);
   font-weight: var(--weight-bold);
   text-decoration: none;
-}
-
-.section-collection-list .collection-list-wrapper.text-center .collection-card-action {
-  text-align: center;
-}
-
-.section-collection-list .collection-list-wrapper.text-right .collection-card-action {
-  text-align: right;
 }
 
 .section-collection-list .collection-list-wrapper.enable-overlay .collection-card::after {
@@ -136,7 +136,7 @@
 
 .section-collection-list .list-collection-header {
   display: flex;
-  justify-content: center;
+  justify-content: var(--collection_heading_position);
   align-items: center;
   gap: 40px;
 }
@@ -147,7 +147,7 @@
   text-align: left;
 }
 
-.list-collection-header.text--center .section-heading .h2 {
+.list-collection-header .section-heading .h2 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-weight: var(--weight-regular);
@@ -175,7 +175,15 @@
   justify-content: end;
   text-align: right;
 }
-
+.section-description p{
+  font-size: var(--bs-size);
+}
+.h2.heading-color{
+  font-size:calc(var(--heading-size) + 4px);
+}
+.template-list-collections .breadcrumb-container{
+  justify-content:  var(--collection_heading_position);
+}
 @media (max-width: 1199px) {
   .section-collection-list .collection-list-wrapper {
     grid-template-columns: repeat(3, 1fr);
@@ -200,6 +208,25 @@
     display: block;
     text-align: center;
     margin-bottom: 40px;
+  }
+  .h2.heading-color{
+    font-size: calc(var(--bs-size) + 6px);
+    line-height: 23px;
+  }
+  .section-collection-list .breadcrumb-list .breadcrumb-heading{
+    font-size: var(--bs-size) ;
+  }
+  .section-collection-list .collection-card{
+    padding:0px;
+  }
+  .section-collection-list .collection-button{
+    padding-bottom:20px;
+  }
+  .section-collection-list .collection-card{
+    border-bottom:1px solid #E6E6E6;
+  }
+  .section-collection-list{
+    margin-bottom:0px;
   }
 }
 

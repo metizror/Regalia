@@ -3,6 +3,7 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     background: {{ section.settings.background_color }};
+    overflow: hidden;
   }
 
   @media(max-width: 767px) {
@@ -15,7 +16,9 @@
   #shopify-section-{{ section.id }} {
     --container-width: {{ section.settings.container | append: 'px' }};
     --heading-color: {{ section.settings.title_color }};
+    --sidebar-heading-color: {{ section.settings.sidebar_title_color }};
     --text-color: {{ section.settings.text_color }};
+    --icon-color: {{ section.settings.icon_color }};
     --date-bg-color: {{ section.settings.date_bg_color }};
     --block-text: {{ section.settings.block_text_color }};
     --box-text: {{ section.settings.content_box_color }};
@@ -26,10 +29,6 @@
     --related-bg: {{ section.settings.related_bg }};
   }
 
-  .article-date svg path,
-  .article-comments svg path {
-    fill: {{ section.settings.text_color }};
-  }
 {%- endstyle -%}
 
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag: preload: true }}
@@ -131,7 +130,7 @@
                 width="{{ article.image.width }}"
                 height="{{ article.image.height }}"
                 alt="{{ article.image.alt | default: article.title | escape }}"
-                loading="lazy"
+                loading="eager"
                 style="width: 100%; max-height: 416px;"
               >
             </lazy-image>
@@ -513,12 +512,6 @@
     },
     {
       "type": "checkbox",
-      "id": "social_icons",
-      "label": "t:sections.article.settings.customizations.show_social_icons.label",
-      "default": true
-    },
-    {
-      "type": "checkbox",
       "id": "show_content_box",
       "label": "t:sections.article.settings.customizations.show_content_box.label",
       "default": true
@@ -548,6 +541,12 @@
         }
       ],
       "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_icons",
+      "label": "t:sections.article.settings.customizations.show_social_icons.label",
+      "default": true
     },
     {
       "type": "checkbox",
@@ -636,9 +635,21 @@
     },
     {
       "type": "color",
+      "id": "sidebar_title_color",
+      "default": "#153D47",
+      "label": "t:sections.article.settings.customizations.article_sidebar_heading_color.label"
+    },
+    {
+      "type": "color",
       "id": "text_color",
       "default": "#797979",
       "label": "t:sections.article.settings.customizations.article_text_color.label"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "default": "#797979",
+      "label": "t:sections.article.settings.customizations.article_icon_color.label"
     },
     {
       "type": "color",

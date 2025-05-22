@@ -187,11 +187,25 @@ details[open].menu-opening>.menu-drawer__submenu {
   .header--has-localizations:where(:not(.header--has-social)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }
-
+  body .header--middle-left .megamenu-content{
+        transform: translateY(0px);
+  }
+body .header--middle-left .single-menu {
+  padding-bottom: 20px;
+}
+body .header--middle-left .header__submenu.list-menu{
+  top:auto;
+}
+body .headercontent-flex.header--middle-left .localization-country{
+  align-items: flex-start;
+  justify-content:left;
+}
   .language-location-content.mobile-hide {
     display: none;
   }
-
+ .desktop-localization-wrapper.mobile-tablet-hide{
+   display: none;
+ }
   .drawer-menu-btn .close-icon svg {
     width: 16px;
     height: 16px;
@@ -199,6 +213,37 @@ details[open].menu-opening>.menu-drawer__submenu {
 
   .drawer-menu .header__menu-item svg path {
     fill: #082a32;
+  }
+  .drawer-menu-list li a{
+    padding-bottom:20px;
+    opacity: 1;
+    font-weight:var(--weight-medium);
+  }
+  details[open] .header__menu-item svg{
+    transform: rotate(180deg);
+  }
+  .header__menu-item span{
+    font-weight:var(--weight-medium);
+    color: var(--color-text);
+  }
+  #drawer-menu-list summary.list-menu__item{
+    color:var(--color-text);
+    opacity: 1;
+  }
+  menu-drawer .language-selector{
+    bottom:0%;
+  }
+  .language-selector .mainlangcontent{
+    padding:10px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .drawer-menu-list .mainlangcontent li a{
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  header menu-drawer .language-selector{
+    bottom:0%;
   }
 }
 
@@ -269,7 +314,10 @@ details[open].menu-opening>.menu-drawer__submenu {
 .close-icon {
   display: none;
 }
-
+.drawer-content-relative{
+  position: relative;
+  height:100%;
+}
 .drawer-menu-list {
   list-style: none;
   background: rgba(255, 255, 255, 0.8);
@@ -282,7 +330,7 @@ details[open].menu-opening>.menu-drawer__submenu {
   width: 100%;
   right: -100%;
   z-index: 2;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 140px);
   flex-direction: column;
   justify-content: space-between;
   transition: right 0.4s ease-in-out, opacity 0.4s ease-in-out;
@@ -368,8 +416,6 @@ menu-drawer .megamenu-content {
 
 .drawer-footer-items {
   padding-left: 20px;
-  position: fixed;
-  bottom: 0;
 }
 
 menu-drawer .header__icon:not(.header__icon--summary) {
@@ -423,4 +469,16 @@ menu-drawer .header__submenu.list-menu {
 .menu-drawer-inner {
   max-height: calc(100vh - 215px);
   overflow-y: auto;
+}
+.drawer-innercontent{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: space-between;
+    overflow-y: auto;
+    height: 100%;
+}
+@media screen and (max-width:420px){
+  .menuimgdata .textcontent a{
+    bottom:-20px;
+  }
 }

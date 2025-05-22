@@ -4,7 +4,7 @@
     "theme_name": "Regalia",
     "theme_version": "1.0.0",
     "theme_author": "Metizsoft Solutions",
-    "theme_documentation_url": "https://metizsoft.com/",
+    "theme_documentation_url": "https://metizsoftinc.com/regalia-user-guide/read-me.html",
     "theme_support_url": "https://metizsoft.com/"
   },
   {
@@ -408,12 +408,6 @@
     "settings": [
       {
         "type": "checkbox",
-        "id": "color_swatches",
-        "label": "t:settings_schema.product.settings.color_swatches.label",
-        "default": true
-      },
-      {
-        "type": "checkbox",
         "id": "show_vendor",
         "label": "t:settings_schema.product.settings.show_vendor.label",
         "default": true
@@ -474,7 +468,7 @@
       },
       {
         "type": "checkbox",
-        "id": "fill_media_zooom",
+        "id": "fill_media_zoom",
         "label": "t:settings_schema.quickview.settings.media_zoom.label",
         "default": true,
         "info": "t:settings_schema.quickview.settings.media_zoom.info"
@@ -496,6 +490,26 @@
         "id": "show_qnt_picker",
         "label": "t:settings_schema.quickview.settings.quickview_quantity.label",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.variant_type.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "variant_type",
+            "label": "t:settings_schema.variant_type.settings.variant_style.label",
+            "options": [
+              {
+                "value": "dropdown",
+                "label": "t:settings_schema.variant_type.settings.options.dropdown.label"
+              },
+              {
+                "value": "buttons",
+                "label": "t:settings_schema.variant_type.settings.options.buttons.label"
+              }
+            ]
       }
     ]
   },
@@ -536,7 +550,7 @@
       },
       {
         "type": "checkbox",
-        "id": "tiles_fill_media_zooom",
+        "id": "tiles_fill_media_zoom",
         "label": "t:settings_schema.product_tiles.settings.tiles_media_zoom.label",
         "default": true,
         "info": "t:settings_schema.product_tiles.settings.tiles_media_zoom.info"

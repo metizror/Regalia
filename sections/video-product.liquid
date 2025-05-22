@@ -5,7 +5,7 @@
     --bg-color: {{ section.settings.bg_color }};
     --column-gap: {{ section.settings.spacing }}px;
   }
-  .vidpro-content .videpro-heading{
+  .vidpro-content .vidpro-heading{
     color: {{ section.settings.heading_color }};
   }
   .grid-2-column-desk .grid-item{
@@ -28,16 +28,27 @@
     width:calc(16.66% - {{ section.settings.spacing }}px);
     max-width:calc(16.66% - {{ section.settings.spacing }}px);
   }
+  @media(max-width: 1024px){ 
+    #shopify-section-{{ section.id }}{
+      padding-top: {{ section.settings.padding_top | times: 0.50 | round: 0 }}px;
+    }
+  }
   @media(max-width: 767px){
     #shopify-section-{{ section.id }}{
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.25 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.25 | round: 0 }}px;
     }
     .grid-2-column-tablet .grid-item{
       width:calc(50% - {{ section.settings.spacing }}px);
       max-width:calc(50% - {{ section.settings.spacing }}px);
     }
   }
+  .lazy-autoplay-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
 {%- endstyle -%}
 
 {{ 'component-video-product.css' | asset_url | stylesheet_tag: preload: true }}
@@ -46,7 +57,7 @@
   <div class="vidpro-content">
     {%- if section.settings.title -%}
       <{{ section.settings.heading_size }}
-        class="vidpro-heading text-{{ section.settings.heading_alignment }}"
+        class="vidpro-heading container text-{{ section.settings.heading_alignment }}"
         ms-aos
         data-ms-delay="100"
       >
@@ -65,12 +76,25 @@
         <div class="vidproinner grid-item swiper-slide">
           {% if block.settings.video != blank %}
             <div class="videocontent">
+
+             
+
+
               <deferred-media
                 class="video-section__media deferred-media gradient global-media-settings"
                 style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
               >
-                {{ block.settings.video | video_tag: image_size: '1100x', autoplay: true, loop: true }}
+                {{
+                  block.settings.video
+                  | video_tag: image_size: '1100x', autoplay: true, loop: true
+                  | replace: '<img ', '<img loading="lazy" '
+                }}
               </deferred-media>
+              
+
+             
+              
+
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}

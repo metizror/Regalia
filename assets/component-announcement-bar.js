@@ -14,7 +14,7 @@ theme.announcementBar = () => {
       swiper.autoplay.start();
     });
 
-    // pause annoucement bar on block select
+    // pause announcement bar on block select
     if (Shopify.designMode) {
       document.addEventListener("shopify:block:select", (e) => {
         let shopifyData = JSON.parse(e.target.dataset.shopifyEditorBlock),

@@ -24,7 +24,7 @@
             alt="{{ section.settings.bg_image.alt | default: shop.name }}" 
             width="{{ section.settings.bg_image.width }}" 
             height="{{ section.settings.bg_image.height }}"
-            loading="lazy"
+            loading="eager"
           />
         </lazy-image>
       {%- endif -%}
@@ -32,7 +32,7 @@
         <h3 ms-aos data-ms-delay="300">{{ '404.title' | t }}</h3>
         <p ms-aos data-ms-delay="400">{{ '404.content' | t }}</p>
         <a href="{{ routes.all_products_collection_url }}" class="link_404 btn btn-primary" ms-aos data-ms-delay="400">{{ '404.continue_shopping' | t }}</a>
-      <div>
+      </div>
     </div>
   </div>
 </div>

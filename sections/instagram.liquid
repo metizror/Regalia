@@ -61,9 +61,9 @@
     <div class="container">
       {%- if section.settings.title -%}
         <div class="section-header text-{{ section.settings.heading_alignment }}">
-          <span class="section-title">
+          <{{ section.settings.heading_size }} class="section-title">
             {{- section.settings.title -}}
-          </span>
+          </{{ section.settings.heading_size }}>
         </div>
       {%- endif -%}
       <div class="instagram-wrapper container-narrow">
@@ -71,7 +71,7 @@
           <lazy-image class="instagram-item">
             {%- if block.settings.image -%}
               <img
-                src="{{ block.settings.image | image_url: width: block.settings.image.width }}"
+                src="{{ block.settings.image | image_url: width: block.settings.image.width, format: 'webp' }}"
                 alt="{{ block.settings.image.alt }}"
                 width="{{ block.settings.image.width }}"
                 height="{{ block.settings.image.height }}"

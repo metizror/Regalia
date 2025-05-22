@@ -50,13 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
       container,
       options
     );
+
     gallery.init();
   }
 
   // Click event for the main gallery images
-  document
-    .querySelector("#gallery")
-    .addEventListener("click", function (event) {
+  document.querySelector("#gallery").addEventListener("click", function (event) {
       var target = event.target.closest("a");
 
       if (!target || !target.closest("figure")) {

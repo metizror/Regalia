@@ -1,4 +1,4 @@
-<section class="mainproduct">
+<section class="mainproduct {{ show_percentage }}">
   <main-product
     data-is-featured-product="{{ is_featured_product | default: false }}"
     id="productInfo-{{ section_id }}"
@@ -12,14 +12,14 @@
       <div class="product-wrapper media-width-{{ section.settings.media_width }}">
         <div class="product-gallery" mag-animation data-mag-delay="100">
           <div class="product-slider-content">
-            <div class="product-thumnails {%- if section.settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
-              <div class="swiper-container product-thumnails-slide">
+            <div class="product-thumbnail {%- if section.settings.show_thumbs == false or product.media.size == 1 %} hidden{%- endif -%}">
+              <div class="swiper-container product-thumbnail-slide">
                 <div class="swiper gallery-thumbs product__slider-main">
                   {%- render 'product-thumbs',
                     classes: 'slide-item',
                     product: product,
                     media_ratio: section.settings.media_ratio,
-                    media_fill: section.settings.fill_media_zooom
+                    media_fill: section.settings.fill_media_zoom
                   -%}
                 </div>
               </div>
@@ -30,7 +30,7 @@
                   classes: 'slide-item',
                   product: product,
                   media_ratio: section.settings.media_ratio,
-                  media_fill: section.settings.fill_media_zooom,
+                  media_fill: section.settings.fill_media_zoom,
                   image_zoom: section.settings.image_zoom
                 -%}
 
@@ -61,9 +61,11 @@
 
                 <div class="img-overlay-icon">
                   <div class="icon-content">
+                   {%  if section.settings.image_zoom %} 
                     <div class="icon-inner-content product-zoom-icon">
                       {% render 'icons', icon: 'zoom-icon' %}
                     </div>
+                  {% endif %}
                     <div class="icon-inner-content open-popup" onclick="openPopup()">
                       {% render 'icons', icon: 'message-icon' %}
                     </div>
@@ -131,15 +133,17 @@
                   {% render block %}
 
                 {%- when 'title' -%}
-                  <div
+                      <div
+                    aria-label="{{ product.title | escape }}"
+                    tabindex="0"
                     class="product-block block-{{ block.type }}"
                     mag-animation
                     data-mag-delay="{{ forloop.index | times: 100 }}"
                   >
                     {%- if is_featured -%}
-                      <h2 class="{{ block.settings.heading_size }}">{{ product.title | escape }}</h2>
+                      <h2 class="{{ block.settings.heading_size }}" style="color:{{ block.settings.heading_color }}">{{ product.title | escape }}</h2>
                     {%- else -%}
-                      <h1 class="{{ block.settings.heading_size }}">{{ product.title | escape }}</h1>
+                      <h1 class="{{ block.settings.heading_size }}" style="color:{{ block.settings.heading_color }}">{{ product.title | escape }}</h1>
                     {%- endif -%}
                   </div>
 
@@ -201,19 +205,22 @@
                     </div>
                   {% endif %}
                 {% when 'product_sold' %}
+                  {% unless product.has_only_default_variant %}
                   {% if product.variants.first.inventory_quantity >= 1 %}
                     <div class="products-sold-mess sss product-block block-{{ block.type }}">
                       <span>{% render 'icons', icon: 'fire-icon' %}</span>
-                      <div id="sold-message" data-min-sold="30" data-max-sold="50" data-hours="21"></div>
+                      <div  tabindex="0"  id="sold-message" data-min-sold="30" data-max-sold="50" data-hours="21"></div>
                     </div>
                   {% endif %}
+                   {% endunless %}   
                 {% when 'product_stock' %}
+                  {% unless product.has_only_default_variant %}    
                   {% if product.variants.first.inventory_quantity == 0 %}
-                    <div class="stock-indicator product-block block-{{ block.type }}">
+                    <div  tabindex="0"  class="stock-indicator product-block block-{{ block.type }}">
                       <div class="out-of-stock-message">{{ 'products.product.out_of_stock' | t }}</div>
                     </div>
                   {% else %}
-                    <div class="stock-indicator product-block block-{{ block.type }}">
+                    <div  tabindex="0"  class="stock-indicator product-block block-{{ block.type }}">
                       <p>
                         {{ 'products.product.stock_warning_html' | t }}
                       </p>
@@ -222,10 +229,10 @@
                       </div>
                     </div>
                   {% endif %}
-
+                   {% endunless %} 
                 {%- when 'variants' -%}
                   <div class="product-block block-{{ block.type }}" id="{{ form_id }}">
-                    {%- render 'product-variants', show_percentage: show_percentage -%}
+                    {%- render 'product-variants', show_percentage: show_percentage, block:block, quick_variant_type: quick_variant_type  -%}
                   </div>
                 {%- when 'price', product: product -%}
                   {% render 'price', product: product, show_percentage: show_percentage %}
@@ -246,12 +253,13 @@
                   </small>
 
                 {%- when 'sticky_cart' -%}
-                  <sticky-cart>
+                  <sticky-cart tabindex="-1">
                     <div class="sticky-content">
                       <div class="container">
-                        <div class="sticky-details-wrapper">
+                        <div tabindex="0" class="sticky-details-wrapper">
                           <div class="content-wrapper">
                             <div
+                              tabindex="0"
                               class="img-wrapper"
                               {%- if product.images.size == 0 %}
                                 style="display: none;"
@@ -277,10 +285,10 @@
                                 >
                               {%- endif -%}
                             </div>
-                            <div class="title-wrapper">
-                             <span class="h5" class="title">{{ product.title }}</span>
+                            <div tabindex="0" class="title-wrapper">
+                             <span tabindex="0" class="h5" class="title">{{ product.title }}</span>
                               {%- unless product.has_only_default_variant -%}
-                                <span class="select-variant" data-variant-title>
+                                <span tabindex="0" class="select-variant" data-variant-title>
                                   {{- product.selected_or_first_available_variant.title | replace: '/', '-' -}}
                                 </span>
                               {%- endunless -%}
@@ -296,34 +304,6 @@
                     </div>
                   </sticky-cart>
 
-                  <script src="{{ 'component-sticky-cart.js' | asset_url }}" defer type="text/javascript"></script>
-                {%- when 'stock-counter' -%}
-                  <div
-                    class="product-block block-{{ block.type }}"
-                    mag-animation
-                    data-mag-delay="{{ forloop.index | times: 100 }}"
-                  >
-                    <div class="stock-counter-wrapper" style="display:none;">
-                      <div class="content-wrapper" data-text="{{ 'product.stock_counter_text' | t }}">
-                        {{
-                          'product.stock_counter_text'
-                          | t: count: product.selected_or_first_available_variant.inventory_quantity
-                        }}
-                      </div>
-                      <div
-                        class="progress-bar"
-                        data-product-limit="{{ block.settings.product_limit }}"
-                        data-quantity="{{ product.selected_or_first_available_variant.inventory_quantity }}"
-                        style="--width: {{ progess_width | append: '%' }}"
-                      ></div>
-                      <script id="stockQuantity" type="application/json">
-                        {
-                        {%- for variant in product.variants -%}
-                          "{{ variant.id }}":{{ variant.inventory_quantity }}{%- unless forloop.last -%},{%- endunless -%}
-                        {%- endfor -%} }
-                      </script>
-                    </div>
-                  </div>
                 {%- when 'buy_button' -%}
                   <div
                     class="product-block block-{{ block.type }}"

@@ -22,9 +22,9 @@
 .section-announcement-bar .announcement {
   padding: 1rem 2rem;
   font-family: var(--base-font-family);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: var(--weight-medium);
-  letter-spacing: 2px;
+  letter-spacing: 0%;
   line-height: 24px;
   width: auto;
   align-content: center;
@@ -81,7 +81,7 @@
 
 /* Responsive Styles */
 @media (min-width: 768px) {
-  .section-announcement-bar .mobile-annouce {
+  .section-announcement-bar .mobile-announce {
     display: none;
   }
 
@@ -95,11 +95,11 @@
     height: 30px;
   }
 
-  .announcement .mobile-annouce p {
+  .announcement .mobile-announce {
     font-size: calc(var(--bs-size) - 5px);
   }
 
-  .section-announcement-bar .dekstop-annouce {
+  .section-announcement-bar .desktop-announce {
     display: none;
   }
 

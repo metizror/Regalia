@@ -53,7 +53,6 @@ predictive-search {
   width: 50%;
   border-radius: 50px;
   background: #fff;
-  padding: 5px 10px;
   box-shadow: 0px 7px 11.8px 0px #E9CFB4;
   border: 1px solid #E9CFB4;
 }
@@ -72,7 +71,7 @@ predictive-search {
   flex: 1;
   border: none;
   outline: none;
-  padding: 12px 20px;
+  padding: 12px 70px 12px 20px;
   font-size: 1rem;
   border-radius: 50px;
   background: none;
@@ -258,7 +257,26 @@ predictive-search {
 predictive-search .product-item .product-price .price-badge {
   display: none;
 }
-
+.inline-search-open .inline-submit{
+  display:none;
+}
+.inline-close{
+  display:none;
+}
+.inline-search-open .inline-close{
+  display:block;
+}
+.inline-search .inline-submit,.close-search.inline-close{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+}
+.inline-search .inline-submit{
+  top:-1px;
+}
 @media (max-width:767px) {
 
   .predictive-search-wrapper .suggestions-wrapper,
@@ -281,11 +299,7 @@ predictive-search .product-item .product-price .price-badge {
 
   .predictive-search-wrapper .search-field input[type="search"] {
     width: 100%;
-    padding: 0 20px;
-  }
-
-  .predictive-search-wrapper .search-field {
-    padding: 3px 10px;
+    padding: 0 70px 0 20px;
   }
 
   .predictive-search-wrapper .category-heading {

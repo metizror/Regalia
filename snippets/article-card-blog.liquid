@@ -1,6 +1,6 @@
 {%- style -%}
-  .article-title {
-    color: {{ section.settings.title_color }};
+  .article-title a{
+    color: {{ section.settings.title_color }}; 
   }
 
   .content-overlap {
@@ -19,6 +19,11 @@
   .article-date svg path,
   .article-comments svg path {
     fill: {{ section.settings.text_color }};
+  }
+
+  .article-author svg path,
+  .article-author svg circle {
+    stroke: {{ section.settings.text_color }};
   }
 
   .article-tags .article-tag,
@@ -48,7 +53,7 @@
             height="{{ article.image.height | default: 416 }}"
             alt="{{ article.image.alt }}"
             loading="lazy"
-            style="max-width: 363px; min-height: 416px; object-fit: cover; object-position: top;">
+            style="max-width: 363px; min-height: 416px; object-fit: cover; object-position: top; width: -webkit-fill-available;">
         </lazy-image>
       </a>
     {%- endif -%}
@@ -87,10 +92,8 @@
         <div class="article-excerpt">
           {%- if show_excerpt and article.excerpt.size > 0 -%}
             {{ article.excerpt | strip_html | truncate: 150, '...' }}
-          {%- else -%}
-            {%- if article.content.size > 0 -%}
+          {%- elsif show_excerpt and article.content.size > 0 -%}        
               {{ article.content | strip_html | truncate: 150, '...' }}
-            {%- endif -%}
           {%- endif -%}
         </div>
 

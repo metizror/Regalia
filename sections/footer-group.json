@@ -13,11 +13,11 @@
   "sections": {
     "popup": {
       "type": "popup",
+      "disabled": true,
       "settings": {
         "popup_mode": "testing",
         "time_to_interact": 10,
         "pop_image": "shopify://shop_images/277d2eb8cc623ee62d12e877463e1821.png",
-        "tiles_fill_media_zooom": true,
         "heading": "SUBSCRIBE TO OUR NEWSLETTER",
         "heading_size": "h3",
         "heading_uppercase": true,
@@ -96,7 +96,7 @@
           "type": "heading",
           "settings": {
             "heading": "Subscribe to our emails",
-            "heading_size": "h3"
+            "heading_size": "h2"
           }
         },
         "paragraph_yhcVNe": {
@@ -130,14 +130,16 @@
         "logo_information_JhNENx": {
           "type": "logo-information",
           "settings": {
-            "logo": "shopify://shop_images/jewellery_1.png",
+            "logo": "shopify://shop_images/Regalia_logo_5.svg",
+            "logo_width": 160,
+            "footer_newsletter": false,
             "text_data": "At Regalia, we create jewelry that combines elegance with timeless appeal. Our pieces are crafted to enhance your style and celebrate your individuality.",
             "info_logo_1": "location",
-            "info_data_1": "Addresss: 123 Pall Mall, London England",
+            "info_data_1": "<a href=\"https://maps.app.goo.gl/HYuLUf4TFj17hS5UA\" target=\"_blank\" title=\"https://maps.app.goo.gl/HYuLUf4TFj17hS5UA\">1309 Coffeen Ave, Sheridan, WY 82801, USA</a>",
             "info_logo_2": "email",
-            "info_data_2": "<a href=\"mailto:hello@example.com\" target=\"_blank\" title=\"mailto:hello@example.com\">hello@example.com</a>",
+            "info_data_2": "<a href=\"mailto:support@metizsoft.zohodesk.com\" target=\"_blank\" title=\"mailto:support@metizsoft.zohodesk.com\">support@metizsoft.zohodesk.com</a>",
             "info_logo_3": "phone",
-            "info_data_3": "<a href=\"tel:(+91) 12548 36258\" title=\"tel:(+91) 12548 36258\">(+91) 12548 36258</a>"
+            "info_data_3": "<a href=\"tel:+1 (201) 203-5839\" target=\"_blank\" title=\"tel:+1 (201) 203-5839\">+1 (201) 203-5839</a>"
           }
         },
         "navigation_hikyPf": {
@@ -172,14 +174,15 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "bg_color": "#082a32",
+        "menu_color": "#ffffff",
+        "menu_color_opacity": 50,
         "social_icons": true,
         "enable_follow_on_shop": true,
-        "hr_line": "linear-gradient(130deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
         "policy_text": "© 2025, Lorem Ipsum is simply dummy text",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
-        "show_policy": true
+        "show_policy": false
       }
     }
   },
