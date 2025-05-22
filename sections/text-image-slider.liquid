@@ -55,10 +55,10 @@
               "768": { "direction": "vertical", "slidesPerView": 1, "touchReleaseOnEdges": true },
               "1280": { "direction": "vertical", "slidesPerView": 1 }
             }
-            {% if section.blocks.size > 1 %},
+            {% if section.settings.enable_autoscroll %},
+             {% if section.blocks.size > 1 %},
             "loop": true
             {% endif %}
-            {% if section.settings.enable_autoscroll %},
             "autoplay": {
               "delay": {{ section.settings.autoscroll_speed }},
               "disableOnInteraction": false
