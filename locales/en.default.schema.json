@@ -2568,7 +2568,8 @@
             }
           },
           "overlay_content_alignment": {
-            "label": "Overlay content alignment"
+            "label": "Overlay content alignment",
+            "info":"These settings are not working on the entire overlay slide."
           },
           "button_alignment": {
             "label": "Button alignment"
