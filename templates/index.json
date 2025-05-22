@@ -17,7 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/pexels-zvolskiy-1721937_1.png",
             "mobile_image": "shopify://shop_images/d4b48f7215310496e98225d855fba018.jpg",
-            "content_alignment": "right",
+            "content_alignment": "left",
             "overlay_bg": true,
             "maintitle": "Timeless Elegance Redefined",
             "sub_title": "<p>Find timeless jewelry that defines sophistication and style.</p>",
@@ -44,7 +44,7 @@
             "btn_alignment": "center",
             "heading_size": "h2",
             "heading_alignment": "left",
-            "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
+            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false
           }
         },
