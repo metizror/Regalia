@@ -23,7 +23,7 @@
             "sub_title": "<p>Find timeless jewelry that defines sophistication and style.</p>",
             "button_label": "DISCOVER NOW",
             "btn_link": "#",
-            "btn_alignment": "left",
+            "btn_alignment": "center",
             "heading_size": "h1",
             "whole_overlay_bg": "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),\nlinear-gradient(0deg, rgba(255, 240, 245, 0.2), rgba(255, 240, 245, 0.2))",
             "new_tab": true
