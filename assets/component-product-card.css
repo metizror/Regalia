@@ -170,7 +170,11 @@
   visibility: hidden;
   transform: translateY(0);
 }
-
+.template-cart .product-item .product-image:hover .quick-view-btn{
+   opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+}
 .product-price.text-sm .main-price {
   font-size: 1.1rem;
 }
