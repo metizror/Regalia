@@ -25,13 +25,13 @@
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h1",
-            "heading_alignment": "left",
             "whole_overlay_bg": "linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),\nlinear-gradient(0deg, rgba(255, 240, 245, 0.2), rgba(255, 240, 245, 0.2))",
             "new_tab": true
           }
         },
         "slide_AHEUTH": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/pexels-ari-roberts-101154701-9393224_1.png",
             "mobile_image": "shopify://shop_images/young-indian-woman-wearing-sari_1.png",
@@ -43,7 +43,6 @@
             "btn_link": "#",
             "btn_alignment": "center",
             "heading_size": "h2",
-            "heading_alignment": "left",
             "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false
           }
@@ -62,7 +61,6 @@
             "btn_link": "shopify://collections/all",
             "btn_alignment": "center",
             "heading_size": "h2",
-            "heading_alignment": "left",
             "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
             "new_tab": false
           }
