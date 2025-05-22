@@ -57,9 +57,9 @@
             "sub_title": "<p>Elevate your style with jewelry that tells your story.</p>",
             "button_label": "SHOP NOW",
             "btn_link": "shopify://collections/all",
-            "btn_alignment": "center",
+            "btn_alignment": "end",
             "heading_size": "h2",
-            "whole_overlay_bg": "linear-gradient(#ffffff, #000000)",
+            "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
             "new_tab": false
           }
         }
