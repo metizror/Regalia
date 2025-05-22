@@ -41,7 +41,7 @@
             "sub_title": "<p>Handcrafted pieces designed to make every moment shine.</p>",
             "button_label": "EXPLORE COLLECTION",
             "btn_link": "#",
-            "btn_alignment": "center",
+            "btn_alignment": "left",
             "heading_size": "h2",
             "heading_alignment": "left",
             "whole_overlay_bg": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 1) 100%)",
