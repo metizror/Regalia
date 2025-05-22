@@ -374,7 +374,7 @@
       ],
       "settings": {
         "enable_full_width": true,
-        "enable_autoscroll": true,
+        "enable_autoscroll": false,
         "speed_delay": 3000,
         "autoscroll_speed": 3000,
         "slider_enable": true,
