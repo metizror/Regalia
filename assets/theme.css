@@ -347,7 +347,9 @@ a {
 .text-right {
 	text-align: right;
 }
-
+.text-end {
+  text-align: right;
+}
 h1,
 h2,
 h3,
