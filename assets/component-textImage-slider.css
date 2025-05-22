@@ -161,7 +161,7 @@
 
 .image-overlay-text .iot-description p {
   font-size: var(--bs-size);
-  line-height: 24px;
+  line-height: 20px;
   font-weight: var(--weight-regular);
   margin-bottom: 2rem;
   color: var(--description-color);
