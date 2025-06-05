@@ -871,7 +871,7 @@
         "text_alignment": "center",
         "heading_color": "#000000",
         "blog": "regalia",
-        "article_limit": 2,
+        "article_limit": 3,
         "show_image": true,
         "show_author": true,
         "show_date": true,
