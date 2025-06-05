@@ -78,7 +78,7 @@
       >
         {%- for article in blog.articles limit: section.settings.article_limit -%}
           <div class="mobile-slider {% if section.settings.mobile_slider == true %}swiper-slide{% endif %} article-card-wrapper {% if forloop.first %}first-article{% endif %}">
-            {%- render 'article-card',
+            {%- render 'new-article-card',
               article: article,
               index: forloop.index,
               show_image: section.settings.show_image,
