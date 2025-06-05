@@ -159,8 +159,7 @@
                 %}
               </div>
              {% else %}             
-                <div class="right-articles article-card">
-                  <div class="right-article article-card">
+              <div class="right-article article-card">
                      {% render 'article-card', article: article,
                       index: forloop.index,
                       show_image: section.settings.show_image,
@@ -180,7 +179,6 @@
                       excerpt_color: section.settings.excerpt_color
                       %}
                   </div>
-                </div>
              {% endif %}
            </div>
           </div>
