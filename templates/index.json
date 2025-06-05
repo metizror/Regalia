@@ -832,83 +832,6 @@
         "padding_bottom": 50
       }
     },
-    "new_gallery_tLGLD9": {
-      "type": "new-gallery",
-      "blocks": {
-        "images_jUnTBe": {
-          "type": "images",
-          "settings": {
-            "image": "shopify://shop_images/young-indian-woman-wearing-sari_1_6213d833-0186-4007-a54a-4d28ab0b5829.png",
-            "grid_row_span": "2",
-            "grid_position": "2/4",
-            "mobile_grid_position": "2/4",
-            "enable_overlay": true,
-            "img_overlay_color": "",
-            "title": "",
-            "description": "",
-            "button_text": "Shop now",
-            "button_link": "",
-            "btn_type": "btn-primary",
-            "button_text_color": "",
-            "button_bg_color": ""
-          }
-        },
-        "images_TH7ez6": {
-          "type": "images",
-          "settings": {
-            "image": "shopify://shop_images/Necklace.png",
-            "grid_row_span": "1",
-            "grid_position": "1/4",
-            "mobile_grid_position": "2/4",
-            "enable_overlay": true,
-            "img_overlay_color": "",
-            "title": "",
-            "description": "",
-            "button_text": "Shop now",
-            "button_link": "",
-            "btn_type": "btn-primary",
-            "button_text_color": "",
-            "button_bg_color": ""
-          }
-        },
-        "images_TLapwL": {
-          "type": "images",
-          "settings": {
-            "image": "shopify://shop_images/Pendant_with_Earrings.png",
-            "grid_row_span": "1",
-            "grid_position": "1/4",
-            "mobile_grid_position": "2/4",
-            "enable_overlay": true,
-            "img_overlay_color": "",
-            "title": "",
-            "description": "",
-            "button_text": "Shop now",
-            "button_link": "",
-            "btn_type": "btn-primary",
-            "button_text_color": "",
-            "button_bg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "images_jUnTBe",
-        "images_TH7ez6",
-        "images_TLapwL"
-      ],
-      "name": "t:sections.gallery.presets.name",
-      "settings": {
-        "enable_full_width": true,
-        "spacing_between_image": 26,
-        "border_radius": 0,
-        "title": "",
-        "heading_size": "h3",
-        "heading_color": "#000000",
-        "background_color": "",
-        "bg_blur": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
     "featured_blog_xzjfBN": {
       "type": "featured-blog",
       "settings": {
@@ -933,6 +856,36 @@
         "date_comment_color": "#797979",
         "tag_bg": "#f0f0f0",
         "tag_color": "#797979",
+        "mobile_slider": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "new_featured_blog_NbbDma": {
+      "type": "new-featured-blog",
+      "name": "t:sections.blog.featured_blogs.presets.name",
+      "settings": {
+        "enable_full_width": true,
+        "title": "Blog posts",
+        "heading_size": "h2",
+        "text_alignment": "center",
+        "heading_color": "#000000",
+        "blog": "regalia",
+        "article_limit": 2,
+        "show_image": true,
+        "show_author": true,
+        "show_date": true,
+        "show_tags": true,
+        "date_formats_patterns": "%b %d, %Y",
+        "show_excerpt": true,
+        "media_ratio": "original",
+        "article_background": "",
+        "article_color": "",
+        "excerpt_color": "",
+        "date_comment_bg": "",
+        "date_comment_color": "",
+        "tag_bg": "",
+        "tag_color": "",
         "mobile_slider": true,
         "padding_top": 36,
         "padding_bottom": 36
@@ -990,8 +943,8 @@
     "video_carousel_hWgFJK",
     "video_product_LqPwy3",
     "gallery_iRcK68",
-    "new_gallery_tLGLD9",
     "featured_blog_xzjfBN",
+    "new_featured_blog_NbbDma",
     "store_locator_LdRbdL"
   ]
 }
