@@ -80,15 +80,15 @@
           <div class="mobile-slider {% if section.settings.mobile_slider == true %}swiper-slide{% endif %} article-card-wrapper {% if forloop.first %}first-article{% endif %}">
            <div class="custom-articles-layout">
             <div class="left-article article-card">
-              {% render 'article-card', article: articles[0], overlay: true %}
+              {% render 'article-card', article: article[0], overlay: true %}
             </div>
           
             <div class="right-articles">
               <div class="right-article article-card">
-                {% render 'article-card', article: articles[1] %}
+                {% render 'article-card', article: article[1] %}
               </div>
               <div class="right-article article-card">
-                {% render 'article-card', article: articles[2] %}
+                {% render 'article-card', article: article[2] %}
               </div>
             </div>
            </div>
