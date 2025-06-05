@@ -37,7 +37,7 @@
 -%}
 
 {%- if article and article != empty -%}
-  <div class="article-card">
+  <div class="article-card {% if featured %} featured{% endif %}">
     {%- if show_image and article.image != blank -%}
       <a href="{{ article.url }}" class="image-wrapper">
         <lazy-image class="media-wrapper" style="--ratio-percent: {{ ratio | default: 1 | divided_by: article.image.aspect_ratio | times: 100 | append: '%' }}">
