@@ -82,15 +82,15 @@
           --{{ article | json }}
           {{ article }}
             <div class="left-article article-card">
-              {% render 'article-card', article: article[0], overlay: true %}
+              {% render 'article-card', article: article, overlay: true %}
             </div>
           
             <div class="right-articles">
               <div class="right-article article-card">
-                {% render 'article-card', article: article[1] %}
+                {% render 'article-card', article: article %}
               </div>
               <div class="right-article article-card">
-                {% render 'article-card', article: article[2] %}
+                {% render 'article-card', article: article %}
               </div>
             </div>
            </div>
