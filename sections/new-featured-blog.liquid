@@ -81,18 +81,27 @@
   gap: 20px;
 }
 
-.right-article {
-  display: flex;
-  gap: 16px;
+/* For horizontal layout in article-card */
+.article-card.horizontal-layout {
+  flex-direction: row;
+  align-items: stretch;
 }
 
-.right-article .media-wrapper {
+.article-card.horizontal-layout .media-wrapper {
   width: 40%;
-  flex-shrink: 0;
+  padding-top: 0;
+  height: auto;
+  aspect-ratio: 4/3;
 }
 
-.right-article .content-wrapper {
-  padding: 0;
+.article-card.horizontal-layout .media-wrapper img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-card.horizontal-layout .content-wrapper {
+  width: 60%;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
