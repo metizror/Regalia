@@ -21,7 +21,6 @@
     }
     lazy-image.block-id-{{ block.id }}{
       grid-column: span {{ block.settings.grid_position | split: '/' | first }} / span {{ block.settings.grid_position | split: '/' | first }};
-      grid-row: span {{ block.settings.row_span }};
     }
     @media (max-width: 767px){
     lazy-image.block-id-{{ block.id }}{
@@ -240,17 +239,6 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.gallery.blocks.settings.image.label"
-        },
-        {
-          "type": "select",
-          "id": "row_span",
-          "label": "Row Span",
-          "options": [
-            { "value": "1", "label": "Span 1 row" },
-            { "value": "2", "label": "Span 2 rows" },
-            { "value": "3", "label": "Span 3 rows" }
-          ],
-          "default": "1"
         },
         {
           "type": "select",
