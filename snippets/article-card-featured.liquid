@@ -1,8 +1,0 @@
-<a href="{{ article.url }}" class="featured-article-wrapper">
-  <img src="{{ article.image | image_url: width: 800 }}" alt="{{ article.title }}" loading="lazy">
-  <div class="featured-article-content">
-    <p class="article-category">{{ article.tags[0] }}</p>
-    <h2 class="article-title">{{ article.title }}</h2>
-    <p class="article-meta">By {{ article.author }} | {{ article.published_at | date: "%B %d, %Y" }}</p>
-  </div>
-</a>
