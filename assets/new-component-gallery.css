@@ -1,4 +1,4 @@
-.gallery-section .gallery-grid {
+.new-gallery-section .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 380px;
@@ -9,7 +9,7 @@
   font-weight: var(--weight-medium);
 }
 
-.gallery-section .gallery-grid {
+.new-gallery-section .gallery-grid {
   position: relative;
   overflow: hidden;
 }
@@ -26,13 +26,13 @@
   border-radius: 6px;
 }
 
-.gallery-section .gallery-items.new-gallery {
+.new-gallery-section .gallery-items.new-gallery {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-.gallery-section .gallery-items img {
+.new-gallery-section .gallery-items img {
   width: 100%;
   height: 100%;
   display: block;
@@ -40,17 +40,17 @@
   transition: transform 0.3s ease;
 }
 
-.gallery-section .gallery-items:hover img {
+.new-gallery-section .gallery-items:hover img {
   transform: scale(1.1);
 }
 
-.gallery-section .gallery-items .placeholder-svg {
+.new-gallery-section .gallery-items .placeholder-svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.gallery-section .gallery-overlay {
+.new-gallery-section .gallery-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +59,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.gallery-section .gallery-item-content {
+.new-gallery-section .gallery-item-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -67,21 +67,21 @@
   z-index: 2;
 }
 
-.gallery-section .content-description p {
+.new-gallery-section .content-description p {
   padding-right: 70px;
 }
 
-.gallery-section .gallery-button {
+.new-gallery-section .gallery-button {
   margin-top: 20px;
 }
 
 @media (max-width: 768px) {
-  .gallery-section .gallery-items {
+  .new-gallery-section .gallery-items {
     height: 200px;
     border-radius: calc(var(--btn-radius) - 3px);
   }
 
-  .gallery-section .gallery-title {
+  .new-gallery-section .gallery-title {
     position: relative;
     grid-column: span 4 / span 4;
     padding: 0px 18px;
@@ -89,16 +89,16 @@
     margin-bottom: 0px;
   }
 
-  .gallery-section .gallery-grid {
+  .new-gallery-section .gallery-grid {
     gap: 10px;
   }
 
-  .gallery-section .content-description p {
+  .new-gallery-section .content-description p {
     padding-right: 20px;
     font-size: calc(var(--bs-size) - 4px);
   }
 
-  .gallery-section .gallery-wrapper {
+  .new-gallery-section .gallery-wrapper {
     margin: 0px 15px;
   }
 

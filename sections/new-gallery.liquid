@@ -3,19 +3,19 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  .gallery-section .gallery-title{
+  .new-gallery-section .gallery-title{
     color: {{ section.settings.heading_color }};
     background-color: {{ section.settings.background_color }};
     backdrop-filter: blur( {{section.settings.bg_blur}}px );
   }
-  .gallery-section .gallery-grid {
+  .new-gallery-section .gallery-grid {
     gap: {{ section.settings.spacing_between_image }}px;
   }
-  .gallery-section .gallery-items {
+  .new-gallery-section .gallery-items {
     border-radius: {{ section.settings.border_radius }}px;
   }
   {% for block in section.blocks %}
-    .gallery-section .gallery-items.block-id-{{ block.id }} .gallery-button{
+    .new-gallery-section .gallery-items.block-id-{{ block.id }} .gallery-button{
       color: {{ block.settings.button_text_color }};
       background-color: {{ block.settings.button_bg_color }};
     }
@@ -40,7 +40,7 @@
 
 {{ 'new-component-gallery.css' | asset_url | stylesheet_tag: preload: true }}
 
-<section class="gallery-section">
+<section class="new-gallery-section">
   <div class="{% if section.settings.enable_full_width %}full-width {% else %}container{% endif %}">
     <div class="gallery-wrapper">
       <div class="gallery-grid" ms-aos data-ms-delay="100">
