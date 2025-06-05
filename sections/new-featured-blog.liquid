@@ -78,26 +78,20 @@
       >
         {%- for article in blog.articles limit: section.settings.article_limit -%}
           <div class="mobile-slider {% if section.settings.mobile_slider == true %}swiper-slide{% endif %} article-card-wrapper {% if forloop.first %}first-article{% endif %}">
-            {%- render 'article-card',
-              article: article, 
-              featured: true,
-              index: forloop.index,
-              show_image: section.settings.show_image,
-              show_author: section.settings.show_author,
-              show_date: section.settings.show_date,
-              show_tags: section.settings.show_tags,
-              tag_bg: section.settings.tag_bg,
-              tag_color: section.settings.tag_color,
-              date_patterns: section.settings.date_formats_patterns,
-              date_comment_bg: section.settings.date_comment_bg,
-              date_comment_color: section.settings.date_comment_color,
-              show_excerpt: section.settings.show_excerpt,
-              media_ratio: section.settings.media_ratio,
-              blog_comment: blog.comments_enabled?,
-              article_card_bg: section.settings.article_background,
-              article_text_color: section.settings.article_color,
-              excerpt_color: section.settings.excerpt_color
-            -%}
+           <div class="custom-articles-layout">
+            <div class="left-article article-card">
+              {% render 'article-card', article: articles[0], overlay: true %}
+            </div>
+          
+            <div class="right-articles">
+              <div class="right-article article-card">
+                {% render 'article-card', article: articles[1] %}
+              </div>
+              <div class="right-article article-card">
+                {% render 'article-card', article: articles[2] %}
+              </div>
+            </div>
+           </div>
           </div>
         {%- endfor -%}
       </div>
