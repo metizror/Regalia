@@ -79,8 +79,6 @@
         {%- for article in blog.articles limit: section.settings.article_limit -%}
           <div class="mobile-slider {% if section.settings.mobile_slider == true %}swiper-slide{% endif %} article-card-wrapper {% if forloop.first %}first-article{% endif %}">
            <div class="custom-articles-layout">
-          --{{ article | json }}
-          {{ article }}
             <div class="left-article article-card">
               {% render 'article-card', article: article, overlay: true,
               index: forloop.index,
