@@ -16,7 +16,7 @@
 
 {{ 'component-video.css' | asset_url | stylesheet_tag:preload: true }}
 
-<section class="video-section video-data">
+<section class="video-section">
   <video-hero class="{% if section.settings.enable_full_width %} full-width {% else %} container{% endif %}">
     <div class="custom-video-wrapper {% if section.settings.video_type == 'link' and section.settings.video_url != blank %}has-iframe{% endif %}" ms-aos data-ms-delay="100">
       {%- if section.settings.video_type == 'link' and section.settings.video_url != blank -%}
