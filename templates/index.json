@@ -895,6 +895,55 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "featured_product_zPAKmp": {
+      "type": "featured-product",
+      "blocks": {
+        "title_FD4mKW": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2",
+            "heading_color": "#153D47"
+          }
+        },
+        "sku_hKW8iy": {
+          "type": "sku",
+          "settings": {}
+        },
+        "price_Jyhnrf": {
+          "type": "price",
+          "settings": {
+            "show_percentage": true
+          }
+        },
+        "variants_c3h7XH": {
+          "type": "variants",
+          "settings": {}
+        },
+        "buy_button_YmqerG": {
+          "type": "buy_button",
+          "settings": {
+            "show_qnt_picker": true,
+            "show_gift_card_recipient": true,
+            "buy_btn_hide": true
+          }
+        }
+      },
+      "block_order": [
+        "title_FD4mKW",
+        "sku_hKW8iy",
+        "price_Jyhnrf",
+        "variants_c3h7XH",
+        "buy_button_YmqerG"
+      ],
+      "name": "t:sections.product.featured_product.presets.name",
+      "settings": {
+        "product": "regalia-gift-card",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "image_zoom": true,
+        "block_space": 20
+      }
     }
   },
   "order": [
@@ -915,6 +964,7 @@
     "video_product_LqPwy3",
     "gallery_iRcK68",
     "featured_blog_xzjfBN",
-    "store_locator_LdRbdL"
+    "store_locator_LdRbdL",
+    "featured_product_zPAKmp"
   ]
 }
